@@ -2,8 +2,7 @@
 
 Creating a regulated Software as a Medical Device (SaMD) is hard. I personally
 learn best through examples. There are some great examples available online
-about how go about the regulatory requirements for a Software as a Medical
-Device such as:
+about how go about the regulatory requirements for a SaMD such as:
 
 - https://openregulatory.com/blueprint-certifying-medical-software/
 - https://github.com/innolitics/rdm
