@@ -30,9 +30,8 @@ radical transparency:
 
 Please note, that this is a work in progress repository. I am just learning the
 ropes of everything that is required. There will be mistakes. If you find them,
-please let me know, and if you'd also like to help other SaMD developers into
-the future, and you have other resources that might be beneficial here, please
-let me know.
+please let me know. Also, if you want to help out, please get in touch. My
+email address is simon.biggs@radiotherapy.ai.
 
 I still haven't fully decided whether or not this is the right way to go. I
 potentially could be missing something that makes this approach unreasonable.
