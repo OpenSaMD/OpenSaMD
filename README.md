@@ -21,8 +21,8 @@ license](https://github.com/RadiotherapyAI/regulatory/blob/main/LICENSE).
 My hope of doing it this way is that others coming after me won't have such a
 hard task set out for them to create a compliant SaMD. And also, that by making
 Radiotherapy AI's regulatory work be undergone completely out in the open it
-might enable to Radiotherapy AI to itself become the best version of itself
-through radical transparency:
+might enable Radiotherapy AI to become the best version of itself through
+radical transparency:
 
 > ... all things become visible when they are exposed by the light, for
 > everything that becomes visible is light -- [Ephesians
