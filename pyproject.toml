@@ -1,15 +1,19 @@
 [tool.poetry]
-name = "rtai-regulatory"
+name = "rtairegulatory"
 version = "0.1.16"
-description = "Radiotherapy AI's Quality Management System"
+description = "Radiotherapy AI's Regulatory Documentation Manager"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
 jupyter-book = "^0.12.1"
+typer = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+rtairegulatory = "rtairegulatory.__main__:app"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
