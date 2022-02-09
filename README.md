@@ -6,36 +6,21 @@ about how go about the regulatory requirements for a SaMD such as:
 
 - https://openregulatory.com/blueprint-certifying-medical-software/
 - https://github.com/innolitics/rdm
+- https://www.tidepool.org/regulatory
 
 However, I could not find an example GitHub repo that provides the end-to-end
-documentation for a real Medical Device including its associated Quality
-Management System and Technical Documentation.
+documentation for a real SaMD including its associated Quality Management
+System and Technical Documentation. I couldn't find a nice example that would
+allow me to copy and follow.
 
-I am embarking on building a SaMD which is classified as exempt clinical
-decision support software within Australia. I am seriously considering
-undergoing all of the regulatory work within this open access repository and
-making all of the regulatory documents within this repository available for
-everyone to use and adapt for their own purposes under a [CC BY 4.0
-license](https://github.com/RadiotherapyAI/regulatory/blob/main/LICENSE).
+Let's all stop re-inventing the wheel when it comes to SaMD regulation. Let's
+undergo our Medical Device regulation out in the open so that at the end of the
+day the regulatory process is easier to understand, easier to fulfil, and
+hopefully we can more effectively make better products that help our patients.
 
-My hope of doing it this way is that others coming after me won't have such a
-hard task set out for them to create a compliant SaMD. And also, that by making
-Radiotherapy AI's regulatory work be undergone completely out in the open it
-might enable Radiotherapy AI to become the best version of itself through
-radical transparency:
+## Disclaimer
 
-> ... all things become visible when they are exposed by the light, for
-> everything that becomes visible is light -- [Ephesians
-> 5:13](https://www.biblewebapp.com/study/?v1=EP5_13)
-
-Please note, that this is a work in progress repository. I am just learning the
-ropes of everything that is required. There will be mistakes. If you find them,
-please let me know. Also, if you want to help out, please get in touch. My
-email address is simon.biggs@radiotherapy.ai.
-
-I still haven't fully decided whether or not this is the right way to go. I
-potentially could be missing something that makes this approach unreasonable.
-There may also be cases where certain reports really do need to be kept
-private. I suspect though that those reports can still have references within
-this public repository, and a separate private repository can be maintained to
-hold those documents under those exceptional circumstances.
+This is a work in progress. Right now I am just learning the ropes while
+putting all of my warts up here for all to see. There will be mistakes. If you
+find them please let me know. Also, if you want to help out, please get in
+touch. My email address is simon.biggs@radiotherapy.ai.
