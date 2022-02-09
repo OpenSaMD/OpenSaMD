@@ -85,7 +85,7 @@ jobs:
 
       - name: Build docs
         run: |
-          poetry run jupyter-book build docs/
+          poetry run rtairegulatory
 
       - name: Add GitHub Pages config files
         if: github.event_name == 'push'
