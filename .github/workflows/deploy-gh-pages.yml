@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
@@ -37,7 +37,7 @@ jobs:
           python -m pip install -U pip # to ensure version > 20 to have cache dir
           echo "::set-output name=dir::$(pip cache dir)"
 
-      - name: Pip Cache
+      - name: Pip cache
         uses: actions/cache@v2
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
@@ -57,11 +57,11 @@ jobs:
         run: |
           poetry config experimental.new-installer false
 
-      - name: Configure poetry
+      - name: Configure Poetry
         run: |
           poetry config virtualenvs.in-project true
 
-      - name: Poetry Cache
+      - name: Poetry cache
         uses: actions/cache@v2
         id: poetry-cache
         with:
@@ -87,13 +87,13 @@ jobs:
         run: |
           poetry run jupyter-book build docs/
 
-      - name: Add GitHub Pages Config Files
+      - name: Add GitHub Pages config files
         if: github.event_name == 'push'
         run: |
           echo docs.radiotherapy.ai > docs/_build/html/CNAME
           touch docs/_build/html/.nojekyll
 
-      - name: Deploy gh-pages
+      - name: Deploy to gh-pages branch
         if: github.event_name == 'push'
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
