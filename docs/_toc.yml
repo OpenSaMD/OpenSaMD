@@ -3,7 +3,8 @@
 # documentation manager
 
 format: jb-book
-root: intro
+root: 00-instructions-for-use
 chapters:
+- file: intro
 - file: markdown
 
