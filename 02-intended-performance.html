@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intended performance &#8212; Radiotherapy AI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Intended use" href="01-intended-use.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-intended-use.html">
+   Intended use
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Intended performance
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-intended-performance.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RadiotherapyAI/regulatory"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2F02-intended-performance.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-overview">
+   Data overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number-of-patient-scans-utilised-per-dataset">
+   Number of patient scans utilised per dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chris-obrien-lifehouse-australian-scans-and-protocols">
+     Chris O’Brien LifeHouse (Australian scans and protocols)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deepmind-usa-scans-uk-contour-protocols">
+     DeepMind (USA scans, UK contour protocols)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#empirical-investigation">
+   Empirical investigation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics-based-results">
+   Metrics based results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#structures-deemed-ready">
+     Structures deemed ready
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-compared-to-commercial-software-in-the-current-literature">
+     Results compared to commercial software in the current literature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Intended performance</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-overview">
+   Data overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number-of-patient-scans-utilised-per-dataset">
+   Number of patient scans utilised per dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chris-obrien-lifehouse-australian-scans-and-protocols">
+     Chris O’Brien LifeHouse (Australian scans and protocols)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deepmind-usa-scans-uk-contour-protocols">
+     DeepMind (USA scans, UK contour protocols)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#empirical-investigation">
+   Empirical investigation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics-based-results">
+   Metrics based results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#structures-deemed-ready">
+     Structures deemed ready
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-compared-to-commercial-software-in-the-current-literature">
+     Results compared to commercial software in the current literature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="intended-performance">
+<h1>Intended performance<a class="headerlink" href="#intended-performance" title="Permalink to this headline">¶</a></h1>
+<p>Performance on a given set of validation/test/hold-out data is a useful
+indicator of what can be expected for the performance of the software. However
+it is not a guarantee. Therefore, as detailed within the <a class="reference internal" href="01-intended-use.html"><span class="doc">Intended use</span></a>
+document, it is intended that the recommended contours be refined by the health
+practitioner before clinical use.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>To provide an example of the level of results intended by this software this
+document details the results from the head and neck model named
+<code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code>. It represents the results from the model that was frozen on
+15/10/2021. Its checkpoint label is <code class="docutils literal notranslate"><span class="pre">20211015-104758/0000</span></code>.</p>
+<p>In practice, before utilisation clinically within your centre the model is to
+be validated and potentially refined using retrospective treatment data from
+your centre. This is detailed within the <a class="reference internal" href="01-intended-use.html"><span class="doc">Intended use</span></a> document.</p>
+</div>
+<div class="section" id="data-overview">
+<h2>Data overview<a class="headerlink" href="#data-overview" title="Permalink to this headline">¶</a></h2>
+<p>This model was built from the combination of standard clinical data from Chris
+O’Brien Lifehouse as well as the DeepMind open access dataset
+(<a class="reference external" href="https://github.com/deepmind/tcia-ct-scan-dataset">https://github.com/deepmind/tcia-ct-scan-dataset</a>). Both the Chris O’Brien
+Lifehouse data and the DeepMind data were split into “Training”, “Validation”,
+and “Hold-out” groups. Training data was used to train the model, validation
+data was used to iterate on the software development and define when a
+particular contour was ready, hold-out data was used only to report the final
+results with the aim to provide unbiased reporting.</p>
+<p>Chris O’Brien Lifehouse validation and hold-out datasets were utilised for
+empirical visual investigation of the resulting DICOM files. DeepMind
+validation and hold-out datasets were used for metric based comparisons.</p>
+</div>
+<div class="section" id="number-of-patient-scans-utilised-per-dataset">
+<h2>Number of patient scans utilised per dataset<a class="headerlink" href="#number-of-patient-scans-utilised-per-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chris-obrien-lifehouse-australian-scans-and-protocols">
+<h3>Chris O’Brien LifeHouse (Australian scans and protocols)<a class="headerlink" href="#chris-obrien-lifehouse-australian-scans-and-protocols" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Training</p></th>
+<th class="head"><p>Validation</p></th>
+<th class="head"><p>Hold out</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Brain</p></td>
+<td><p>18</p></td>
+<td><p>4</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spinal Cord</p></td>
+<td><p>151</p></td>
+<td><p>18</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-even"><td><p>Mandible</p></td>
+<td><p>136</p></td>
+<td><p>13</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>Larynx</p></td>
+<td><p>131</p></td>
+<td><p>13</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-even"><td><p>Brainstem</p></td>
+<td><p>146</p></td>
+<td><p>18</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parotid Left</p></td>
+<td><p>143</p></td>
+<td><p>14</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p>Parotid Right</p></td>
+<td><p>142</p></td>
+<td><p>14</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trachea</p></td>
+<td><p>118</p></td>
+<td><p>11</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>Submandibular Left</p></td>
+<td><p>87</p></td>
+<td><p>11</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Submandibular Right</p></td>
+<td><p>83</p></td>
+<td><p>12</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p>Oesophagus</p></td>
+<td><p>87</p></td>
+<td><p>10</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pharyngeal Constrictor</p></td>
+<td><p>26</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Orbit Left</p></td>
+<td><p>63</p></td>
+<td><p>12</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orbit Right</p></td>
+<td><p>63</p></td>
+<td><p>12</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>Optic Nerve Left</p></td>
+<td><p>48</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optic Nerve Right</p></td>
+<td><p>48</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>Lens Left</p></td>
+<td><p>64</p></td>
+<td><p>12</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lens Right</p></td>
+<td><p>64</p></td>
+<td><p>12</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="deepmind-usa-scans-uk-contour-protocols">
+<h3>DeepMind (USA scans, UK contour protocols)<a class="headerlink" href="#deepmind-usa-scans-uk-contour-protocols" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Training</p></th>
+<th class="head"><p>Validation</p></th>
+<th class="head"><p>Hold out</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Brain</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spinal Cord</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Mandible</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Larynx</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Brainstem</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parotid Left</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Parotid Right</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trachea</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Submandibular Left</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Submandibular Right</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Oesophagus</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pharyngeal Constrictor</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Orbit Left</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orbit Right</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Optic Nerve Left</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optic Nerve Right</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Lens Left</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lens Right</p></td>
+<td><p>24</p></td>
+<td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="empirical-investigation">
+<h2>Empirical investigation<a class="headerlink" href="#empirical-investigation" title="Permalink to this headline">¶</a></h2>
+<p>Results on a set of clinical hold-out data were provided to Chris O’Brien
+Lifehouse within the DICOM file format for direct comparison to the original
+contours. Upon empirical investigation the contours were deemed adequate and
+approximately on-par with the other commercial solutions that were compared to.</p>
+<p>Notably this on-par result was achieved by utilising a relatively small dataset
+built from the combination of standard clinical data and an open access
+dataset. The competition software suites were utilising large meticulously
+curated datasets.</p>
+</div>
+<div class="section" id="metrics-based-results">
+<h2>Metrics based results<a class="headerlink" href="#metrics-based-results" title="Permalink to this headline">¶</a></h2>
+<p>For the metrics based results given here only the structures which exist within
+the DeepMind dataset will be considered.</p>
+<p>Below is detailed the box-plot comparisons for both the validation and hold-out
+datasets utilising both the Dice and the Hausdorff (95%) metrics. These are
+then compared to a commercial vendor via results published within the
+literature <span id="id1">[<a class="reference internal" href="#id4">WFM+20</a>]</span>.</p>
+<div class="section" id="structures-deemed-ready">
+<h3>Structures deemed ready<a class="headerlink" href="#structures-deemed-ready" title="Permalink to this headline">¶</a></h3>
+<p>From investigation of the validation dataset all of the DeepMind structures
+except the submandibulars were deemed to meet the requirements for use. For
+each of those structures deemed ready, the results are presented herein.</p>
+</div>
+<div class="section" id="results-compared-to-commercial-software-in-the-current-literature">
+<h3>Results compared to commercial software in the current literature<a class="headerlink" href="#results-compared-to-commercial-software-in-the-current-literature" title="Permalink to this headline">¶</a></h3>
+<p>All of the following metrics are calculated in 3D. The DeepMind dataset has
+slice thicknesses of 2.5 mm, as such, disagreement of where a certain structure
+starts/ends superiorly/inferiorly on a given slice results in ~multiples of 2.5
+mm values for the Hausdorff distance.</p>
+<p>The following figures compare the <code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code> model detailed within this
+validation report to results found within the literature
+<span id="id2">[<a class="reference internal" href="#id4">WFM+20</a>]</span>. Of note, there was post-processing undergone
+within the literature results to force the inferior borders of the brainstem
+and spinal cord to match each other. No such post processing was undergone
+within the results from the <code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code> model.</p>
+<div class="figure align-default" id="optic-nerves-dice">
+<img alt="_images/optic-nerves-dice.png" src="_images/optic-nerves-dice.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The Dice score comparison for the optic nerves.</span><a class="headerlink" href="#optic-nerves-dice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="optic-nerves-hausdorff">
+<img alt="_images/optic-nerves-hausdorff.png" src="_images/optic-nerves-hausdorff.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The Hausdorff comparison for the optic nerves.</span><a class="headerlink" href="#optic-nerves-hausdorff" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="parotids-dice">
+<img alt="_images/parotids-dice.png" src="_images/parotids-dice.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The Dice score comparison for the parotids.</span><a class="headerlink" href="#parotids-dice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="parotids-hausdorff">
+<img alt="_images/parotids-hausdorff.png" src="_images/parotids-hausdorff.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The Hausdorff comparison for the parotids.</span><a class="headerlink" href="#parotids-hausdorff" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="orbits-dice">
+<img alt="_images/orbits-dice.png" src="_images/orbits-dice.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The Dice score comparison for the orbits.</span><a class="headerlink" href="#orbits-dice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="orbits-hausdorff">
+<img alt="_images/orbits-hausdorff.png" src="_images/orbits-hausdorff.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The Hausdorff comparison for the orbits.</span><a class="headerlink" href="#orbits-hausdorff" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="spinal-cord-dice">
+<img alt="_images/spinal-cord-dice.png" src="_images/spinal-cord-dice.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">The Dice score comparison for the spinal cord.</span><a class="headerlink" href="#spinal-cord-dice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="spinal-cord-hausdorff">
+<img alt="_images/spinal-cord-hausdorff.png" src="_images/spinal-cord-hausdorff.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">The Hausdorff comparison for the spinal cord.</span><a class="headerlink" href="#spinal-cord-hausdorff" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="brainstem-dice">
+<img alt="_images/brainstem-dice.png" src="_images/brainstem-dice.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The Dice score comparison for the brainstem.</span><a class="headerlink" href="#brainstem-dice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="brainstem-hausdorff">
+<img alt="_images/brainstem-hausdorff.png" src="_images/brainstem-hausdorff.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">The Hausdorff comparison for the brainstem.</span><a class="headerlink" href="#brainstem-hausdorff" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="brain-and-mandible">
+<img alt="_images/brain-and-mandible.png" src="_images/brain-and-mandible.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The Dice score and Hausdorff results for the brain and mandible.</span><a class="headerlink" href="#brain-and-mandible" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="lenses">
+<img alt="_images/lenses.png" src="_images/lenses.png" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">The Dice score and Hausdorff results for the lenses.</span><a class="headerlink" href="#lenses" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>As an initial model the <code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code> model is competitive with current
+commercial offerings while only being built with a relatively small dataset
+which is the combination of a standard clinical dataset and an open access
+dataset.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="id3"><dl class="citation">
+<dt class="label" id="id4"><span class="brackets">WFM+20</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Jordan Wong, Allan Fong, Nevin McVicar, Sally Smith, Joshua Giambattista, Derek Wells, Carter Kolbeck, Jonathan Giambattista, Lovedeep Gondara, and Abraham Alexander. Comparing deep learning-based auto-segmentation of organs at risk and clinical target volumes to expert inter-observer variability in radiotherapy planning. <em>Radiotherapy and Oncology</em>, 144:152–158, 2020.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01-intended-use.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Intended use</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Radiotherapy AI Pty Ltd<br/>
+    
+        &copy; Copyright 2021 – 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
