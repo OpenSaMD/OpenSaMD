@@ -11,11 +11,11 @@ practitioner before clinical use.
 To provide an example of the level of results intended by this software this
 document details the results from the head and neck model named
 `lifehouse-0.2.0`. It represents the results from the model that was frozen on
-15/10/2021. Its checkpoint label is "20211015-104758/0000".
+15/10/2021. Its checkpoint label is `20211015-104758/0000`.
 
 In practice, before utilisation clinically within your centre the model is to
-be validated against retrospective treatment data from your centre. This is
-detailed within the {doc}`01-intended-use` document.
+be validated and potentially refined using retrospective treatment data from
+your centre. This is detailed within the {doc}`01-intended-use` document.
 
 ## Data overview
 
@@ -117,7 +117,7 @@ mm values for the Hausdorff distance.
 
 The following figures compare the `lifehouse-0.2.0` model detailed within this
 validation report to results found within the literature
-{cite:ps}`wong2020comparing`). Of note, there was post-processing undergone
+{cite:ps}`wong2020comparing`. Of note, there was post-processing undergone
 within the literature results to force the inferior borders of the brainstem
 and spinal cord to match each other. No such post processing was undergone
 within the results from the `lifehouse-0.2.0` model.
@@ -200,3 +200,9 @@ As an initial model the `lifehouse-0.2.0` model is competitive with current
 commercial offerings while only being built with a relatively small dataset
 which is the combination of a standard clinical dataset and an open access
 dataset.
+
+## References
+
+```{bibliography}
+:filter: docname in docnames
+```
