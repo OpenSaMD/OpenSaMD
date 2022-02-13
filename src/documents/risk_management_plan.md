@@ -37,27 +37,24 @@ Risk evaluation is quantified according to the Risk Acceptability Matrix:
 
 Risk probability levels are defined as follows:
 
-| Risk Probability Label                         | Definition       |
-| ---------------------------------------------- | ---------------- | ---------------------- |
-| {% for freq in risk.risk_probability_levels %} | {{ freq.label }} | {{ freq.description }} |
-
+| Risk Probability Label | Definition |
+| --                     | --         |
+{% for freq in risk.risk_probability_levels %}| {{ freq.label }} | {{ freq.description }} |
 {% endfor %}
 
 Risk severity levels are defined as follows:
 
-| Risk Severity Label                             | Definition           |
-| ----------------------------------------------- | -------------------- | -------------------------- |
-| {% for severity in risk.risk_severity_levels %} | {{ severity.label }} | {{ severity.description }} |
-
+| Risk Severity Label | Definition |
+| --                     | --         |
+{% for severity in risk.risk_severity_levels %}| {{ severity.label }} | {{ severity.description }} |
 {% endfor %}
 
 Finally, risk acceptability levels are defined according to the following
 criteria:
 
-| Risk Level                          | Acceptance Criteria |
-| ----------------------------------- | ------------------- | ----------------------- |
-| {% for level in risk.risk_levels %} | {{ level.label }}   | {{ level.description }} |
-
+| Risk Level | Acceptance Criteria |
+| --                     | --         |
+{% for level in risk.risk_levels %}| {{ level.label }} | {{ level.description }} |
 {% endfor %}
 
 ## Risk Management Activity
