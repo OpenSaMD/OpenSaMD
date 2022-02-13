@@ -7,46 +7,24 @@ root: 00-introduction
 chapters:
 - file: 01-intended-use
 - file: 02-intended-performance
-- file: documents/architecture_design_chart
+- file: architecture_design_chart
+- file: cyber_security
+- file: hazard_analysis
+- file: known_anomalies
+- file: level_of_concern
+- file: note_about_missing_requirements
+- file: release_history
+- file: release_record
+- file: risk_management_plan
+- file: software_description
+- file: software_design_specification
+- file: software_plan
+- file: software_requirements_specification
+- file: test_record
+- file: verification_and_validation_plan
+- file: 510k/11_executive_summary_predicate_comparison
   sections:
-  - file: documents/cyber_security
-  - file: documents/hazard_analysis
-  - file: documents/known_anomalies
-  - file: documents/level_of_concern
-  - file: documents/note_about_missing_requirements
-  - file: documents/release_history
-  - file: documents/release_record
-  - file: documents/risk_management_plan
-  - file: documents/software_description
-  - file: documents/software_design_specification
-  - file: documents/software_plan
-  - file: documents/software_requirements_specification
-  - file: documents/test_record
-  - file: documents/verification_and_validation_plan
-  - file: documents/510k/11_executive_summary_predicate_comparison
-    sections:
-    - file: documents/510k/12_substantial_equivalence_discussion
-    - file: documents/510k/overview
-    - file: documents/510k/regulatory_change_assessment
-- file: release/architecture_design_chart
-  sections:
-  - file: release/cyber_security
-  - file: release/hazard_analysis
-  - file: release/known_anomalies
-  - file: release/level_of_concern
-  - file: release/note_about_missing_requirements
-  - file: release/release_history
-  - file: release/release_record
-  - file: release/risk_management_plan
-  - file: release/software_description
-  - file: release/software_design_specification
-  - file: release/software_plan
-  - file: release/software_requirements_specification
-  - file: release/test_record
-  - file: release/verification_and_validation_plan
-  - file: release/510k/11_executive_summary_predicate_comparison
-    sections:
-    - file: release/510k/12_substantial_equivalence_discussion
-    - file: release/510k/overview
-    - file: release/510k/regulatory_change_assessment
+  - file: 510k/12_substantial_equivalence_discussion
+  - file: 510k/overview
+  - file: 510k/regulatory_change_assessment
 

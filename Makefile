@@ -3,7 +3,7 @@ SHELL := /bin/bash -o pipefail -e
 .SECONDARY:
 .DELETE_ON_ERROR:
 
-release := ./docs/foo
+release := ./docs
 src := ./src
 
 CONFIG := $(src)/config.yml
