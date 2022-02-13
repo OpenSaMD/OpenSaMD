@@ -10,6 +10,8 @@ python = "^3.9"
 jupyter-book = "^0.12.1"
 typer = "^0.4.0"
 
+rdm = { path = "third-party/rdm", develop = true }
+
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]

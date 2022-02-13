@@ -32,6 +32,8 @@ TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
 def build():
     env = os.environ.copy()
 
+    subprocess.check_call(["make"], cwd=REPO_ROOT, env=env)
+
     with open(TABLE_OF_CONTENTS_PATH, "r+") as file:
         file.truncate(0)
 
