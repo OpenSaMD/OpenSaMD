@@ -4,9 +4,11 @@ revision: 1
 title: Software Requirements Specification
 ---
 
-# Purpose
+# Software Requirements Specification
 
-This document describe *what* {{ device.name }} software must do.
+## Purpose
+
+This document describe _what_ {{ device.name }} software must do.
 
 This document is meant to be read and agreed-upon by the project owners and by software developers during design and construction.
 
@@ -16,11 +18,11 @@ The document also provides traceability between system requirements and software
 
 [[FDA-CPSSCMD:srs]]
 
-# Scope
+## Scope
 
 This document applies to {{ device.name }} release {{ device.version }}.
 
-# Definitions
+## Definitions
 
 The **Food and Drug Administration (FDA)** is a United State government agency responsible for protecting the public health by ensuring the safety, efficacy, and security of human and veterinary drugs, biological products, and medical devices.
 
@@ -32,9 +34,9 @@ A **User** is a person who interacts with (i.e., operates or handles) the device
 
 **UI** is an acronym for user interface.
 
-# Users
+## Users
 
-TODO: Device Users are anyone who interacts with (i.e., operates or handles) the device.  Different users will have different requirements, so it is useful to enumerate all of them so that no important requirements are missed.  A few common stakeholders are listed below for convenience.
+TODO: Device Users are anyone who interacts with (i.e., operates or handles) the device. Different users will have different requirements, so it is useful to enumerate all of them so that no important requirements are missed. A few common stakeholders are listed below for convenience.
 
 There may be several different types of users, in which case it is worth adding more sections for each type.
 
@@ -57,19 +59,19 @@ ENDTODO
 
 This section enumerates the types of device users, describe their characteristics, and why they are interested in the device [[FDA-HFE:5.1]].
 
-## Patient
+### Patient
 
 TODO: write in details, or remove this section
 
-## Physician
+### Physician
 
 TODO: write in details, or remove this section
 
-## Hospital IT Personnel
+### Hospital IT Personnel
 
 TODO: write in details, or remove this section
 
-# Use Environments
+## Use Environments
 
 TODO:
 
@@ -89,57 +91,64 @@ ENDTODO
 
 This section enumerates the environments in which the {{ device.name }} will be used [[FDA-HFE:5.2]].
 
-## Radiology Reading Room
+### Radiology Reading Room
 
 TODO: write in details, or remove this section
 
-## Radiologist's Home
+### Radiologist's Home
 
 TODO: write in details, or remove this section
 
-# Use Cases
+## Use Cases
 
-## Problem X
-
-Brief description.
-
-## Problem Y
+### Problem X
 
 Brief description.
 
-# Requirement Details
+### Problem Y
+
+Brief description.
+
+## Requirement Details
+
 {% for requirement in requirements %}
-## {{ requirement.title }}
 
-*Requirement ID:* {{ requirement.id }}
+### {{ requirement.title }}
+
+_Requirement ID:_ {{ requirement.id }}
 
 {{ requirement.description }}
 {% endfor %}
 
-# Traceability Tables
-{% if device.samd %}
-## Software Requirements Table
+## Traceability Tables
 
-[[ Each requirement has a unique id satisfying 62304:5.2.6.e]]
+{% if device.samd %}
+
+### Software Requirements Table
+
+[[Each requirement has a unique id satisfying 62304:5.2.6.e]]
 | ID | Title |
 | --- | --- |
 {%- for requirement in requirements %}
 | {{ requirement.id }} | {{ requirement.title }} |
 {%- endfor %}
 {% else %}
-## Software Requirements Table
+
+### Software Requirements Table
 
 | Soft. Req. ID | System Req. IDs | Title |
-| --- | --- | --- |
+| ------------- | --------------- | ----- |
+
 {%- for requirement in requirements %}
 | {{ requirement.id }} | {{ requirement.system_requirements|join(', ') }} | {{ requirement.title }} |
 {%- endfor %}
 
-## System Requirements Mapping
+### System Requirements Mapping
 
-| System Req. ID | Soft. Req. IDs |
-| --- | --- |
-{%- for system_requirement_id, software_requirement_ids in requirements|invert_dependencies('id', 'system_requirements') %}
-| {{ system_requirement_id }} | {{ software_requirement_ids|sort|join(', ') }} |
+| System Req. ID                                                          | Soft. Req. IDs                                      |
+| ----------------------------------------------------------------------- | --------------------------------------------------- | ---- | ------------- |
+| {%- for system_requirement_id, software_requirement_ids in requirements | invert_dependencies('id', 'system_requirements') %} |
+| {{ system_requirement_id }}                                             | {{ software_requirement_ids                         | sort | join(', ') }} |
+
 {%- endfor %}
 {%- endif %}

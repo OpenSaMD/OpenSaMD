@@ -4,23 +4,25 @@ revision: 1
 title: Note About Missing Requirements
 ---
 
-# Purpose
+# Note About Missing Requirements
+
+## Purpose
 
 This document lists IEC62304 regulatory requirements that aren't addressed by the other documents in this folder.
 
 It is a record of items that must be handled elsewhere to be IEC62304 compliant.It isn't meant to be given to regulatory bodies, and can be deleted if it is no longer used.
 
-# Scope
+## Scope
 
 This document applies to {{device.name}} release {{device.version}}.
 
-# Quality Management System
+## Quality Management System
 
 The IEC62304 activities are meant to be part of a quality management system [[62304:4.1]]. The quality management system requires several activities that aren't included here.
 
 Feedback and complaints must be gathered and incorporated into release planning [[14971:9 and 14971:3.4.f]]. These activities are not included here.
 
-# Risk Management
+## Risk Management
 
 A few risk management tasks are not included. We hope to include all of these in a future release.
 
@@ -30,7 +32,7 @@ The risk management report is not currently included in an RDM activity [[14971:
 
 Residual risk evaluation [[14971:6.4]], risk/benefit analysis [[14971:6.5]], risk control completeness [[14971:6.7]], and the evaluation of residual risk acceptability [[14971:7]] are not currently addressed.
 
-# 62304 Class C Software
+## 62304 Class C Software
 
 A few requirements for developing class C software aren't addressed yet:
 

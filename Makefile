@@ -42,4 +42,5 @@ $(src)/data/history.yml:
 
 .PHONY:
 clean:
-	rm -rf tmp $(release)
+	rm -f $(release)/**/*.md $(release)/*.md
+	rm -rf $(release)/_build

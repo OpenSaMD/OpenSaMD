@@ -4,12 +4,14 @@ revision: 1
 title: Risk Management Plan
 ---
 
+# Risk Management Plan
+
 TODO: This document is currently in-progress, and as such, it is not
 comprehensive. Note that it currently conflicts slightly with the risk-related
 activities in the software plan. These issues will be rectified in a future RDM
 update.
 
-# Purpose
+## Purpose
 
 This risk management plan describes the activites that are performed in order to
 identify hazards and hazardous situations, estimate and evaluate the associated
@@ -20,11 +22,11 @@ device.
 This risk management plan is intended to fulfill the requirements of ISO
 14971:2019.
 
-# Personnel Qualifications
+## Personnel Qualifications
 
 TODO
 
-# Risk Evaluation and Criteria for Risk Acceptability
+## Risk Evaluation and Criteria for Risk Acceptability
 
 Risk evaluation is quantified according to the Risk Acceptability Matrix:
 
@@ -35,45 +37,48 @@ Risk evaluation is quantified according to the Risk Acceptability Matrix:
 
 Risk probability levels are defined as follows:
 
-| Risk Probability Label | Definition |
-| --                     | --         |
-{% for freq in risk.risk_probability_levels %}| {{ freq.label }} | {{ freq.description }} |
+| Risk Probability Label                         | Definition       |
+| ---------------------------------------------- | ---------------- | ---------------------- |
+| {% for freq in risk.risk_probability_levels %} | {{ freq.label }} | {{ freq.description }} |
+
 {% endfor %}
 
 Risk severity levels are defined as follows:
 
-| Risk Severity Label | Definition |
-| --                     | --         |
-{% for severity in risk.risk_severity_levels %}| {{ severity.label }} | {{ severity.description }} |
+| Risk Severity Label                             | Definition           |
+| ----------------------------------------------- | -------------------- | -------------------------- |
+| {% for severity in risk.risk_severity_levels %} | {{ severity.label }} | {{ severity.description }} |
+
 {% endfor %}
 
 Finally, risk acceptability levels are defined according to the following
 criteria:
 
-| Risk Level | Acceptance Criteria |
-| --                     | --         |
-{% for level in risk.risk_levels %}| {{ level.label }} | {{ level.description }} |
+| Risk Level                          | Acceptance Criteria |
+| ----------------------------------- | ------------------- | ----------------------- |
+| {% for level in risk.risk_levels %} | {{ level.label }}   | {{ level.description }} |
+
 {% endfor %}
 
-# Risk Management Activity
+## Risk Management Activity
 
-## Intended Use, Reasonably Foreseeable Misuse, and Safety Characteristics
+### Intended Use, Reasonably Foreseeable Misuse, and Safety Characteristics
 
 TODO
 
-## Identify Hazards and Hazardous Situations
+### Identify Hazards and Hazardous Situations
 
 TODO: Consult ISO/TR 29471 for specific recommended risk identification
 techniques
 
-## Estimate Risk
+### Estimate Risk
 
 TODO
 
-## Risk Control
+### Risk Control
 
 TODO
 
-## Risk Control Verification
+### Risk Control Verification
 
 TODO

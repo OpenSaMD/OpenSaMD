@@ -3,7 +3,9 @@ id: SUBSEQV-001
 title: Executive Summary/Predicate Comparison
 ---
 
-# Device Description
+# Executive Summary/Predicate Comparison
+
+## Device Description
 
 TODO
 
@@ -15,7 +17,7 @@ understanding of the device."
 
 ENDTODO
 
-# Device Comparison Table
+## Device Comparison Table
 
 TODO
 
@@ -27,18 +29,18 @@ discussion of how this comparison supports substantial equivalence."
 
 ENDTODO
 
-| Description | Subject Device | Predicate Device ({{ predicate.number }}) |
-| ----- | ----- | ---- |
-| Manufacturer |  | {{ predicate.manufacturer }} |
-| 510(k) Number | (Pending) | {{ predicate.number }} |
-| Product Code |  | {{ predicate.product_code }} |
-| Regulation Number |  | {{ predicate.regulation_number }} |
-| Intended Use Summary |  |  |
-| Comparison 1 |  |  |
-| Comparison 2 |  |  |
-| Comparison 3 |  |  |
+| Description          | Subject Device | Predicate Device ({{ predicate.number }}) |
+| -------------------- | -------------- | ----------------------------------------- |
+| Manufacturer         |                | {{ predicate.manufacturer }}              |
+| 510(k) Number        | (Pending)      | {{ predicate.number }}                    |
+| Product Code         |                | {{ predicate.product_code }}              |
+| Regulation Number    |                | {{ predicate.regulation_number }}         |
+| Intended Use Summary |                |                                           |
+| Comparison 1         |                |                                           |
+| Comparison 2         |                |                                           |
+| Comparison 3         |                |                                           |
 
-# Performance Testing Summary
+## Performance Testing Summary
 
 TODO
 

@@ -4,7 +4,9 @@ revision: 1
 title: Architecture Design Chart
 ---
 
-# Note
+# Architecture Design Chart
+
+## Note
 
 Our architecture design chart is included within our Software Design Specification.
 

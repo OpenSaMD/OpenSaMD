@@ -4,6 +4,8 @@ revision: 1
 title: Regulatory Change Assessment
 ---
 
+# Regulatory Change Assessment
+
 This document should be used when evaluating whether device changes requires a new 510(k) submission. See
 
 - [_Deciding When to Submit a 510(k) for a Change to an Existing Device_](https://www.fda.gov/media/99812/download)
@@ -11,7 +13,7 @@ This document should be used when evaluating whether device changes requires a n
 
 for additional details.
 
-# Summary
+## Summary
 
 **Product Name:** {{ device.name }}
 
@@ -23,7 +25,7 @@ for additional details.
 
 **Reason for Change(s):** TODO: Fill in reason for change.
 
-**Applicable Regulatory History (including 510(k) #s and comparison of modified device to most recently cleared version):**  
+**Applicable Regulatory History (including 510(k) #s and comparison of modified device to most recently cleared version):**
 {{ device.name }} was originally cleared in KYYxxxx. All changes made between the KYYxxxx and modified device are described in this document. TODO: Fill in the full 510(k) history for the device.
 
 **Completed Checklist Attached:**
@@ -40,13 +42,13 @@ for additional details.
 
 TODO: list supporting documents here
 
-# Device Change I
+## Device Change I
 
 TODO: Copy this entire section for each change that you're evaluating. You need to complete the flow chart for each change. In addition to checking the appropriate boxes, justify your choices below each question as appropriate. See the guidance documents for examples.
 
 TODO: Update the section title to describe the change. Also write additional details about the change here.
 
-## Main Flowchart Questions
+### Main Flowchart Questions
 
 **A. Change made with intent to significantly improve the safety or effectiveness of the device?**
 
@@ -73,7 +75,7 @@ TODO: Update the section title to describe the change. Also write additional det
 - [ ] Yes -> Complete S1 after finishing the main flowchart
 - [ ] No -> Provide rationale
 
-## Labeling Flowchart Questions
+### Labeling Flowchart Questions
 
 **A1. Is it a change in the indications for use statement?**
 
@@ -120,7 +122,7 @@ TODO: Update the section title to describe the change. Also write additional det
 - [ ] Yes -> Go to A1.1
 - [ ] No -> Document to file
 
-## Technology, Engineering, and Performance Changes
+### Technology, Engineering, and Performance Changes
 
 **B1. Is the device an in vitro diagnostic device?**
 
@@ -182,7 +184,7 @@ TODO: Update the section title to describe the change. Also write additional det
 - [ ] Yes -> Submit 510(k)
 - [ ] No -> Document to file
 
-## Materials Changes
+### Materials Changes
 
 **C1. Is the device an in vitro diagnostic product (IVD)?**
 
@@ -214,7 +216,7 @@ TODO: Update the section title to describe the change. Also write additional det
 - [ ] Yes -> Go to B5
 - [ ] No -> Document to file
 
-## Technology, Engineering, Performance, and Materials Changes for In Vitro Diagnostic Devices
+### Technology, Engineering, Performance, and Materials Changes for In Vitro Diagnostic Devices
 
 **D1. Does the change alter the operating principle of the IVD?**
 
@@ -236,7 +238,7 @@ TODO: Update the section title to describe the change. Also write additional det
 - [ ] Yes -> Submit 510(k)
 - [ ] No -> Document to file
 
-## Software Flowchart Questions
+### Software Flowchart Questions
 
 **S1. Is the change made solely to strengthen cybersecurity and does not have any other impact on the software or device?**
 

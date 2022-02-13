@@ -4,23 +4,25 @@ revision: 1
 title: Level of Concern
 ---
 
-# Purpose
+# Level of Concern
+
+## Purpose
 
 This document states and justifies our Level of Concern for the software within {{device.name}}.
 
 [[FDA-CPSSCMD:level-of-concern]]
 
-# Scope
+## Scope
 
 This document applies to {{device.name}} release {{device.version}}.
 
-# Level of Concern
+## Level of Concern
 
 The Level of Concern for the software system within {{device.name}} is **{{device.level_of_concern}}**.
 
-# Justification for Stated Level of Concern
+## Justification for Stated Level of Concern
 
-TODO: Describe how you arrived at the stated Level of Concern.  Below is a template for a device that has a minor Level of Concern, hence the "No" response for all of the questions. Be sure to read the questions and update the responses as appropriate.
+TODO: Describe how you arrived at the stated Level of Concern. Below is a template for a device that has a minor Level of Concern, hence the "No" response for all of the questions. Be sure to read the questions and update the responses as appropriate.
 
 See the 2005 "Guidance for the Content of Premarket Submissions for Software Contained in Medical Devices" for details.
 
@@ -28,13 +30,13 @@ We believe the software system inside {{device.name}} has a {{device.level_of_co
 
 ENDTODO
 
-## Role of the Software
+### Role of the Software
 
 TODO: Describe the role of the software in causing, controlling, and/or mitigating hazards that could result in injury to the patient or the operator.
 
-## Major Level of Concern Key Questions
+### Major Level of Concern Key Questions
 
-When evaluating our Software Device's Level of Concern, we considered the Key Questions provided in [1].  Our answers to these key questions for Major Level of Concern Devices are presented below:
+When evaluating our Software Device's Level of Concern, we considered the Key Questions provided in [1]. Our answers to these key questions for Major Level of Concern Devices are presented below:
 
 **1. Does the Software Device qualify as Blood Establishment Computer Software?**
 
@@ -72,9 +74,9 @@ No.
 
 No.
 
-## Moderate Level of Concern Key Questions
+### Moderate Level of Concern Key Questions
 
-When evaluating our Software Device's Level of Concern, we considered the Key Questions provided in [1].  Our answers to these key questions for Moderate Level of Concern Devices are presented below:
+When evaluating our Software Device's Level of Concern, we considered the Key Questions provided in [1]. Our answers to these key questions for Moderate Level of Concern Devices are presented below:
 
 **1. Is the Software Device an accessory to a medical device that has a Moderate Level of Concern?**
 
@@ -88,6 +90,6 @@ No.
 
 No.
 
-# References
+## References
 
 [1]: "Guidance for the Content of Premarket Submissions for Software Contained in Medical Devices", 2005.

@@ -3,21 +3,23 @@ id: RELEASEREC-001
 title: Software Release Record
 ---
 
-# Purpose
+# Software Release Record
+
+## Purpose
 
 The purpose of this document is to provide a record of the verification steps for the software release activity, as performed for {{device.name}}.
 
-# Scope
+## Scope
 
 This document applies to {{device.name}} release {{device.version}}.
 
-# Release Build Environment
+## Release Build Environment
 
 TODO: Record details about how the software release artifact was built. This should be detailed enough that another engineer could reproduce the artifact.
 
 [[62304:5.8.5]]
 
-# Release Verification
+## Release Verification
 
 TODO: fill in this list from the release verification activity
 

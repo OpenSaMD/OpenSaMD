@@ -3,14 +3,16 @@ id: SUBSEQV-001
 title: Substantial Equivalence Discussion
 ---
 
-# Predicate Device
+# Substantial Equivalence Discussion
 
-| Field | Value |
-| ----- | ----- |
-| 510(k) Number | {{ predicate.number }} |
+## Predicate Device
+
+| Field                   | Value                        |
+| ----------------------- | ---------------------------- |
+| 510(k) Number           | {{ predicate.number }}       |
 | 510(k) Submitter/Holder | {{ predicate.manufacturer }} |
-| Trade Name | {{ predicate.name }} |
-| Model Number | {{ predicate.model }} |
+| Trade Name              | {{ predicate.name }}         |
+| Model Number            | {{ predicate.model }}        |
 
 TODO
 
@@ -21,20 +23,20 @@ Fill in the following three sections. See these guidance documents for more deta
 
 ENDTODO
 
-# Indications-for-Use Comparison
+## Indications-for-Use Comparison
 
 | Subject Device | Predicate Device ({{ predicate.number }}) | Discussion |
-| ----- | ----- | ---- |
-|  |  |  |
+| -------------- | ----------------------------------------- | ---------- |
+|                |                                           |            |
 
-# Technology Comparison
+## Technology Comparison
 
 | Subject Device | Predicate Device ({{ predicate.number }}) | Discussion |
-| ----- | ----- | ---- |
-|  |  |  |
+| -------------- | ----------------------------------------- | ---------- |
+|                |                                           |            |
 
-# Performance-Specification Comparison
+## Performance-Specification Comparison
 
 | Feature | Subject Device | Predicate Device ({{ predicate.number }}) |
-| ----- | ----- | ---- |
-|  |  |  |
+| ------- | -------------- | ----------------------------------------- |
+|         |                |                                           |

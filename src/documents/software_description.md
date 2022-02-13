@@ -4,7 +4,9 @@ revision: 1
 title: Software Description
 ---
 
-# Note
+# Software Description
+
+## Note
 
 Our software description is included within the Software Design Specification.
 

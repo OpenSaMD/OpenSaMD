@@ -4,7 +4,9 @@ revision: 1
 title: Known Anomalies
 ---
 
-# Note
+# Known Anomalies
+
+## Note
 
 Our unresolved anomalies are included within our Release History.
 

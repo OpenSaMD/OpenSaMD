@@ -4,13 +4,15 @@ revision: 1
 title: Verification and Validation Plan
 ---
 
-# Purpose
+# Verification and Validation Plan
+
+## Purpose
 
 This document describes the plan regarding how {{ device.name }} will be verified and validated.
 
 [[Fulfills FDA-CPSSCMD:v-and-v and 62304:5.5.2]]
 
-# Definitions
+## Definitions
 
 **Verification** means confirmation by examination and provision of objective evidence that specified requirements have been fulfilled. In other words, "Did we build the thing right?"
 
@@ -32,7 +34,7 @@ A **software unit** is a software item that is not subdivided into other softwar
 
 **Regression testing** is the process of re-running functional and non-functional tests to ensure that previously developed and tested software still performs after a change.
 
-# Verification Activities
+## Verification Activities
 
 Software verification begins with the code reviews and adherence to software standards defined in the Software Plan. The outputs of these activities are recorded in the Revision Level History.
 
@@ -46,31 +48,31 @@ All final test records must include the Git hash or other objective reference th
 
 The types of tests used to verify {{ device.name }} are described below:
 
-## Unit Tests
+### Unit Tests
 
 TODO: Describe how and when unit test shall be written
 
-## Integration Tests
+### Integration Tests
 
 TODO: Describe how and when integration tests shall be written
 
-## Automated End-to-End Tests
+### Automated End-to-End Tests
 
 TODO: Describe how and when automated end-to-end tests shall be written
 
-## Manual End-to-End Tests
+### Manual End-to-End Tests
 
 TODO: Describe how and when manual end-to-end tests shall be written
 
-# Validation Activities
+## Validation Activities
 
 TODO: Describe how we'll validate that the user needs have been met (in software and hardware projects, this is usually handled at the system-level).
 
-# Pass / Fail Criteria
+## Pass / Fail Criteria
 
 TODO:
 
-This plan should include a pass/fail criteria for the entire test suite.  E.g., you require that all unit tests pass and that all integration tests pass or the cause of the failure is understood and justified
+This plan should include a pass/fail criteria for the entire test suite. E.g., you require that all unit tests pass and that all integration tests pass or the cause of the failure is understood and justified
 
 ENDTODO
 
