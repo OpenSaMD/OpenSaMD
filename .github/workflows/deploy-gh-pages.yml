@@ -1,4 +1,4 @@
-name: GH Pages
+name: Docs
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  Deploy:
+  Build:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
