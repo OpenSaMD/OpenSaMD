@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Radiotherapy AI</title>
+    <title>Note About Missing Requirements &#8212; Radiotherapy AI</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -45,8 +45,17 @@
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release History" href="release_history.html" />
+    <link rel="prev" title="Level of Concern" href="level_of_concern.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -85,7 +94,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-intended-use.html">
    Intended use
@@ -121,8 +130,8 @@
    Level of Concern
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="note_about_missing_requirements.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Note About Missing Requirements
   </a>
  </li>
@@ -231,6 +240,23 @@
             </button>
             
             
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/note_about_missing_requirements.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -242,7 +268,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fnote_about_missing_requirements.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -263,6 +289,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope">
+   Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quality-management-system">
+   Quality Management System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#risk-management">
+   Risk Management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-c-software">
+   62304 Class C Software
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -270,30 +329,128 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>Note About Missing Requirements</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope">
+   Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quality-management-system">
+   Quality Management System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#risk-management">
+   Risk Management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-c-software">
+   62304 Class C Software
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="tex2jax_ignore mathjax_ignore section" id="note-about-missing-requirements">
+<h1>Note About Missing Requirements<a class="headerlink" href="#note-about-missing-requirements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This document lists IEC62304 regulatory requirements that aren’t addressed by the other documents in this folder.</p>
+<p>It is a record of items that must be handled elsewhere to be IEC62304 <a class="reference external" href="http://compliant.It">compliant.It</a> isn’t meant to be given to regulatory bodies, and can be deleted if it is no longer used.</p>
+</div>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>This document applies to DEVICE release v0.1.0.</p>
+</div>
+<div class="section" id="quality-management-system">
+<h2>Quality Management System<a class="headerlink" href="#quality-management-system" title="Permalink to this headline">¶</a></h2>
+<p>The IEC62304 activities are meant to be part of a quality management system [[62304:4.1]]. The quality management system requires several activities that aren’t included here.</p>
+<p>Feedback and complaints must be gathered and incorporated into release planning [[14971:9 and 14971:3.4.f]]. These activities are not included here.</p>
+</div>
+<div class="section" id="risk-management">
+<h2>Risk Management<a class="headerlink" href="#risk-management" title="Permalink to this headline">¶</a></h2>
+<p>A few risk management tasks are not included. We hope to include all of these in a future release.</p>
+<p>Personnel must be qualified for the tasks they perform. In particular, risk management tasks must be performed by people with experience in those tasks [[14971:3.3 and 13485:6.2]].</p>
+<p>The risk management report is not currently included in an RDM activity [[14971:8.a, 14971:8.b, 14971:8.c]].</p>
+<p>Residual risk evaluation [[14971:6.4]], risk/benefit analysis [[14971:6.5]], risk control completeness [[14971:6.7]], and the evaluation of residual risk acceptability [[14971:7]] are not currently addressed.</p>
+</div>
+<div class="section" id="class-c-software">
+<h2>62304 Class C Software<a class="headerlink" href="#class-c-software" title="Permalink to this headline">¶</a></h2>
+<p>A few requirements for developing class C software aren’t addressed yet:</p>
+<ul class="simple">
+<li><p>62304:5.5.4.a Additional Software Unit Acceptance Criteria: proper event sequence</p></li>
+<li><p>62304:5.5.4.b Additional Software Unit Acceptance Criteria: data and control flow</p></li>
+<li><p>62304:5.5.4.c Additional Software Unit Acceptance Criteria: planned resource allocation</p></li>
+<li><p>62304:5.5.4.d Additional Software Unit Acceptance Criteria: fault handling</p></li>
+<li><p>62304:5.5.4.e Additional Software Unit Acceptance Criteria: initialization of variables</p></li>
+<li><p>62304:5.5.4.f Additional Software Unit Acceptance Criteria: self-diagnostics</p></li>
+<li><p>62304:5.5.4.g Additional Software Unit Acceptance Criteria: memory management and memory overflows</p></li>
+<li><p>62304:5.5.4.h Additional Software Unit Acceptance Criteria: boundary conditions</p></li>
+</ul>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="level_of_concern.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Level of Concern</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="release_history.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Release History</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

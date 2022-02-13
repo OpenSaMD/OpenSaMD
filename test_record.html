@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Radiotherapy AI</title>
+    <title>Software Test Record &#8212; Radiotherapy AI</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intended use" href="01-intended-use.html" />
+    <link rel="next" title="Verification and Validation Plan" href="verification_and_validation_plan.html" />
+    <link rel="prev" title="Software Requirements Specification" href="software_requirements_specification.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,13 +88,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-introduction.html">
    Introduction
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-intended-use.html">
    Intended use
@@ -169,8 +170,8 @@
    Software Requirements Specification
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="test_record.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Software Test Record
   </a>
  </li>
@@ -247,7 +248,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/00-introduction.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/test_record.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -267,7 +268,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2F00-introduction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Ftest_record.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -294,19 +295,46 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#documentation-under-development-out-in-the-open">
-   Documentation under development out in the open
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-details">
-   Product Details
+  <a class="reference internal nav-link" href="#scope">
+   Scope
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#verification">
+   Verification
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-environment">
+   Test Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-results">
+   Test Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests">
+     Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integration-tests">
+     Integration Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manual-tests">
+     Manual Tests
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -318,7 +346,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Software Test Record</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -329,19 +357,46 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#documentation-under-development-out-in-the-open">
-   Documentation under development out in the open
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-details">
-   Product Details
+  <a class="reference internal nav-link" href="#scope">
+   Scope
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#verification">
+   Verification
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-environment">
+   Test Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-results">
+   Test Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests">
+     Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integration-tests">
+     Integration Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manual-tests">
+     Manual Tests
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -352,60 +407,124 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>These documents corresponds to version <code class="docutils literal notranslate"><span class="pre">0.1.16</span></code> of the Radiotherapy AI’s
-Contour Recommendation software. Currently this software is pre-release, and
-both the software and this document is expected to change before it is
-available for clinical use. Please reference the version of this document that
-is supplied to you with the software itself.</p>
-<div class="section" id="documentation-under-development-out-in-the-open">
-<h2>Documentation under development out in the open<a class="headerlink" href="#documentation-under-development-out-in-the-open" title="Permalink to this headline">¶</a></h2>
-<p>These documents themselves are currently under development and there is likely
-to be both mistakes and omissions. The creation of these documents is being
-shared publicly out in the open in the hope that the development of these
-documents is able to help other SaMD companies create and regulate their
-products and help their patients.</p>
-<p>To view the online source code for these documents see
-<a class="reference external" href="https://github.com/RadiotherapyAI/regulatory">https://github.com/RadiotherapyAI/regulatory</a>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="software-test-record">
+<h1>Software Test Record<a class="headerlink" href="#software-test-record" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this document is to record the status of the software tests run for DEVICE.</p>
 </div>
-<div class="section" id="product-details">
-<h2>Product Details<a class="headerlink" href="#product-details" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>Manufacturer Name</strong>: Radiotherapy AI Pty Ltd</p></li>
-<li><p><strong>Manufacturer’s Address</strong>: 17 Grampian Place Tatton NSW 2650 Australia</p></li>
-<li><p><strong>Software as a Medical Device Identification</strong>: Radiotherapy AI Contour Recommendations <code class="docutils literal notranslate"><span class="pre">v0.1.16</span></code></p></li>
-</ul>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>The scope of this document is the software system within the DEVICE product.</p>
 </div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Radiotherapy AI’s contour recommendations product is deployed onsite as a DICOM
-server. It is designed to sit between your centre’s CT scanner and your
-treatment planning system.</p>
-<p>When patients undergo their simulation images are auto-sent through to
-Radiotherapy AI’s DICOM server. The patient identifying information within the
-DICOM header is then encrypted with a client side encryption key, and then
-these patient scans are then securely submitted to Google Cloud infrastructure
-within Sydney to undergo contouring.</p>
-<p>These contours are converted into an RT-DICOM Structure Set file and are then
-sent back to the Radiotherapy AI DICOM server for subsequent forwarding through
-to the centre’s treatment planning system for refinement by the clinical
-Radiation Oncologist or Radiation Therapist (the health practitioner) according
-to the site’s contouring protocols.</p>
-<p>In practice, the health practitioner does not directly interact with
-Radiotherapy AI’s software. Instead, the results from Radiotherapy AI’s
-software is provided to your centre’s treatment planning system for the health
-practitioner’s subsequent refinement.</p>
-<p>A digram outlining the dataflow pipeline is provided within
-<a class="reference internal" href="#pipeline"><span class="std std-numref">Figure 1</span></a>:</p>
-<div class="figure align-default" id="pipeline">
-<img alt="_images/deployment-diagram.png" src="_images/deployment-diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Outline of the data transmitted between the different systems in the pipeline.</span><a class="headerlink" href="#pipeline" title="Permalink to this image">¶</a></p>
+<div class="section" id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h2>
+<p>I, FULL DEVELOPER NAME, verify that the results recorded here are complete and accurate [[62304:9.8.g]].</p>
+<p>TODO: document the identity of the tester if any manual steps were required.</p>
+<p>Tests were performed on DATE TESTS COMPLETED.
+TODO: document the date tested [[62304:9.8.f]]</p>
+<p>The tests meet our specified pass fail criteria (see Test Plan section of the Software Plan).</p>
 </div>
-<p>The contouring algorithm that is applied to the CT scans is based off of
-historical treatment contouring data.</p>
+<div class="section" id="test-environment">
+<h2>Test Environment<a class="headerlink" href="#test-environment" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Describe the test environment. This section should include all of the information necessary for someone to reproduce the tests. For example, it could be wise to include a list of all the environment variables, installed system packages and versions, the git hash, hardware used, etc. It should also include any relevant testing tools [[62304:5.1.11]].
+TODO: document the software version tested [[62304:9.8.c]]
+TODO: document any relevant configuration [[62304:9.8.d]]
+TODO: document the relevant tools used to run these tests [[62304:9.8.e]]</p>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="test-results">
+<h2>Test Results<a class="headerlink" href="#test-results" title="Permalink to this headline">¶</a></h2>
+<p>[[These are the results of automated unit and integration testing as well as manual testing 62304:9.8.a]]
+TODO: List of all the tests, split into sections by type. You can use the three subsections below as a starting point.</p>
+<p>TODO: List any problems that were found during testing, and, if relevant, the problem report ids.
+TODO: document any anomilies encountered [[62304:9.8.b]]</p>
+<p>It is ok if some tests do not trace to any particular requirements, however all requirements must be covered by some tests (if they are not, add tests).</p>
+<div class="section" id="unit-tests">
+<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Name</p></th>
+<th class="head"><p>Test Status</p></th>
+<th class="head"><p>Requirement IDs</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TestClass.TestName1</p></td>
+<td><p>pass</p></td>
+<td><p>[‘SR-12’]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>TestClass.TestName2</p></td>
+<td><p>fail</p></td>
+<td><p>[‘SR-12’]</p></td>
+<td><p>It is okay that this test failed because of XYZ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="integration-tests">
+<h3>Integration Tests<a class="headerlink" href="#integration-tests" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Name</p></th>
+<th class="head"><p>Test Status</p></th>
+<th class="head"><p>Requirement IDs</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TestClass.TestName100</p></td>
+<td><p>pass</p></td>
+<td><p>[‘SR-13’, ‘SR-14’]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>TestClass.TestName200</p></td>
+<td><p>fail</p></td>
+<td><p>[‘SR-17’]</p></td>
+<td><p>It is okay that this test failed because of XYZ</p></td>
+</tr>
+<tr class="row-even"><td><p>TestClass.TestName300</p></td>
+<td><p>pass</p></td>
+<td><p>[‘SR-17’]</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="manual-tests">
+<h3>Manual Tests<a class="headerlink" href="#manual-tests" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Name</p></th>
+<th class="head"><p>Step</p></th>
+<th class="head"><p>Test Status</p></th>
+<th class="head"><p>Requirement IDs</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ManualTest1</p></td>
+<td><p>5</p></td>
+<td><p>pass</p></td>
+<td><p>[‘SR-18’]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>ManualTest1</p></td>
+<td><p>6</p></td>
+<td><p>fail</p></td>
+<td><p>[‘SR-19’]</p></td>
+<td><p>Allowed because of XYZ</p></td>
+</tr>
+<tr class="row-even"><td><p>ManualTest2</p></td>
+<td><p>1</p></td>
+<td><p>pass</p></td>
+<td><p>[‘SR-11’, ‘SR-12’]</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -433,11 +552,18 @@ historical treatment contouring data.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="01-intended-use.html" title="next page">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="software_requirements_specification.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Software Requirements Specification</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="verification_and_validation_plan.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intended use</p>
+        <p class="prev-next-title">Verification and Validation Plan</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
