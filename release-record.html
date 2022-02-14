@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Radiotherapy AI</title>
+    <title>Software Release Record &#8212; Radiotherapy AI</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Intended use" href="01-intended-use.html" />
+    <link rel="next" title="Risk Management Plan" href="risk-management-plan.html" />
+    <link rel="prev" title="Release History" href="release-history.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,13 +88,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-introduction.html">
    Introduction
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-intended-use.html">
    Intended use
@@ -139,8 +140,8 @@
    Release History
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="release-record.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Software Release Record
   </a>
  </li>
@@ -247,7 +248,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/00-introduction.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/release-record.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -267,7 +268,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2F00-introduction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Frelease-record.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -294,18 +295,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#documentation-under-development-out-in-the-open">
-   Documentation under development out in the open
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-details">
-   Product Details
+  <a class="reference internal nav-link" href="#scope">
+   Scope
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#release-build-environment">
+   Release Build Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#release-verification">
+   Release Verification
   </a>
  </li>
 </ul>
@@ -318,7 +324,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Software Release Record</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -329,18 +335,23 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#documentation-under-development-out-in-the-open">
-   Documentation under development out in the open
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-details">
-   Product Details
+  <a class="reference internal nav-link" href="#scope">
+   Scope
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#release-build-environment">
+   Release Build Environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#release-verification">
+   Release Verification
   </a>
  </li>
 </ul>
@@ -352,60 +363,41 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>These documents corresponds to version <code class="docutils literal notranslate"><span class="pre">v0.1.16</span></code> of the
-Radiotherapy AI Contour Recommendations software. Currently this software is pre-release, and both the
-software and this document is expected to change before it is available for
-clinical use. Please reference the version of these documents that is supplied
-to you with the software itself.</p>
-<div class="section" id="documentation-under-development-out-in-the-open">
-<h2>Documentation under development out in the open<a class="headerlink" href="#documentation-under-development-out-in-the-open" title="Permalink to this headline">¶</a></h2>
-<p>These documents themselves are currently under development and there is likely
-to be both mistakes and omissions. The creation of these documents is being
-shared publicly out in the open in the hope that the development of these
-documents is able to help other SaMD companies create and regulate their
-products and help their patients.</p>
-<p>To view the online source code for these documents see
-<a class="reference external" href="https://github.com/RadiotherapyAI/regulatory">https://github.com/RadiotherapyAI/regulatory</a>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="software-release-record">
+<h1>Software Release Record<a class="headerlink" href="#software-release-record" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this document is to provide a record of the verification steps
+for the software release activity, as performed for Radiotherapy AI Contour Recommendations.</p>
 </div>
-<div class="section" id="product-details">
-<h2>Product Details<a class="headerlink" href="#product-details" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>Manufacturer Name</strong>: Radiotherapy AI Pty Ltd</p></li>
-<li><p><strong>Manufacturer’s Address</strong>: 17 Grampian Place Tatton NSW 2650 Australia</p></li>
-<li><p><strong>Software as a Medical Device Identification</strong>: Radiotherapy AI Contour Recommendations <code class="docutils literal notranslate"><span class="pre">v0.1.16</span></code></p></li>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>This document applies to Radiotherapy AI Contour Recommendations release <code class="docutils literal notranslate"><span class="pre">v0.1.16</span></code>.</p>
+</div>
+<div class="section" id="release-build-environment">
+<h2>Release Build Environment<a class="headerlink" href="#release-build-environment" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Record details about how the software release artifact was built. This
+should be detailed enough that another engineer could reproduce the artifact.</p>
+<p>[[62304:5.8.5]]</p>
+</div>
+<div class="section" id="release-verification">
+<h2>Release Verification<a class="headerlink" href="#release-verification" title="Permalink to this headline">¶</a></h2>
+<p>TODO: fill in this list from the release verification activity</p>
+<p>I, PROJECT LEAD’S NAME, verify the following:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> all of the planned change requests have been implemented and integrated</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> the outputs of each activity are in a consistent state</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> the unit tests adequately verify the software units</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> the integration tests adequately verify the software units</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> all software requirements have been tested or otherwise verified</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> the software design specification is accurate and up-to-date</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> integration and system testing activity has been completed after the last
+change request was integrated, and a test record has been written and linked
+to here</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> none of the known anomalies result in unacceptable risk</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> the test results meet the required pass/fail criteria listed in Testing
+Plan section of the Software Plan document.</p></li>
 </ul>
-</div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Radiotherapy AI’s contour recommendations product is deployed onsite as a DICOM
-server. It is designed to sit between your centre’s CT scanner and your
-treatment planning system.</p>
-<p>When patients undergo their simulation images are auto-sent through to
-Radiotherapy AI’s DICOM server. The patient identifying information within the
-DICOM header is then encrypted with a client side encryption key, and then
-these patient scans are then securely submitted to Google Cloud infrastructure
-within Sydney to undergo contouring.</p>
-<p>These contours are converted into an RT-DICOM Structure Set file and are then
-sent back to the Radiotherapy AI DICOM server for subsequent forwarding through
-to the centre’s treatment planning system for refinement by the clinical
-Radiation Oncologist or Radiation Therapist (the health practitioner) according
-to the site’s contouring protocols.</p>
-<p>In practice, the health practitioner does not directly interact with
-Radiotherapy AI’s software. Instead, the results from Radiotherapy AI’s
-software is provided to your centre’s treatment planning system for the health
-practitioner’s subsequent refinement.</p>
-<p>A digram outlining the dataflow pipeline is provided within
-<a class="reference internal" href="#pipeline"><span class="std std-numref">Figure 1</span></a>:</p>
-<div class="figure align-default" id="pipeline">
-<img alt="_images/deployment-diagram.png" src="_images/deployment-diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Outline of the data transmitted between the different systems in the pipeline.</span><a class="headerlink" href="#pipeline" title="Permalink to this image">¶</a></p>
-</div>
-<p>The contouring algorithm that is applied to the CT scans is based off of
-historical treatment contouring data.</p>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -433,11 +425,18 @@ historical treatment contouring data.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="01-intended-use.html" title="next page">
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="release-history.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Release History</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="risk-management-plan.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intended use</p>
+        <p class="prev-next-title">Risk Management Plan</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

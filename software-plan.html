@@ -1,0 +1,1719 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Plan &#8212; Radiotherapy AI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Software Requirements Specification" href="software-requirements-specification.html" />
+    <link rel="prev" title="Software Design Specification" href="software-design-specification.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-intended-use.html">
+   Intended use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-intended-performance.html">
+   Intended performance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="architecture-design-chart.html">
+   Architecture Design Chart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cyber-security.html">
+   Cybersecurity Risk Management Report
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hazard-analysis.html">
+   Device Hazard Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="known-anomalies.html">
+   Known Anomalies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="level-of-concern.html">
+   Level of Concern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="note-about-missing-requirements.html">
+   Note About Missing Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="release-history.html">
+   Release History
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="release-record.html">
+   Software Release Record
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="risk-management-plan.html">
+   Risk Management Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="software-description.html">
+   Software Description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="software-design-specification.html">
+   Software Design Specification
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Software Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="software-requirements-specification.html">
+   Software Requirements Specification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test-record.html">
+   Software Test Record
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="verification-and-validation-plan.html">
+   Verification and Validation Plan
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="510k/00-overview.html">
+   510(k) Submission
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="510k/11-executive-summary-predicate-comparison.html">
+     Executive Summary/Predicate Comparison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="510k/12-substantial-equivalence-discussion.html">
+     Substantial Equivalence Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="510k/regulatory-change-assessment.html">
+     Regulatory Change Assessment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/software-plan.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RadiotherapyAI/regulatory"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fsoftware-plan.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope">
+   Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-life-cycle-model">
+     Development Life Cycle Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roles-and-responsibilities">
+     Roles and Responsibilities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation-plan">
+     Documentation Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-standards">
+     Development Standards
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-methods">
+     Development Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-tools">
+     Development Tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-plan">
+     Testing Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration-management-plan">
+     Configuration Management Plan
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hosting-dependencies">
+       Hosting Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#server-python-dependencies">
+       Server Python Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#frontend-compilation-dependencies">
+       Frontend Compilation Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#frontend-runtime-dependencies">
+       Frontend Runtime Dependencies
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-defects-management-plan">
+     Common Defects Management Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#risk-management-plan">
+     Risk Management Plan
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activities">
+   Activities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-onboarding">
+     Project - Onboarding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-planning-and-setup">
+     Project - Planning and Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-initial-requirements-analysis">
+     Project - Initial Requirements Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-initial-risk-analysis">
+     Project - Initial Risk Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-creating-change-requests">
+     Project - Creating Change Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-planning">
+     Release - Planning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sprint-planning">
+     Sprint - Planning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-creating-merge-requests">
+     Issue - Creating Merge Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-reviewing-merge-requests">
+     Issue - Reviewing Merge Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-implementation">
+     Issue - Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-requirements-analysis">
+     Issue - Requirements Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-design-specifications">
+     Issue - Design Specifications
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-risk-analysis">
+     Issue - Risk Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-writing-tests">
+     Issue - Writing Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-adding-dependencies">
+     Issue - Adding Dependencies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-problem-resolution">
+     Issue - Problem Resolution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-software-system-testing">
+     Release - Software System Testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-final-verification">
+     Release - Final Verification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Software Plan</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purpose">
+   Purpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope">
+   Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Definitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-life-cycle-model">
+     Development Life Cycle Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roles-and-responsibilities">
+     Roles and Responsibilities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation-plan">
+     Documentation Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-standards">
+     Development Standards
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-methods">
+     Development Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-tools">
+     Development Tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-plan">
+     Testing Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration-management-plan">
+     Configuration Management Plan
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hosting-dependencies">
+       Hosting Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#server-python-dependencies">
+       Server Python Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#frontend-compilation-dependencies">
+       Frontend Compilation Dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#frontend-runtime-dependencies">
+       Frontend Runtime Dependencies
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-defects-management-plan">
+     Common Defects Management Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#risk-management-plan">
+     Risk Management Plan
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activities">
+   Activities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-onboarding">
+     Project - Onboarding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-planning-and-setup">
+     Project - Planning and Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-initial-requirements-analysis">
+     Project - Initial Requirements Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-initial-risk-analysis">
+     Project - Initial Risk Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-creating-change-requests">
+     Project - Creating Change Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-planning">
+     Release - Planning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sprint-planning">
+     Sprint - Planning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-creating-merge-requests">
+     Issue - Creating Merge Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-reviewing-merge-requests">
+     Issue - Reviewing Merge Requests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-implementation">
+     Issue - Implementation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-requirements-analysis">
+     Issue - Requirements Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-design-specifications">
+     Issue - Design Specifications
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-risk-analysis">
+     Issue - Risk Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-writing-tests">
+     Issue - Writing Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-adding-dependencies">
+     Issue - Adding Dependencies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issue-problem-resolution">
+     Issue - Problem Resolution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-software-system-testing">
+     Release - Software System Testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-final-verification">
+     Release - Final Verification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="software-plan">
+<h1>Software Plan<a class="headerlink" href="#software-plan" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This document for Radiotherapy AI Pty Ltd plans how the software in
+Radiotherapy AI Contour Recommendations will be designed, developed, and maintained. It identifies the
+deliverables, tasks, roles and responsibilities involved in these processes.</p>
+<p>All software items in Radiotherapy AI Contour Recommendations are assigned a Class A software-safety
+class, which means no injury or damage to health could occur if the software
+fails [[62304:4.3.a]]. See RISK MANAGEMENT FILE for details.</p>
+<p>[[Although it would be possible to assign different safety classifications to
+different software items, to keep the process simple, we simply assign the same
+classification to all of them. This classification fulfils 62304:4.3.b,
+62304:4.3.c, 62304:4.3.d, 62304:4.3.e, 62304:4.3.f, 62304:4.3.g, and
+62304:7.2.2.b]]</p>
+<p>[[:In order to assist auditors and regulators, we have included section references to IEC62304:2006+A1:2015 as well as occasional comments throughout this document. These references and comments are always placed inside square brackets, and they are not present in the software-engineer version of the document. Other than these comments, the software-engineer version is identical to the auditor version of this document.]]</p>
+<p>[[FDA-CPSSCMD:dev-environment]]</p>
+</div>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>This document applies to the software in Radiotherapy AI Contour Recommendations.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<p>[[:Most of these definitions are very similar to IEC62304:2006+A1:2015’s definitions. However, they have been modified as appropriate for a better understanding by software engineers.]]</p>
+<p><strong>Activity</strong> – A set of one or more interrelated or interacting tasks. An activity has an input, an output, and verification tasks. Records of activity outputs must be available in case of an audit.</p>
+<p><strong>Change Request</strong> – A documented specification of a change to be made to the software system.</p>
+<p><strong>Configuration Item</strong> – An entity (e.g., compiler, software library, source code file, markdown document, Docker image, etc.) that can be uniquely identified using a particular version or Git hash.</p>
+<p><strong>Harm</strong> – The physical injury or damage of health of people (patients or users), or damage to property or the environment.</p>
+<p><strong>Hazard</strong> – A potential source of harm.</p>
+<p><strong>Hazardous Situation</strong> – A circumstance in which people, property, or the environment is exposed to one or more hazard(s). Not every hazardous situation leads to harm.
+Software is not itself a hazard because it can not directly cause harm, but software can contribute towards producing hazardous situations.</p>
+<p><strong>Known Anomaly</strong> – A problem report that we do not plan on addressing.</p>
+<p><strong>Problem Report</strong> – A record of actual or potential behavior of a software product that a user or other interested person believes to be unsafe, inappropriate for the intended use, or contrary to specification.</p>
+<p><strong>Public Release</strong> – A <em>release</em> that is made available to medical device users.</p>
+<p><strong>Record</strong> – A special type of document that states the results achieved or provides evidence that activities were performed. Unlike other documents—such as this software plan—records are not usually revised after being approved.</p>
+<p><strong>Release</strong> – A version of the software system which may or may not be ready to be made publicly available.</p>
+<p><strong>Risk</strong> – The combination of the probability of harm and the severity of that harm.</p>
+<p><strong>SOUP</strong> – <strong>Software of unknown provenance</strong>, also known as “off-the-shelf software”, is a <strong>software item</strong> that has not been developed for the purpose of being incorporated into the medical device and for which adequate records of the development processes are not available. Most software dependencies are SOUP, and thus the terms are sometimes used interchangeably.</p>
+<p><strong>Safety</strong> – Freedom from unacceptable risk. Note that it does not mean that there is no risk, as that is impossible. The perception of risk can depend greatly on cultural, socio-economic, and educational background, the actual and perceived state of health of the patient, and whether the hazard was avoidable.
+Our obligation as medical device software developers is to develop safe devices while also balancing economic constraints. A device that is never reaches the market can’t help patients.</p>
+<p><strong>Software Item</strong> – A module within the software system which may further decomposed into smaller software items. The <strong>software system</strong> is itself a software item, and thus the software items for a hierarchy. See the software design specification for a description of how the software system is decomposed into smaller software items.</p>
+<p><strong>Software Requirement</strong> – A particular function that the software must support or some other constraint that the software must fulfill. Requirements describe the <em>what</em>, while specifications and designs describe the <em>how</em>.</p>
+<p><strong>Software System</strong> – All of the software in the project. The software system is decomposed into <strong>software items</strong>.</p>
+<p><strong>Software Unit</strong> – A software item that is not further subdivided.</p>
+<p><strong>Task</strong> – The smallest piece of work that needs to be done.</p>
+</div>
+<div class="section" id="development-life-cycle-model">
+<h3>Development Life Cycle Model<a class="headerlink" href="#development-life-cycle-model" title="Permalink to this headline">¶</a></h3>
+<p>Radiotherapy AI Contour Recommendations will be developed using an agile software development life-cycle model inspired by <em>AAMI TIR45: 2012/(R)2018, “Guidance on the use of AGILE practices in the development of medical device software”</em> [[by “agile” we mean a combined evolutionary and incremental life-cycle model]]. Activities occur in four layers:</p>
+<ol class="simple">
+<li><p>Project</p></li>
+<li><p>Release</p></li>
+<li><p>Sprint</p></li>
+<li><p>Issue</p></li>
+</ol>
+<p>Project-layer activities govern the entire project. Release-layer activities govern a particular release. A project consists of one or more releases. Some releases may be for internal purposes, while others are publicly available. Releases are organized using GitLab milestones. The sprint layer is used to organize releases into smaller sets of work. Sprints are organized by assigning software engineers to GitLab issues during <a class="reference external" href="#sprint---planning">Sprint Planning Meetings</a>. Issue-layer activities govern a small piece of functionality or a problem report. Issues are organized using GitLab issues.</p>
+<p>Activity inputs and outputs need not be in a consistent state in-between public releases, but all activity outputs must be consistent and verified for each public release during the <a class="reference external" href="#release---final-verification">Release - Final Verification activity</a>. See Figure 1 for a diagram that includes the four layers, activities, and their outputs.</p>
+<p><img alt="The four-layer agile development life-cycle with activities and their output documents." src="_images/lifecycle-processes.png" /></p>
+</div>
+<div class="section" id="roles-and-responsibilities">
+<h3>Roles and Responsibilities<a class="headerlink" href="#roles-and-responsibilities" title="Permalink to this headline">¶</a></h3>
+<p>The activities described in this document are designed for a team composed of a project lead and a team of software engineers. Role assignments are listed below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Person</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Socrates</p></td>
+<td><p>Project Lead</p></td>
+</tr>
+<tr class="row-odd"><td><p>Socrates</p></td>
+<td><p>Software Engineer</p></td>
+</tr>
+<tr class="row-even"><td><p>Plato</p></td>
+<td><p>Software Engineer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aristotle</p></td>
+<td><p>Software Engineer</p></td>
+</tr>
+<tr class="row-even"><td><p>Wittgenstein</p></td>
+<td><p>Software Engineer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="documentation-plan">
+<h3>Documentation Plan<a class="headerlink" href="#documentation-plan" title="Permalink to this headline">¶</a></h3>
+<p>Regulatory documents are stored, reviewed, and modified in the git repository, often alongside code changes [[62304:5.1.8.d]]. Here are the document deliverables that are produced for each release:</p>
+<p>The <strong>Level of Concern</strong> document is written by the project lead based on the RISK MANAGEMENT FILE. It is reviewed by the project lead during the <a class="reference external" href="#release---final-verification">Release Verification activity</a>.</p>
+<p>The <strong>Software Requirements Specification</strong>, or <strong>SRS</strong>, describes what the software needs to accomplish. A first draft is written by the project lead during the <a class="reference external" href="#project---initial-requirements-analysis">Initial Requirements Analysis activity</a>, and is finalized by the project lead during the <a class="reference external" href="#release---final-verification">Release Verification activity</a>. Software engineers may clarify and extend the document during <a class="reference external" href="#issue---requirements-analysis">Issue Implementation</a>.</p>
+<p>The <strong>Software Design Specification</strong>, or <strong>SDS</strong>, describes how the software meets the requirements in the SRS. A first draft is written by the project lead during the <a class="reference external" href="#project---initial-architectual-design">Initial Architectural Design activity</a>. Software engineers extend and improve it during <a class="reference external" href="#issue---design-specifications">Issue Implementation</a>. It is reviewed for consistency by the project lead during the <a class="reference external" href="#release---final-verification">Release Verification activity</a>.</p>
+<p>Note that the <strong>Software Description</strong> and <strong>Software Architecture Chart</strong> documents, which are requested in the FDA’s 2005 “Guidance for the Content of Premarket Submissions for Software Contained in Medical Devices”, are both included as sections in the SDS.</p>
+<p>The <strong>Release History</strong> record includes a list of change requests and problem reports addressed within a particular release. It also records all of the implemented changes and their verification via code reviews in the release. Finally, it lists all known anomalies present in the release. This document is generated from records extracted from GitLab merge requests and issues that are created during several activities, but most especially the <a class="reference external" href="#issue---merge-request-review">Merge Request Review activity</a>. The document is reviewed by the project lead during the <a class="reference external" href="#release---final-verification">Release Verification activity</a>.</p>
+<p>The <strong>Test Record</strong> describes a set of tests which were run, when, and by who. It also must include enough details to reproduce the testing setup. It is produced during the <a class="reference external" href="#release---software-system-testing">Software System Testing activity</a>. There will be at least one such record produced for each release.</p>
+<p>The <strong>Release Record</strong> records the verifications steps performed by the project lead during the <a class="reference external" href="#release---final-verification">Release Verification activity</a>.</p>
+<p>[[:This section fulfills 62304:5.1.8.a, 62304:5.1.8.b, and 62304:5.1.8.c]]</p>
+</div>
+<div class="section" id="development-standards">
+<h3>Development Standards<a class="headerlink" href="#development-standards" title="Permalink to this headline">¶</a></h3>
+<p>TODO: The project lead should keep an up-to-date list of development standards here (e.g., PEP8 on a Python project). If the software system’s safety classification is not level C (the highest), you may delete this section.</p>
+<p>[[62304:5.1.4.a]]</p>
+</div>
+<div class="section" id="development-methods">
+<h3>Development Methods<a class="headerlink" href="#development-methods" title="Permalink to this headline">¶</a></h3>
+<p>TODO: The project lead should keep an up-to-date list of development methods here (e.g., Test Driven Development) if relevant. If the software system’s safety classification is not level C (the highest), you may delete this section.</p>
+<p>[[62304:5.1.4.b]]</p>
+</div>
+<div class="section" id="development-tools">
+<h3>Development Tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h3>
+<p>TODO: The project lead should keep an up-to-date list of development tools here, such as linters and versions. If the software system’s safety classification is not level C (the highest), you may delete this section.</p>
+<p>To the extent possible, checking against these standards should be performed in an automated fashion (e.g., using a linter that is run on a Git-commit hook) [[62304:5.1.4]].</p>
+<p>[[62304:5.1.4.c]]</p>
+</div>
+<div class="section" id="testing-plan">
+<h3>Testing Plan<a class="headerlink" href="#testing-plan" title="Permalink to this headline">¶</a></h3>
+<p>See the Verification and Validation Plan (VVP-001).</p>
+</div>
+<div class="section" id="configuration-management-plan">
+<h3>Configuration Management Plan<a class="headerlink" href="#configuration-management-plan" title="Permalink to this headline">¶</a></h3>
+<p>All source code and regulatory documents shall be kept within the git repository.</p>
+<p>Most software projects have build-time or run time software dependencies that are not stored in Git. Each class of these dependencies must be identified in one of the following sub-sections [[62304:5.1.9.a and 62304:8.1.1]]. The versions of all configuration items shall be specified in files stored in this git repository [[this ensures we can retrieve the history of all configuration items using the git history, as needed per 62304:8.3 and 62304:8.1.3]].</p>
+<p>TODO: The project lead should keep an up-to-date list of classes of configuration items here. A few example sections are listed below. This should include tools or settings used to develop the software.</p>
+<p>[[62304:8.1.1, 62304:5.1.10]]</p>
+<div class="section" id="hosting-dependencies">
+<h4>Hosting Dependencies<a class="headerlink" href="#hosting-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>TODO: Write out the process that will be used to ensure AWS dependencies don’t change in an uncontrolled way; delete if irrelevant.</p>
+</div>
+<div class="section" id="server-python-dependencies">
+<h4>Server Python Dependencies<a class="headerlink" href="#server-python-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>The backend server’s Python dependencies will be pinned in <code class="docutils literal notranslate"><span class="pre">server/requirements.txt</span></code>.</p>
+</div>
+<div class="section" id="frontend-compilation-dependencies">
+<h4>Frontend Compilation Dependencies<a class="headerlink" href="#frontend-compilation-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>The system dependencies used to compile the application-specific static files from the frontend (e.g., the stylesheets and JavaScript files) are pinned in <code class="docutils literal notranslate"><span class="pre">frontend/package.json</span></code> and <code class="docutils literal notranslate"><span class="pre">frontend/package-lock.json</span></code>. Changes in these dependencies are relatively low risk since problems in the document creation process will be caught during system testing. These dependencies aren’t used during runtime.</p>
+<p>To add frontend complication dependencies, use the <code class="docutils literal notranslate"><span class="pre">npm</span></code> package manager.</p>
+</div>
+<div class="section" id="frontend-runtime-dependencies">
+<h4>Frontend Runtime Dependencies<a class="headerlink" href="#frontend-runtime-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>Some frontend runtime dependencies are compiled into our static files.</p>
+<p>Others are loaded over CDNs. We only allow frontend dependencies to be loaded from other domains if <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">subsource integrity</a> is used. That is, the “integrity” HTML attribute must be present.</p>
+</div>
+</div>
+<div class="section" id="common-defects-management-plan">
+<h3>Common Defects Management Plan<a class="headerlink" href="#common-defects-management-plan" title="Permalink to this headline">¶</a></h3>
+<p>TODO: identify categories of defects that may be introduced based on the selected programming technologies for this project [[62304:5.1.12.a]]</p>
+<p>TODO: include an activity that produces evidence that demonstrates that these defects do not contribute to unacceptable risk [[62304:5.1.12.b]]</p>
+</div>
+<div class="section" id="risk-management-plan">
+<h3>Risk Management Plan<a class="headerlink" href="#risk-management-plan" title="Permalink to this headline">¶</a></h3>
+<p>TODO: reference your system-level risk management plan (note that a draft risk management plan is included in the initial set of RDM templates; this should be removed if it isn’t used):</p>
+<p>Many risk-management activities are handled by a multi-disciplinary team and are described in the system-level process ___ [[62304:4.2]]. The risk management plan will be followed for the initial regulatory release and subsequent releases [[62304:6.1.c]]. Risk-management activities that require software engineering expertise and are best handled by during the day-to-day software development are described below.</p>
+<p>Identification of new risk control measures to be implemented in software is handled at the system-level. New control measures are added as change requests and are verified and treated like any other new code [[62304:7.2.1, 62304:7.3.1, 62304:7.4.1.b, 62304:7.4.3]].</p>
+</div>
+</div>
+<div class="section" id="activities">
+<h2>Activities<a class="headerlink" href="#activities" title="Permalink to this headline">¶</a></h2>
+<p>[[:This software plan does not explicitly separate the software development process, software maintenance process, configuration management process, problem resolution process, and software-related risk management because we are using an agile software development life-cycle, and thus the processes overlap with one another significantly. The activities described here fulfills 62304:4.2, 62304:5.1.1.a, 62304:5.1.1.b, 62304:5.1.6, 62304:5.1.7, and 62304:5.1.9.b as well as, software-related portions of 14971:3.4.a, 14971:3.4.b, 14971:3.4.c, 14971:3.4.e, and 14971:3.5]]</p>
+<div class="section" id="project-onboarding">
+<h3>Project - Onboarding<a class="headerlink" href="#project-onboarding" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> A new engineer begins working on the project</p>
+<p><strong>Performed by:</strong> The new engineer</p>
+<p><strong>Inputs:</strong> Not applicable</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Documentation Review and Improvement</strong></p>
+<p>New project leads should read all documents in detail.</p>
+<p>New software engineers should skim the current SRS and SDS and read the following sections of the software plan:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#definitions">Definitions</a></p></li>
+<li><p><a class="reference external" href="#roles-and-responsibilities">Roles and Responsibilities</a></p></li>
+<li><p><a class="reference external" href="#development-life-cycle-mode">Development Life Cycle</a></p></li>
+<li><p><a class="reference external" href="#development-standards">Development Standards</a></p></li>
+<li><p><a class="reference external" href="#development-tools">Development Methods</a></p></li>
+<li><p><a class="reference external" href="#testing-plan">Testing Plan</a></p></li>
+<li><p><a class="reference external" href="#configuration-management-plan">Configuration Management Plan</a></p></li>
+<li><p><a class="reference external" href="#project---onboarding">Project - Engineer Onboarding (i.e., this activity!)</a></p></li>
+<li><p><a class="reference external" href="#project---creating-change-requests">Project - Creating Change Requests</a></p></li>
+<li><p><a class="reference external" href="#issue---creating-merge-requests">Issue - Creating Merge Requests</a></p></li>
+<li><p><a class="reference external" href="#issue---reviewing-merge-requests">Issue - Reviewing Merge Requests</a></p></li>
+<li><p><a class="reference external" href="#issue---implementation">Issue - Implementation</a></p></li>
+<li><p><a class="reference external" href="#issue---adding-dependencies">Issue - Adding Dependencies</a></p></li>
+</ul>
+<p>If you notice outdated information, typos, or opportunities for clarification, create a new merge request that addresses the issue.</p>
+</li>
+<li><p><strong>Development Environment</strong></p>
+<p>Set up your development environment following the instructions in the README.</p>
+</li>
+<li><p><strong>Git Hooks</strong></p>
+<p>If desired, run the <code class="docutils literal notranslate"><span class="pre">rdm</span> <span class="pre">hooks</span></code> command to install git hooks that will automatically add change request numbers to your git commit messages.</p>
+</li>
+<li><p><strong>Run Tests</strong></p>
+<p>Following the instructions in the project’s README, run all of the tests and confirm they’re passing. If they’re not passing, inform the project lead.</p>
+</li>
+<li><p><strong>Update Person Directory</strong></p>
+<p>Add yourself to the <code class="docutils literal notranslate"><span class="pre">data/people.yml</span></code> file. Include this change in your merge request.</p>
+</li>
+<li><p><strong>Discuss with Project Lead</strong></p>
+<p>Assign the merge request to the project lead. Write your questions in the description. Schedule a call if appropriate. Once approved, merge in the changes.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Documentation improvements and role entry</p>
+<p><strong>Verified by:</strong> Project Lead</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Verify Merge Request</strong></p>
+<p>Ensure the person is added to <code class="docutils literal notranslate"><span class="pre">data/people.yml</span></code>. Ensure all of the suggested changes are appropriate.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="project-planning-and-setup">
+<h3>Project - Planning and Setup<a class="headerlink" href="#project-planning-and-setup" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Start of a new project</p>
+<p><strong>Performed by:</strong> Project Lead</p>
+<p><strong>Inputs:</strong> User needs and system requirements</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>GitLab Repository Setup</strong></p>
+<p>Set up a git repository on GitLab.</p>
+<p>Configure GitLab to disable <a class="reference external" href="https://git-scm.com/docs/git-push#Documentation/git-push.txt--f">forced pushes</a>. This ensures users can’t overwrite the project history.</p>
+<p>Configure GitLab to only accept <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work">signed commits</a>. Signed commits ensure that code changes can be traced back to the person who made the changes.</p>
+<p>Configure GitLab to require merge-request reviews as appropriate. Consider using the CODEOWNERS file to ensure the proper reviewers review changes to particular files. E.g., perhaps the project lead will be the code owner of the software plan.</p>
+<p>Create the following issue labels:</p>
+<ul class="simple">
+<li><p>Bug</p></li>
+<li><p>External-Review</p></li>
+<li><p>Obsolete</p></li>
+</ul>
+<p>Create a GitLab milestone that is named “icebox”. This milestone will be used to tag issues that may be included in future releases.</p>
+<p>Consider adding a GitLab issue template to enforce the format for problem reports. See <a class="reference external" href="#issue---problem-resolution">Issue - Problem Resolution</a>.</p>
+</li>
+<li><p><strong>Initialize Regulatory Documents</strong></p>
+<p>Install <a class="reference external" href="https://github.com/innolitics/rdm">RDM</a> and its dependencies. Initialize the regulatory templates using the <code class="docutils literal notranslate"><span class="pre">rdm</span> <span class="pre">init</span></code> command.</p>
+</li>
+<li><p><strong>Configure RDM</strong></p>
+<p>Edit the default values in <code class="docutils literal notranslate"><span class="pre">config.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">data/device.yml</span></code>, and <code class="docutils literal notranslate"><span class="pre">data/workflow.yml</span></code> as appropriate.</p>
+</li>
+<li><p><strong>Refine Software Plan</strong></p>
+<p>Read through this software plan and modify it as appropriate. Use the audit notes to refer back to IEC62304:2006+A1:2015 to ensure your modifications are compliant.</p>
+<p>Search through this document for the text “TODO”. Follow the instructions next to the “TODO” notes and delete the instructions once they’re addressed.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> The updated software plan document and the hosted git repository</p>
+<p><strong>Verified by:</strong> Project Lead</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>TODOs</strong></p>
+<p>Ensure all the outstanding TODOs in the software plan have been addressed.</p>
+</li>
+<li><p><strong>Gap Audit</strong></p>
+<p>Compile the release version of the markdown documents (e.g., by running <code class="docutils literal notranslate"><span class="pre">make</span></code>). Then run a gap audit to help ensure you’re complying with IEC62304:2006+A1:2015. For example, you may run <code class="docutils literal notranslate"><span class="pre">rdm</span> <span class="pre">gap</span> <span class="pre">62304_2015_class_b</span> <span class="pre">release/*.md</span></code>. Address any gaps.</p>
+</li>
+<li><p><strong>Proof-Read Plan</strong></p>
+<p>Read through the software plan. Fix any typos. Correct any outdated information. Check that all the links work.</p>
+</li>
+<li><p><strong>Activity Specification</strong></p>
+<p>Ensure each activity specification includes</p>
+<ul class="simple">
+<li><p>the activity’s trigger events</p></li>
+<li><p>which roles should perform the activity</p></li>
+<li><p>its inputs</p></li>
+<li><p>its tasks [[62304:5.1.1.a]]</p></li>
+<li><p>its outputs [[62304:5.1.1.b 62304:5.1.6.a]]</p></li>
+<li><p>who should verify the outputs</p></li>
+<li><p>the verification tasks [[62304:5.1.6.b]] along with their acceptance criteria [[62304:5.1.6.d]].</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>Keep this planning document up to date as the project commences [[62304:5.1.2]], and step through the verification tasks whenever there are process changes.</p>
+<p>All software activity outputs will be stored in this git repository, the associated GitLab issues, or the associated GitLab merge requests, unless explicitly noted otherwise [[62304:5.1.1.b]]. Problem reports and change requests are stored as GitLab issues. A GitLab issue tagged with the <code class="docutils literal notranslate"><span class="pre">bug</span></code> label is a problem report. If a problem report outlines a set of requested changes, then it can simultaneously act as a change request. GitLab issues tagged with the <code class="docutils literal notranslate"><span class="pre">obsolete</span></code> label are ignored.</p>
+<p>The software engineers working on the project are responsible for keeping all software activity outputs within version control at the times specified in the activity descriptions [[62304:5.1.9.c, 62304:5.1.9.d, and 62304:5.1.9.e]].</p>
+<p>Also, document how the software can be reliably delivered to the point of use without corruption or unauthorized change [[62304:5.8.8]].</p>
+</div>
+<div class="section" id="project-initial-requirements-analysis">
+<h3>Project - Initial Requirements Analysis<a class="headerlink" href="#project-initial-requirements-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Start of a new project</p>
+<p><strong>Performed by:</strong> Project lead with the product owner</p>
+<p><strong>Inputs:</strong> User needs, system requirements, and risk control measures</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Definitions</strong></p>
+<p>Add definitions for key terms and acronyms to the <code class="docutils literal notranslate"><span class="pre">data/definitions.yml</span></code> file. Standard and concise definitions can clarify team communication quite a bit, much like good data abstractions can simplify a software project.</p>
+</li>
+<li><p><strong>Software Requirements</strong></p>
+<p>To the extent possible, major software requirements should be enumerated at the start of the project [[62304:5.2.1]].</p>
+<p>Write requirements, following the <a class="reference external" href="#issue---requirements-analysis">Requirements Analysis Activity</a></p>
+<p>Software requirements are often categorized as one of the following types [[62304:5.2.2 and 62304:5.2.3]]. It should help one identify key requirements:</p>
+<p>a. Functional and capability requirements [[62304:5.2.2.a]]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- performance (e.g., the purpose of the software and timing requirements),
+- physical characteristics (e.g., code language, platform, operating system),
+- computing environment (e.g., hardware, memory size, processing unit, time zone, network infrastructure) under which the software is to perform, and
+- need for compatibility with upgrades or multiple SOUP or other device versions.
+</pre></div>
+</div>
+<p>b. Software system inputs and outputs [[62304:5.2.2.b]]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- data characteristics (e.g., numerical, alpha-numeric, format) ranges,
+- limits, and
+- defaults.
+</pre></div>
+</div>
+<p>c. Interfaces between the software system and other systems [[62304:5.2.2.c]]</p>
+<p>d. Software-driven alarms, warnings, and operator messages [[62304:5.2.2.d]]</p>
+<p>e. Security requirements [[62304:5.2.2.e]]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- those related to the compromise of sensitive information,
+- authentication,
+- authorization,
+- audit trail, and
+- communication integrity.
+</pre></div>
+</div>
+<p>f. Usability engineering requirements that are sensitive to human errors and training [[62304:5.2.2.f]]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- support for manual operations,
+- human-equipment interactions,
+- constraints on personnel, and
+- areas needing concentrated human attention.
+</pre></div>
+</div>
+<p>g. Data definitions and database requirements [[62304:5.2.2.g]]</p>
+<p>h. Installation and acceptance requirements of the delivered medical device software at the operation and maintenance site or sites [[62304:5.2.2.h]]</p>
+<p>i. Requirements related to methods of operation and maintenance [[62304:5.2.2.i]]</p>
+<p>j. Requirements related to IT-network aspects [[62304:5.2.2.j&#64;2015]]</p>
+<p>k. User maintenance requirements [[62304:5.2.2.k]]</p>
+<p>l. Regulatory requirements [[62304:5.2.2.l]]</p>
+<p>m. Risk control measures</p>
+<p>Software requirements that implement risk controls should be traced to their originating risk control [[62304:5.1.1.c and 62304:7.2.2.a]].</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Draft SRS</p>
+<p><strong>Verified by:</strong> See issue-layer activities</p>
+<p><strong>Verification tasks:</strong> See issue-layer activities</p>
+</div>
+<div class="section" id="project-initial-risk-analysis">
+<h3>Project - Initial Risk Analysis<a class="headerlink" href="#project-initial-risk-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Start of a new project</p>
+<p><strong>Performed by:</strong> Risk management team</p>
+<p><strong>Inputs:</strong> Draft SRS, Draft SDS, and other documents</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Initial Risk Analysis</strong></p>
+<p>As described in the <a class="reference external" href="#risk-management-plan">Risk Management Plan</a>, perform an initial risk analysis taking into account the initial architectural design and software requirements [[62304:5.2.4]].</p>
+<p>The resulting risk analysis must include identifiable hazards and hazardous situations so that software engineers can perform their risk analysis activities.</p>
+</li>
+<li><p><strong>Share with Team</strong></p>
+<p>Once complete, link to the risk analysis in the software plan. Also, share the analysis with the software team.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Risk analysis draft, including hazards and hazardous situations</p>
+<p><strong>Verified by:</strong> Not applicable</p>
+<p><strong>Verification tasks:</strong> Not applicable</p>
+</div>
+<div class="section" id="project-creating-change-requests">
+<h3>Project - Creating Change Requests<a class="headerlink" href="#project-creating-change-requests" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Need to record a chunk of development work</p>
+<p><strong>Performed by:</strong> Anyone on the project</p>
+<p><strong>Inputs:</strong> User needs and requirements</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Write Change Request</strong></p>
+<p>There are many ways to divide requirements into change requests. Change requests that will be implemented in upcoming sprints should usually be made more granular, while change requests that may not be worked on for a while can be less granular.</p>
+<p>Since change requests may be split up later and detailed requirements are added in an agile fashion, this activity allows minimal detail to be added to the change request. Sometimes even a title is sufficient.</p>
+<p>Unless you’re the project lead, don’t assign the issue to a release. That will be handled during sprint planning. If, however, you know that the issue won’t be tackled in any of the current releases, feel free to add it to the icebox GitLab milestone.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Change request in GitLab</p>
+<p><strong>Verified by:</strong> Not applicable</p>
+<p><strong>Verification tasks:</strong> Not applicable</p>
+</div>
+<div class="section" id="release-planning">
+<h3>Release - Planning<a class="headerlink" href="#release-planning" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> The start of a new release</p>
+<p><strong>Performed by:</strong> Project lead</p>
+<p><strong>Inputs:</strong> User needs, Draft SRS, Draft SDS, and Problem Reports</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Select Version Number</strong></p>
+<p>Each release shall have a version number.</p>
+<p>TODO: add more details about project versioning here. E.g., you may want to follow <a class="reference external" href="https://semver">semver</a>.</p>
+</li>
+<li><p><strong>Release Setup</strong></p>
+<p>Create the GitLab milestone for the release.</p>
+</li>
+<li><p><strong>Start a New Release Record</strong></p>
+<p>Make a copy of the Release Record and Test Record templates and fill in as much detail as is appropriate; these will be filled in before the release is finalized.</p>
+</li>
+<li><p><strong>Review Software Dependencies</strong></p>
+<p>If the release is public, determine if any software dependencies have become obsolete or should be upgraded. Also, review known anomalies in published anomalies lists as appropriate [[62304:6.1.f]].</p>
+<p>Create change requests as appropriate.</p>
+</li>
+<li><p><strong>Review Problem Reports</strong></p>
+<p>Consider outstanding problem reports in the backlog [[62304:9.4]]. Move problem reports into the current release as appropriate.</p>
+</li>
+<li><p><strong>Review Trends in Problem Reports</strong></p>
+<p>You may skip this task for the first public release.</p>
+<p>Look through historical problem reports and attempt to identify any adverse trends. For example, some software items may have many problem reports associated with them [[62304:9.6 and 14971:9.a]] or may have new or revised standards [[14971:9.b]]. Also, review past trends that were addressed in previous releases, as appropriate, and confirm the trends have been reversed [[62304:9.7.b]].</p>
+<p>Create change requests as appropriate.</p>
+</li>
+<li><p><strong>Review Risk Management File</strong></p>
+<p>Review RISK MANAGEMENT FILE for risk control measures that have not been implemented [[62304:7.2.2.c]].</p>
+<p>Create change requests as appropriate.</p>
+</li>
+<li><p><strong>Add Initial Change Requests</strong></p>
+<p>Coordinate with the product owner regarding which features should be included in the release. Create change requests for the major new features as appropriate.</p>
+<p>Create change requests as appropriate.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> A partially completed release record and the set of change requests which should be implemented for the next release</p>
+<p><strong>Verified by:</strong> Project lead</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Release Record</strong></p>
+<p>Be sure you’ve fully updated the new release record template.</p>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>Feedback and complaints are gathered and stored in USER FEEDBACK. This information should incorporated into release planning [[14971:9, 14971:3.4.f, 62304:6.1.a, 62304:6.1.b and 62304:6.2.1.1]].</p>
+<p>[[:This activity addresses 62304:6.3.1 since change requests resulting from maintenance and problem resolution are processed in the same manner in which risk control measures and feature change requests. Note that some releases are not public. The feedback collection activities are not included here because it is assumed that other processes will handle this. We also do not go into detail here regarding what criteria should be used to determine whether the feedback is considered a problem. Thus 62304:6.1.b, 62304:6.2.1.2, 62304:9.1.a, 62304:9.1.b, and 62304:9.1.c are handled elsewhere.]]</p>
+</div>
+<div class="section" id="sprint-planning">
+<h3>Sprint - Planning<a class="headerlink" href="#sprint-planning" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Usually every two weeks</p>
+<p><strong>Performed by:</strong> Engineering team during a call</p>
+<p><strong>Inputs:</strong> The list of change requests and work accomplished during the last week</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>GitLab Setup</strong></p>
+<p>Create a GitLab epic with an appropriate name, start date, and end date. This will be used to track which issues are going to be worked on in the current sprint.</p>
+</li>
+<li><p><strong>Demonstrations</strong></p>
+<p>At the start of the meeting, each engineer presents a live demonstration of their progress. These demos allow the product owner to identify gaps, misunderstandings, or inconsistencies in the requirements. (Architectural design, construction, testing, etc., can better be reviewed in merge requests).</p>
+<p>Keep the demonstrations short and appropriately high-level for their purpose. Prepare beforehand.</p>
+</li>
+<li><p><strong>Assignments for Next Sprint</strong></p>
+<p>Once the demonstrations are complete, move on to the second part of the call.</p>
+<p>Start by closing any change requests that are completed, as determined by the product owner.</p>
+<p>Next, review new change requests and problem reports that have been added since the last sprint meeting. Assign the issues to the appropriate release or delete them.</p>
+<p>Change requests that have not yet been assigned to a release have not yet been approved, and thus any work that implements these change requests should not be merged into main [[62304:8.2.1 and 62304:6.2.4]]. Being assigned to the current release means the product owner approves of the work.</p>
+<p>Finally, assign change requests to be completed by each engineer during the following sprint. Add these change requests to the GitLab epic.</p>
+</li>
+<li><p><strong>Process Retrospective</strong></p>
+<p>Finally, ask if there are any opportunities for process improvement. Typically there isn’t much time left to discuss in detail, so if large changes are proposed, it can be helpful to schedule a follow-up call.</p>
+<p>Once a process change has been agreed upon, the project lead should update the software plan to reflect the new process.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Closed change requests, change request approvals, change request assignments for the following sprint</p>
+<p><strong>Verified by:</strong> Not applicable</p>
+<p><strong>Verification tasks:</strong> Not applicable</p>
+<p><strong>Comments:</strong></p>
+<p>It’s critical that the product owner be present during most sprint planning meetings since they’re in the best position to review requirements and approve new change requests.</p>
+</div>
+<div class="section" id="issue-creating-merge-requests">
+<h3>Issue - Creating Merge Requests<a class="headerlink" href="#issue-creating-merge-requests" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Need to change documentation, code, or other files</p>
+<p><strong>Performed by:</strong> Whoever is making the change</p>
+<p><strong>Inputs:</strong> Varies depending on the change</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Identify Change Request</strong></p>
+<p>All changes must tie back to a change request [[62304:8.2.1]]. Therefore, there should be a change request before you begin work.</p>
+</li>
+<li><p><strong>Create Git Branch</strong></p>
+<p>Create a new git branch. The name should begin with the change request number, e.g., <code class="docutils literal notranslate"><span class="pre">104-short-description</span></code>. If you are working on multiple change requests at once, you can include both numbers in the name, e.g., <code class="docutils literal notranslate"><span class="pre">104-132-short-description</span></code>.</p>
+</li>
+<li><p><strong>Create Git Commits</strong></p>
+<p>Create git commits of logically related sets of changes as you make progress [[62304:5.1.1.d, 62304:6.1.e and 62304:8.2.2]]. Write commit messages with varying levels of detail, as appropriate. Typically, early on in a project, when many changes are made quickly, thorough git commit messages are less worthwhile. As the project stabilizes (and especially after the first public release), commit messages become more important.</p>
+<p>Here are some guidelines for writing commit messages:</p>
+<ul class="simple">
+<li><p>Separate subject from body with a blank line</p></li>
+<li><p>Use the body to explain what and why vs. how</p></li>
+<li><p>Limit the subject line to 50 characters</p></li>
+<li><p>Capitalize the subject line</p></li>
+<li><p>Do not end the subject line with a period</p></li>
+<li><p>Wrap the body at 72 characters</p></li>
+</ul>
+<p>All commits should include a link back to the change request. E.g., <code class="docutils literal notranslate"><span class="pre">Issue</span> <span class="pre">#104</span></code>. The <code class="docutils literal notranslate"><span class="pre">rdm</span> <span class="pre">hooks</span></code> command, which may have been set up as part of the onboarding activity, uses the numbers in the git branch name to pre-populate these. However, if you’re working on another change request within your current branch, that’s okay—just be sure to update the numbers.</p>
+<p>Push your commits to GitLab periodically to back up your work.</p>
+</li>
+<li><p><strong>Create Merge Request</strong></p>
+<p>When work on the change request(s) is nearing completion, a GitLab merge request should be created for merging your git branch into the main branch. A brief summary of the changes should be included in the merge request description. These comments will be included in the release history record.</p>
+</li>
+<li><p><strong>Assign Merge Request Reviewer</strong></p>
+<p>Once you’re ready for your changes to be reviewed, you must assign a reviewer to verify the changes. Select a reviewer (or multiple reviewers) as appropriate for the activities you performed. Each activity indicates who must verify the outputs. E.g., some activities require that the project lead be the reviewer.</p>
+<p>Occasionally, due to the absence of other reviewers or due to an internal testing deadline, it may be necessary to skip the merge request review. When this happens, the engineer should justify why a review wasn’t necessary within the merge request comments or create a change request or a “TODO” to ensure verification occurs before the next release.</p>
+<p>If, as is occasionally appropriate, someone outside of the core development team reviews a merge request, then mention who performed the review in the merge request body and tag the merge request with the <code class="docutils literal notranslate"><span class="pre">external-review</span></code> label.</p>
+</li>
+<li><p><strong>Addressing Comments</strong></p>
+<p>It’s rarely acceptable to ignore comments entirely. This is disheartening to the reviewer. If you disagree with a suggestion, then make your case. If you think a refactor would make the code better but isn’t necessary, then make your case.</p>
+<p>Once an issue is resolved, it’s best to “thumbs up” or write “fixed” in the comment that requested the change. Why is fixing the issue and pushing the change insufficient? Sometimes there is a mismatch between what the reviewer thinks is being suggested and what the author does to address the suggestion. In this situations one person may think they’ve addressed an issue while another person hasn’t.</p>
+<p>If the merge request wasn’t approved, request a new review once the comments have been addressed.</p>
+</li>
+<li><p><strong>Merging the Request</strong></p>
+<p>Merge the merge request into the main branch, resolving any conflicts that arise. Once the branch has been merged successfully, delete the branch in GitLab [[62304:5.1.5 and 62304:5.6.1]].</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Changes merged into the main branch</p>
+<p><strong>Verified by:</strong> Depends on the changes</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Merge Request Message</strong></p>
+<p>Verify that the merge request’s message describes the changes.</p>
+</li>
+<li><p><strong>Git Commit Messages Include Change Request Numbers</strong></p>
+<p>Verify that all of the git commit messages include change request numbers.</p>
+</li>
+<li><p><strong>Git Commit Message Content</strong></p>
+<p>Verify that the git commit messages are appropriate (see comments above).</p>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>This activity discusses the generic tasks involved with making <em>any</em> changes to the documents, code, or other files in the Radiotherapy AI Contour Recommendations repository. Depending on the changes being made, details from other activities will also apply.</p>
+</div>
+<div class="section" id="issue-reviewing-merge-requests">
+<h3>Issue - Reviewing Merge Requests<a class="headerlink" href="#issue-reviewing-merge-requests" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Assignment to review a merge request</p>
+<p><strong>Performed by:</strong> The reviewer</p>
+<p><strong>Inputs:</strong> The content of the merge request</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Identify Activities Performed</strong></p>
+<p>Using the merge request description and the content of the changes, determine which activities were performed and which were performed partially or completely. If it’s unclear, ask the merge-request author for clarification.</p>
+</li>
+<li><p><strong>Determine Appropriateness</strong></p>
+<p>Determine whether you’re an appropriate person to perform the verification. For example, if you’re verifying outputs for an activity that specifies the project lead should perform the verification, and you’re not the project lead, then request that the project lead perform the review.</p>
+<p>Also, if you’re reviewing code that can lead to severe patient harm and you aren’t unfamiliar with the code or don’t have enough time to perform a necessarily thorough review, then request that someone else perform the review.</p>
+</li>
+<li><p><strong>Perform Verification Activities</strong></p>
+<p>Step through the verification tasks for the performed activities [[62304:5.5.3]]. Record the tasks you perform in the review response. We recommend using a markdown checklist. Such a list may look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="n">Documents</span> <span class="ow">and</span> <span class="n">implements</span> <span class="n">software</span> <span class="n">requirements</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="n">Updates</span> <span class="n">design</span> <span class="n">specifications</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Code</span> <span class="n">construction</span> <span class="n">follows</span> <span class="n">the</span> <span class="n">project</span> <span class="n">standards</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Unit</span><span class="p">,</span> <span class="n">integration</span><span class="p">,</span> <span class="ow">or</span> <span class="n">manual</span> <span class="n">tests</span> <span class="n">are</span> <span class="n">updated</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">New</span> <span class="n">sequences</span> <span class="n">of</span> <span class="n">events</span> <span class="n">have</span> <span class="n">been</span> <span class="n">recorded</span>
+</pre></div>
+</div>
+<p>Most git hosts have features that let you save standard replies. We suggest using these.</p>
+<p>It’s okay to skip some common and low-risk verification tasks in this list. For example, there’s no need to note that the “Git Commit Messages Include Change Request Numbers” verification task was performed for each commit.</p>
+</li>
+<li><p><strong>Write Feedback</strong></p>
+<p>Write detailed feedback. Ask questions before making suggestions. Compliment good work!</p>
+<p>One purpose of code reviews is to improve the team. and improving the team, while less direct, is often the most efficient way to improve the code and device’s safety. Many medical-device software projects extend over years; small improvements to the team can make a big impact. Thus, reviews should be partially about training. This is especially true when the reviewer is much more experienced with an activity than the author, but occasional in-depth conversations among equals can improve the team.</p>
+<p>In addition to seniors teaching juniors and equals teaching each other, juniors can also learn by reviewing a senior’s code and asking questions. If you think the main purpose of reviewing code is to improve the code, then a junior engineer reviewing their senior may not feel the need to do in-depth reviews. This is not the case. You should ask questions about the code you don’t understand.</p>
+<p>If comments will be useful long after the review, consider suggesting that they be added to the documentation or code comments.</p>
+<p>You don’t always need to leave comments. Sometimes there is nothing to say. It can be helpful to distinguish the case where you were too busy to do an in-depth review from an in-depth review that didn’t result in any comments. In the latter case, it’s helpful to comment on what you reviewed and any questions you asked yourself.</p>
+<p>If you’re surprised by a change, ask the author why they did something a certain way. Sometimes there’s a good reason you hadn’t thought of, but even when there isn’t, a Socrates-style sequence of questions can teach better than dictates. On the other hand, there’s not always time for dialectic.</p>
+</li>
+<li><p><strong>Sign Off</strong></p>
+<p>If you’re satisfied with the changes, approve the merge request [[62304:8.2.4.c]]. If there are important changes that must be made before the code can be merged, indicate this.</p>
+<p>Often the activity outputs will be incomplete. This often occurs since we’re using an agile methodology. All activity outputs will be reviewed during the final release verification activity. However, if there are incomplete activity outputs, be sure they’re recorded either as “TODO” comments within the repository or as new change requests within the current release.</p>
+<p>If the suggested changes are low-risk, it’s okay to approve the merge request before the author implements them. This avoids another round-trip of approvals for a small change.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Merge-request review</p>
+<p><strong>Verified by:</strong> Not applicable</p>
+<p><strong>Verification tasks:</strong> Not applicable</p>
+</div>
+<div class="section" id="issue-implementation">
+<h3>Issue - Implementation<a class="headerlink" href="#issue-implementation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Working on an assigned change request during a sprint</p>
+<p><strong>Performed by:</strong> The engineer assigned to the change request</p>
+<p><strong>Inputs:</strong> The change request and the system architecture</p>
+<p><strong>Tasks:</strong></p>
+<p>Note that these tasks do not need to be performed in the order they’re presented. Often the design emerges during code constructions. Also, gaps in the requirements may not be clear until you begin coding. However, for bigger issues, it’s usually best to document the requirements and design first. We also recommend writing some tests first, or at least plan how you will write them first, since doing so often leads to better designs.</p>
+<ol>
+<li><p><strong>Requirements Gathering</strong></p>
+<p>Perform the <a class="reference external" href="#issue---requirements-analysis">Issue - Requirements Analysis activity</a> as appropriate.</p>
+<p>If the requirements are very uncertain, have the product owner review them before spending too much time on the design or construction.</p>
+</li>
+<li><p><strong>Design Specifications</strong></p>
+<p>Perform the <a class="reference external" href="#issue---design-specifications">Issue - Design Specifications activity</a> as appropriate.</p>
+<p>If you’re new to the project or are uncertain about the design, consider having the project lead or another engineer review your design up-front.</p>
+</li>
+<li><p><strong>Risk Analysis</strong></p>
+<p>Perform the <a class="reference external" href="#issue---risk-analysis">Issue - Risk Analysis activity</a> as appropriate.</p>
+</li>
+<li><p><strong>Testing</strong></p>
+<p>Perform the <a class="reference external" href="#issue---testing">Issue - Testing activity</a> as appropriate.</p>
+</li>
+<li><p><strong>Construction</strong></p>
+<p>During code construction, as appropriate:</p>
+<ul class="simple">
+<li><p>Follow development standards and methods specified earlier in this plan.</p></li>
+<li><p>Analyze how your changes affect the entire software system and consider whether any software items should be refactored or reused [[62304:6.2.3]]. Create “TODO” statements or change requests as appropriate.</p></li>
+<li><p>Consider whether any external systems that the software system interfaces with may be affected [[62304:6.2.3]].</p></li>
+<li><p>If the software has been released, consider whether data on existing systems needs to be migrated.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Code and documentation changes</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Requirements</strong></p>
+<p>Complete verification tasks in the <a class="reference external" href="#issue---requirements-analysis">Issue - Requirements Analysis activity</a>, as appropriate.</p>
+</li>
+<li><p><strong>Design Specifications</strong></p>
+<p>Complete verification tasks in the <a class="reference external" href="#issue---design-specification">Issue - Design Specification activity</a>, as appropriate.</p>
+</li>
+<li><p><strong>Risk Analysis</strong></p>
+<p>Complete verification tasks in the <a class="reference external" href="#issue---risk-analysis">Issue - Risk Analysis activity</a>, as appropriate.</p>
+</li>
+<li><p><strong>Testing</strong></p>
+<p>Complete verification tasks in the <a class="reference external" href="#issue---testing">Issue - Testing activity</a>, as appropriate.</p>
+</li>
+<li><p><strong>Construction</strong></p>
+<p>Ensure the code follows the project’s software standards if any.</p>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>[[:This activity addresses 62304:5.5.1]]</p>
+</div>
+<div class="section" id="issue-requirements-analysis">
+<h3>Issue - Requirements Analysis<a class="headerlink" href="#issue-requirements-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Adding or planning for new features with undocumented or changed requirements</p>
+<p><strong>Performed by:</strong> Engineer implementing, or planning for, the change</p>
+<p><strong>Inputs:</strong> Vague or partially specified requirements in the change request or knowledge of the user needs</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Evaluation</strong></p>
+<p>Is it necessary to write any new requirements [[62304:5.2.5]]?</p>
+<p>Writing software requirements is an art and a science; one must find a balance between precision and utility. If you’re writing a set of requirements and it feels like a waste of time, some of them may not be necessary, or they may be too detailed.</p>
+</li>
+<li><p><strong>Write the Software Requirements</strong></p>
+<p>Add the requirements to SOFTWARE REQUIREMENTS SOFTWARE.</p>
+<p>The distinction between software requirements and design specifications can be challenging.</p>
+<p>Requirements should:</p>
+<ul class="simple">
+<li><p>not imply solution</p></li>
+<li><p>be verifiable</p></li>
+<li><p>be short, ideally one sentence.</p></li>
+</ul>
+<p>Design specifications, on the other hand, should:</p>
+<ul class="simple">
+<li><p>be one of, possibly, many solutions</p></li>
+<li><p>be detailed.</p></li>
+</ul>
+</li>
+<li><p><strong>Tie to System Requirements</strong></p>
+<p>This project, being software as a medical device, has no system requirements [[62304:5.1.3.a 62304:5.1.3.b 62304:5.2.6.a 62304:5.2.6.f]].</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Updates to SOFTWARE REQUIREMENTS SOFTWARE</p>
+<p><strong>Verified by:</strong> Project owner</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Content Correctness</strong></p>
+<p>The product owner (and really the end-users) is best positioned to validate that the requirements are <em>correct</em>. This verification should occur during the weekly sprint planning meetings.</p>
+<p>Regardless, it’s worth reviewing the change request and ensuring that the requirements documented in SOFTWARE REQUIREMENTS SOFTWARE are consistent with your understanding.</p>
+</li>
+<li><p><strong>Formal Correctness</strong></p>
+<p>Review the documented requirements, ensuring they</p>
+<ul class="simple">
+<li><p>balance completeness with utility</p></li>
+<li><p>don’t contradict each other [[62304:5.2.6.b]]</p></li>
+<li><p>have unambiguous descriptions [[62304:5.2.6.c]]</p></li>
+<li><p>each has a unique identifier [[62304:5.2.6.e]]</p></li>
+<li><p>are stated in terms that permit the establishment of test criteria and performance of tests to determine whether the test criteria have been met [[62304:5.2.6.d]].</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="issue-design-specifications">
+<h3>Issue - Design Specifications<a class="headerlink" href="#issue-design-specifications" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Software items are added, removed, or their architecture is modified</p>
+<p><strong>Performed by:</strong> Engineer implementing, or planning for, the change</p>
+<p><strong>Inputs:</strong> The existing architecture, risk analysis, and requirements</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Determine Architectural Design</strong></p>
+<p>Determine the architectural changes needed to meet the new requirements. Keep in mind the existing architecture and risks associated with the change.</p>
+<p>Are you adding new software items or just changing existing items? Are you removing anything?</p>
+</li>
+<li><p><strong>Evaluation Need for Documentation</strong></p>
+<p>Is it necessary to document anything? Typically the high-level “why” questions are the most important to document, as they’re not usually represented in the code. If you are making small changes or if there is nothing useful to document, then you can skip this activity.</p>
+</li>
+<li><p><strong>Update the Architectural Diagrams</strong></p>
+<p>Prefer block diagrams and flow charts to textual descriptions and include these diagrams in the SDS. Indicate which software items are SOUP.</p>
+<p>We’re using the <a class="reference external" href="https://c4model.com">C4 Model</a> on this project. See <code class="docutils literal notranslate"><span class="pre">regulatory/model.c4</span></code> for details. Several images, stored in <code class="docutils literal notranslate"><span class="pre">tmp/architecture</span></code>, are generated from this file using <a class="reference external" href="https://structurizr.com">Structurizr</a>. There is a [useful online-editor] (<a class="reference external" href="https://structurizr.com/dsl">https://structurizr.com/dsl</a>) that can be used to more conveniently modify this file.</p>
+<p>Show the software and hardware interfaces between the software items and external software [[62304:5.3.2]].</p>
+</li>
+<li><p><strong>Add a Section to the SDS</strong></p>
+<p>Textual descriptions are often necessary in addition to architectural diagrams. These detailed designs should be stored as closely as possible to their corresponding source files. (The <code class="docutils literal notranslate"><span class="pre">rdm</span> <span class="pre">collect</span></code> subcommand can pull comments from source files into YAML so they can be included in the SDS.)</p>
+<p>Include detailed descriptions if they seem useful.</p>
+</li>
+<li><p><strong>User Interface Design</strong></p>
+<p>If you’re making large changes to the user interface, you need to first create user interface mockups. Don’t begin implementing the changes until the product owner has approved the user interface mockups.</p>
+<p>If you’re modifying an existing UI, consider updating the mockup first.</p>
+<p>Include the UI mockups in the SDS as appropriate.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Updates to SDS</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Evaluate SDS</strong></p>
+<p>Ensure software architecture documented in the SDS:</p>
+<ul class="simple">
+<li><p>is not more complicated than it needs to be to meet the requirements</p></li>
+<li><p>is free from contradiction with the SDS [[62304:5.4.4.b]].</p></li>
+<li><p>implements system and software requirements [[62304:5.4.4.a 62304:5.3.6.a]].</p></li>
+<li><p>is able to support interfaces between software items and between software items and hardware [[62304:5.3.6.b]].</p></li>
+<li><p>is such that the medical device architecture supports proper operation of any SOUP items [[62304:5.3.6.c]].</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="issue-risk-analysis">
+<h3>Issue - Risk Analysis<a class="headerlink" href="#issue-risk-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Software items are added, removed, or their architecture is modified</p>
+<p><strong>Performed by:</strong> Engineer implementing, or planning for, the change</p>
+<p><strong>Inputs:</strong> The design specification and system-level risk analysis</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Identify Existing or New Hazardous Situations</strong></p>
+<p>Can the software modules being worked on contribute to any of the hazardous situations listed in RISK MANAGEMENT FILE?</p>
+<p>Can you think of hazardous situations that are not listed? If so, record them in SOFTWARE RISK MANAGEMENT FILE.</p>
+<p>[[62304:7.1.1]]</p>
+</li>
+<li><p><strong>Document Sequences of Events</strong></p>
+<p>If any hazardous situations were identified in the previous step, then record any sequences of events that may lead to those hazardous situations in SOFTWARE RISK MANAGEMENT FILE [[Fulfills 62304:7.1.4 and 62304:7.1.5, and also fulfills 62304:7.3.2 and 62304:7.4.1.a, since risk control measures are created with the same process. Note that although IEC 62304 distinguishes between sequences of events leading to a hazardous situation and software causes of a hazardous situation, we consider the “cause” to mean the penultimate event in the sequence and hence don’t distinguish them in our documentation.]].</p>
+<p>When enumerating sequences of events leading to hazardous situations, consider:</p>
+<ul class="simple">
+<li><p>incorrect or incomplete specifications of functionality [[62304:7.1.2.a]]</p></li>
+<li><p>software defects in the code being added or modified [[62304:7.1.2.b]]</p></li>
+<li><p>failures or unexpected results from new or existing dependencies [[62304:7.1.2.c]]</p></li>
+<li><p>hardware failures [[62304:7.1.2.d]]</p></li>
+<li><p>other software defects that could result in unpredictable software operation [[62304:7.1.2.d]]</p></li>
+<li><p>reasonably foreseeable misuse [[62304:7.1.2.e]]</p></li>
+<li><p>unreliable network connections</p></li>
+<li><p>cybersecurity vulnerabilities</p></li>
+<li><p>interference with existing risk control measures documented in RISK MANAGEMENT FILE [[62304:7.4.2]]</p></li>
+</ul>
+<p>Only be as detailed as is useful for improving the software.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Updates to SOFTWARE RISK MANAGEMENT FILE</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Review Completeness</strong></p>
+<p>Consider whether all relevant sequences of events were captured. Also, review that the granularity of the sequences of events is appropriate.</p>
+</li>
+<li><p><strong>Review Traceability</strong></p>
+<p>Confirm that the software item, sequences of events, hazardous situation, and risk control measures can be traced together [[62304:7.3.3.a, 62304:7.3.3.b, 62304:7.3.3.c, and 62304:7.3.3.d]].</p>
+</li>
+</ol>
+<p>TODO: add a template document for the software risk management file</p>
+</div>
+<div class="section" id="issue-writing-tests">
+<h3>Issue - Writing Tests<a class="headerlink" href="#issue-writing-tests" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Requirements are added or changed, the risk analysis changes, verifying the fix for a problem report, or as needed</p>
+<p><strong>Performed by:</strong> Engineer implementing a change</p>
+<p><strong>Inputs:</strong> The requirements and risk analysis or the problem report</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Evaluate Test Type</strong></p>
+<p>Review the <a class="reference external" href="#testing-plan">Testing Plan</a>. Determine what types of tests are appropriate for the changes you’re making.</p>
+</li>
+<li><p><strong>Implement Tests</strong></p>
+<p>Implement tests as appropriate. Ensure they’re passing [62304:5.5.5, excluding documenting the result which is handled elsewhere]].</p>
+<p>TODO: add more details about testing requirements here</p>
+</li>
+<li><p><strong>Traceability</strong></p>
+<p>Each requirement must have at least one test to verify it.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Tests</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Evaluate Completeness</strong></p>
+<p>Evaluate whether the requirements are covered by the new tests.</p>
+</li>
+<li><p><strong>Evaluate Utility</strong></p>
+<p>Evaluate whether the tests will be overly fragile. Ensure they’re not too slow.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="issue-adding-dependencies">
+<h3>Issue - Adding Dependencies<a class="headerlink" href="#issue-adding-dependencies" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Incorporating a new dependency, or SOUP Software Item, into the software</p>
+<p><strong>Performed by:</strong> Engineer adding the dependency</p>
+<p><strong>Inputs:</strong> Details regarding the dependency</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Evaluation</strong></p>
+<p>Most software dependencies introduce risks. Before incorporating new dependencies, consider the following questions:</p>
+<ul class="simple">
+<li><p>Is the dependency strictly necessary? How much effort would it take to implement the provided functionality?</p></li>
+<li><p>How widely used is the SOUP? Popular libraries tend to have fewer defects, better documentation, and longer lifetimes. Consider package download counts, issue tracker traffic, and GitLab stars, etc.</p></li>
+<li><p>Is the library maintained? Consider the git commit frequency and the number of maintainers.</p></li>
+<li><p>What is the project’s license? Be sure it’s compatible with the business needs.</p></li>
+</ul>
+</li>
+<li><p><strong>Update Architectural Diagram</strong></p>
+<p>Incorporate the new SOUP item into the SDS Documentation as appropriate. The benefit to engineers, especially new engineers, should be balanced with the cost of maintaining the diagrams and the risks associated with outdated diagrams. See the <a class="reference external" href="#project---architectural-design">Project - Architectural Design</a> for details.</p>
+</li>
+<li><p><strong>Update SBOM</strong></p>
+<p>Information in the <code class="docutils literal notranslate"><span class="pre">soup.yaml</span></code> file may duplicate information found in other files (e.g., <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">package.json</span></code>).</p>
+<p>Sometimes, especially when working on software items with low levels of concern, it can be appropriate to lump a few SOUP packages into a single item within the SBOM file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">soup.yaml</span></code> should contain a sequence of mappings, each containing the keys in parenthesis below. Some keys are optional. All values must be strings.</p>
+<p>The header of each sub-section contains the <code class="docutils literal notranslate"><span class="pre">title</span></code> of the SOUP [[62304:8.1.2.a]].</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">manufacturer</span></code> is the name of the company that developed the SOUP. The lack of a manufacturer field is taken that this SOUP was developed collaboratively by the free open-source software community, and Radiotherapy AI Pty Ltd is considered the manufacturer [[62304:8.1.2.b]].</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">version</span></code> of each SOUP is a unique identifier, which specifies the version of the SOUP which is used in the software [[62304:8.1.2.c]]. The version may follow varying formats, such as <code class="docutils literal notranslate"><span class="pre">1.0.13</span></code>, <code class="docutils literal notranslate"><span class="pre">1.2r5</span></code>, or even <code class="docutils literal notranslate"><span class="pre">2021-05-05</span></code>, as appropriate.</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Updated architecture diagram and SBOM</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Completeness</strong></p>
+<p>Review the updated architecture and SBOM changes. Are they sufficiently complete?</p>
+</li>
+<li><p><strong>Formatting</strong></p>
+<p>Review the updated architecture and SBOM changes. Are they formatted correctly?</p>
+</li>
+</ol>
+</div>
+<div class="section" id="issue-problem-resolution">
+<h3>Issue - Problem Resolution<a class="headerlink" href="#issue-problem-resolution" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> You’re assigned a problem report</p>
+<p><strong>Performed by:</strong> Engineer</p>
+<p><strong>Inputs:</strong> The problem report</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p>Investigate</p>
+<p>Investigate the problem and, if possible, identify the cause and record it in the problem report [[62304:9.2.a and 62304:9.2.c]]. If possible, also note which software items were involved.</p>
+</li>
+<li><p>Risk Assessment</p>
+<p>Evaluate the problem’s relevance to safety using the software <a class="reference external" href="#risk-assessment">risk assessment activity</a> and record the result in the problem report [[62304:6.2.1.3, 62304:9.2.b, and 62304:9.2.c]].</p>
+</li>
+<li><p>Advise Relevant Parties</p>
+<p>If the problem affects devices that have been released, make sure the appropriate people are aware of the situation and have enough information to decide whether and how to notify affected parties, including users and regulators—record who you notified in the problem report.</p>
+<p>[[62304:9.3 62304:6.2.5.a and 62304:6.2.5.b details regarding who to inform and how they should be informed are assumed to be handled in other processes, and that all that the software engineers must do is pass along the appropriate details.]]</p>
+</li>
+<li><p>Fix or Defer</p>
+<p>If there’s no need to fix the issue, either because it doesn’t impact safety or otherwise, record the rationale for not taking any action [[62304:9.2.d]]. Discuss with the project lead as appropriate. Note that unaddressed problem reports are included in most regulatory submissions.</p>
+<p>If you do fix the issue, then create a merge request that fixes it. The GitLab issue that contains the problem report can also act as the corresponding change request.</p>
+<p>If feasible, include an automated test that fails prior to the fix and passes after the fix. If not feasible, record how it was verified that the problem was resolved. Also, be sure the merge request references the problem report [[62304:8.2.4.a and 62304:8.2.4.b]].</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Completed problem report and either a fix or justification as to why a fix was unnecessary</p>
+<p><strong>Verified by:</strong> Another engineer</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p>Problem Report Format</p>
+<p>If the problem is present in released medical devices <em>or</em> there is no plan on fixing the problem, then confirm that the problem report is formatted correctly. Also, check that it includes the cause, risk assessment, and justification as to why the issue wasn’t fixed, as appropriate. If the problem was found before it was released and we fixed it, there’s no need to write out all of the details.</p>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>[[:This activity addresses 62304:5.1.1.e, 62304:6.1.d, 62304:6.2.2, and 62304:5.8.2]]</p>
+</div>
+<div class="section" id="release-software-system-testing">
+<h3>Release - Software System Testing<a class="headerlink" href="#release-software-system-testing" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Need to create a software system test record</p>
+<p><strong>Performed by:</strong> An engineer</p>
+<p><strong>Inputs:</strong> The build artifacts to test</p>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li><p><strong>Start Test Record</strong></p>
+<p>Copy <code class="docutils literal notranslate"><span class="pre">documents/test_record_template.md</span></code> and name it appropriately. (Usually, it makes sense to name test records after the release they’re testing.)</p>
+<p>Add your name to the test record [[62304:5.6.7.c and 62304:5.7.5.c and 62304:9.8.g]].</p>
+<p>Add the date when you started the testing [[62304:9.8.f]].</p>
+</li>
+<li><p><strong>Unit and Integration Tests</strong></p>
+<p>Although it’s usually impossible to run the unit and integration tests in a production environment, the test environment should match the production environment as closely as possible. The test record should describe the test environment and should be detailed enough to allow another engineer to re-run the tests [[62304:5.6.7.b and 62304:5.7.5.b]]. In particular, it should include the git commit hash for the state of the code that was built and tested [[62304:9.8.c]]. Dirty working environments aren’t allowed. Details about the SOUP versions should be completely recorded according to the <a class="reference external" href="#soup-configuration-management-plan">SOUP Configuration Management Plan</a> [[62304:9.8.c]]. Any relevant environment variables should also be included. Any testing tools [[62304:9.8.e]] or hardware should also be recorded [[62304:9.8.d]].</p>
+<p>Run the unit and integration tests. Include the list of tests that were run and whether they passed or failed [[62304:5.6.7.a 62304:5.7.5.a]].</p>
+</li>
+<li><p><strong>Manual System Testing</strong></p>
+<p>The manual tests will be run on a staging environment that is as similar to the production environment as possible. The test record should describe the staging environment and should be detailed enough to allow the tests to be re-run [[62304:5.6.7.b and 62304:5.7.5.b]].</p>
+<p>Run the manual tests. Include the list of tests that were run and whether they passed or failed [[62304:5.6.7.a 62304:5.7.5.a]].</p>
+</li>
+<li><p><strong>Reporting Test Failures</strong></p>
+<p>Any test failures shall be recorded as problem reports [[62304:5.6.8 62304:5.7.4.d]]. See the <a class="reference external" href="#prepare-problem-report">prepare problem report activity</a> for details [[62304:5.7.2]]. If any merge requests are implemented in response to these problem reports, the tests must be re-run [[62304:5.7.3.a 62304:5.7.3.b]]. If it is deemed unnecessary to re-run some of the tests, the justification as to why shall be included in the test record [[62304:5.7.3.c note that the risk management activities for (c) will be handled as part of the unit implementation and testing activity]].</p>
+</li>
+<li><p><strong>Completing the Test Record</strong></p>
+<p>Finish filling in the rest record. Be sure it records whether the overall test-run passes or fails according to the criteria listed in the <a class="reference external" href="#testing-plan">Testing Plan</a> [[62304:5.6.7.a 62304:5.6.4]].</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Completed test record and any problem reports</p>
+<p><strong>Verification tasks:</strong></p>
+<ol>
+<li><p><strong>Review Test Record</strong></p>
+<p>Ensure the test record is completed correctly:</p>
+<ul class="simple">
+<li><p>Check that all of the tests have been run.</p></li>
+<li><p>Confirm that there is enough detail to recreate the test environment.</p></li>
+<li><p>Confirm that the overall test-run result is consistent with the <a class="reference external" href="#testing-plan">Testing Plan</a>.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Comments:</strong></p>
+<p>[[:Note that we combine our integration and system testing into one activity. We presume that if our integration tests and system tests are passing, no new problems were introduced, per 62304:9.7.d. We also do not distinguish regression tests from tests used for new materiel; we run all of the tests for each release. Therefore, there is no explicit need for regression tests as required in 62304:5.6.6. If the test suite grows very long regression testing may be added in the future.]]</p>
+</div>
+<div class="section" id="release-final-verification">
+<h3>Release - Final Verification<a class="headerlink" href="#release-final-verification" title="Permalink to this headline">¶</a></h3>
+<p><strong>Trigger:</strong> Need to create a public release</p>
+<p><strong>Performed by:</strong> Project lead</p>
+<p><strong>Inputs:</strong> Code and documentation changes since the last release</p>
+<p><strong>Tasks:</strong></p>
+<p>If deficiencies are found while performing this activity, create change requests to address them.</p>
+<ol>
+<li><p><strong>Release Verification</strong></p>
+<p>Complete these verification steps, filling in the release record that was started during the <a class="reference external" href="#release---planning">Release - Planning activity</a>:</p>
+<ul class="simple">
+<li><p>Search the codebase and documentation for the sequence “TODO” comments. Address any that must be fixed prior to this release. None of them need to be fixed for this release. Address any comments</p></li>
+<li><p>Review change requests in GitLab. Check that all planned change requests have been implemented and integrated [[62304:5.6.2.a, 62304:5.6.2.b and 62304:9.7.c]]. If there are unimplemented change requests, either move them to the next release or implement them prior to continuing the release activity.</p></li>
+<li><p>Review outstanding problem reports. Confirm that none of the known anomalies result in unacceptable risk [[62304:5.8.3, and 62304:5.8.4]]. Confirm that any problem reports that were fixed are closed [[62304:9.7.a]].</p></li>
+<li><p>The outputs of each activity are in a consistent state [[62304:5.1.6.c, 62304:5.1.6.d, and 62304:5.8.6]].</p></li>
+<li><p>The unit tests adequately verify the software units [[62304:5.5.2]]. If not, create a change request to write unit tests to fill the gaps.</p></li>
+<li><p>The integration tests adequately verify the software system [[62304:5.6.5 and 62304:5.7.4.c]]. If not, create a change request to write integration tests to fill the gaps.</p></li>
+<li><p>All software requirements can be traced to appropriate verification [[62304:5.7.4.a, 62304:5.7.4.b, 62304:5.7.4.d]].</p></li>
+<li><p>Read through the SDS. Make sure it is accurate and appropriately complete. If not, create a change request specifying the gaps that need to be filled.</p></li>
+<li><p>The Release History Document is up-to-date.</p></li>
+</ul>
+</li>
+<li><p><strong>Build the Release Artifacts</strong></p>
+<p>Following the instructions in the README, build the release artifacts.</p>
+</li>
+<li><p><strong>Integration and Testing</strong></p>
+<p>Follow the <a class="reference external" href="#release---software-system-testing">Release - Software System Testing activity</a> and complete the test record [[62304:5.6.3, 62304:5.8.1, 62304:8.2.3]]. Verify that the test results meet the required pass/fail criteria [[62304:5.7.4.d]]. If anomalies are found, fix them and restart the release process [[62304:7.3.3.d 62304:5.8.1 62304:5.5.5]]].</p>
+</li>
+<li><p><strong>Tag the Release Git Commit</strong></p>
+<p>TODO: fill in the versioning scheme for this particular project</p>
+<p>Following the versioning scheme specified in the <a class="reference external" href="#configuration-management-plan">Configuration Management Plan</a>, determine the correct version.</p>
+<p><a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">Tag</a> the git commit that was used to build the release with this tag. (Note that the documents will be updated in a later commit.)</p>
+</li>
+<li><p><strong>Archive the Release Build Artifacts</strong></p>
+<p>[[:This activity addresses 62304:6.3.2, since development releases and maintenance releases are treated equivalently]]</p>
+<p>TODO: write out the details of where we will archive the build artifacts</p>
+<p>The purpose of the archive is to provide a means to re-test problems that may occur in an old version of the software.</p>
+<p>Archived releases shall be kept indefinitely.</p>
+</li>
+<li><p><strong>Complete the Release Record</strong></p>
+<p>Sign and fill in the release record.</p>
+<p>Compile the documents into PDFs.</p>
+</li>
+<li><p><strong>Archive the Release Documents</strong></p>
+<p>[[:This section fulfills 62304:5.8.7.a and 62304:5.8.7.b; note that documentation and configuration items are archived automatically due to the fact that they are stored in the git repository.]]</p>
+</li>
+</ol>
+<p><strong>Outputs:</strong> Archived software release artifacts, release record, and documentation</p>
+<p><strong>Verified by:</strong> Not Applicable</p>
+<p><strong>Verification tasks:</strong> Not Applicable</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="software-design-specification.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Software Design Specification</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="software-requirements-specification.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Software Requirements Specification</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Radiotherapy AI Pty Ltd<br/>
+    
+        &copy; Copyright 2021 – 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

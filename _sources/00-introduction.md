@@ -1,10 +1,10 @@
 # Introduction
 
-These documents corresponds to version `0.1.16` of the Radiotherapy AI's
-Contour Recommendation software. Currently this software is pre-release, and
-both the software and this document is expected to change before it is
-available for clinical use. Please reference the version of this document that
-is supplied to you with the software itself.
+These documents corresponds to version `v0.1.16` of the
+Radiotherapy AI Contour Recommendations software. Currently this software is pre-release, and both the
+software and this document is expected to change before it is available for
+clinical use. Please reference the version of these documents that is supplied
+to you with the software itself.
 
 ## Documentation under development out in the open
 
