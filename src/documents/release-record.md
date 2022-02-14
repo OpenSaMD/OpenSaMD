@@ -7,7 +7,8 @@ title: Software Release Record
 
 ## Purpose
 
-The purpose of this document is to provide a record of the verification steps for the software release activity, as performed for {{device.name}}.
+The purpose of this document is to provide a record of the verification steps
+for the software release activity, as performed for {{device.name}}.
 
 ## Scope
 
@@ -15,7 +16,8 @@ This document applies to {{device.name}} release {{device.version}}.
 
 ## Release Build Environment
 
-TODO: Record details about how the software release artifact was built. This should be detailed enough that another engineer could reproduce the artifact.
+TODO: Record details about how the software release artifact was built. This
+should be detailed enough that another engineer could reproduce the artifact.
 
 [[62304:5.8.5]]
 
@@ -31,6 +33,9 @@ I, PROJECT LEAD'S NAME, verify the following:
 - [ ] the integration tests adequately verify the software units
 - [ ] all software requirements have been tested or otherwise verified
 - [ ] the software design specification is accurate and up-to-date
-- [ ] integration and system testing activity has been completed after the last change request was integrated, and a test record has been written and linked to here
+- [ ] integration and system testing activity has been completed after the last
+  change request was integrated, and a test record has been written and linked
+  to here
 - [ ] none of the known anomalies result in unacceptable risk
-- [ ] the test results meet the required pass/fail criteria listed in Testing Plan section of the Software Plan document.
+- [ ] the test results meet the required pass/fail criteria listed in Testing
+  Plan section of the Software Plan document.

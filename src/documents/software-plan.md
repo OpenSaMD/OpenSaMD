@@ -8,23 +8,35 @@ title: Software Plan
 
 ## Purpose
 
-This document for {{device.manufacturer}} plans how the software in {{device.name}} will be designed, developed, and maintained. It identifies the deliverables, tasks, roles and responsibilities involved in these processes.
+This document for {{device.manufacturer}} plans how the software in
+{{device.name}} will be designed, developed, and maintained. It identifies the
+deliverables, tasks, roles and responsibilities involved in these processes.
 
 {% if device.safety_class == "A" %}
 
-All software items in {{device.name}} are assigned a Class A software-safety class, which means no injury or damage to health could occur if the software fails [[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
+All software items in {{device.name}} are assigned a Class A software-safety
+class, which means no injury or damage to health could occur if the software
+fails [[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
 
 {% elif device.safety_class == "B" %}
 
-All software items in {{device.name}} are assigned a Class B software-safety class, which means non-serious injury could occur if the software fails [[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
+All software items in {{device.name}} are assigned a Class B software-safety
+class, which means non-serious injury could occur if the software fails
+[[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
 
 {% else %}
 
-All software items in {{device.name}} are assigned a Class C software-safety class, which means death or serious injury could occur if the software fails [[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
+All software items in {{device.name}} are assigned a Class C software-safety
+class, which means death or serious injury could occur if the software fails
+[[62304:4.3.a]]. See {{workflow.risk_management_file}} for details.
 
 {% endif %}
 
-[[Although it would be possible to assign different safety classifications to different software items, to keep the process simple, we simply assign the same classification to all of them. This classification fulfills 62304:4.3.b, 62304:4.3.c, 62304:4.3.d, 62304:4.3.e, 62304:4.3.f, 62304:4.3.g, and 62304:7.2.2.b]]
+[[Although it would be possible to assign different safety classifications to
+different software items, to keep the process simple, we simply assign the same
+classification to all of them. This classification fulfils 62304:4.3.b,
+62304:4.3.c, 62304:4.3.d, 62304:4.3.e, 62304:4.3.f, 62304:4.3.g, and
+62304:7.2.2.b]]
 
 [[:In order to assist auditors and regulators, we have included section references to {{workflow.version_of_62304}} as well as occasional comments throughout this document. These references and comments are always placed inside square brackets, and they are not present in the software-engineer version of the document. Other than these comments, the software-engineer version is identical to the auditor version of this document.]]
 

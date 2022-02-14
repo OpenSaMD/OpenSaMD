@@ -1,22 +1,269 @@
-- id: r-1
-  title: First Example Requirement
-  system_requirements: [SR-6]
-  description: A brief description of the requirement; should use the world "shall".  If the software is a "software only device", then no "system_requirements" are necessary---you can remove these keys completely.  They are only necessary for medical devices with a hardware component.
+- id: r-1-1
+  title: Patient privacy is retained
+  description: >
+    When patient data is submitted to the cloud infrastructure it shall be
+    de-identified.
   specifications: |
-      The specification should describe *how* the requirement is met.  Thus, the requirement is the *what* and the specification is the *how*.
+    Utilising the DICOM standard to flag header items that are deemed
+    non-identifying, then utilising symmetric Fernet encryption with a client
+    side key to encrypt all remaining header items. Utilise a well maintained
+    cryptography library that is held to a high standard by the community.
 
-      Specifications are written using github-flavored markdown.
-- id: r-2
-  title: Second Example Requirement
-  system_requirements: [SR-6, SR-11]
-  description: Requirements describe what the software needs to do, and not how.
+    Provide a means to block certain DICOM file types that are not regularly
+    used within Radiotherapy but do sometimes have patient information burnt
+    into the pixel values of the image. This is to protect against an
+    accidental bulk DICOM send causing burnt in patient information to being
+    uploaded into the cloud.
+
+- id: r-1-2
+  title: Patient data stays within the organisation's legislative jurisdiction
+  description: >
+    All storage and computation on the de-identified patient data has to be
+    undergone within the organisation's legislative jurisdiction.
   specifications: |
-      Another specification goes here.
-- id: r-3-1
-  title: Third Example Requirement Nested Id First Item
-  system_requirements: [SR-4]
-  description: Requirements should be verifiable (e.g., testable).
-- id: r-3-2
-  title: Fourth Example Requirement Nested Id Second Item
-  system_requirements: [SR-4, SR-7]
-  description: Requirements can be written using markdown.
+    The globally hosted API only handles API access credentials, the "global
+    API". This then hands the client over to the API hosted within the
+    organisation's legislative jurisdiction, "local API". Both of these APIs
+    utilise global load balancers meaning that information sent to these APIs
+    can have their TLS traffic unpacked on Google's servers anywhere in the
+    world. However, the information sent through to the APIs are only UIDs,
+    URLs, API access credentials, and other non patient-information. No
+    encrypted patient information, or tomographic scans are ever sent to the
+    APIs.
+
+    To submit the de-identified patient scans for storage and model inference
+    the client software provides an organisation access token as well as the
+    UID for upload to the local API. The organisation access token is unique to
+    the locally hosted DICOM server. The UID is the SOP Instance UID within the
+    DICOM header. The local API then designates a storage location within the
+    cloud storage infrastructure and responds to the user's client with an
+    upload URL. This upload URL uploads directly to the storage location within
+    the local jurisdiction. The data itself is not sent to the API.
+
+    All inference is undergone on computational hardware within the local
+    jurisdiction.
+
+    All results are returned to the customer's DICOM server via the local API
+    via download URLs that directly download the patient's results from the
+    local jurisdiction's cloud storage to the server installed locally. The
+    results themselves are not send via the API.
+
+- id: r-2
+  title: Contour quality
+  description: >
+    The contour quality is sufficient such that a clinician or radiotherapist
+    are able to refine the contours as opposed to throwing them away and
+    starting again. This is quantified by having the Dice, Surface Dice, and
+    Hausdorff metrics be similar to inter-observer variance between health
+    practitioners.
+  specifications: |
+    This is achieved through utilising a regularised UNet deep learning model.
+    Validation that this contour quality is up to standard is continuously
+    validated for every patient through an automated reporting tool as well as
+    the capacity to further drill down through the results within the provided
+    dashboard. When model results and refinements sufficiently differ a new
+    model can be produced, validated, and deployed.
+
+- id: r-3
+  title: Timeliness and robustness
+  description: >
+    The software is able to produce results promptly and reliably. Turn around
+    times should be reliably on the order of 1-5 minutes.
+  specifications: |
+    Multiple GPUs will be utilised in parallel within the cloud infrastructure
+    to run the computation.
+
+- id: r-4
+  title: Seamless integration into workflow
+  description: >
+    The software shall seamlessly integrate into the current organisation's
+    workflows. No manual steps shall be needed for the data to be sent from
+    the organisation's imaging device using the standard DICOM export and to
+    have it arrive within the planning system with all of the extra utility
+    expected by the organisation within a DICOM structure file.
+  specifications: |
+    The machine learning models will be trained such that the same model can be
+    utilised for all treatment sites and imaging modalities. This means that no
+    manual tagging or selection of treatment region is required.
+
+    The software will be set up as a DICOM server that can be installed on as
+    many systems and in as many locations as desired without any extra cost.
+    These DICOM servers receive DICOM compliant imaging and send through to the
+    TPS DICOM compliant structure files.
+
+    Items such as contour colours, names, and material codes (aka. eclipse
+    codes) will be included within these DICOM structure files and will be able
+    to be easily configured within the configuration dashboard.
+
+    Users can configure a single or multiple export locations. Export locations
+    can be DICOM targets or filesystems (local or networked).
+
+- id: r-5-1
+  title: Continuous validation of appropriate model refinement
+  description: >
+    Every patient where contours are refined shall be able to be used
+    continuously to validate whether the results are being appropriately refined
+    and hence being used according to the software's intended purpose
+  specifications: |
+    The provided dashboard and automated validation framework provided within
+    the software will be able to be able to detect if no or minimal refinements
+    are being undergone. Or if there are outliers in the amount of refining
+    occurring.
+
+- id: r-5-2
+  title: Continuous validation of the model meeting requirements
+  description: >
+    Every patient where contours are refined shall be able to be used
+    continuously to validate whether the refinements being undergone are overly
+    onerous, indicating that potentially the current model is not, or is no
+    longer meeting requirements.
+  specifications: |
+    The provided dashboard and automated validation framework provided within
+    the software will be able to be able to detect if there are significant
+    refinements consistently being undergone.
+
+- id: r-5-3
+  title: Bulk historical validation for new models
+  description: >
+    When a new model is available there will be a means for bulk submission
+    and validation of historical data to validate whether or not the new model
+    is fit for purpose and subsequent deployment.
+
+    It shall be clear which historical data was utilised to train the model and
+    which data was specifically held out from the model so as to appropriately
+    inform the wider generalisability of the model.
+  specifications: |
+    Before patient data is has its identifying information encrypted for
+    submission to the cloud an SHA224 hash is taken of the birth date, and then
+    just the first byte of that hash, representing a number between 0 and 15 is
+    then stored within the DICOM file. This number between 0 and 15 represents
+    that DICOM files data grouping. Models will only be trained on a subset of
+    those groupings, and then all DICOM files with that grouping will be
+    classified as potential training data. This will be approximately 3/4 of
+    the data. Approximately 1/8th of the data groups will be utilised to provide
+    feedback on the models capacity to generalise during model development.
+    The remaining 1/8th of the data will be designated as hold-out data, for
+    use by the clinic to receive an un-biased measure of the model's
+    performance.
+
+    So as to not dis-incentivise validation work, when patient data has already
+    been previously submitted and it is used for these bulk historical
+    validation tasks, those inference calculations will not be counted against
+    the organisation's paid quota.
+
+- id: r-5-4
+  title: Validation notification system
+  description: >
+    Provide a means to set up automated notifications, alerts, and reports to
+    a designated email address.
+  specifications: |
+    For all validation items within the validation dashboard require a means
+    for the user to set up alert thresholds and automated validation and
+    commissioning reports.
+
+- id: r-6
+  title: Improve the models based directly on the organisation's usage
+  description: >
+    The models utilised shall be able to be updated using the clinic's
+    refinements. So that contour quality continuously improves and keeps up
+    with current clinical practice.
+
+    The software shall be able to promptly facilitate whenever the clinic
+    desires a new contour type, or adjustment of the trained contouring
+    protocols.
+  specifications: |
+    Within the continuous validation framework defined above, whenever
+    structures are refined within the clinic this data is sent back to the
+    DICOM server.
+
+    The model training has been built from the ground up to support training
+    based on standard clinical data. As such, these refinements are able to
+    provide targetted feedback to the model training to achieve targetted
+    improvements.
+
+- id: r-7
+  title: Simple distributed configuration
+  description: >
+    Any user with access to the organisation's configuration dashboard should
+    be able to easily and remotely bulk configure any DICOM server installed
+    for that organisation. This includes DICOM servers that are installed
+    within separate legislative jurisdictions.
+  specifications: |
+    Each user is assigned to the relevant organisation. And each organisation
+    has designated legislative jurisdictions. Upon installation of a DICOM
+    server it is configured to be within one of the organisation's legislative
+    jurisdictions.
+
+    Upon installation of each DICOM server that server is given a customisable
+    name to help the user identify which server that is, the hostname of the
+    computer it is installed on, and what legislative jurisdiction it has been
+    locked into.
+
+    When a user wants to update a configuration item, such as a contour name,
+    material code, or DICOM send location, this will be able to be done through
+    the configuration dashboard. Any DICOM server will be able to be configured
+    through this dashboard from any of the organisation's locations.
+
+    This dashboard can also be utilised to schedule DICOM servers to run a
+    software update.
+
+- id: r-8
+  title: Simple installation and minimal system requirements
+  description: >
+    The DICOM server shall install simply and quickly. It shall be able to
+    install on a standard Windows 10 machine with minimal systems
+    specifications. Installation alongside other software shall cause no issue.
+  specifications: |
+    Vendor end-to-end testing of the software is undergone on a Windows 10
+    machine with minimal requirements. This is 4 GB of RAM, 4 CPU cores and
+    a 128 GB SSD hard drive without a dedicated GPU.
+
+    All intensive computation is undergone in the cloud.
+
+    The most complicated part of the installation is transferring the
+    organisation's encryption key. The organisation is to have a client side
+    encryption key that is generated on the organisation's machine and shared
+    between all DICOM servers that are within the same legislative
+    jurisdiction. The software shall provide a means to backup this encryption
+    key and transfer it to new DICOM servers for installation.
+
+    The primary system requirements end up being the network upload speed
+    required for reliable and prompt results. It is recommended that the server
+    can reliably achieve upload speeds of at least 20 Mbits / s.
+
+- id: r-9
+  title: Provide clear reference to the basis of the contour recommendation
+  description: >
+    Shall clearly reference the basis of the contour recommendations,
+    by including a reference to the organisation's contouring protocols. This
+    is so that these protocols can be easily and readily independently reviewed
+    by the health practitioner. Their judgement can then be utilised whether or
+    not the contour recommendations appropriately align with the written
+    protocol.
+
+    This is as per the requirement of the TGA for exempt clinical decision
+    support software.
+  specifications: |
+    A file path or URL that references each of the organisation's contouring
+    protocols is attached to the DICOM ROI Description field. It is then up to
+    the corresponding TPS to appropriately display this description field to
+    the user for their reference.
+
+- id: r-10
+  title: Structure DICOM files are not pre-approved
+  description: >
+    The software shall only send unapproved structure files to the TPS.
+  specifications: |
+    All generated DICOM files that are sent to the planning system are
+    explicitly set to be not approved within the DICOM header.
+
+- id: r-11
+  title: Able to opt to only upload data
+  description: >
+    Provide a DICOM target which allows for the option for only data uploading.
+  specifications: |
+    Provide two DICOM targets, one DICOM target for upload only, the other
+    DICOM target for running inference.
+
+    Potentially provide other DICOM targets to be configurable to achieve
+    other tasks.
