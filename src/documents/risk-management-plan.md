@@ -13,11 +13,11 @@ update.
 
 ## Purpose
 
-This risk management plan describes the activites that are performed in order to
-identify hazards and hazardous situations, estimate and evaluate the associated
-risks, control these risks, and monitor the effectiveness of the risk control
-measures. These steps will be performed throughout the life cycle of the medical
-device.
+This risk management plan describes the activites that are performed in order
+to identify hazards and hazardous situations, estimate and evaluate the
+associated risks, control these risks, and monitor the effectiveness of the
+risk control measures. These steps will be performed throughout the life cycle
+of the medical device.
 
 This risk management plan is intended to fulfill the requirements of ISO
 14971:2019.

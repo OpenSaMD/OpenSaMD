@@ -8,9 +8,14 @@ title: Software Design Specification
 
 ## Purpose
 
-This document describes _how_ {{device.name}} shall fulfill the requirements described in the software requirements specification. It discusses the computation hardware the software will be expected run on, the software system's architecture, functional specifications associated with each software requirement, and user interface mockups.
+This document describes _how_ {{device.name}} shall fulfil the requirements
+described in the software requirements specification. It discusses the
+computation hardware the software will be expected run on, the software
+system's architecture, functional specifications associated with each software
+requirement, and user interface mockups.
 
-It is written primarily for engineers working on {{device.name}}, who have the source code available, in addition to this document.
+It is written primarily for engineers working on {{device.name}}, who have the
+source code available, in addition to this document.
 
 [[The legacy Software option of 62304:4.4 is not in use here.]]
 
@@ -22,11 +27,21 @@ This document applies to {{device.name}} release {{device.version}}.
 
 ## Definitions
 
-The **Food and Drug Administration (FDA)** is a United State government agency responsible for protecting the public health by ensuring the safety, efficacy, and security of human and veterinary drugs, biological products, and medical devices.
+The **Food and Drug Administration (FDA)** is a United State government agency
+responsible for protecting the public health by ensuring the safety, efficacy,
+and security of human and veterinary drugs, biological products, and medical
+devices.
 
-The **Health Insurance Portability and Accountability Act** (HIPAA) is a United States law designed to provide privacy standards to protect patients' medical records and other health information provided to health plans, doctors, hospitals and other healthcare providers.
+The **Health Insurance Portability and Accountability Act** (HIPAA) is a United
+States law designed to provide privacy standards to protect patients' medical
+records and other health information provided to health plans, doctors,
+hospitals and other healthcare providers.
 
-**Protected Health Information** (PHI) means individually identifiable information that is created by {{device.name}} and relates to the past, present, or future physical or mental health or condition of any individual, the provision of health care to an individual, or the past, present, or future payment for the provision of health care to an individual.
+**Protected Health Information** (PHI) means individually identifiable
+information that is created by {{device.name}} and relates to the past,
+present, or future physical or mental health or condition of any individual,
+the provision of health care to an individual, or the past, present, or future
+payment for the provision of health care to an individual.
 
 **UI** is an acronym for user interface.
 
@@ -34,11 +49,14 @@ The **Health Insurance Portability and Accountability Act** (HIPAA) is a United 
 
 [[FDA-CPSSCMD:software-description]]
 
-TODO: Fill in the software description. Usually it should the programming language, hardware platform, operating system (if applicable), and any SOUP.
+TODO: Fill in the software description. Usually it should the programming
+language, hardware platform, operating system (if applicable), and any SOUP.
 
 ## Architecture Design Chart
 
-TODO: Add a block diagram showing a detailed depiction of functional units and software items. You may also want to include state diagrams as well as flow charts [[FDA-CPSSCMD:architecture-design-chart]]
+TODO: Add a block diagram showing a detailed depiction of functional units and
+software items. You may also want to include state diagrams as well as flow
+charts [[FDA-CPSSCMD:architecture-design-chart]]
 
 ## Software Items
 
@@ -110,7 +128,9 @@ _Functional Specifications:_
 
 TODO:
 
-If you have user interface mockups, this is a good place to put them. One strategy is to include a sub-section for each screen, along with its own image file. Here are some examples:
+If you have user interface mockups, this is a good place to put them. One
+strategy is to include a sub-section for each screen, along with its own image
+file. Here are some examples:
 
 ### Screen One (PNG)
 

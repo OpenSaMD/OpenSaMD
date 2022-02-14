@@ -7,15 +7,21 @@ title: Release History
 
 ## Purpose
 
-The purpose of this document is to list the change requests that were implemented within the current release. It also includes approval of the change requests and the verification of the implemented changes. Finally, it lists the problem reports that were addressed in the release as well as any outstanding problem reports (i.e., known anomalies).
+The purpose of this document is to list the change requests that were
+implemented within the current release. It also includes approval of the change
+requests and the verification of the implemented changes. Finally, it lists the
+problem reports that were addressed in the release as well as any outstanding
+problem reports (i.e., known anomalies).
 
 ## Scope
 
-This document applies to {{device.name}}, and includes changes made in release {{device.version}}.
+This document applies to {{device.name}}, and includes changes made in release
+{{device.version}}.
 
 ## History
 
-This section provides a summarized history of software revisions generated during the course of product development.
+This section provides a summarized history of software revisions generated
+during the course of product development.
 
 {% for version in versions | reverse %}
 
@@ -31,7 +37,8 @@ Testing was performed against TODO: add version.
 
 ## Change Requests
 
-This section includes a list of change requests and their associated changes, which were implemented for Release {{device.version}} of {{device.name}}.
+This section includes a list of change requests and their associated changes,
+which were implemented for Release {{device.version}} of {{device.name}}.
 
 {% for cr in history.change_requests|rejectattr('is_problem_report') %}
 
@@ -56,7 +63,8 @@ Implemented by {{c.authors[0].name}}
 
 ## Problem Reports
 
-This section includes a list of problem reports which were addressed in this release {{device.version}} of {{device.name}} [[62304:9.5]].
+This section includes a list of problem reports which were addressed in this
+release {{device.version}} of {{device.name}} [[62304:9.5]].
 
 {% for cr in history.change_requests|selectattr('is_problem_report')|selectattr('change_ids') %}
 
@@ -81,7 +89,9 @@ Implemented by {{c.authors[0].name}}
 
 ## Known Anomalies
 
-This section includes a list of outstanding problem reports (i.e., known anomalies). Each problem report should include the rationale why no changes were required.
+This section includes a list of outstanding problem reports (i.e., known
+anomalies). Each problem report should include the rationale why no changes
+were required.
 
 {% for cr in history.change_requests|selectattr('is_problem_report')|rejectattr('change_ids') %}
 
