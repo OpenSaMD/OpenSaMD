@@ -46,5 +46,4 @@ $(src)/data/history.yml:
 
 .PHONY:
 clean:
-	rm -f $(RELEASE_ALL)
-	rm -rf $(release)/_build
+	rm -rf $(release)
