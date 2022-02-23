@@ -19,6 +19,7 @@ import pathlib
 HERE = pathlib.Path(__file__)
 REPO_ROOT = HERE.parents[1]
 DOCS_DIR = REPO_ROOT / "docs"
+SRC_DIR = REPO_ROOT / "src"
 TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
 
 
@@ -27,20 +28,20 @@ def build():
 
     subprocess.check_call(["make"], cwd=REPO_ROOT, env=env)
 
-    with open(TABLE_OF_CONTENTS_PATH, "w") as file:
-        subprocess.check_call(
-            [
-                "jupyter-book",
-                "toc",
-                "from-project",
-                str(DOCS_DIR),
-                "-f",
-                "jb-book",
-            ],
-            cwd=REPO_ROOT,
-            env=env,
-            stdout=file,
-        )
+    # with open(TABLE_OF_CONTENTS_PATH, "w") as file:
+    #     subprocess.check_call(
+    #         [
+    #             "jupyter-book",
+    #             "toc",
+    #             "from-project",
+    #             str(DOCS_DIR),
+    #             "-f",
+    #             "jb-book",
+    #         ],
+    #         cwd=REPO_ROOT,
+    #         env=env,
+    #         stdout=file,
+    #     )
 
     subprocess.check_call(
         ["jupyter-book", "build", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
