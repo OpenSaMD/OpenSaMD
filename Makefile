@@ -16,8 +16,9 @@ SRC_JPGS := $(shell find $(src)/documents/ -type f -name '*.jpg')
 RELEASE_MDS := $(patsubst $(src)/documents/%.md,$(release)/%.md,$(SRC_MDS))
 RELEASE_PNGS := $(patsubst $(src)/documents/%.png,$(release)/%.png,$(SRC_PNGS))
 RELEASE_JPGS := $(patsubst $(src)/documents/%.jpg,$(release)/%.jpg,$(SRC_JPGS))
+RELEASE_JB_FILES = $(release)/_config.yml $(release)/_toc.yml $(release)/references.bib
 
-all: $(RELEASE_PNGS) $(RELEASE_JPGS) $(RELEASE_MDS)
+all: $(RELEASE_PNGS) $(RELEASE_JPGS) $(RELEASE_MDS) $(RELEASE_JB_FILES)
 
 $(release)/%.md: $(src)/documents/%.md $(CONFIG) $(DATA_FILES)
 	@mkdir -p $(@D)
@@ -29,6 +30,12 @@ $(release)/%.png: $(src)/documents/%.png
 
 $(release)/%.jpg: $(src)/documents/%.jpg
 	@mkdir -p $(@D)
+	cp $< $@
+
+$(release)/%.yml: $(src)/jupyter-book/%.yml
+	cp $< $@
+
+$(release)/%.bib: $(src)/jupyter-book/%.bib
 	cp $< $@
 
 # Manually call recipe to pull down your development history
