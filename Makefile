@@ -9,10 +9,10 @@ src := ./src
 CONFIG := $(src)/config.yml
 DATA_FILES := $(wildcard $(src)/data/*.yml)
 
-SRC_MDS := $(wildcard $(src)/documents/*/*/*.md $(src)/documents/**/*.md $(src)/documents/*.md)
-RELEASE_MDS := $(patsubst $(src)/documents/%.md,$(release)/%.md,$(SRC_MDS))
+SRC_MDS := $(shell find $(src)/documents/ -type f -name '*.md')
+SRC_PNGS := $(shell find $(src)/documents/ -type f -name '*.png')
 
-SRC_PNGS := $(wildcard $(src)/documents/**/*.png $(src)/documents/*.png)
+RELEASE_MDS := $(patsubst $(src)/documents/%.md,$(release)/%.md,$(SRC_MDS))
 RELEASE_PNGS := $(patsubst $(src)/documents/%.png,$(release)/%.png,$(SRC_PNGS))
 
 all: $(RELEASE_PNGS) $(RELEASE_MDS)
