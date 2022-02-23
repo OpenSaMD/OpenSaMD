@@ -12,6 +12,7 @@ parts:
   - caption: Drafts
     chapters:
     - file: drafts/introduction
+    - file: drafts/sop-document-record-control
     - file: drafts/intended-use
     - file: drafts/intended-performance
     - file: drafts/architecture-design-chart

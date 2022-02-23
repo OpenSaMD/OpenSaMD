@@ -21,7 +21,7 @@ your centre. This is detailed within the {doc}`intended-use` document.
 
 This model was built from the combination of standard clinical data from Chris
 O’Brien Lifehouse as well as the DeepMind open access dataset
-(https://github.com/deepmind/tcia-ct-scan-dataset). Both the Chris O’Brien
+(<https://github.com/deepmind/tcia-ct-scan-dataset>). Both the Chris O’Brien
 Lifehouse data and the DeepMind data were split into "Training”, "Validation",
 and "Hold-out" groups. Training data was used to train the model, validation
 data was used to iterate on the software development and define when a

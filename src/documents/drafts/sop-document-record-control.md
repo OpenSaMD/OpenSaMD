@@ -14,10 +14,6 @@ changes to documents can be traced.
 
 ## General Considerations
 
-> This whole template assumes that you're using Google Drive and Google Docs for your QMS. If you're using
-> something else, then.. good luck. Just kidding. You need to customize it, of course. There's specialized QMS
-> software out there which makes some of these tasks easier and lots of other tasks harder :)
-
 **Documents** are expected to change over time, whereas **records** are created once and not altered
 significantly afterwards.
 
@@ -42,14 +38,11 @@ For archived documents, we add a "-archived_ARCHIVE DATE" suffix to the document
 
 `SWD-SOP-Integrated Software Development-archived_2021-03-01`
 
-Product records are ideally labeled with a device number and device version; for instance:
+Product records are ideally labelled with a device number and device version; for instance:
 
 `PR1-V1.2-ESW-SWDP-Software Development Plan`
 
 ### Document Type Abbreviations
-
-> There probably will be more types in the future when I add more templates. For now, this covers all types of
-> the templates on openregulatory.com.
 
 | Abbreviation | Description                                        |
 |--------------|----------------------------------------------------|
@@ -58,7 +51,6 @@ Product records are ideally labeled with a device number and device version; for
 | SD           | Supporting Documentation                           |
 | SOP          | Standard Operating Procedure (Process Description) |
 | TPL          | Template                                           |
-
 
 ### Retention Periods
 
@@ -164,7 +156,6 @@ organization's process landscape and hence, overall organizational conformity wi
 requirements. The QMO is responsible to evaluate such potentially major changes as part of the Change
 Evaluation List (reference change management process).
 
-
 | Participants      |
 |-------------------|
 | QMO, any employee |
@@ -224,9 +215,8 @@ per respective processes. This is where records are typically stored:
 
 > Add all your tools which stores data which is mentioned in your QMS.
 
- * *GitHub (Issues, Pull Requests)*
- * *ZenDesk (Customer Support Tickets)*
-
+* *GitHub (Issues, Pull Requests)*
+* *ZenDesk (Customer Support Tickets)*
 
 #### 4. Changes to Records
 
@@ -256,10 +246,3 @@ as outlined in this SOP and delete records as soon as the retention period expir
 | Input             | Output            |
 |-------------------|-------------------|
 | Record (released) | Record (archived) |
-
----
-
-Template Copyright [openregulatory.com](https://openregulatory.com). See [template
-license](https://openregulatory.com/template-license).
-
-Please don't remove this notice even if you've modified contents of this template.
