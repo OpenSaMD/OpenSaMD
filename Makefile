@@ -31,5 +31,5 @@ $(src)/data/history.yml:
 
 .PHONY:
 clean:
-	rm -f $(release)/**/*.md $(release)/*.md
+	rm -f $(RELEASE_PNGS) $(RELEASE_MDS)
 	rm -rf $(release)/_build
