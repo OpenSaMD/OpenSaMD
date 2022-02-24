@@ -2,7 +2,7 @@
 
 Performance on a given set of validation/test/hold-out data is a useful
 indicator of what can be expected for the performance of the software. However
-it is not a guarantee. Therefore, as detailed within the {doc}`01-intended-use`
+it is not a guarantee. Therefore, as detailed within the {doc}`intended-use`
 document, it is intended that the recommended contours be refined by the health
 practitioner before clinical use.
 
@@ -15,13 +15,13 @@ document details the results from the head and neck model named
 
 In practice, before utilisation clinically within your centre the model is to
 be validated and potentially refined using retrospective treatment data from
-your centre. This is detailed within the {doc}`01-intended-use` document.
+your centre. This is detailed within the {doc}`intended-use` document.
 
 ## Data overview
 
 This model was built from the combination of standard clinical data from Chris
 O’Brien Lifehouse as well as the DeepMind open access dataset
-(https://github.com/deepmind/tcia-ct-scan-dataset). Both the Chris O’Brien
+(<https://github.com/deepmind/tcia-ct-scan-dataset>). Both the Chris O’Brien
 Lifehouse data and the DeepMind data were split into "Training”, "Validation",
 and "Hold-out" groups. Training data was used to train the model, validation
 data was used to iterate on the software development and define when a
