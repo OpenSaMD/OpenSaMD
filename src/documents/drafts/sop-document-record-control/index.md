@@ -32,6 +32,11 @@ name. An example would be:
 
 `swd-sop-integrated-software-development`
 
+Some documents are closely tied to a range of attachments and figures. In this
+case the document itself is a directory that contains the raw plain text as
+well as any of the required attachments. For the purpose of this QMS these
+directories represent a single self contained document.
+
 For draft, released, or archived documents this respective record labelling is
 determined by its file location within the documentation tree. For archived
 documents we add the archived date as a suffix to the document name.
@@ -39,8 +44,10 @@ documents we add the archived date as a suffix to the document name.
 For example:
 
 - A draft document would be `draft/swd-sop-integrated-software-development`
-- A released document would be `released/swd-sop-integrated-software-development`
-- And an archived document with the archival date would be `archived/swd-sop-integrated-software-development-2021-02-24`
+- A released document would be
+  `released/swd-sop-integrated-software-development`
+- And an archived document with the archival date would be
+  `archived/swd-sop-integrated-software-development-2021-02-24`
 
 When a document is undergoing review it exists within a GitHub pull request. An
 under review document stays within the `draft` directory, undergoing the
@@ -161,11 +168,48 @@ changes either utilising the GitHub interface or a local git install. If the
 review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.
 
-One workflow for signing this document using the online workflow is ...
-
 PRs are allowed to be merged even if the document isn't approved, or the review
 was only partial, or not at all. As long as the document stays within the
 `drafts` directory.
+
+One workflow for signing documents using the online GitHub workflow is first
+creating an inline review as in {numref}`Figure %s <start-inline-review>`:
+
+```{figure} start-inline-review.png
+:name: start-inline-review
+
+Click the blue plus below the activity row in order to begin an in-line GitHub
+PR review.
+```
+
+Then utilise the add a suggestion button to allow editing that line within the
+review as in {numref}`Figure %s <add-a-suggestion>`:
+
+```{figure} add-a-suggestion.png
+:name: add-a-suggestion
+
+Create a suggestion
+```
+
+Then write in your initials followed by pressing `Add single comment` as in
+{numref}`Figure %s <write-in-initials>`:
+
+```{figure} write-in-initials.png
+:name: write-in-initials
+
+Write in your initials
+```
+
+Lastly, press `Commit suggestion` followed by writing in an informative commit
+message and then pressing `Commit changes` as in {numref}`Figure %s <commit-suggestion>`:
+
+```{figure} commit-suggestion.png
+:name: commit-suggestion
+
+Commit the suggestion to the PR. This will use a GitHub signed and verified
+commit that is associated to your GitHub user.
+```
+
 
 | Participants                                                |
 | ----------------------------------------------------------- |
