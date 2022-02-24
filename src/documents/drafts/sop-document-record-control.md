@@ -1,25 +1,22 @@
 # SOP Document and Record Control
 
 | ISO 13485:2016 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 4.2.4                  | (All)            |
 | 4.2.5                  | (All)            |
 
 ## Summary
 
-This SOP describes how documents and records are handled. The goal is to understand how documents are
-typically structured and in what states they can be as they move from draft to release. It's similarly
-important to always have the most recent document available at the specified location while ensuring that
-changes to documents can be traced.
+This SOP describes how documents and records are handled. The goal is to
+understand how documents are typically structured and in what states they can
+be as they move from draft to release. It's similarly important to always have
+the most recent document available at the specified location while ensuring
+that changes to documents can be traced.
 
 ## General Considerations
 
-> This whole template assumes that you're using Google Drive and Google Docs for your QMS. If you're using
-> something else, then.. good luck. Just kidding. You need to customize it, of course. There's specialized QMS
-> software out there which makes some of these tasks easier and lots of other tasks harder :)
-
-**Documents** are expected to change over time, whereas **records** are created once and not altered
-significantly afterwards.
+**Documents** are expected to change over time, whereas **records** are created
+once and not altered significantly afterwards.
 
 All documents are written in English.
 
@@ -27,63 +24,70 @@ All documents are written in English.
 
 Documents are named according to this schema:
 
-`ASSOCIATED PROCESS-TYPE-NAME`
+`[ASSOCIATED PROCESS]-[TYPE]-[NAME]`
 
-Where "associated process" can be abbreviated in capital letters and "type" refers to an abbreviation of the
-document type (see below).  "Name" refers to the actual file name. An example would be:
+Where `associated process` can be abbreviated and `type` refers to an
+abbreviation of the document type (see below). `Name` refers to the actual file
+name. An example would be:
 
-`SWD-SOP-Integrated Software Development`
+`swd-sop-integrated-software-development`
 
-For released documents, we add a "-a" suffix (as in: approved) to the document name. An example would be:
+For draft, released, or archived documents this respective record labelling is
+determined by its file location within the documentation tree. For archived
+documents we add the archived date as a suffix to the document name.
 
-`SWD-SOP-Integrated Software Development-a`
+For example:
 
-For archived documents, we add a "-archived_ARCHIVE DATE" suffix to the document name. An example would be:
+- A draft document would be `draft/swd-sop-integrated-software-development`
+- A released document would be `released/swd-sop-integrated-software-development`
+- And an archived document with the archival date would be `archived/swd-sop-integrated-software-development-2021-02-24`
 
-`SWD-SOP-Integrated Software Development-archived_2021-03-01`
+When a document is undergoing review it exists within a GitHub pull request. An
+under review document stays within the `draft` directory, undergoing the
+required iterations and feedback until it is approved, at which point it can be
+moved into the `released` directory.
 
-Product records are ideally labeled with a device number and device version; for instance:
+Product records are ideally labelled with a device number and device version;
+for instance:
 
-`PR1-V1.2-ESW-SWDP-Software Development Plan`
+`pr1-v1.2-esw-swdp-software-development-plan`
 
 ### Document Type Abbreviations
 
-> There probably will be more types in the future when I add more templates. For now, this covers all types of
-> the templates on openregulatory.com.
-
 | Abbreviation | Description                                        |
-|--------------|----------------------------------------------------|
+| ------------ | -------------------------------------------------- |
 | AM           | Attachment                                         |
 | LIS          | List                                               |
 | SD           | Supporting Documentation                           |
 | SOP          | Standard Operating Procedure (Process Description) |
 | TPL          | Template                                           |
 
-
 ### Retention Periods
 
-QMS documents and records shall be stored for at least 10 years after their archival date.
+QMS documents and records shall be stored for at least 10 years after their
+archival date.
 
-Technical Documentation shall be stored for at least 10 years after the lifecycle of the respective device has
-ended.
+Technical Documentation shall be stored for at least 10 years after the
+lifecycle of the respective device has ended.
 
 ### Review Periods
 
-We review our QMS documents typically once per year to ensure they remain up to date.
+We review our QMS documents typically once per year to ensure they remain up to
+date.
 
-Our core and safety processes as defined in the quality management manual must be reviewed at minimum once per
-year.
+Our core and safety processes as defined in the quality management manual must
+be reviewed at minimum once per year.
 
-All other processes and associated documents can be reviewed every three years once they have been reviewed
-before without any findings.
+All other processes and associated documents can be reviewed every three years
+once they have been reviewed before without any findings.
 
-In case of audit findings or related corrective action, it is up to the discretion of the QMO to apply shorter
-review periods (e.g. 6 months).
+In case of audit findings or related corrective action, it is up to the
+discretion of the QMO to apply shorter review periods (e.g. 6 months).
 
 ### QMS Document List
 
-We keep an overview list of all QMS documents, including document type, release date, next review date and
-respective process owners.
+We keep an overview list of all QMS documents, including document type, release
+date, next review date and respective process owners.
 
 ## Process Steps
 
@@ -91,175 +95,237 @@ respective process owners.
 
 #### 1. Creation of Documents
 
-> This assumes you have three folders in your GDrive: "drafts", "under review" and "released".
+All documents are saved in the Quality Management System (QMS) which is a
+housed within the following git repository on GitHub and is viewable at
+<https://docs.radiotherapy.ai>.
 
-All documents are saved in the Quality Management System (QMS) which is a folder in Google Drive.
+New documents can be created by anyone in the company in the
+`src/documents/drafts` folder. Naming of documents follows the general
+considerations of this SOP (see above). Standard Operating Procedures (SOP)
+should specify a process owner responsible to typically update, review and
+release all associated documents.
 
-New documents can be created by anyone in the company in the "drafts" folder. Naming of documents follows the
-general considerations of this SOP (see above). Standard Operating Procedures (SOP) should specify a process
-owner responsible to typically update, review and release all associated documents.
+When initially creating the document a table containing a record of the
+creation activity is provided at the bottom. For example:
 
-| Participants |
-|--------------|
-| Any employee |
+| Activity | Date       | Role            | Name        | Initials |
+| -------- | ---------- | --------------- | ----------- | -------- |
+| Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
+
+This creation activity undergone is then committed to the git repository using
+a signed commit. This commit signing requirement is enforced by requiring
+signed commits within the `main` branch protection rule for all pull requests
+into the `main` branch.
+
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input   | Output               |
-|---------|----------------------|
+| ------- | -------------------- |
 | Content | New Document (draft) |
 
 #### 2. Documents Ready for Review
 
-Once a document is ready for review, its author moves it to the "under review" folder. Importantly, the author
-selects appropriate reviewers and approvers and notes them at the bottom of the document.
+Once a document is ready for review, its author opens a pull request within
+GitHub and the author selects the appropriate reviewers and approvers within
+the GitHub interface.
 
-| Participants |
-|--------------|
-| Any employee |
+The author also adds in the respective reviewer and approver items within the
+record at the bottom of the document ready for the reviewers to initial the
+documents.
+
+| Activity | Date       | Role                         | Name         | Initials |
+| -------- | ---------- | ---------------------------- | ------------ | -------- |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
+| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  |          |
+
+The reviewer may initial the document either using the online GitHub interface
+where commits are signed and verified. Or utilise git locally with signed
+commits.
+
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input            | Output                  |
-|------------------|-------------------------|
+| ---------------- | ----------------------- |
 | Document (draft) | Document (under review) |
 
 #### 3. Review of Documents
 
-The respective reviewer(s) and approver(s) review the document. If changes are required, they create comments
-in the Google Doc and/or suggest changes. If the review is successful, they sign their initials at the bottom
-of the document.
+The respective reviewer(s) and approver(s) review the document. If changes are
+required, they can create comments, suggest changes, or directly add their own
+changes either utilising the GitHub interface or a local git install. If the
+review is successful, they sign their initials at the bottom of the document
+and commit this to the repository with a gpg signed and verified commit.
+
+PRs are allowed to be merged even if the document isn't approved, or the review
+was only partial, or not at all. As long as the document stays within the
+`drafts` directory.
 
 | Participants                                                |
-|-------------------------------------------------------------|
+| ----------------------------------------------------------- |
 | Process owner and/or designated reviewer(s) and approver(s) |
 
 | Input                   | Output                       |
-|-------------------------|------------------------------|
+| ----------------------- | ---------------------------- |
 | Document (under review) | Document (review successful) |
 
 #### 4. Release of Documents
 
-The Process Owner moves the document to the "released" folder and assignes "-a" to the document name as
-outlined by the general considerations for document naming.
+The Process Owner moves the document to the "released" folder and assigns "-a"
+to the document name as outlined by the general considerations for document
+naming.
 
-Access to the "released" folder is restricted to prevent unauthorized changes to released documentation.
+A pull request that changes any document within the `released` folder is
+restricted so that it must be explicitly reviewed by employees who have been
+approved for merging into the release directory within the `main` branch by the
+`Process Owner`. These permission levels are defined within the `CODEOWNERS`
+file at the root of the repository.
 
-The QMO (and, if applicable, the process owner) decide if employee training is required. In general,
-training for minor changes/corrections is not necessary.
+This `CODEOWNERS` file is enforced within GitHub by utilising a branch
+protection rule on the `main` branch as well as requiring a review from Code
+Owners.
 
-| Participants                |
-|-----------------------------|
-| QMO, Process Owner          |
+The QMO (and, if applicable, the `Process Owner`) decide if employee training
+is required. In general, training for minor changes/corrections is not
+necessary.
+
+Prior to release the reviewer(s) and approver(s) initial the table at the
+bottom of the document and as before these initials are to be committed as a
+signed commit.
+
+Here is an example review and approval table:
+
+| Activity | Date       | Role                         | Name         | Initials |
+| -------- | ---------- | ---------------------------- | ------------ | -------- |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel | OE       |
+| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  | SB       |
+
+| Participants       |
+| ------------------ |
+| QMO, Process Owner |
 
 | Input                        | Output              |
-|------------------------------|---------------------|
+| ---------------------------- | ------------------- |
 | Document (review successful) | Document (released) |
 
 #### 5. Changes to Documents
 
-If changes need to be made to a document, any employee with knowledge about the document and those changes can
-perform them. For that, the currently-released document is copied to the "drafts" folder and edited by the
-employee. After finishing the edit, it moves to the **Document Ready for Review** stage (step 2), following
-the same steps as above.
+If changes need to be made to a document, any employee with knowledge about the
+document and those changes can perform them. For that, the currently-released
+document is copied to the `drafts` folder and edited by the employee. After
+finishing the edit, it moves to the **Document Ready for Review** stage (step
+2), following the same steps as above.
 
-A QMS change can trigger a substantial change. Before release, it shall be checked whether it may impact the
-organization's process landscape and hence, overall organizational conformity with regulatory
-requirements. The QMO is responsible to evaluate such potentially major changes as part of the Change
+A QMS change can trigger a substantial change. Before release, it shall be
+checked whether it may impact the organization's process landscape and hence,
+overall organizational conformity with regulatory requirements. The QMO is
+responsible to evaluate such potentially major changes as part of the Change
 Evaluation List (reference change management process).
 
-
-| Participants      |
-|-------------------|
-| QMO, any employee |
+| Participants                                                           |
+| ---------------------------------------------------------------------- |
+| QMO (change management), any employee or contractor (document changes) |
 
 | Input               | Output                |
-|---------------------|-----------------------|
+| ------------------- | --------------------- |
 | Document (released) | Document Copy (draft) |
 
 #### 6. Archiving of Documents
 
-Documents get archived if they become obsolete or a newer released version becomes available. For that, the
-Process Owner removes the "-a" suffix, moves the document to the "archive" folder and assignes a respective
-archiving date following the general considerations for document naming in this SOP. We observe retention
-periods as outlined in this SOP and delete documents as soon as the retention period expired.
+Documents get archived if they become obsolete or a newer released version
+becomes available. For that, the `Process Owner` moves the document to the
+`archive` folder and assigns a respective archiving date following the general
+considerations for document naming in this SOP. We observe retention periods as
+outlined in this SOP.
 
-| Participants           |
-|------------------------|
-| Process Owner          |
+| Participants  |
+| ------------- |
+| Process Owner |
 
 | Input               | Output              |
-|---------------------|---------------------|
+| ------------------- | ------------------- |
 | Document (released) | Document (archived) |
 
 ### Handling of Records
 
 #### 1. Creation of Records
 
-We create records as required by our processes. If available, we use templates and checklists for the creation
-of records.  Naming conventions as outlined for documents do not apply. Records should include an author name
-and the date of creation.
+We create records as required by our processes. If available, we use templates
+and checklists for the creation of records. Naming conventions as outlined for
+documents do not apply. Records should include an author name and the date of
+creation.
 
-| Participants |
-|--------------|
-| Any employee |
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input                                      | Output     |
-|--------------------------------------------|------------|
+| ------------------------------------------ | ---------- |
 | Content, Template Document (if applicable) | New Record |
 
 #### 2. Review and Release of Records
 
-Unless specified differently in a template or SOP, records do not typically require a review and release
-process.
+Unless specified differently in a template or SOP, records do not typically
+require a review and release process.
 
 | Participants                           |
-|----------------------------------------|
+| -------------------------------------- |
 | Designated reviewer(s) and approver(s) |
 
 | Input                 | Output                     |
-|-----------------------|----------------------------|
+| --------------------- | -------------------------- |
 | Record (under review) | Record (review successful) |
 
 #### 3. Storage of Records
 
-Records are not necessarily stored in our QMS folder. They also may reside in other applications as specified
-per respective processes. This is where records are typically stored:
+Records are not necessarily stored in our QMS folder. They also may reside in
+other applications as specified per respective processes. This is where records
+are typically stored:
 
 > Add all your tools which stores data which is mentioned in your QMS.
 
- * *GitHub (Issues, Pull Requests)*
- * *ZenDesk (Customer Support Tickets)*
-
+- _GitHub (Issues, Pull Requests)_
 
 #### 4. Changes to Records
 
-Records are not significantly altered after creation / release. Where significant changes are required, we
-rather create a new record and archive the old one. Non-substantial changes (e.g. spelling mistakes) are
-considered corrections only, assessed and added on a case-by-case basis.
+Records are not significantly altered after creation / release. Where
+significant changes are required, we rather create a new record and archive the
+old one. Non-substantial changes (e.g. spelling mistakes) are considered
+corrections only, assessed and added on a case-by-case basis.
 
-| Participants |
-|--------------|
-| Any employee |
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input             | Output           |
-|-------------------|------------------|
+| ----------------- | ---------------- |
 | Record (released) | Record (updated) |
 
 #### 5. Archiving of Records
 
-Records are archived if they become obsolete or a new released version becomes available. For that, the
-process owner moves the records to a respective archiving location. If possible, we follow the general
-considerations for document names and add the archiving date to the record name. We observe retention periods
-as outlined in this SOP and delete records as soon as the retention period expired.
+Records are archived if they become obsolete or a new released version becomes
+available. For that, the process owner moves the records to a respective
+archiving location. If possible, we follow the general considerations for
+document names and add the archiving date to the record name. We observe
+retention periods as outlined in this SOP.
 
-| Participants           |
-|------------------------|
-| Process Owner          |
+| Participants  |
+| ------------- |
+| Process Owner |
 
 | Input             | Output            |
-|-------------------|-------------------|
+| ----------------- | ----------------- |
 | Record (released) | Record (archived) |
 
----
+## Document Approval
 
-Template Copyright [openregulatory.com](https://openregulatory.com). See [template
-license](https://openregulatory.com/template-license).
-
-Please don't remove this notice even if you've modified contents of this template.
+| Activity | Date       | Role                         | Name         | Initials |
+| -------- | ---------- | ---------------------------- | ------------ | -------- |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Review   |            | EU MDR Regulatory Consultant | Oliver Eidel |          |
+| Approval |            |                              |              |          |
