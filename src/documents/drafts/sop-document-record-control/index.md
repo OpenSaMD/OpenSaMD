@@ -370,5 +370,5 @@ retention periods as outlined in this SOP.
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
 | Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review   |            | EU MDR Regulatory Consultant | Oliver Eidel |          |
+| Review | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE |
 | Approval |            |                              |              |          |
