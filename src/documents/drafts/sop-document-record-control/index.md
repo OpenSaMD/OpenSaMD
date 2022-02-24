@@ -115,9 +115,9 @@ release all associated documents.
 When initially creating the document a table containing a record of the
 creation activity is provided at the bottom. For example:
 
-| Activity | Date       | Role            | Name        | Initials |
-| -------- | ---------- | --------------- | ----------- | -------- |
-| Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
+| Activity | Date       | Role | Name        | Initials |
+| -------- | ---------- | ---- | ----------- | -------- |
+| Creation | 2021-02-24 | CEO  | Simon Biggs | SB       |
 
 This creation activity undergone is then committed to the git repository using
 a signed commit. This commit signing requirement is enforced by requiring
@@ -144,9 +144,9 @@ documents.
 
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
 | Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
-| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  |          |
+| Approval | 2021-02-24 | CEO                          | Simon Biggs  |          |
 
 The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
@@ -246,9 +246,9 @@ Here is an example review and approval table:
 
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
 | Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel | OE       |
-| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  | SB       |
+| Approval | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
 
 | Participants       |
 | ------------------ |
@@ -369,6 +369,6 @@ retention periods as outlined in this SOP.
 
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
 | Review   |            | EU MDR Regulatory Consultant | Oliver Eidel |          |
 | Approval |            |                              |              |          |
