@@ -210,7 +210,6 @@ Commit the suggestion to the PR. This will use a GitHub signed and verified
 commit that is associated to your GitHub user.
 ```
 
-
 | Participants                                                |
 | ----------------------------------------------------------- |
 | Process owner and/or designated reviewer(s) and approver(s) |
@@ -372,6 +371,6 @@ retention periods as outlined in this SOP.
 
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  |    SB      |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
 | Review   |            | EU MDR Regulatory Consultant | Oliver Eidel |          |
 | Approval |            |                              |              |          |
