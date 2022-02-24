@@ -1,7 +1,7 @@
 # SOP Document and Record Control
 
 | ISO 13485:2016 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 4.2.4                  | (All)            |
 | 4.2.5                  | (All)            |
 
@@ -26,7 +26,7 @@ Documents are named according to this schema:
 `ASSOCIATED PROCESS-TYPE-NAME`
 
 Where "associated process" can be abbreviated in capital letters and "type" refers to an abbreviation of the
-document type (see below).  "Name" refers to the actual file name. An example would be:
+document type (see below). "Name" refers to the actual file name. An example would be:
 
 `SWD-SOP-Integrated Software Development`
 
@@ -45,7 +45,7 @@ Product records are ideally labelled with a device number and device version; fo
 ### Document Type Abbreviations
 
 | Abbreviation | Description                                        |
-|--------------|----------------------------------------------------|
+| ------------ | -------------------------------------------------- |
 | AM           | Attachment                                         |
 | LIS          | List                                               |
 | SD           | Supporting Documentation                           |
@@ -92,11 +92,11 @@ general considerations of this SOP (see above). Standard Operating Procedures (S
 owner responsible to typically update, review and release all associated documents.
 
 | Participants |
-|--------------|
+| ------------ |
 | Any employee |
 
 | Input   | Output               |
-|---------|----------------------|
+| ------- | -------------------- |
 | Content | New Document (draft) |
 
 #### 2. Documents Ready for Review
@@ -105,11 +105,11 @@ Once a document is ready for review, its author moves it to the "under review" f
 selects appropriate reviewers and approvers and notes them at the bottom of the document.
 
 | Participants |
-|--------------|
+| ------------ |
 | Any employee |
 
 | Input            | Output                  |
-|------------------|-------------------------|
+| ---------------- | ----------------------- |
 | Document (draft) | Document (under review) |
 
 #### 3. Review of Documents
@@ -119,11 +119,11 @@ in the Google Doc and/or suggest changes. If the review is successful, they sign
 of the document.
 
 | Participants                                                |
-|-------------------------------------------------------------|
+| ----------------------------------------------------------- |
 | Process owner and/or designated reviewer(s) and approver(s) |
 
 | Input                   | Output                       |
-|-------------------------|------------------------------|
+| ----------------------- | ---------------------------- |
 | Document (under review) | Document (review successful) |
 
 #### 4. Release of Documents
@@ -136,12 +136,12 @@ Access to the "released" folder is restricted to prevent unauthorized changes to
 The QMO (and, if applicable, the process owner) decide if employee training is required. In general,
 training for minor changes/corrections is not necessary.
 
-| Participants                |
-|-----------------------------|
-| QMO, Process Owner          |
+| Participants       |
+| ------------------ |
+| QMO, Process Owner |
 
 | Input                        | Output              |
-|------------------------------|---------------------|
+| ---------------------------- | ------------------- |
 | Document (review successful) | Document (released) |
 
 #### 5. Changes to Documents
@@ -157,11 +157,11 @@ requirements. The QMO is responsible to evaluate such potentially major changes 
 Evaluation List (reference change management process).
 
 | Participants      |
-|-------------------|
+| ----------------- |
 | QMO, any employee |
 
 | Input               | Output                |
-|---------------------|-----------------------|
+| ------------------- | --------------------- |
 | Document (released) | Document Copy (draft) |
 
 #### 6. Archiving of Documents
@@ -171,12 +171,12 @@ Process Owner removes the "-a" suffix, moves the document to the "archive" folde
 archiving date following the general considerations for document naming in this SOP. We observe retention
 periods as outlined in this SOP and delete documents as soon as the retention period expired.
 
-| Participants           |
-|------------------------|
-| Process Owner          |
+| Participants  |
+| ------------- |
+| Process Owner |
 
 | Input               | Output              |
-|---------------------|---------------------|
+| ------------------- | ------------------- |
 | Document (released) | Document (archived) |
 
 ### Handling of Records
@@ -184,15 +184,15 @@ periods as outlined in this SOP and delete documents as soon as the retention pe
 #### 1. Creation of Records
 
 We create records as required by our processes. If available, we use templates and checklists for the creation
-of records.  Naming conventions as outlined for documents do not apply. Records should include an author name
+of records. Naming conventions as outlined for documents do not apply. Records should include an author name
 and the date of creation.
 
 | Participants |
-|--------------|
+| ------------ |
 | Any employee |
 
 | Input                                      | Output     |
-|--------------------------------------------|------------|
+| ------------------------------------------ | ---------- |
 | Content, Template Document (if applicable) | New Record |
 
 #### 2. Review and Release of Records
@@ -201,11 +201,11 @@ Unless specified differently in a template or SOP, records do not typically requ
 process.
 
 | Participants                           |
-|----------------------------------------|
+| -------------------------------------- |
 | Designated reviewer(s) and approver(s) |
 
 | Input                 | Output                     |
-|-----------------------|----------------------------|
+| --------------------- | -------------------------- |
 | Record (under review) | Record (review successful) |
 
 #### 3. Storage of Records
@@ -215,8 +215,8 @@ per respective processes. This is where records are typically stored:
 
 > Add all your tools which stores data which is mentioned in your QMS.
 
-* *GitHub (Issues, Pull Requests)*
-* *ZenDesk (Customer Support Tickets)*
+- _GitHub (Issues, Pull Requests)_
+- _ZenDesk (Customer Support Tickets)_
 
 #### 4. Changes to Records
 
@@ -225,11 +225,11 @@ rather create a new record and archive the old one. Non-substantial changes (e.g
 considered corrections only, assessed and added on a case-by-case basis.
 
 | Participants |
-|--------------|
+| ------------ |
 | Any employee |
 
 | Input             | Output           |
-|-------------------|------------------|
+| ----------------- | ---------------- |
 | Record (released) | Record (updated) |
 
 #### 5. Archiving of Records
@@ -239,10 +239,18 @@ process owner moves the records to a respective archiving location. If possible,
 considerations for document names and add the archiving date to the record name. We observe retention periods
 as outlined in this SOP and delete records as soon as the retention period expired.
 
-| Participants           |
-|------------------------|
-| Process Owner          |
+| Participants  |
+| ------------- |
+| Process Owner |
 
 | Input             | Output            |
-|-------------------|-------------------|
+| ----------------- | ----------------- |
 | Record (released) | Record (archived) |
+
+## Document Approval
+
+| Activity | Date       | Role            | Name        | Initials |
+| -------- | ---------- | --------------- | ----------- | -------- |
+| Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
+| Review   |            |                 |             |          |
+| Approval |            |                 |             |          |
