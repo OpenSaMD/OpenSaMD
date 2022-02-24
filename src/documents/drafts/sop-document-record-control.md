@@ -159,7 +159,9 @@ The respective reviewer(s) and approver(s) review the document. If changes are
 required, they can create comments, suggest changes, or directly add their own
 changes either utilising the GitHub interface or a local git install. If the
 review is successful, they sign their initials at the bottom of the document
-and commit this to the repository with a gpg signed and verified commit.
+and commit this to the repository with a signed and verified commit.
+
+One workflow for signing this document using the online workflow is ...
 
 PRs are allowed to be merged even if the document isn't approved, or the review
 was only partial, or not at all. As long as the document stays within the
@@ -326,6 +328,6 @@ retention periods as outlined in this SOP.
 
 | Activity | Date       | Role                         | Name         | Initials |
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  |          |
 | Review   |            | EU MDR Regulatory Consultant | Oliver Eidel |          |
 | Approval |            |                              |              |          |
