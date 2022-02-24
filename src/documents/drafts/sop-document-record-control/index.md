@@ -332,8 +332,6 @@ Records are not necessarily stored in our QMS folder. They also may reside in
 other applications as specified per respective processes. This is where records
 are typically stored:
 
-> Add all your tools which stores data which is mentioned in your QMS.
-
 - _GitHub (Issues, Pull Requests)_
 
 #### 4. Changes to Records
