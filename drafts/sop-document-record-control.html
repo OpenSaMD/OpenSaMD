@@ -108,18 +108,6 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Under Review
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../under-review/index.html">
-   Placeholder
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   Drafts
  </span>
 </p>
@@ -629,29 +617,41 @@
 </table>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>This SOP describes how documents and records are handled. The goal is to understand how documents are
-typically structured and in what states they can be as they move from draft to release. It’s similarly
-important to always have the most recent document available at the specified location while ensuring that
-changes to documents can be traced.</p>
+<p>This SOP describes how documents and records are handled. The goal is to
+understand how documents are typically structured and in what states they can
+be as they move from draft to release. It’s similarly important to always have
+the most recent document available at the specified location while ensuring
+that changes to documents can be traced.</p>
 </div>
 <div class="section" id="general-considerations">
 <h2>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">¶</a></h2>
-<p><strong>Documents</strong> are expected to change over time, whereas <strong>records</strong> are created once and not altered
-significantly afterwards.</p>
+<p><strong>Documents</strong> are expected to change over time, whereas <strong>records</strong> are created
+once and not altered significantly afterwards.</p>
 <p>All documents are written in English.</p>
 <div class="section" id="document-and-record-labeling">
 <h3>Document and Record Labeling<a class="headerlink" href="#document-and-record-labeling" title="Permalink to this headline">¶</a></h3>
 <p>Documents are named according to this schema:</p>
-<p><code class="docutils literal notranslate"><span class="pre">ASSOCIATED</span> <span class="pre">PROCESS-TYPE-NAME</span></code></p>
-<p>Where “associated process” can be abbreviated in capital letters and “type” refers to an abbreviation of the
-document type (see below). “Name” refers to the actual file name. An example would be:</p>
-<p><code class="docutils literal notranslate"><span class="pre">SWD-SOP-Integrated</span> <span class="pre">Software</span> <span class="pre">Development</span></code></p>
-<p>For released documents, we add a “-a” suffix (as in: approved) to the document name. An example would be:</p>
-<p><code class="docutils literal notranslate"><span class="pre">SWD-SOP-Integrated</span> <span class="pre">Software</span> <span class="pre">Development-a</span></code></p>
-<p>For archived documents, we add a “-archived_ARCHIVE DATE” suffix to the document name. An example would be:</p>
-<p><code class="docutils literal notranslate"><span class="pre">SWD-SOP-Integrated</span> <span class="pre">Software</span> <span class="pre">Development-archived_2021-03-01</span></code></p>
-<p>Product records are ideally labelled with a device number and device version; for instance:</p>
-<p><code class="docutils literal notranslate"><span class="pre">PR1-V1.2-ESW-SWDP-Software</span> <span class="pre">Development</span> <span class="pre">Plan</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[ASSOCIATED</span> <span class="pre">PROCESS]-[TYPE]-[NAME]</span></code></p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">associated</span> <span class="pre">process</span></code> can be abbreviated and <code class="docutils literal notranslate"><span class="pre">type</span></code> refers to an
+abbreviation of the document type (see below). <code class="docutils literal notranslate"><span class="pre">Name</span></code> refers to the actual file
+name. An example would be:</p>
+<p><code class="docutils literal notranslate"><span class="pre">swd-sop-integrated-software-development</span></code></p>
+<p>For draft, released, or archived documents this respective record labelling is
+determined by its file location within the documentation tree. For archived
+documents we add the archived date as a suffix to the document name.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>A draft document would be <code class="docutils literal notranslate"><span class="pre">draft/swd-sop-integrated-software-development</span></code></p></li>
+<li><p>A released document would be <code class="docutils literal notranslate"><span class="pre">released/swd-sop-integrated-software-development</span></code></p></li>
+<li><p>And an archived document with the archival date would be <code class="docutils literal notranslate"><span class="pre">archived/swd-sop-integrated-software-development-2021-02-24</span></code></p></li>
+</ul>
+<p>When a document is undergoing review it exists within a GitHub pull request. An
+under review document stays within the <code class="docutils literal notranslate"><span class="pre">draft</span></code> directory, undergoing the
+required iterations and feedback until it is approved, at which point it can be
+moved into the <code class="docutils literal notranslate"><span class="pre">released</span></code> directory.</p>
+<p>Product records are ideally labelled with a device number and device version;
+for instance:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pr1-v1.2-esw-swdp-software-development-plan</span></code></p>
 </div>
 <div class="section" id="document-type-abbreviations">
 <h3>Document Type Abbreviations<a class="headerlink" href="#document-type-abbreviations" title="Permalink to this headline">¶</a></h3>
@@ -682,24 +682,26 @@ document type (see below). “Name” refers to the actual file name. An example
 </div>
 <div class="section" id="retention-periods">
 <h3>Retention Periods<a class="headerlink" href="#retention-periods" title="Permalink to this headline">¶</a></h3>
-<p>QMS documents and records shall be stored for at least 10 years after their archival date.</p>
-<p>Technical Documentation shall be stored for at least 10 years after the lifecycle of the respective device has
-ended.</p>
+<p>QMS documents and records shall be stored for at least 10 years after their
+archival date.</p>
+<p>Technical Documentation shall be stored for at least 10 years after the
+lifecycle of the respective device has ended.</p>
 </div>
 <div class="section" id="review-periods">
 <h3>Review Periods<a class="headerlink" href="#review-periods" title="Permalink to this headline">¶</a></h3>
-<p>We review our QMS documents typically once per year to ensure they remain up to date.</p>
-<p>Our core and safety processes as defined in the quality management manual must be reviewed at minimum once per
-year.</p>
-<p>All other processes and associated documents can be reviewed every three years once they have been reviewed
-before without any findings.</p>
-<p>In case of audit findings or related corrective action, it is up to the discretion of the QMO to apply shorter
-review periods (e.g. 6 months).</p>
+<p>We review our QMS documents typically once per year to ensure they remain up to
+date.</p>
+<p>Our core and safety processes as defined in the quality management manual must
+be reviewed at minimum once per year.</p>
+<p>All other processes and associated documents can be reviewed every three years
+once they have been reviewed before without any findings.</p>
+<p>In case of audit findings or related corrective action, it is up to the
+discretion of the QMO to apply shorter review periods (e.g. 6 months).</p>
 </div>
 <div class="section" id="qms-document-list">
 <h3>QMS Document List<a class="headerlink" href="#qms-document-list" title="Permalink to this headline">¶</a></h3>
-<p>We keep an overview list of all QMS documents, including document type, release date, next review date and
-respective process owners.</p>
+<p>We keep an overview list of all QMS documents, including document type, release
+date, next review date and respective process owners.</p>
 </div>
 </div>
 <div class="section" id="process-steps">
@@ -708,90 +710,86 @@ respective process owners.</p>
 <h3>Handling of Documents<a class="headerlink" href="#handling-of-documents" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creation-of-documents">
 <h4>1. Creation of Documents<a class="headerlink" href="#creation-of-documents" title="Permalink to this headline">¶</a></h4>
-<blockquote>
-<div><p>This assumes you have three folders in your GDrive: “drafts”, “under review” and “released”.</p>
-</div></blockquote>
-<p>All documents are saved in the Quality Management System (QMS) which is a folder in Google Drive.</p>
-<p>New documents can be created by anyone in the company in the “drafts” folder. Naming of documents follows the
-general considerations of this SOP (see above). Standard Operating Procedures (SOP) should specify a process
-owner responsible to typically update, review and release all associated documents.</p>
+<p>All documents are saved in the Quality Management System (QMS) which is a
+housed within the following git repository on GitHub and is viewable at
+<a class="reference external" href="https://docs.radiotherapy.ai">https://docs.radiotherapy.ai</a>.</p>
+<p>New documents can be created by anyone in the company in the
+<code class="docutils literal notranslate"><span class="pre">src/documents/drafts</span></code> folder. Naming of documents follows the general
+considerations of this SOP (see above). Standard Operating Procedures (SOP)
+should specify a process owner responsible to typically update, review and
+release all associated documents.</p>
+<p>When initially creating the document a table containing a record of the
+creation activity is provided at the bottom. For example:</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Participants</p></th>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Initials</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Any employee</p></td>
+<tr class="row-even"><td><p>Creation</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>Founder and CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p>SB</p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Input</p></th>
-<th class="head"><p>Output</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Content</p></td>
-<td><p>New Document (draft)</p></td>
-</tr>
-</tbody>
-</table>
+<p>This creation activity undergone is then committed to the git repository using
+a gpg verified signed commit.</p>
 </div>
 <div class="section" id="documents-ready-for-review">
 <h4>2. Documents Ready for Review<a class="headerlink" href="#documents-ready-for-review" title="Permalink to this headline">¶</a></h4>
-<p>Once a document is ready for review, its author moves it to the “under review” folder. Importantly, the author
-selects appropriate reviewers and approvers and notes them at the bottom of the document.</p>
+<p>Once a document is ready for review, its author opens a pull request within
+GitHub and the author selects the appropriate reviewers and approvers within
+the GitHub interface.</p>
+<p>The author also adds in the respective reviewer and approver items within the
+record at the bottom of the document ready for the reviewers to initial the
+documents.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Participants</p></th>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Initials</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Any employee</p></td>
+<tr class="row-even"><td><p>Creation</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>Founder and CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p>SB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Review</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>EU MDR Regulatory Consultant</p></td>
+<td><p>Oliver Eidel</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Approval</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>Founder and CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Input</p></th>
-<th class="head"><p>Output</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Document (draft)</p></td>
-<td><p>Document (under review)</p></td>
-</tr>
-</tbody>
-</table>
+<p>The reviewer may initial the document either using the online GitHub interface
+where commits are signed and verified. Or utilise git locally with gpg signed
+commits.</p>
 </div>
 <div class="section" id="review-of-documents">
 <h4>3. Review of Documents<a class="headerlink" href="#review-of-documents" title="Permalink to this headline">¶</a></h4>
-<p>The respective reviewer(s) and approver(s) review the document. If changes are required, they create comments
-in the Google Doc and/or suggest changes. If the review is successful, they sign their initials at the bottom
+<p>The respective reviewer(s) and approver(s) review the document. If changes are
+required, they create comments or suggest changes utilising the GitHub
+interface. If the review is successful, they sign their initials at the bottom
 of the document.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Participants</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Process owner and/or designated reviewer(s) and approver(s)</p></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Input</p></th>
-<th class="head"><p>Output</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Document (under review)</p></td>
-<td><p>Document (review successful)</p></td>
-</tr>
-</tbody>
-</table>
+<p>It is okay to merge these documents into the main branch of the git repository</p>
 </div>
 <div class="section" id="release-of-documents">
 <h4>4. Release of Documents<a class="headerlink" href="#release-of-documents" title="Permalink to this headline">¶</a></h4>
@@ -952,8 +950,8 @@ per respective processes. This is where records are typically stored:</p>
 </div></blockquote>
 <ul class="simple">
 <li><p><em>GitHub (Issues, Pull Requests)</em></p></li>
-<li><p><em>ZenDesk (Customer Support Tickets)</em></p></li>
 </ul>
+<!-- - _ZenDesk (Customer Support Tickets)_ -->
 </div>
 <div class="section" id="changes-to-records">
 <h4>4. Changes to Records<a class="headerlink" href="#changes-to-records" title="Permalink to this headline">¶</a></h4>
