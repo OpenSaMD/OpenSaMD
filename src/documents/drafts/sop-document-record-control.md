@@ -7,15 +7,16 @@
 
 ## Summary
 
-This SOP describes how documents and records are handled. The goal is to understand how documents are
-typically structured and in what states they can be as they move from draft to release. It's similarly
-important to always have the most recent document available at the specified location while ensuring that
-changes to documents can be traced.
+This SOP describes how documents and records are handled. The goal is to
+understand how documents are typically structured and in what states they can
+be as they move from draft to release. It's similarly important to always have
+the most recent document available at the specified location while ensuring
+that changes to documents can be traced.
 
 ## General Considerations
 
-**Documents** are expected to change over time, whereas **records** are created once and not altered
-significantly afterwards.
+**Documents** are expected to change over time, whereas **records** are created
+once and not altered significantly afterwards.
 
 All documents are written in English.
 
@@ -23,24 +24,33 @@ All documents are written in English.
 
 Documents are named according to this schema:
 
-`ASSOCIATED PROCESS-TYPE-NAME`
+`[ASSOCIATED PROCESS]-[TYPE]-[NAME]`
 
-Where "associated process" can be abbreviated in capital letters and "type" refers to an abbreviation of the
-document type (see below). "Name" refers to the actual file name. An example would be:
+Where `associated process` can be abbreviated and `type` refers to an
+abbreviation of the document type (see below). `Name` refers to the actual file
+name. An example would be:
 
-`SWD-SOP-Integrated Software Development`
+`swd-sop-integrated-software-development`
 
-For released documents, we add a "-a" suffix (as in: approved) to the document name. An example would be:
+For draft, released, or archived documents this respective record labelling is
+determined by its file location within the documentation tree. For archived
+documents we add the archived date as a suffix to the document name.
 
-`SWD-SOP-Integrated Software Development-a`
+For example:
 
-For archived documents, we add a "-archived_ARCHIVE DATE" suffix to the document name. An example would be:
+- A draft document would be `draft/swd-sop-integrated-software-development`
+- A released document would be `released/swd-sop-integrated-software-development`
+- And an archived document with the archival date would be `archived/swd-sop-integrated-software-development-2021-02-24`
 
-`SWD-SOP-Integrated Software Development-archived_2021-03-01`
+When a document is undergoing review it exists within a GitHub pull request. An
+under review document stays within the `draft` directory, undergoing the
+required iterations and feedback until it is approved, at which point it can be
+moved into the `released` directory.
 
-Product records are ideally labelled with a device number and device version; for instance:
+Product records are ideally labelled with a device number and device version;
+for instance:
 
-`PR1-V1.2-ESW-SWDP-Software Development Plan`
+`pr1-v1.2-esw-swdp-software-development-plan`
 
 ### Document Type Abbreviations
 
@@ -54,28 +64,30 @@ Product records are ideally labelled with a device number and device version; fo
 
 ### Retention Periods
 
-QMS documents and records shall be stored for at least 10 years after their archival date.
+QMS documents and records shall be stored for at least 10 years after their
+archival date.
 
-Technical Documentation shall be stored for at least 10 years after the lifecycle of the respective device has
-ended.
+Technical Documentation shall be stored for at least 10 years after the
+lifecycle of the respective device has ended.
 
 ### Review Periods
 
-We review our QMS documents typically once per year to ensure they remain up to date.
+We review our QMS documents typically once per year to ensure they remain up to
+date.
 
-Our core and safety processes as defined in the quality management manual must be reviewed at minimum once per
-year.
+Our core and safety processes as defined in the quality management manual must
+be reviewed at minimum once per year.
 
-All other processes and associated documents can be reviewed every three years once they have been reviewed
-before without any findings.
+All other processes and associated documents can be reviewed every three years
+once they have been reviewed before without any findings.
 
-In case of audit findings or related corrective action, it is up to the discretion of the QMO to apply shorter
-review periods (e.g. 6 months).
+In case of audit findings or related corrective action, it is up to the
+discretion of the QMO to apply shorter review periods (e.g. 6 months).
 
 ### QMS Document List
 
-We keep an overview list of all QMS documents, including document type, release date, next review date and
-respective process owners.
+We keep an overview list of all QMS documents, including document type, release
+date, next review date and respective process owners.
 
 ## Process Steps
 
@@ -83,48 +95,54 @@ respective process owners.
 
 #### 1. Creation of Documents
 
-> This assumes you have three folders in your GDrive: "drafts", "under review" and "released".
+All documents are saved in the Quality Management System (QMS) which is a
+housed within the following git repository on GitHub and is viewable at
+<https://docs.radiotherapy.ai>.
 
-All documents are saved in the Quality Management System (QMS) which is a folder in Google Drive.
+New documents can be created by anyone in the company in the
+`src/documents/drafts` folder. Naming of documents follows the general
+considerations of this SOP (see above). Standard Operating Procedures (SOP)
+should specify a process owner responsible to typically update, review and
+release all associated documents.
 
-New documents can be created by anyone in the company in the "drafts" folder. Naming of documents follows the
-general considerations of this SOP (see above). Standard Operating Procedures (SOP) should specify a process
-owner responsible to typically update, review and release all associated documents.
+When initially creating the document a table containing a record of the
+creation activity is provided at the bottom. For example:
 
-| Participants |
-| ------------ |
-| Any employee |
+| Activity | Date       | Role            | Name        | Initials |
+| -------- | ---------- | --------------- | ----------- | -------- |
+| Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
 
-| Input   | Output               |
-| ------- | -------------------- |
-| Content | New Document (draft) |
+This creation activity undergone is then committed to the git repository using
+a gpg verified signed commit.
 
 #### 2. Documents Ready for Review
 
-Once a document is ready for review, its author moves it to the "under review" folder. Importantly, the author
-selects appropriate reviewers and approvers and notes them at the bottom of the document.
+Once a document is ready for review, its author opens a pull request within
+GitHub and the author selects the appropriate reviewers and approvers within
+the GitHub interface.
 
-| Participants |
-| ------------ |
-| Any employee |
+The author also adds in the respective reviewer and approver items within the
+record at the bottom of the document ready for the reviewers to initial the
+documents.
 
-| Input            | Output                  |
-| ---------------- | ----------------------- |
-| Document (draft) | Document (under review) |
+| Activity | Date       | Role                         | Name         | Initials |
+| -------- | ---------- | ---------------------------- | ------------ | -------- |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
+| Approval | 2021-02-24 | Founder and CEO              | Simon Biggs  |          |
+
+The reviewer may initial the document either using the online GitHub interface
+where commits are signed and verified. Or utilise git locally with gpg signed
+commits.
 
 #### 3. Review of Documents
 
-The respective reviewer(s) and approver(s) review the document. If changes are required, they create comments
-in the Google Doc and/or suggest changes. If the review is successful, they sign their initials at the bottom
+The respective reviewer(s) and approver(s) review the document. If changes are
+required, they create comments or suggest changes utilising the GitHub
+interface. If the review is successful, they sign their initials at the bottom
 of the document.
 
-| Participants                                                |
-| ----------------------------------------------------------- |
-| Process owner and/or designated reviewer(s) and approver(s) |
-
-| Input                   | Output                       |
-| ----------------------- | ---------------------------- |
-| Document (under review) | Document (review successful) |
+It is okay to merge these documents into the main branch of the git repository
 
 #### 4. Release of Documents
 
@@ -216,7 +234,7 @@ per respective processes. This is where records are typically stored:
 > Add all your tools which stores data which is mentioned in your QMS.
 
 - _GitHub (Issues, Pull Requests)_
-- _ZenDesk (Customer Support Tickets)_
+<!-- - _ZenDesk (Customer Support Tickets)_ -->
 
 #### 4. Changes to Records
 
