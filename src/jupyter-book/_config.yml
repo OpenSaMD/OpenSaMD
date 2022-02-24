@@ -3,11 +3,6 @@
 
 title: Radiotherapy AI
 author: Radiotherapy AI Pty Ltd
-copyright: >
-  Templates copyright OpenRegulatory
-  ([originals](https://openregulatory.com/templates/)), general content copyright
-  Radiotherapy AI. This work is licensed under a Creative Commons Attribution 4.0
-  International License Creative Commons Licence. !()[../img/creative-commons.png]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -34,3 +29,24 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_footer: |
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img
+          alt="Creative Commons Licence" style="border-width:0"
+          src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+      </a><br />
+
+      This work is licensed under a <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+      Attribution 4.0 International License
+      </a>
+      <br />
+      Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>),
+      general content copyright Radiotherapy AI.
+    </p>
+
+sphinx:
+  config:
+    html_show_copyright: false
