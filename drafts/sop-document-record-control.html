@@ -739,7 +739,31 @@ creation activity is provided at the bottom. For example:</p>
 </tbody>
 </table>
 <p>This creation activity undergone is then committed to the git repository using
-a gpg verified signed commit.</p>
+a signed commit. This commit signing requirement is enforced by requiring
+signed commits within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch protection rule for all pull requests
+into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any employee or contractor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Content</p></td>
+<td><p>New Document (draft)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="documents-ready-for-review">
 <h4>2. Documents Ready for Review<a class="headerlink" href="#documents-ready-for-review" title="Permalink to this headline">¶</a></h4>
@@ -773,31 +797,121 @@ documents.</p>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
 <td><p>2021-02-24</p></td>
-<td><p>Founder and CEO</p></td>
+<td><p>QMO and Process Owner</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <p>The reviewer may initial the document either using the online GitHub interface
-where commits are signed and verified. Or utilise git locally with gpg signed
+where commits are signed and verified. Or utilise git locally with signed
 commits.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any employee or contractor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (draft)</p></td>
+<td><p>Document (under review)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="review-of-documents">
 <h4>3. Review of Documents<a class="headerlink" href="#review-of-documents" title="Permalink to this headline">¶</a></h4>
 <p>The respective reviewer(s) and approver(s) review the document. If changes are
-required, they create comments or suggest changes utilising the GitHub
-interface. If the review is successful, they sign their initials at the bottom
-of the document.</p>
-<p>It is okay to merge these documents into the main branch of the git repository</p>
+required, they can create comments, suggest changes, or directly add their own
+changes either utilising the GitHub interface or a local git install. If the
+review is successful, they sign their initials at the bottom of the document
+and commit this to the repository with a gpg signed and verified commit.</p>
+<p>PRs are allowed to be merged even if the document isn’t approved, or the review
+was only partial, or not at all. As long as the document stays within the
+<code class="docutils literal notranslate"><span class="pre">drafts</span></code> directory.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Process owner and/or designated reviewer(s) and approver(s)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (under review)</p></td>
+<td><p>Document (review successful)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="release-of-documents">
 <h4>4. Release of Documents<a class="headerlink" href="#release-of-documents" title="Permalink to this headline">¶</a></h4>
-<p>The Process Owner moves the document to the “released” folder and assignes “-a” to the document name as
-outlined by the general considerations for document naming.</p>
-<p>Access to the “released” folder is restricted to prevent unauthorized changes to released documentation.</p>
-<p>The QMO (and, if applicable, the process owner) decide if employee training is required. In general,
-training for minor changes/corrections is not necessary.</p>
+<p>The Process Owner moves the document to the “released” folder and assigns “-a”
+to the document name as outlined by the general considerations for document
+naming.</p>
+<p>A pull request that changes any document within the <code class="docutils literal notranslate"><span class="pre">released</span></code> folder is
+restricted so that it must be explicitly reviewed by employees who have been
+approved for merging into the release directory within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by the
+<code class="docutils literal notranslate"><span class="pre">Process</span> <span class="pre">Owner</span></code>. These permission levels are defined within the <code class="docutils literal notranslate"><span class="pre">CODEOWNERS</span></code>
+file at the root of the repository.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">CODEOWNERS</span></code> file is enforced within GitHub by utilising a branch
+protection rule on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch as well as requiring a review from Code
+Owners.</p>
+<p>The QMO (and, if applicable, the <code class="docutils literal notranslate"><span class="pre">Process</span> <span class="pre">Owner</span></code>) decide if employee training
+is required. In general, training for minor changes/corrections is not
+necessary.</p>
+<p>Prior to release the reviewer(s) and approver(s) initial the table at the
+bottom of the document and as before these initials are to be committed as a
+signed commit.</p>
+<p>Here is an example review and approval table:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Initials</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Creation</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>Founder and CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p>SB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Review</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>EU MDR Regulatory Consultant</p></td>
+<td><p>Oliver Eidel</p></td>
+<td><p>OE</p></td>
+</tr>
+<tr class="row-even"><td><p>Approval</p></td>
+<td><p>2021-02-24</p></td>
+<td><p>QMO and Process Owner</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p>SB</p></td>
+</tr>
+</tbody>
+</table>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
@@ -823,13 +937,15 @@ training for minor changes/corrections is not necessary.</p>
 </div>
 <div class="section" id="changes-to-documents">
 <h4>5. Changes to Documents<a class="headerlink" href="#changes-to-documents" title="Permalink to this headline">¶</a></h4>
-<p>If changes need to be made to a document, any employee with knowledge about the document and those changes can
-perform them. For that, the currently-released document is copied to the “drafts” folder and edited by the
-employee. After finishing the edit, it moves to the <strong>Document Ready for Review</strong> stage (step 2), following
-the same steps as above.</p>
-<p>A QMS change can trigger a substantial change. Before release, it shall be checked whether it may impact the
-organization’s process landscape and hence, overall organizational conformity with regulatory
-requirements. The QMO is responsible to evaluate such potentially major changes as part of the Change
+<p>If changes need to be made to a document, any employee with knowledge about the
+document and those changes can perform them. For that, the currently-released
+document is copied to the <code class="docutils literal notranslate"><span class="pre">drafts</span></code> folder and edited by the employee. After
+finishing the edit, it moves to the <strong>Document Ready for Review</strong> stage (step
+2), following the same steps as above.</p>
+<p>A QMS change can trigger a substantial change. Before release, it shall be
+checked whether it may impact the organization’s process landscape and hence,
+overall organizational conformity with regulatory requirements. The QMO is
+responsible to evaluate such potentially major changes as part of the Change
 Evaluation List (reference change management process).</p>
 <table class="colwidths-auto table">
 <thead>
@@ -837,7 +953,7 @@ Evaluation List (reference change management process).</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>QMO, any employee</p></td>
+<tr class="row-even"><td><p>QMO (change management), any employee or contractor (document changes)</p></td>
 </tr>
 </tbody>
 </table>
@@ -856,10 +972,11 @@ Evaluation List (reference change management process).</p>
 </div>
 <div class="section" id="archiving-of-documents">
 <h4>6. Archiving of Documents<a class="headerlink" href="#archiving-of-documents" title="Permalink to this headline">¶</a></h4>
-<p>Documents get archived if they become obsolete or a newer released version becomes available. For that, the
-Process Owner removes the “-a” suffix, moves the document to the “archive” folder and assignes a respective
-archiving date following the general considerations for document naming in this SOP. We observe retention
-periods as outlined in this SOP and delete documents as soon as the retention period expired.</p>
+<p>Documents get archived if they become obsolete or a newer released version
+becomes available. For that, the <code class="docutils literal notranslate"><span class="pre">Process</span> <span class="pre">Owner</span></code> moves the document to the
+<code class="docutils literal notranslate"><span class="pre">archive</span></code> folder and assigns a respective archiving date following the general
+considerations for document naming in this SOP. We observe retention periods as
+outlined in this SOP.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
@@ -888,16 +1005,17 @@ periods as outlined in this SOP and delete documents as soon as the retention pe
 <h3>Handling of Records<a class="headerlink" href="#handling-of-records" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creation-of-records">
 <h4>1. Creation of Records<a class="headerlink" href="#creation-of-records" title="Permalink to this headline">¶</a></h4>
-<p>We create records as required by our processes. If available, we use templates and checklists for the creation
-of records. Naming conventions as outlined for documents do not apply. Records should include an author name
-and the date of creation.</p>
+<p>We create records as required by our processes. If available, we use templates
+and checklists for the creation of records. Naming conventions as outlined for
+documents do not apply. Records should include an author name and the date of
+creation.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Any employee</p></td>
+<tr class="row-even"><td><p>Any employee or contractor</p></td>
 </tr>
 </tbody>
 </table>
@@ -916,8 +1034,8 @@ and the date of creation.</p>
 </div>
 <div class="section" id="review-and-release-of-records">
 <h4>2. Review and Release of Records<a class="headerlink" href="#review-and-release-of-records" title="Permalink to this headline">¶</a></h4>
-<p>Unless specified differently in a template or SOP, records do not typically require a review and release
-process.</p>
+<p>Unless specified differently in a template or SOP, records do not typically
+require a review and release process.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
@@ -943,8 +1061,9 @@ process.</p>
 </div>
 <div class="section" id="storage-of-records">
 <h4>3. Storage of Records<a class="headerlink" href="#storage-of-records" title="Permalink to this headline">¶</a></h4>
-<p>Records are not necessarily stored in our QMS folder. They also may reside in other applications as specified
-per respective processes. This is where records are typically stored:</p>
+<p>Records are not necessarily stored in our QMS folder. They also may reside in
+other applications as specified per respective processes. This is where records
+are typically stored:</p>
 <blockquote>
 <div><p>Add all your tools which stores data which is mentioned in your QMS.</p>
 </div></blockquote>
@@ -955,16 +1074,17 @@ per respective processes. This is where records are typically stored:</p>
 </div>
 <div class="section" id="changes-to-records">
 <h4>4. Changes to Records<a class="headerlink" href="#changes-to-records" title="Permalink to this headline">¶</a></h4>
-<p>Records are not significantly altered after creation / release. Where significant changes are required, we
-rather create a new record and archive the old one. Non-substantial changes (e.g. spelling mistakes) are
-considered corrections only, assessed and added on a case-by-case basis.</p>
+<p>Records are not significantly altered after creation / release. Where
+significant changes are required, we rather create a new record and archive the
+old one. Non-substantial changes (e.g. spelling mistakes) are considered
+corrections only, assessed and added on a case-by-case basis.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Any employee</p></td>
+<tr class="row-even"><td><p>Any employee or contractor</p></td>
 </tr>
 </tbody>
 </table>
@@ -983,10 +1103,11 @@ considered corrections only, assessed and added on a case-by-case basis.</p>
 </div>
 <div class="section" id="archiving-of-records">
 <h4>5. Archiving of Records<a class="headerlink" href="#archiving-of-records" title="Permalink to this headline">¶</a></h4>
-<p>Records are archived if they become obsolete or a new released version becomes available. For that, the
-process owner moves the records to a respective archiving location. If possible, we follow the general
-considerations for document names and add the archiving date to the record name. We observe retention periods
-as outlined in this SOP and delete records as soon as the retention period expired.</p>
+<p>Records are archived if they become obsolete or a new released version becomes
+available. For that, the process owner moves the records to a respective
+archiving location. If possible, we follow the general considerations for
+document names and add the archiving date to the record name. We observe
+retention periods as outlined in this SOP.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Participants</p></th>
