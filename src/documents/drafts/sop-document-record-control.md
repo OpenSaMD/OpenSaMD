@@ -247,3 +247,10 @@ as outlined in this SOP and delete records as soon as the retention period expir
 | ----------------- | ----------------- |
 | Record (released) | Record (archived) |
 
+## Document Approval
+
+| Activity | Date       | Role            | Name        | Initials |
+| -------- | ---------- | --------------- | ----------- | -------- |
+| Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
+| Review   |            |                 |             |          |
+| Approval |            |                 |             |          |
