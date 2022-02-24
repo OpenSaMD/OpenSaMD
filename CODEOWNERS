@@ -1,3 +1,8 @@
-* @SimonBiggs
+# The following users have been given permission by the Process Owner to update
+# the protected release directory
+src/documents/released @SimonBiggs
 
-src/documents/drafts
+
+# The Quality Management Officer and Process Owner have permissions to edit the
+# CODEOWNERS file
+CODEOWNERS @SimonBiggs

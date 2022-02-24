@@ -113,7 +113,17 @@ creation activity is provided at the bottom. For example:
 | Creation | 2021-02-24 | Founder and CEO | Simon Biggs | SB       |
 
 This creation activity undergone is then committed to the git repository using
-a gpg verified signed commit.
+a signed commit. This commit signing requirement is enforced by requiring
+signed commits within the `main` branch protection rule for all pull requests
+into the `main` branch.
+
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
+
+| Input   | Output               |
+| ------- | -------------------- |
+| Content | New Document (draft) |
 
 #### 2. Documents Ready for Review
 
@@ -129,30 +139,71 @@ documents.
 | -------- | ---------- | ---------------------------- | ------------ | -------- |
 | Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
 | Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
-| Approval | 2021-02-24 | Founder and CEO              | Simon Biggs  |          |
+| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  |          |
 
 The reviewer may initial the document either using the online GitHub interface
-where commits are signed and verified. Or utilise git locally with gpg signed
+where commits are signed and verified. Or utilise git locally with signed
 commits.
+
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
+
+| Input            | Output                  |
+| ---------------- | ----------------------- |
+| Document (draft) | Document (under review) |
 
 #### 3. Review of Documents
 
 The respective reviewer(s) and approver(s) review the document. If changes are
-required, they create comments or suggest changes utilising the GitHub
-interface. If the review is successful, they sign their initials at the bottom
-of the document.
+required, they can create comments, suggest changes, or directly add their own
+changes either utilising the GitHub interface or a local git install. If the
+review is successful, they sign their initials at the bottom of the document
+and commit this to the repository with a gpg signed and verified commit.
 
-It is okay to merge these documents into the main branch of the git repository
+PRs are allowed to be merged even if the document isn't approved, or the review
+was only partial, or not at all. As long as the document stays within the
+`drafts` directory.
+
+| Participants                                                |
+| ----------------------------------------------------------- |
+| Process owner and/or designated reviewer(s) and approver(s) |
+
+| Input                   | Output                       |
+| ----------------------- | ---------------------------- |
+| Document (under review) | Document (review successful) |
 
 #### 4. Release of Documents
 
-The Process Owner moves the document to the "released" folder and assignes "-a" to the document name as
-outlined by the general considerations for document naming.
+The Process Owner moves the document to the "released" folder and assigns "-a"
+to the document name as outlined by the general considerations for document
+naming.
 
-Access to the "released" folder is restricted to prevent unauthorized changes to released documentation.
+A pull request that changes any document within the `released` folder is
+restricted so that it must be explicitly reviewed by employees who have been
+approved for merging into the release directory within the `main` branch by the
+`Process Owner`. These permission levels are defined within the `CODEOWNERS`
+file at the root of the repository.
 
-The QMO (and, if applicable, the process owner) decide if employee training is required. In general,
-training for minor changes/corrections is not necessary.
+This `CODEOWNERS` file is enforced within GitHub by utilising a branch
+protection rule on the `main` branch as well as requiring a review from Code
+Owners.
+
+The QMO (and, if applicable, the `Process Owner`) decide if employee training
+is required. In general, training for minor changes/corrections is not
+necessary.
+
+Prior to release the reviewer(s) and approver(s) initial the table at the
+bottom of the document and as before these initials are to be committed as a
+signed commit.
+
+Here is an example review and approval table:
+
+| Activity | Date       | Role                         | Name         | Initials |
+| -------- | ---------- | ---------------------------- | ------------ | -------- |
+| Creation | 2021-02-24 | Founder and CEO              | Simon Biggs  | SB       |
+| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel | OE       |
+| Approval | 2021-02-24 | QMO and Process Owner        | Simon Biggs  | SB       |
 
 | Participants       |
 | ------------------ |
@@ -164,19 +215,21 @@ training for minor changes/corrections is not necessary.
 
 #### 5. Changes to Documents
 
-If changes need to be made to a document, any employee with knowledge about the document and those changes can
-perform them. For that, the currently-released document is copied to the "drafts" folder and edited by the
-employee. After finishing the edit, it moves to the **Document Ready for Review** stage (step 2), following
-the same steps as above.
+If changes need to be made to a document, any employee with knowledge about the
+document and those changes can perform them. For that, the currently-released
+document is copied to the `drafts` folder and edited by the employee. After
+finishing the edit, it moves to the **Document Ready for Review** stage (step
+2), following the same steps as above.
 
-A QMS change can trigger a substantial change. Before release, it shall be checked whether it may impact the
-organization's process landscape and hence, overall organizational conformity with regulatory
-requirements. The QMO is responsible to evaluate such potentially major changes as part of the Change
+A QMS change can trigger a substantial change. Before release, it shall be
+checked whether it may impact the organization's process landscape and hence,
+overall organizational conformity with regulatory requirements. The QMO is
+responsible to evaluate such potentially major changes as part of the Change
 Evaluation List (reference change management process).
 
-| Participants      |
-| ----------------- |
-| QMO, any employee |
+| Participants                                                           |
+| ---------------------------------------------------------------------- |
+| QMO (change management), any employee or contractor (document changes) |
 
 | Input               | Output                |
 | ------------------- | --------------------- |
@@ -184,10 +237,11 @@ Evaluation List (reference change management process).
 
 #### 6. Archiving of Documents
 
-Documents get archived if they become obsolete or a newer released version becomes available. For that, the
-Process Owner removes the "-a" suffix, moves the document to the "archive" folder and assignes a respective
-archiving date following the general considerations for document naming in this SOP. We observe retention
-periods as outlined in this SOP and delete documents as soon as the retention period expired.
+Documents get archived if they become obsolete or a newer released version
+becomes available. For that, the `Process Owner` moves the document to the
+`archive` folder and assigns a respective archiving date following the general
+considerations for document naming in this SOP. We observe retention periods as
+outlined in this SOP.
 
 | Participants  |
 | ------------- |
@@ -201,13 +255,14 @@ periods as outlined in this SOP and delete documents as soon as the retention pe
 
 #### 1. Creation of Records
 
-We create records as required by our processes. If available, we use templates and checklists for the creation
-of records. Naming conventions as outlined for documents do not apply. Records should include an author name
-and the date of creation.
+We create records as required by our processes. If available, we use templates
+and checklists for the creation of records. Naming conventions as outlined for
+documents do not apply. Records should include an author name and the date of
+creation.
 
-| Participants |
-| ------------ |
-| Any employee |
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input                                      | Output     |
 | ------------------------------------------ | ---------- |
@@ -215,8 +270,8 @@ and the date of creation.
 
 #### 2. Review and Release of Records
 
-Unless specified differently in a template or SOP, records do not typically require a review and release
-process.
+Unless specified differently in a template or SOP, records do not typically
+require a review and release process.
 
 | Participants                           |
 | -------------------------------------- |
@@ -228,8 +283,9 @@ process.
 
 #### 3. Storage of Records
 
-Records are not necessarily stored in our QMS folder. They also may reside in other applications as specified
-per respective processes. This is where records are typically stored:
+Records are not necessarily stored in our QMS folder. They also may reside in
+other applications as specified per respective processes. This is where records
+are typically stored:
 
 > Add all your tools which stores data which is mentioned in your QMS.
 
@@ -238,13 +294,14 @@ per respective processes. This is where records are typically stored:
 
 #### 4. Changes to Records
 
-Records are not significantly altered after creation / release. Where significant changes are required, we
-rather create a new record and archive the old one. Non-substantial changes (e.g. spelling mistakes) are
-considered corrections only, assessed and added on a case-by-case basis.
+Records are not significantly altered after creation / release. Where
+significant changes are required, we rather create a new record and archive the
+old one. Non-substantial changes (e.g. spelling mistakes) are considered
+corrections only, assessed and added on a case-by-case basis.
 
-| Participants |
-| ------------ |
-| Any employee |
+| Participants               |
+| -------------------------- |
+| Any employee or contractor |
 
 | Input             | Output           |
 | ----------------- | ---------------- |
@@ -252,10 +309,11 @@ considered corrections only, assessed and added on a case-by-case basis.
 
 #### 5. Archiving of Records
 
-Records are archived if they become obsolete or a new released version becomes available. For that, the
-process owner moves the records to a respective archiving location. If possible, we follow the general
-considerations for document names and add the archiving date to the record name. We observe retention periods
-as outlined in this SOP and delete records as soon as the retention period expired.
+Records are archived if they become obsolete or a new released version becomes
+available. For that, the process owner moves the records to a respective
+archiving location. If possible, we follow the general considerations for
+document names and add the archiving date to the record name. We observe
+retention periods as outlined in this SOP.
 
 | Participants  |
 | ------------- |
