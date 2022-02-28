@@ -11,6 +11,8 @@ parts:
       - file: drafts/quality-manual-policy-objectives
       - file: drafts/intended-use
       - file: drafts/intended-performance
+      - file: drafts/62304-mapping
+      - file: drafts/sop-integrated-software-development
 
   - caption: Archived
     chapters:
