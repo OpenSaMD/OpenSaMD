@@ -24,10 +24,10 @@ All documents are written in English.
 
 Documents are named according to this schema:
 
-`[ASSOCIATED PROCESS]-[TYPE]-[NAME]`
+`[associated process]-[type]-[name]`
 
-Where `associated process` can be abbreviated and `type` refers to an
-abbreviation of the document type (see below). `Name` refers to the actual file
+Where `[associated process]` can be abbreviated and `[type]` refers to an
+abbreviation of the document type (see below). `[name]` refers to the actual file
 name. An example would be:
 
 `swd-sop-integrated-software-development`
@@ -49,10 +49,7 @@ For example:
 - And an archived document with the archival date would be
   `archived/swd-sop-integrated-software-development-2021-02-24`
 
-When a document is undergoing review it exists within a GitHub pull request. An
-under review document stays within the `draft` directory, undergoing the
-required iterations and feedback until it is approved, at which point it can be
-moved into the `released` directory.
+When a document is undergoing review it exists within a GitHub pull request.
 
 Product records are ideally labelled with a device number and device version;
 for instance:
@@ -142,15 +139,21 @@ The author also adds in the respective reviewer and approver items within the
 record at the bottom of the document ready for the reviewers to initial the
 documents.
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
-| Approval | 2021-02-24 | CEO                          | Simon Biggs  |          |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Approval | 2021-02-24 | CEO                   | Simon Biggs      |          |
 
 The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
 commits.
+
+An under review document can either be within the PR branch's `draft` directory
+or `released` directory depending on which workflow is more appropriate for the
+review. By having it within the `released` directory the reviewer is more
+easily able to see the difference between the original document and the updated
+document.
 
 | Participants               |
 | -------------------------- |
@@ -169,8 +172,8 @@ review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.
 
 PRs are allowed to be merged even if the document isn't approved, or the review
-was only partial, or not at all. As long as the document stays within the
-`drafts` directory.
+was only partial, or not at all. As long as the document either stays, or is
+moved back into the `drafts` directory prior to merging.
 
 One workflow for signing documents using the online GitHub workflow is first
 creating an inline review as in {numref}`Figure %s <start-inline-review>`:
@@ -227,14 +230,14 @@ naming.
 A pull request that changes any document within the `released` folder is
 restricted so that it must be explicitly reviewed by employees who have been
 approved for merging into the release directory within the `main` branch by the
-`Process Owner`. These permission levels are defined within the `CODEOWNERS`
+Process Owner. These permission levels are defined within the `CODEOWNERS`
 file at the root of the repository.
 
 This `CODEOWNERS` file is enforced within GitHub by utilising a branch
 protection rule on the `main` branch as well as requiring a review from Code
 Owners.
 
-The QMO (and, if applicable, the `Process Owner`) decide if employee training
+The QMO (and, if applicable, the Process Owner) decide if employee training
 is required. In general, training for minor changes/corrections is not
 necessary.
 
@@ -244,11 +247,13 @@ signed commit.
 
 Here is an example review and approval table:
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel | OE       |
-| Approval | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+
+---
 
 | Participants       |
 | ------------------ |
@@ -283,7 +288,7 @@ Evaluation List (reference change management process).
 #### 6. Archiving of Documents
 
 Documents get archived if they become obsolete or a newer released version
-becomes available. For that, the `Process Owner` moves the document to the
+becomes available. For that, the Process Owner moves the document to the
 `archive` folder and assigns a respective archiving date following the general
 considerations for document naming in this SOP. We observe retention periods as
 outlined in this SOP.
@@ -367,8 +372,8 @@ retention periods as outlined in this SOP.
 
 ## Document Approval
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE |
-| Approval |            |                              |              |          |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
