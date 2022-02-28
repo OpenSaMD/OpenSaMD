@@ -64,10 +64,10 @@ comparisons are undergone utilising the following metrics:
 
 ## 3. Roles
 
-| Role                  | People       |
-| --------------------- | ------------ |
-| CEO                   | Simon Biggs  |
-| Regulatory Consultant | Oliver Eidel |
+| Role(s)                               | People       |
+| ------------------------------------- | ------------ |
+| CEO, QMO, CTO, CPO, Software Engineer | Simon Biggs  |
+| Regulatory Consultant                 | Oliver Eidel |
 
 All C-level roles are referred to as the Management. Management is generally
 responsible to define responsibilities and authorities, to define and
