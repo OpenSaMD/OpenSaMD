@@ -92,7 +92,11 @@ The Quality Management Officer (QMO) is responsible to:
 
 | SOP                                  | Process Category |
 | ------------------------------------ | ---------------- |
+| SOP Corrective and Preventive Action | Core             |
 | SOP Document and Record Control      | Core             |
+| SOP Integrated Software Development  | Core             |
+| SOP Post-Market Surveillance         | Support          |
+| SOP Software Validation              | Support          |
 
 <!-- TODO: Look into filling in the above table based on the contents of a 'SOP' directory -->
 
