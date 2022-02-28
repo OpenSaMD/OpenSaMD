@@ -1,6 +1,6 @@
 # Introduction
 
-These documents corresponds to version `v0.1.16` of the
+These documents corresponds to version `v0.1.17` of the
 Radiotherapy AI Contour Recommendations software. Currently this software is pre-release, and both the
 software and this document is expected to change before it is available for
 clinical use. Please reference the version of these documents that is supplied
@@ -10,7 +10,7 @@ to you with the software itself.
 
 - **Manufacturer Name**: Radiotherapy AI Pty Ltd
 - **Manufacturer's Address**: 17 Grampian Place Tatton NSW 2650 Australia
-- **Software as a Medical Device Identification**: Radiotherapy AI Contour Recommendations `v0.1.16`
+- **Software as a Medical Device Identification**: Radiotherapy AI Contour Recommendations `v0.1.17`
 
 ## Overview
 

@@ -27,7 +27,7 @@ Radiotherapy AI Pty Ltd is a manufacturer of Medical Devices.
 
 | Standard         | Why Applicable?                                   |
 | ---------------- | ------------------------------------------------- |
-| ISO 13485:2016   | QMS required to meet the TGA essential principles |
+| ISO 13485:2016   | QMS utilised to meet the TGA essential principles |
 | ISO 14971:2019   | Risk management for medical devices               |
 | IEC 62304:2006   | Software development for medical devices          |
 | IEC 62366-1:2015 | Usability evaluation for medical devices          |
@@ -103,4 +103,4 @@ The Quality Management Officer (QMO) is responsible to:
 
 | Activity | Date       | Role | Name        | Initials |
 | -------- | ---------- | ---- | ----------- | -------- |
-| Creation | 2021-02-28 | CEO  | Simon Biggs | SB       |
+| Creation | 2022-02-28 | CEO  | Simon Biggs | SB       |
