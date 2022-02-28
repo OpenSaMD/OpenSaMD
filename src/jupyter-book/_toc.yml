@@ -3,7 +3,7 @@ root: index
 parts:
   - caption: Released
     chapters:
-      - file: released/index
+      - file: released/sop-document-record-control/index
 
   - caption: Under Review
     chapters:
@@ -12,7 +12,6 @@ parts:
   - caption: Drafts
     chapters:
       - file: drafts/introduction
-      - file: drafts/sop-document-record-control/index
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/architecture-design-chart
