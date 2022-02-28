@@ -8,6 +8,7 @@ parts:
   - caption: Drafts
     chapters:
       - file: drafts/introduction
+      - file: drafts/quality-manual-policy-objectives
       - file: drafts/intended-use
       - file: drafts/intended-performance
 
