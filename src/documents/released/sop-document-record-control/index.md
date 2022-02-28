@@ -49,10 +49,7 @@ For example:
 - And an archived document with the archival date would be
   `archived/swd-sop-integrated-software-development-2021-02-24`
 
-When a document is undergoing review it exists within a GitHub pull request. An
-under review document stays within the `draft` directory, undergoing the
-required iterations and feedback until it is approved, at which point it can be
-moved into the `released` directory.
+When a document is undergoing review it exists within a GitHub pull request.
 
 Product records are ideally labelled with a device number and device version;
 for instance:
@@ -152,6 +149,12 @@ The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
 commits.
 
+An under review document can either be within the PR branch's `draft` directory
+or `released` directory depending on which workflow is more appropriate for the
+review. By having it within the `released` directory the reviewer is more
+easily able to see the difference between the original document and the updated
+document.
+
 | Participants               |
 | -------------------------- |
 | Any employee or contractor |
@@ -169,8 +172,8 @@ review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.
 
 PRs are allowed to be merged even if the document isn't approved, or the review
-was only partial, or not at all. As long as the document stays within the
-`drafts` directory.
+was only partial, or not at all. As long as the document either stays, or is
+moved back into the `drafts` directory prior to merging.
 
 One workflow for signing documents using the online GitHub workflow is first
 creating an inline review as in {numref}`Figure %s <start-inline-review>`:
