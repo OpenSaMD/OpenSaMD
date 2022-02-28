@@ -171,9 +171,9 @@ changes either utilising the GitHub interface or a local git install. If the
 review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.
 
-PRs are allowed to be merged even if the document isn't approved, or the review
-was only partial, or not at all. As long as the document either stays, or is
-moved back into the `drafts` directory prior to merging.
+As long as the impact is only on documents within the `drafts` directory PRs
+are allowed to be merged even if the document isn't approved, or the review was
+only partial, or not at all.
 
 One workflow for signing documents using the online GitHub workflow is first
 creating an inline review as in {numref}`Figure %s <start-inline-review>`:
