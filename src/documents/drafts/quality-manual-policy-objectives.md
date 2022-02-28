@@ -66,8 +66,7 @@ comparisons are undergone utilising the following metrics:
 
 | Role                  | People       |
 | --------------------- | ------------ |
-| CEO and QMO           | Simon Biggs  |
-| CAO                   | Esther Biggs |
+| CEO                   | Simon Biggs  |
 | Regulatory Consultant | Oliver Eidel |
 
 All C-level roles are referred to as the Management. Management is generally
@@ -102,8 +101,6 @@ The Quality Management Officer (QMO) is responsible to:
 
 ## Document Approval
 
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-28 | CEO and QMO           | Simon Biggs      | SB       |
-<!-- | Review   |            | Regulatory Consultant | Dr. Oliver Eidel |          |
-| Approval |            | CEO and QMO           | Simon Biggs      |          | -->
+| Activity | Date       | Role | Name        | Initials |
+| -------- | ---------- | ---- | ----------- | -------- |
+| Creation | 2021-02-28 | CEO  | Simon Biggs | SB       |
