@@ -101,6 +101,8 @@ The Quality Management Officer (QMO) is responsible to:
 
 ## Document Approval
 
-| Activity | Date       | Role | Name        | Initials |
-| -------- | ---------- | ---- | ----------- | -------- |
-| Creation | 2022-02-28 | CEO  | Simon Biggs | SB       |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-0 | Regulatory Consultant | Dr. Oliver Eidel |        |
+| Approval | 2022-0 | CEO                   | Simon Biggs      |        |
