@@ -1,7 +1,7 @@
 # SOP Integrated Software Development
 
 | Classes | IEC 62304:2006 Section | Document Section |
-|---------|------------------------|------------------|
+| ------- | ---------------------- | ---------------- |
 | A, B, C | 5.1.2                  | 4                |
 | A, B, C | 5.2.1                  | 4                |
 | A, B, C | 5.2.4                  | 3, 7, 10         |
@@ -51,7 +51,7 @@
 | A, B, C | 9.8                    | 8                |
 
 | ISO 14971:2019 Section | Document Section         |
-|------------------------|--------------------------|
+| ---------------------- | ------------------------ |
 | 4.1                    | 3, 4, 5, 6, 8, 9, 10, 11 |
 | 5.1                    | 3, 4, 5, 6, 8, 9, 10, 11 |
 | 5.3                    | 3, 4                     |
@@ -68,7 +68,7 @@
 | 9                      | 10                       |
 
 | IEC 62366-1:2015 Section | Title                                                                  | Document Section |
-|--------------------------|------------------------------------------------------------------------|------------------|
+| ------------------------ | ---------------------------------------------------------------------- | ---------------- |
 | 4.1.1                    | Usability Engineering Process                                          | (All)            |
 | 5.1                      | Prepare Use Specification                                              | 4                |
 | 5.8                      | Perform User Interface design, implementation and Formative Evaluation | 4, 5, 6, 7       |
@@ -105,21 +105,21 @@ whether the idea is feasible.
 
 Business input could be:
 
- * Conversations with prospective customers
- * Market opportunities
- * Internal ideas
+- Conversations with prospective customers
+- Market opportunities
+- Internal ideas
 
 Changes to the product also enter the process here (i.e., as change request as
 defined in SOP Change Management).
 
 | Participants |
-|--------------|
+| ------------ |
 | CEO          |
 | CTO          |
 | CPO          |
 
 | Input           | Output             |
-|-----------------|--------------------|
+| --------------- | ------------------ |
 | Business input  | Device Description |
 | Technical input | Vision document    |
 | Product ideas   |                    |
@@ -132,14 +132,14 @@ documented. The Usability Evaluation Plan includes summative and formative
 usability evaluation activities.
 
 | Participants                            |
-|-----------------------------------------|
+| --------------------------------------- |
 | CPO                                     |
 | Subject matter experts, e.g. physicians |
 
-| Input              | Output                                        |
-|--------------------|-----------------------------------------------|
-| Device description | Risk Management Plan                          |
-|                    | Usability Evaluation Plan                     |
+| Input              | Output                    |
+| ------------------ | ------------------------- |
+| Device description | Risk Management Plan      |
+|                    | Usability Evaluation Plan |
 
 ### 3. First Risk and Usability Assessment
 
@@ -149,24 +149,24 @@ risk policy with a risk acceptance matrix.
 
 The Risk Acceptance Matrix is defined by performing these steps:
 
- * Estimate product usage over its lifetime
- * Define Probability Categories. Start by defining the category "Unthinkable"
-   which has an absolute occurrence number of less than one. From there on, the
-   more frequently occurring categories are added with probability increments
-   of 10^2.
- * Define Severity Categories
- * Create Risk Acceptance Matrix and define which combinations of the
-   categories are deemed acceptable.
+- Estimate product usage over its lifetime
+- Define Probability Categories. Start by defining the category "Unthinkable"
+  which has an absolute occurrence number of less than one. From there on, the
+  more frequently occurring categories are added with probability increments
+  of 10^2.
+- Define Severity Categories
+- Create Risk Acceptance Matrix and define which combinations of the
+  categories are deemed acceptable.
 
 Risk analysis is performed by conducting a Failure Mode and Effects Analysis
 (FMEA). It includes the following activities:
 
- * Identifying potential Failure Modes
- * Identifying potential Hazards, Hazardous Situations and Harms with experts
-   (e.g. physicians)
- * Estimating probabilities for the identified items and analysing the severity
-   of each Harm, taking standards, scientific studies, public reports, expert
-   opinions and usability data into account.
+- Identifying potential Failure Modes
+- Identifying potential Hazards, Hazardous Situations and Harms with experts
+  (e.g. physicians)
+- Estimating probabilities for the identified items and analysing the severity
+  of each Harm, taking standards, scientific studies, public reports, expert
+  opinions and usability data into account.
 
 In general, we try to reduce probabilities of risks as low as reasonably
 possible (ALARP).
@@ -174,9 +174,9 @@ possible (ALARP).
 If a risk is deemed unacceptable based on our Risk Policy, it may be mitigated
 through Risk Control Measures:
 
- * Inherently safe design
- * Protective measures in the device or development process
- * Information for safety and/or training of users
+- Inherently safe design
+- Protective measures in the device or development process
+- Information for safety and/or training of users
 
 A usability evaluation plan is created which covers future formative and
 summative usability evaluation activities.
@@ -185,12 +185,12 @@ Usage scenarios with a focus on those related to hazards are specified. These
 will serve as input to the summative usability evaluation.
 
 | Participants                            |
-|-----------------------------------------|
+| --------------------------------------- |
 | CPO                                     |
 | Subject matter experts, e.g. physicians |
 
 | Input                     | Output                                          |
-|---------------------------|-------------------------------------------------|
+| ------------------------- | ----------------------------------------------- |
 | Device description        | Preliminary Hazards Analysis                    |
 | Risk Management Plan      | Risk table incl. Risk Acceptance Matrix (draft) |
 | Usability Evaluation Plan | Software Safety Classification (draft)          |
@@ -211,14 +211,14 @@ Software requirements are verified through review by filling out the Checklist
 Software Requirements Review.
 
 | Participants       |
-|--------------------|
+| ------------------ |
 | CTO                |
 | Software Engineer  |
 | Risk Manager       |
 | Usability Engineer |
 
 | Input                        | Output                                                   |
-|------------------------------|----------------------------------------------------------|
+| ---------------------------- | -------------------------------------------------------- |
 | Device Description           | Software Development and Maintenance Plan                |
 | Vision Document              | Software Requirements incl. User Interface Specification |
 | Change Request               | Software System Test Plan                                |
@@ -233,7 +233,7 @@ with possible changes to the risk analysis and usage scenarios. In that case,
 move back to the relevant step above.
 
 | Participants                            |
-|-----------------------------------------|
+| --------------------------------------- |
 | CTO                                     |
 | CPO                                     |
 | Risk Manager                            |
@@ -241,7 +241,7 @@ move back to the relevant step above.
 | Subject matter experts, e.g. physicians |
 
 | Input                 | Output                                       |
-|-----------------------|----------------------------------------------|
+| --------------------- | -------------------------------------------- |
 | Software Requirements | Checklist Software Requirements (filled out) |
 | Risk Table (draft)    |                                              |
 | Usage Scenarios       |                                              |
@@ -270,12 +270,12 @@ If new risks relating to software units and potential failure modes are
 discovered during this phase, they are added to the risk table.
 
 | Participants      |
-|-------------------|
+| ----------------- |
 | CTO               |
 | Software Engineer |
 
 | Input                                     | Output                                     |
-|-------------------------------------------|--------------------------------------------|
+| ----------------------------------------- | ------------------------------------------ |
 | Software Development and Maintenance Plan | Implemented Software Items, i.e. code      |
 | Software Requirements                     | Software Architecture (created/updated)    |
 | Software System Test Plan                 | Software Detailed Design (created/updated) |
@@ -286,17 +286,17 @@ discovered during this phase, they are added to the risk table.
 
 The second review covers multiple activities:
 
- * **Verification** of the software items based on code review and automated
-   unit and integration tests
- * **Formative Usability Evaluation** through a usability engineer whether the
-   user interface has been implemented as specified
+- **Verification** of the software items based on code review and automated
+  unit and integration tests
+- **Formative Usability Evaluation** through a usability engineer whether the
+  user interface has been implemented as specified
 
 Code review is conducted based on the following criteria:
 
- * Were the software requirements, software architecture and detailed design
-   implemented correctly?
- * Does the code adhere to coding guidelines which include requirements for
-   documentation as specified in the Software Development and Maintenance Plan?
+- Were the software requirements, software architecture and detailed design
+  implemented correctly?
+- Does the code adhere to coding guidelines which include requirements for
+  documentation as specified in the Software Development and Maintenance Plan?
 
 Upon successful verification, the implemented software requirement is
 integrated into the current code base as described in the Software Development
@@ -304,12 +304,12 @@ and Maintenance Plan. The software units may be integrated only if all
 activities above were successful.
 
 | Participants       |
-|--------------------|
+| ------------------ |
 | Software Engineer  |
 | Usability Engineer |
 
 | Input                                             | Output                                    |
-|---------------------------------------------------|-------------------------------------------|
+| ------------------------------------------------- | ----------------------------------------- |
 | Implemented Software Unit(s) incl. User Interface | Code review result                        |
 |                                                   | Unit / Integration test result(s)         |
 |                                                   | Formative Usability Evaluation Assessment |
@@ -326,11 +326,11 @@ If anomalies are encountered, they are added to the list of known anomalies
 and/or entered as new software requirements to be fixed.
 
 | Participants      |
-|-------------------|
+| ----------------- |
 | Software Engineer |
 
 | Input                     | Output                            |
-|---------------------------|-----------------------------------|
+| ------------------------- | --------------------------------- |
 | Software System Test Plan | Software System Test Protocols    |
 |                           | Software System Test Report       |
 |                           | Risk Table (updated)              |
@@ -347,13 +347,13 @@ If new risks are discovered during the usability tests, they are added to the
 risk table.
 
 | Participants             |
-|--------------------------|
-| CPO          |
+| ------------------------ |
+| CPO                      |
 | Usability Engineer       |
 | Users for Usability Test |
 
 | Input                                            | Output                      |
-|--------------------------------------------------|-----------------------------|
+| ------------------------------------------------ | --------------------------- |
 | Usage Scenarios                                  | Usability Test Protocol(s)  |
 | Labeling and Instructions for Use, if applicable | Summative Evaluation Report |
 | Usability Evaluation Plan                        | Risk Table (updated)        |
@@ -374,13 +374,13 @@ The finalization of the Risk Management Report is the prerequisite for
 finalizing the Software Safety Classification.
 
 | Participants |
-|--------------|
+| ------------ |
 | CEO          |
 | CTO          |
 | CPO          |
 
 | Input                        | Output                                 |
-|------------------------------|----------------------------------------|
+| ---------------------------- | -------------------------------------- |
 | Preliminary Hazards Analysis | Risk Management Report                 |
 | Risk Table                   | Software Safety Classification (final) |
 | Clinical Evaluation          |                                        |
@@ -396,11 +396,11 @@ number in accordance with the Software Development and Maintenance Plan is
 assigned.
 
 | Participants |
-|--------------|
+| ------------ |
 | CTO          |
 
 | Input                                     | Output                                      |
-|-------------------------------------------|---------------------------------------------|
+| ----------------------------------------- | ------------------------------------------- |
 | Device Description                        | Released Software                           |
 | Checklist Release                         | Checklist Release (filled out)              |
 | Risk Analysis                             | Release Notes incl. list of known anomalies |
