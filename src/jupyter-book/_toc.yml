@@ -3,38 +3,13 @@ root: index
 parts:
   - caption: Released
     chapters:
-      - file: released/index
-
-  - caption: Under Review
-    chapters:
-      - file: under-review/index
+      - file: released/sop-document-record-control/index
 
   - caption: Drafts
     chapters:
       - file: drafts/introduction
-      - file: drafts/sop-document-record-control/index
       - file: drafts/intended-use
       - file: drafts/intended-performance
-      - file: drafts/architecture-design-chart
-      - file: drafts/cyber-security
-      - file: drafts/hazard-analysis
-      - file: drafts/known-anomalies
-      - file: drafts/level-of-concern
-      - file: drafts/note-about-missing-requirements
-      - file: drafts/release-history
-      - file: drafts/release-record
-      - file: drafts/risk-management-plan
-      - file: drafts/software-description
-      - file: drafts/software-design-specification
-      - file: drafts/software-plan
-      - file: drafts/software-requirements-specification
-      - file: drafts/test-record
-      - file: drafts/verification-and-validation-plan
-      - file: drafts/510k/overview
-        sections:
-          - file: drafts/510k/executive-summary-predicate-comparison
-          - file: drafts/510k/substantial-equivalence-discussion
-          - file: drafts/510k/regulatory-change-assessment
 
   - caption: Archived
     chapters:
