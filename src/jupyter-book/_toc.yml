@@ -5,10 +5,6 @@ parts:
     chapters:
       - file: released/sop-document-record-control/index
 
-  - caption: Under Review
-    chapters:
-      - file: under-review/index
-
   - caption: Drafts
     chapters:
       - file: drafts/introduction
