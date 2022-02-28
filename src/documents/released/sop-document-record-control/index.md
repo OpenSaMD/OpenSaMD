@@ -47,7 +47,7 @@ For example:
 - A released document would be
   `released/swd-sop-integrated-software-development`
 - And an archived document with the archival date would be
-  `archived/swd-sop-integrated-software-development-2021-02-24`
+  `archived/swd-sop-integrated-software-development-2022-02-24`
 
 When a document is undergoing review it exists within a GitHub pull request.
 
@@ -114,7 +114,7 @@ creation activity is provided at the bottom. For example:
 
 | Activity | Date       | Role | Name        | Initials |
 | -------- | ---------- | ---- | ----------- | -------- |
-| Creation | 2021-02-24 | CEO  | Simon Biggs | SB       |
+| Creation | 2022-02-24 | CEO  | Simon Biggs | SB       |
 
 This creation activity undergone is then committed to the git repository using
 a signed commit. This commit signing requirement is enforced by requiring
@@ -141,9 +141,9 @@ documents.
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      |          |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Approval | 2022-02-24 | CEO                   | Simon Biggs      |          |
 
 The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
@@ -249,9 +249,9 @@ Here is an example review and approval table:
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
 
 ---
 
@@ -380,9 +380,9 @@ retention periods as outlined in this SOP.
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
-| Changes  | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
-| Review   |  | Regulatory Consultant | Dr. Oliver Eidel |        |
-| Approval |  | CEO                   | Simon Biggs      |        |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
+| Changes  | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-0 | Regulatory Consultant | Dr. Oliver Eidel |        |
+| Approval | 2022-0 | CEO                   | Simon Biggs      |        |
