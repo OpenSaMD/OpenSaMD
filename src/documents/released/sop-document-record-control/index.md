@@ -266,10 +266,16 @@ Here is an example review and approval table:
 #### 5. Changes to Documents
 
 If changes need to be made to a document, any employee with knowledge about the
-document and those changes can perform them. For that, the currently-released
-document is copied to the `drafts` folder and edited by the employee. After
-finishing the edit, it moves to the **Document Ready for Review** stage (step
-2), following the same steps as above.
+document and those changes can perform them. To achieve this a git branch is
+created where editing of the document is undergone for subsequent PR and
+review. The document itself does not need to be copied into the `draft` folder
+unless there is a desire to merge the PR into the `main` branch before the
+document is ready for release approval.
+
+After finishing the edit, include a new "changes" row within the document
+approval table and then subsequently the process moves to the
+**Document Ready for Review** stage (step 2), following the same steps as
+above.
 
 A QMS change can trigger a substantial change. Before release, it shall be
 checked whether it may impact the organization's process landscape and hence,
@@ -281,9 +287,9 @@ Evaluation List (reference change management process).
 | ---------------------------------------------------------------------- |
 | QMO (change management), any employee or contractor (document changes) |
 
-| Input               | Output                |
-| ------------------- | --------------------- |
-| Document (released) | Document Copy (draft) |
+| Input               | Output                                |
+| ------------------- | ------------------------------------- |
+| Document (released) | Modified document within Pull Request |
 
 #### 6. Archiving of Documents
 
@@ -377,3 +383,6 @@ retention periods as outlined in this SOP.
 | Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
 | Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
 | Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
+| Changes  | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Approval | 2021-02-28 | CEO                   | Simon Biggs      |          |
