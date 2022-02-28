@@ -272,8 +272,8 @@ review. The document itself does not need to be copied into the `draft` folder
 unless there is a desire to merge the PR into the `main` branch before the
 document is ready for release approval.
 
-After finishing the edit, include a new "changes" row within the document
-approval table and then subsequently the process moves to the
+After finishing the edit, include and sign a new "changes" row within the
+document approval table and then subsequently the process moves to the
 **Document Ready for Review** stage (step 2), following the same steps as
 above.
 
