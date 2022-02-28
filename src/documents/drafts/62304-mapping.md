@@ -103,3 +103,9 @@ OpenRegulatory templates).
 | A, B, C   | 9.6     | Analyse problems for trends                                            | SOP Software Problem Resolution                                                                |                                                   |
 | A, B, C   | 9.7     | Verify software problem resolution                                     | SOP Software Problem Resolution                                                                |                                                   |
 | A, B, C   | 9.8     | Test documentation contents                                            | SOP Integrated Software Development                                                            |                                                   |
+
+## Document Approval
+
+| Activity | Date       | Role | Name        | Initials |
+| -------- | ---------- | ---- | ----------- | -------- |
+| Creation | 2021-02-28 | CEO  | Simon Biggs | SB       |

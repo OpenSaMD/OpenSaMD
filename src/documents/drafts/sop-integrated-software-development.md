@@ -127,8 +127,9 @@ defined in SOP Change Management).
 
 ### 2. Usability Engineering and Risk Management Planning
 
-The risk management and usability engineering activities are planned and documented. The Usability Evaluation
-Plan includes summative and formative usability evaluation activities.
+The risk management and usability engineering activities are planned and
+documented. The Usability Evaluation Plan includes summative and formative
+usability evaluation activities.
 
 | Participants                            |
 |-----------------------------------------|
@@ -142,39 +143,46 @@ Plan includes summative and formative usability evaluation activities.
 
 ### 3. First Risk and Usability Assessment
 
-In the first risk and usability assessment, a preliminary hazard analysis is conducted and an initial risk
-table is drafted. The risk table includes the risk policy with a risk acceptance matrix.
+In the first risk and usability assessment, a preliminary hazard analysis is
+conducted and an initial risk table is drafted. The risk table includes the
+risk policy with a risk acceptance matrix.
 
 The Risk Acceptance Matrix is defined by performing these steps:
 
  * Estimate product usage over its lifetime
- * Define Probability Categories. Start by defining the category “Unthinkable” which has an absolute
-   occurrence number of less than one. From there on, the more frequently occurring categories are added with
-   probability increments of 10^2.
+ * Define Probability Categories. Start by defining the category "Unthinkable"
+   which has an absolute occurrence number of less than one. From there on, the
+   more frequently occurring categories are added with probability increments
+   of 10^2.
  * Define Severity Categories
- * Create Risk Acceptance Matrix and define which combinations of the categories are deemed acceptable.
+ * Create Risk Acceptance Matrix and define which combinations of the
+   categories are deemed acceptable.
 
-Risk analysis is performed by conducting a Failure Mode and Effects Analysis (FMEA). It includes the following
-activities:
+Risk analysis is performed by conducting a Failure Mode and Effects Analysis
+(FMEA). It includes the following activities:
 
  * Identifying potential Failure Modes
- * Identifying potential Hazards, Hazardous Situations and Harms with experts (e.g. physicians)
- * Estimating probabilities for the identified items and analyzing the severity of each Harm, taking
-   standards, scientific studies, public reports, expert opinions and usability data into account.
+ * Identifying potential Hazards, Hazardous Situations and Harms with experts
+   (e.g. physicians)
+ * Estimating probabilities for the identified items and analysing the severity
+   of each Harm, taking standards, scientific studies, public reports, expert
+   opinions and usability data into account.
 
-In general, we try to reduce probabilities of risks as low as reasonably possible (ALARP).
+In general, we try to reduce probabilities of risks as low as reasonably
+possible (ALARP).
 
-If a risk is deemed unacceptable based on our Risk Policy, it may be mitigated through Risk Control Measures:
+If a risk is deemed unacceptable based on our Risk Policy, it may be mitigated
+through Risk Control Measures:
 
  * Inherently safe design
  * Protective measures in the device or development process
  * Information for safety and/or training of users
 
-A usability evaluation plan is created which covers future formative and summative usability evaluation
-activities.
+A usability evaluation plan is created which covers future formative and
+summative usability evaluation activities.
 
-Usage scenarios with a focus on those related to hazards are specified. These will serve as input to the
-summative usability evaluation.
+Usage scenarios with a focus on those related to hazards are specified. These
+will serve as input to the summative usability evaluation.
 
 | Participants                            |
 |-----------------------------------------|
@@ -190,14 +198,17 @@ summative usability evaluation.
 
 ### 4. Software Planning
 
-Based on the device description, the usage scenarios and preliminary risk analysis, the next steps is to plan
-software development by defining software requirements. These also include the user interface specification,
-e.g. wireframes, mockups or style guides.
+Based on the device description, the usage scenarios and preliminary risk
+analysis, the next steps is to plan software development by defining software
+requirements. These also include the user interface specification, e.g.
+wireframes, mockups or style guides.
 
-The software system test plan is created based on the requirements. As requirements may change, the software
-system test plan is continuously updated to reflect those changes.
+The software system test plan is created based on the requirements. As
+requirements may change, the software system test plan is continuously updated
+to reflect those changes.
 
-Software requirements are verified through review by filling out the Checklist Software Requirements Review.
+Software requirements are verified through review by filling out the Checklist
+Software Requirements Review.
 
 | Participants       |
 |--------------------|
@@ -216,9 +227,10 @@ Software requirements are verified through review by filling out the Checklist S
 
 ### 5. First Review: Software Planning Review
 
-Software requirements are reviewed. If the review is successful, move forward to the next step. If it's not,
-the software requirements have to be reworked with possible changes to the risk analysis and usage
-scenarios. In that case, move back to the relevant step above.
+Software requirements are reviewed. If the review is successful, move forward
+to the next step. If it's not, the software requirements have to be reworked
+with possible changes to the risk analysis and usage scenarios. In that case,
+move back to the relevant step above.
 
 | Participants                            |
 |-----------------------------------------|
@@ -236,22 +248,26 @@ scenarios. In that case, move back to the relevant step above.
 
 ### 6. Software Architecture, Detailed Design and Implementation
 
-A software architecture is created (and detailed design, if necessary). As the software development process
-follows agile methodology, the software architecture may change as new knowledge is gained during
-implementation. The end result should be that both the implementation and the documented software architecture
-are synchronised.
+A software architecture is created (and detailed design, if necessary). As the
+software development process follows agile methodology, the software
+architecture may change as new knowledge is gained during implementation. The
+end result should be that both the implementation and the documented software
+architecture are synchronised.
 
-At minimum, an architecture diagram showing all software systems including databases and networks is
-created. For each software system, public interfaces, are documented, e.g. REST APIs, internal methods.
+At minimum, an architecture diagram showing all software systems including
+databases and networks is created. For each software system, public interfaces,
+are documented, e.g. REST APIs, internal methods.
 
-SOUP is added/updated here, if necessary. For each SOUP, we specify the name, version, manufacturer, website
-link (incl. release notes and issue tracker), requirements and prerequisites. SOUP must be verified before
-moving to the next step. Possible SOUP verification criteria include sufficient test coverage by the author
-and being commonly used; correct SOUP functioning is also verified through software verification and software
-system testing in the following steps.
+SOUP is added/updated here, if necessary. For each SOUP, we specify the name,
+version, manufacturer, website link (incl. release notes and issue tracker),
+requirements and prerequisites. SOUP must be verified before moving to the next
+step. Possible SOUP verification criteria include sufficient test coverage by
+the author and being commonly used; correct SOUP functioning is also verified
+through software verification and software system testing in the following
+steps.
 
-If new risks relating to software units and potential failure modes are discovered during this phase, they are
-added to the risk table.
+If new risks relating to software units and potential failure modes are
+discovered during this phase, they are added to the risk table.
 
 | Participants      |
 |-------------------|
@@ -270,18 +286,21 @@ added to the risk table.
 
 The second review covers multiple activities:
 
- * **Verification** of the software items based on code review and automated unit and integration tests
- * **Formative Usability Evaluation** through a usability engineer whether the user interface has been
-   implemented as specified
+ * **Verification** of the software items based on code review and automated
+   unit and integration tests
+ * **Formative Usability Evaluation** through a usability engineer whether the
+   user interface has been implemented as specified
 
 Code review is conducted based on the following criteria:
 
- * Were the software requirements, software architecture and detailed design implemented correctly?
- * Does the code adhere to coding guidelines which include requirements for documentation as specified in the
-   Software Development and Maintenance Plan?
+ * Were the software requirements, software architecture and detailed design
+   implemented correctly?
+ * Does the code adhere to coding guidelines which include requirements for
+   documentation as specified in the Software Development and Maintenance Plan?
 
-Upon successful verification, the implemented software requirement is integrated into the current code base as
-described in the Software Development and Maintenance Plan. The software units may be integrated only if all
+Upon successful verification, the implemented software requirement is
+integrated into the current code base as described in the Software Development
+and Maintenance Plan. The software units may be integrated only if all
 activities above were successful.
 
 | Participants       |
@@ -297,13 +316,14 @@ activities above were successful.
 
 ### 8. Software System Testing
 
-Based on the Software System Test Plan, software system tests covering all software requirements are
-performed.
+Based on the Software System Test Plan, software system tests covering all
+software requirements are performed.
 
-If new risks are discovered during the system tests, they are added to the risk table.
+If new risks are discovered during the system tests, they are added to the risk
+table.
 
-If anomalies are encountered, they are added to the list of known anomalies and/or entered as new software
-requirements to be fixed.
+If anomalies are encountered, they are added to the list of known anomalies
+and/or entered as new software requirements to be fixed.
 
 | Participants      |
 |-------------------|
@@ -320,10 +340,11 @@ requirements to be fixed.
 
 Validation is done as summative usability evaluation.
 
-A Usability Test is conducted in the context of the actual usage scenarios in accordance with the Usability
-Evaluation Plan.
+A Usability Test is conducted in the context of the actual usage scenarios in
+accordance with the Usability Evaluation Plan.
 
-If new risks are discovered during the usability tests, they are added to the risk table.
+If new risks are discovered during the usability tests, they are added to the
+risk table.
 
 | Participants             |
 |--------------------------|
@@ -339,15 +360,18 @@ If new risks are discovered during the usability tests, they are added to the ri
 
 ### 10. Final Risk Assessment and Risk-Benefit Analysis
 
-The overall risk of the product is evaluated by analyzing all identified risks so far. If unacceptable risks
-exist, they are weighed against the benefits of the Medical Device as part of the Clinical Evaluation SOP and as specified by the Clinical
-Evaluation Report. We only continue to release the Medical Device if the benefits outweigh the risks.
+The overall risk of the product is evaluated by analysing all identified risks
+so far. If unacceptable risks exist, they are weighed against the benefits of
+the Medical Device as part of the Clinical Evaluation SOP and as specified by
+the Clinical Evaluation Report. We only continue to release the Medical Device
+if the benefits outweigh the risks.
 
-If unacceptable risks remain which are not outweighed by the benefits, we consider adding new risk control
-measures and move back in to the relevant step in the process.
+If unacceptable risks remain which are not outweighed by the benefits, we
+consider adding new risk control measures and move back in to the relevant step
+in the process.
 
-The finalization of the Risk Management Report is the prerequisite for finalizing the Software Safety
-Classification.
+The finalization of the Risk Management Report is the prerequisite for
+finalizing the Software Safety Classification.
 
 | Participants |
 |--------------|
@@ -364,10 +388,12 @@ Classification.
 
 ### 11. Release
 
-Before release, it is ensured that all required processes (Software Development, Usability Evaluation, Risk
-Analysis) have been completed. Release notes are created which include the list of known anomalies. The
-software is only released if the remaining anomalies are deemed acceptable. A version number in accordance
-with the Software Development and Maintenance Plan is assigned.
+Before release, it is ensured that all required processes (Software
+Development, Usability Evaluation, Risk Analysis) have been completed. Release
+notes are created which include the list of known anomalies. The software is
+only released if the remaining anomalies are deemed acceptable. A version
+number in accordance with the Software Development and Maintenance Plan is
+assigned.
 
 | Participants |
 |--------------|
@@ -384,3 +410,9 @@ with the Software Development and Maintenance Plan is assigned.
 | Software Items incl. Verification         |                                             |
 | Software System Test Report               |                                             |
 | Usability Evaluation Results              |                                             |
+
+## Document Approval
+
+| Activity | Date       | Role | Name        | Initials |
+| -------- | ---------- | ---- | ----------- | -------- |
+| Creation | 2021-02-28 | CEO  | Simon Biggs | SB       |
