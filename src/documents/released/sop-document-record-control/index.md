@@ -142,11 +142,11 @@ The author also adds in the respective reviewer and approver items within the
 record at the bottom of the document ready for the reviewers to initial the
 documents.
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel |          |
-| Approval | 2021-02-24 | CEO                          | Simon Biggs  |          |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Approval | 2021-02-24 | CEO                   | Simon Biggs      |          |
 
 The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
@@ -244,11 +244,13 @@ signed commit.
 
 Here is an example review and approval table:
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review   | 2021-02-24 | EU MDR Regulatory Consultant | Oliver Eidel | OE       |
-| Approval | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+
+---
 
 | Participants       |
 | ------------------ |
@@ -367,8 +369,8 @@ retention periods as outlined in this SOP.
 
 ## Document Approval
 
-| Activity | Date       | Role                         | Name         | Initials |
-| -------- | ---------- | ---------------------------- | ------------ | -------- |
-| Creation | 2021-02-24 | CEO                          | Simon Biggs  | SB       |
-| Review | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE |
-| Approval |            |                              |              |          |
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
