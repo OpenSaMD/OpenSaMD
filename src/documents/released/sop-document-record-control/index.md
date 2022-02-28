@@ -230,14 +230,14 @@ naming.
 A pull request that changes any document within the `released` folder is
 restricted so that it must be explicitly reviewed by employees who have been
 approved for merging into the release directory within the `main` branch by the
-`Process Owner`. These permission levels are defined within the `CODEOWNERS`
+Process Owner. These permission levels are defined within the `CODEOWNERS`
 file at the root of the repository.
 
 This `CODEOWNERS` file is enforced within GitHub by utilising a branch
 protection rule on the `main` branch as well as requiring a review from Code
 Owners.
 
-The QMO (and, if applicable, the `Process Owner`) decide if employee training
+The QMO (and, if applicable, the Process Owner) decide if employee training
 is required. In general, training for minor changes/corrections is not
 necessary.
 
@@ -288,7 +288,7 @@ Evaluation List (reference change management process).
 #### 6. Archiving of Documents
 
 Documents get archived if they become obsolete or a newer released version
-becomes available. For that, the `Process Owner` moves the document to the
+becomes available. For that, the Process Owner moves the document to the
 `archive` folder and assigns a respective archiving date following the general
 considerations for document naming in this SOP. We observe retention periods as
 outlined in this SOP.
