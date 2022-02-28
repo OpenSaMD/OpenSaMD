@@ -24,10 +24,10 @@ All documents are written in English.
 
 Documents are named according to this schema:
 
-`[ASSOCIATED PROCESS]-[TYPE]-[NAME]`
+`[associated process]-[type]-[name]`
 
-Where `associated process` can be abbreviated and `type` refers to an
-abbreviation of the document type (see below). `Name` refers to the actual file
+Where `[associated process]` can be abbreviated and `[type]` refers to an
+abbreviation of the document type (see below). `[name]` refers to the actual file
 name. An example would be:
 
 `swd-sop-integrated-software-development`
