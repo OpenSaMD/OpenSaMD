@@ -265,12 +265,12 @@ Here is an example review and approval table:
 
 #### 5. Changes to Documents
 
-If changes need to be made to a document, any employee with knowledge about the
-document and those changes can perform them. To achieve this a git branch is
-created where editing of the document is undergone for subsequent PR and
-review. The document itself does not need to be copied into the `draft` folder
-unless there is a desire to merge the PR into the `main` branch before the
-document is ready for release approval.
+If changes need to be made to an already released document, any employee with
+knowledge about the document and those changes can perform them. To achieve
+this a git branch is created where editing of the document is undergone for
+subsequent PR and review. The document itself does not need to be copied into
+the `draft` folder unless there is a desire to merge the PR into the `main`
+branch before the document is ready for release approval.
 
 After finishing the edit, include and sign a new "changes" row within the
 document approval table and then subsequently the process moves to the
