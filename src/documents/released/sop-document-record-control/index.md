@@ -384,5 +384,5 @@ retention periods as outlined in this SOP.
 | Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
 | Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
 | Changes  | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
-| Approval | 2021-02-28 | CEO                   | Simon Biggs      |          |
+| Review   |  | Regulatory Consultant | Dr. Oliver Eidel |        |
+| Approval |  | CEO                   | Simon Biggs      |        |
