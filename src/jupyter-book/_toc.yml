@@ -9,6 +9,7 @@ parts:
     chapters:
       - file: drafts/introduction
       - file: drafts/quality-manual-policy-objectives
+      - file: drafts/software-development-maintenance-plan
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/62304-mapping
