@@ -7,8 +7,8 @@ name: "Radiotherapy AI Contour Recommendations"
 manufacturer: "Radiotherapy AI Pty Ltd"
 
 # The current release number for the device
-# TODO: Propagate this automatically.
-version: "`v0.1.16`"
+# TODO: Propagate these automatically.
+version: "`v0.1.17`"
 
 # What is the FDA's software Level of Concern?
 # "Minor" - Failures or latent design flaws are unlikely to cause any injury to
@@ -33,7 +33,7 @@ level_of_concern: Minor
 
 # "B" - Non-serious injury is possible
 # "C" - Death or serious injury is possible
-safety_class: A
+safety_class: B
 
 # Is this software part of a medical device or is it Software as a Medical
 # Device (i.e., SaMD)?
