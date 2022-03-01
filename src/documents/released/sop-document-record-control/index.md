@@ -223,9 +223,7 @@ commit that is associated to your GitHub user.
 
 #### 4. Release of Documents
 
-The Process Owner moves the document to the "released" folder and assigns "-a"
-to the document name as outlined by the general considerations for document
-naming.
+The Process Owner moves the document to the `released` folder.
 
 A pull request that changes any document within the `released` folder is
 restricted so that it must be explicitly reviewed by employees who have been
