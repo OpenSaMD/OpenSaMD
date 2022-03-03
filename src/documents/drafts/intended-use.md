@@ -158,10 +158,10 @@ environment of that other piece of software where the results from this product
 are utilised by the health practitioner.
 
 The data workflow of data for the deployment within the clinic is outlining
-within the diagram in {numref}`Figure %s <pipeline>`:
+within the diagram in {numref}`Figure %s <intended-use:pipeline>`:
 
 ```{figure} img/deployment-diagram.png
-:name: pipeline
+:name: intended-use:pipeline
 
 Outline of the data transmitted between the different systems in the pipeline.
 ```
