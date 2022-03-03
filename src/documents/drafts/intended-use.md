@@ -164,3 +164,11 @@ thresholds for a range of relevant scenarios. The software itself may also
 present warnings and alerts. The email address of the user account used to
 access the software needs to be able to be readily accessed so that these
 configurable alerts and warnings can provide the appropriate notification.
+
+## Document Approval
+
+| Activity | Date       | Role                  | Name             | Initials |
+| -------- | ---------- | --------------------- | ---------------- | -------- |
+| Creation | 2021-09-20 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-03-   | Regulatory Consultant | Pierre Lonchampt |          |
+| Approval | 2022-03-   | CEO                   | Simon Biggs      |          |
