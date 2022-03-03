@@ -142,7 +142,7 @@ documents.
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
 | Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
 | Approval | 2022-02-24 | CEO                   | Simon Biggs      |          |
 
 The reviewer may initial the document either using the online GitHub interface
