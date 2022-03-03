@@ -8,6 +8,13 @@ treatment within Australia these contours are to be provided to a RANZCR
 certified Radiation Oncologist or an ASMIRT certified Radiation Therapist for
 subsequent refinement according to that clinic's approved contouring protocols.
 
+## Refined by a relevant health professional and subsequently checked by an independent relevant health professional
+
+It is intended that the software results be refined by a relevant health
+professional and then be subsequently checked by a separate and independent
+relevant health professional before the patient contours are utilised to create
+the radiotherapy treatment plan.
+
 ## Used in cases where there is already a clinically implemented contouring protocol
 
 For each contour provided by the software to the user, the user needs to be
