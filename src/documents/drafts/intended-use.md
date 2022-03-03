@@ -25,7 +25,7 @@
 Utilised as clinical decision support software within the radiotherapy
 treatment workflow. Provides anatomical contours utilised by health
 practitioners to create a radiotherapy treatment plan to assist in cancer
-treatment or other radiotherapy treatment types.
+treatment or other radiotherapy treatments.
 
 <!-- > Describe the condition(s) and/or disease(s) to be screened, monitored, treated, diagnosed, or prevented by
 > your software. Importantly, also list exclusion criteria: Maybe patients with a certain diagnosis should not
