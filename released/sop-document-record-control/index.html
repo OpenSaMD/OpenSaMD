@@ -562,7 +562,7 @@ documents we add the archived date as a suffix to the document name.</p>
 <li><p>A released document would be
 <code class="docutils literal notranslate"><span class="pre">released/swd-sop-integrated-software-development</span></code></p></li>
 <li><p>And an archived document with the archival date would be
-<code class="docutils literal notranslate"><span class="pre">archived/swd-sop-integrated-software-development-2021-02-24</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">archived/swd-sop-integrated-software-development-2022-02-24</span></code></p></li>
 </ul>
 <p>When a document is undergoing review it exists within a GitHub pull request.</p>
 <p>Product records are ideally labelled with a device number and device version;
@@ -647,7 +647,7 @@ creation activity is provided at the bottom. For example:</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Creation</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
@@ -700,19 +700,19 @@ documents.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Creation</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
 </tr>
 <tr class="row-odd"><td><p>Review</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>Regulatory Consultant</p></td>
 <td><p>Dr. Oliver Eidel</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p></p></td>
@@ -757,9 +757,9 @@ required, they can create comments, suggest changes, or directly add their own
 changes either utilising the GitHub interface or a local git install. If the
 review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.</p>
-<p>PRs are allowed to be merged even if the document isn’t approved, or the review
-was only partial, or not at all. As long as the document either stays, or is
-moved back into the <code class="docutils literal notranslate"><span class="pre">drafts</span></code> directory prior to merging.</p>
+<p>As long as the impact is only on documents within the <code class="docutils literal notranslate"><span class="pre">drafts</span></code> directory PRs
+are allowed to be merged even if the document isn’t approved, or the review was
+only partial, or not at all.</p>
 <p>One workflow for signing documents using the online GitHub workflow is first
 creating an inline review as in <a class="reference internal" href="#start-inline-review"><span class="std std-numref">Figure 1</span></a>:</p>
 <div class="figure align-default" id="start-inline-review">
@@ -811,9 +811,7 @@ commit that is associated to your GitHub user.</span><a class="headerlink" href=
 </div>
 <div class="section" id="release-of-documents">
 <h4>4. Release of Documents<a class="headerlink" href="#release-of-documents" title="Permalink to this headline">¶</a></h4>
-<p>The Process Owner moves the document to the “released” folder and assigns “-a”
-to the document name as outlined by the general considerations for document
-naming.</p>
+<p>The Process Owner moves the document to the <code class="docutils literal notranslate"><span class="pre">released</span></code> folder.</p>
 <p>A pull request that changes any document within the <code class="docutils literal notranslate"><span class="pre">released</span></code> folder is
 restricted so that it must be explicitly reviewed by employees who have been
 approved for merging into the release directory within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by the
@@ -840,19 +838,19 @@ signed commit.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Creation</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
 </tr>
 <tr class="row-odd"><td><p>Review</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>Regulatory Consultant</p></td>
 <td><p>Dr. Oliver Eidel</p></td>
 <td><p>OE</p></td>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
@@ -885,11 +883,16 @@ signed commit.</p>
 </div>
 <div class="section" id="changes-to-documents">
 <h4>5. Changes to Documents<a class="headerlink" href="#changes-to-documents" title="Permalink to this headline">¶</a></h4>
-<p>If changes need to be made to a document, any employee with knowledge about the
-document and those changes can perform them. For that, the currently-released
-document is copied to the <code class="docutils literal notranslate"><span class="pre">drafts</span></code> folder and edited by the employee. After
-finishing the edit, it moves to the <strong>Document Ready for Review</strong> stage (step
-2), following the same steps as above.</p>
+<p>If changes need to be made to an already released document, any employee with
+knowledge about the document and those changes can perform them. To achieve
+this a git branch is created where editing of the document is undergone for
+subsequent PR and review. The document itself does not need to be copied into
+the <code class="docutils literal notranslate"><span class="pre">draft</span></code> folder unless there is a desire to merge the PR into the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+branch before the document is ready for release approval.</p>
+<p>After finishing the edit, include and sign a new “changes” row within the
+document approval table and then subsequently the process moves to the
+<strong>Document Ready for Review</strong> stage (step 2), following the same steps as
+above.</p>
 <p>A QMS change can trigger a substantial change. Before release, it shall be
 checked whether it may impact the organization’s process landscape and hence,
 overall organizational conformity with regulatory requirements. The QMO is
@@ -913,7 +916,7 @@ Evaluation List (reference change management process).</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Document (released)</p></td>
-<td><p>Document Copy (draft)</p></td>
+<td><p>Modified document within Pull Request</p></td>
 </tr>
 </tbody>
 </table>
@@ -1090,22 +1093,40 @@ retention periods as outlined in this SOP.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Creation</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
 </tr>
 <tr class="row-odd"><td><p>Review</p></td>
-<td><p>2021-02-24</p></td>
+<td><p>2022-02-24</p></td>
 <td><p>Regulatory Consultant</p></td>
 <td><p>Dr. Oliver Eidel</p></td>
 <td><p>OE</p></td>
 </tr>
 <tr class="row-even"><td><p>Approval</p></td>
-<td><p>2021-02-28</p></td>
+<td><p>2022-02-28</p></td>
 <td><p>CEO</p></td>
 <td><p>Simon Biggs</p></td>
 <td><p>SB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Changes</p></td>
+<td><p>2022-02-28</p></td>
+<td><p>CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p>SB</p></td>
+</tr>
+<tr class="row-even"><td><p>Review</p></td>
+<td><p>2022-0</p></td>
+<td><p>Regulatory Consultant</p></td>
+<td><p>Dr. Oliver Eidel</p></td>
+<td><p>OE</p></td>
+</tr>
+<tr class="row-odd"><td><p>Approval</p></td>
+<td><p>2022-0</p></td>
+<td><p>CEO</p></td>
+<td><p>Simon Biggs</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
