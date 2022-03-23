@@ -47,7 +47,7 @@ For example:
 - A released document would be
   `released/swd-sop-integrated-software-development`
 - And an archived document with the archival date would be
-  `archived/swd-sop-integrated-software-development-2021-02-24`
+  `archived/swd-sop-integrated-software-development-2022-02-24`
 
 When a document is undergoing review it exists within a GitHub pull request.
 
@@ -114,7 +114,7 @@ creation activity is provided at the bottom. For example:
 
 | Activity | Date       | Role | Name        | Initials |
 | -------- | ---------- | ---- | ----------- | -------- |
-| Creation | 2021-02-24 | CEO  | Simon Biggs | SB       |
+| Creation | 2022-02-24 | CEO  | Simon Biggs | SB       |
 
 This creation activity undergone is then committed to the git repository using
 a signed commit. This commit signing requirement is enforced by requiring
@@ -141,9 +141,9 @@ documents.
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      |          |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
+| Approval | 2022-02-24 | CEO                   | Simon Biggs      |          |
 
 The reviewer may initial the document either using the online GitHub interface
 where commits are signed and verified. Or utilise git locally with signed
@@ -171,9 +171,9 @@ changes either utilising the GitHub interface or a local git install. If the
 review is successful, they sign their initials at the bottom of the document
 and commit this to the repository with a signed and verified commit.
 
-PRs are allowed to be merged even if the document isn't approved, or the review
-was only partial, or not at all. As long as the document either stays, or is
-moved back into the `drafts` directory prior to merging.
+As long as the impact is only on documents within the `drafts` directory PRs
+are allowed to be merged even if the document isn't approved, or the review was
+only partial, or not at all.
 
 One workflow for signing documents using the online GitHub workflow is first
 creating an inline review as in {numref}`Figure %s <start-inline-review>`:
@@ -223,9 +223,7 @@ commit that is associated to your GitHub user.
 
 #### 4. Release of Documents
 
-The Process Owner moves the document to the "released" folder and assigns "-a"
-to the document name as outlined by the general considerations for document
-naming.
+The Process Owner moves the document to the `released` folder.
 
 A pull request that changes any document within the `released` folder is
 restricted so that it must be explicitly reviewed by employees who have been
@@ -249,9 +247,9 @@ Here is an example review and approval table:
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
 
 ---
 
@@ -265,11 +263,17 @@ Here is an example review and approval table:
 
 #### 5. Changes to Documents
 
-If changes need to be made to a document, any employee with knowledge about the
-document and those changes can perform them. For that, the currently-released
-document is copied to the `drafts` folder and edited by the employee. After
-finishing the edit, it moves to the **Document Ready for Review** stage (step
-2), following the same steps as above.
+If changes need to be made to an already released document, any employee with
+knowledge about the document and those changes can perform them. To achieve
+this a git branch is created where editing of the document is undergone for
+subsequent PR and review. The document itself does not need to be copied into
+the `draft` folder unless there is a desire to merge the PR into the `main`
+branch before the document is ready for release approval.
+
+After finishing the edit, include and sign a new "changes" row within the
+document approval table and then subsequently the process moves to the
+**Document Ready for Review** stage (step 2), following the same steps as
+above.
 
 A QMS change can trigger a substantial change. Before release, it shall be
 checked whether it may impact the organization's process landscape and hence,
@@ -281,9 +285,9 @@ Evaluation List (reference change management process).
 | ---------------------------------------------------------------------- |
 | QMO (change management), any employee or contractor (document changes) |
 
-| Input               | Output                |
-| ------------------- | --------------------- |
-| Document (released) | Document Copy (draft) |
+| Input               | Output                                |
+| ------------------- | ------------------------------------- |
+| Document (released) | Modified document within Pull Request |
 
 #### 6. Archiving of Documents
 
@@ -374,6 +378,9 @@ retention periods as outlined in this SOP.
 
 | Activity | Date       | Role                  | Name             | Initials |
 | -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
+| Creation | 2022-02-24 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
+| Approval | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
+| Changes  | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
+| Review   | 2022-0 | Regulatory Consultant | Dr. Oliver Eidel | OE     |
+| Approval | 2022-0 | CEO                   | Simon Biggs      |        |
