@@ -1,0 +1,14 @@
+query {
+  repository(owner: "RadiotherapyAI", name: "regulatory") {
+    isPrivate
+  }
+  viewer {
+    login
+  }
+  rateLimit {
+    limit
+    cost
+    remaining
+    resetAt
+  }
+}
