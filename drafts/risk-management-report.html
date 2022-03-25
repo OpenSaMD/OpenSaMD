@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quality Manual, Policy and Objectives &#8212; Radiotherapy AI</title>
+    <title>Risk Management Report &#8212; Radiotherapy AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SOP Document and Record Control" href="sop-document-record-control.html" />
-    <link rel="prev" title="Overview" href="../index.html" />
+    <link rel="next" title="Failure Mode and Effects Analysis (FMEA): Risk Table" href="risk-table-fmea/index.html" />
+    <link rel="prev" title="Risk Management Plan" href="risk-management-plan.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,19 +98,19 @@ const thebe_selector_output = ".output, .cell_output"
   Released
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../released/quality-manual-policy-objectives.html">
    Quality Manual, Policy and Objectives
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="sop-document-record-control.html">
+  <a class="reference internal" href="../released/sop-document-record-control.html">
    SOP Document and Record Control
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="sop-integrated-software-development.html">
+  <a class="reference internal" href="../released/sop-integrated-software-development.html">
    SOP Integrated Software Development
   </a>
  </li>
@@ -120,49 +120,49 @@ const thebe_selector_output = ".output, .cell_output"
   Drafts
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/introduction.html">
+  <a class="reference internal" href="introduction.html">
    Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/software-development-maintenance-plan.html">
+  <a class="reference internal" href="software-development-maintenance-plan.html">
    Software Development and Maintenance Plan
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/intended-use.html">
+  <a class="reference internal" href="intended-use.html">
    Intended Use
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/intended-performance.html">
+  <a class="reference internal" href="intended-performance.html">
    Intended performance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/62304-mapping.html">
+  <a class="reference internal" href="62304-mapping.html">
    IEC 62304:2006 Mapping of Requirements to Documents
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/risk-acceptance-matrix.html">
+  <a class="reference internal" href="risk-acceptance-matrix.html">
    Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/risk-management-plan.html">
+  <a class="reference internal" href="risk-management-plan.html">
    Risk Management Plan
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/risk-management-report.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Risk Management Report
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../drafts/risk-table-fmea/index.html">
+  <a class="reference internal" href="risk-table-fmea/index.html">
    Failure Mode and Effects Analysis (FMEA): Risk Table
   </a>
  </li>
@@ -219,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/released/quality-manual-policy-objectives.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/drafts/risk-management-report.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -239,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/quality-manual-policy-objectives.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fdrafts/risk-management-report.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -266,57 +266,60 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+  <a class="reference internal nav-link" href="#mapping-of-standard-requirements-to-document-sections">
+   Mapping of Standard Requirements to Document Sections
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#relevant-processes-and-documents">
+   1. Relevant Processes and Documents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#risk-analysis">
+   2. Risk Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#preliminary-hazards-analysis">
+     2.1 Preliminary Hazards Analysis
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#failure-modes">
+     2.2 Failure Modes
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#failure-mode-and-effects-analysis-fmea">
+     2.3 Failure Mode and Effects Analysis (FMEA)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
+  <a class="reference internal nav-link" href="#risk-control-measures">
+   3. Risk Control Measures
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
+  <a class="reference internal nav-link" href="#risk-matrix">
+   4. Risk Matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-risks-and-unacceptable-risks">
+   5. Summary of Risks and Unacceptable Risks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benefit-risk-assessment">
+   6. Benefit-Risk Assessment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overall-residual-risk">
+   7. Overall Residual Risk
   </a>
  </li>
 </ul>
@@ -329,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quality Manual, Policy and Objectives</h1>
+                <h1>Risk Management Report</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -340,57 +343,60 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+  <a class="reference internal nav-link" href="#mapping-of-standard-requirements-to-document-sections">
+   Mapping of Standard Requirements to Document Sections
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#relevant-processes-and-documents">
+   1. Relevant Processes and Documents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#risk-analysis">
+   2. Risk Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#preliminary-hazards-analysis">
+     2.1 Preliminary Hazards Analysis
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#failure-modes">
+     2.2 Failure Modes
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#failure-mode-and-effects-analysis-fmea">
+     2.3 Failure Mode and Effects Analysis (FMEA)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
+  <a class="reference internal nav-link" href="#risk-control-measures">
+   3. Risk Control Measures
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
+  <a class="reference internal nav-link" href="#risk-matrix">
+   4. Risk Matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-risks-and-unacceptable-risks">
+   5. Summary of Risks and Unacceptable Risks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benefit-risk-assessment">
+   6. Benefit-Risk Assessment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overall-residual-risk">
+   7. Overall Residual Risk
   </a>
  </li>
 </ul>
@@ -414,172 +420,167 @@ Templates copyright OpenRegulatory. Originals available at:
 
 General content copyright Radiotherapy AI.
 -->
-<div class="tex2jax_ignore mathjax_ignore section" id="quality-manual-policy-and-objectives">
-<h1>Quality Manual, Policy and Objectives<a class="headerlink" href="#quality-manual-policy-and-objectives" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="risk-management-report">
+<h1>Risk Management Report<a class="headerlink" href="#risk-management-report" title="Permalink to this headline">¶</a></h1>
+<p>The Risk Management Report contains the output and summary of risk management activities. The general planning
+and methods are described in the Risk Management plan, while the actual risks are listed and analyzed in the
+Risk Table.</p>
+<p>The process and stages of risk analysis are described in the SOP Integrated Software Development.</p>
+<div class="section" id="mapping-of-standard-requirements-to-document-sections">
+<h2>Mapping of Standard Requirements to Document Sections<a class="headerlink" href="#mapping-of-standard-requirements-to-document-sections" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>ISO 13485:2016 Section</p></th>
+<tr class="row-odd"><th class="head"><p>ISO 14971:2019 Section</p></th>
 <th class="head"><p>Document Section</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>4.1.1</p></td>
-<td><p>1.</p></td>
+<tr class="row-even"><td><p>4.5 Risk management file</p></td>
+<td><p>(all)</p></td>
 </tr>
-<tr class="row-odd"><td><p>4.1.2</p></td>
-<td><p>4.</p></td>
+<tr class="row-odd"><td><p>7.4 Benefit-risk analysis</p></td>
+<td><p>6</p></td>
 </tr>
-<tr class="row-even"><td><p>4.2.1 b)</p></td>
-<td><p>(All)</p></td>
+<tr class="row-even"><td><p>7.6 Completeness of risk control</p></td>
+<td><p>(by review of this document)</p></td>
 </tr>
-<tr class="row-odd"><td><p>4.2.2</p></td>
-<td><p>(All)</p></td>
+<tr class="row-odd"><td><p>8 Evaluation of overall residual risk</p></td>
+<td><p>3, 5</p></td>
 </tr>
-<tr class="row-even"><td><p>5.3</p></td>
-<td><p>2.</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.4.1</p></td>
-<td><p>2.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The Quality Manual describes the scope of the Quality Management System, its
-documented procedures and a description of their interactions.</p>
-</div>
-<div class="section" id="scope">
-<h2>1. Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
-<p>The QMS described in this Quality Manual applies to all products of
-Radiotherapy AI Pty Ltd.</p>
-<div class="section" id="role-of-company">
-<h3>Role of Company<a class="headerlink" href="#role-of-company" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd is a manufacturer of Medical Devices.</p>
-</div>
-<div class="section" id="applicable-standards">
-<h3>Applicable Standards<a class="headerlink" href="#applicable-standards" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Standard</p></th>
-<th class="head"><p>Why Applicable?</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>ISO 13485:2016</p></td>
-<td><p>QMS utilised to meet the TGA essential principles</p></td>
-</tr>
-<tr class="row-odd"><td><p>ISO 14971:2019</p></td>
-<td><p>Risk management for medical devices</p></td>
-</tr>
-<tr class="row-even"><td><p>IEC 62304:2006</p></td>
-<td><p>Software development for medical devices</p></td>
-</tr>
-<tr class="row-odd"><td><p>IEC 62366-1:2015</p></td>
-<td><p>Usability evaluation for medical devices</p></td>
+<tr class="row-even"><td><p>9 Risk management review</p></td>
+<td><p>(all)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="exclusions">
-<h3>Exclusions<a class="headerlink" href="#exclusions" title="Permalink to this headline">¶</a></h3>
-<p>The following sections of ISO 13485:2016 will be excluded due to the product
-being stand-alone software:</p>
+<div class="section" id="relevant-processes-and-documents">
+<h2>1. Relevant Processes and Documents<a class="headerlink" href="#relevant-processes-and-documents" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>6.4.2 Contamination control</p></li>
-<li><p>7.5.2 Cleanliness of product</p></li>
-<li><p>7.5.5 Particular requirements for sterile medical devices</p></li>
-<li><p>7.5.7 Particular requirements for validation of processes for sterilization
-and sterile barrier systems</p></li>
-<li><p>7.5.9.2 Particular requirements for implantable medical devices</p></li>
+<li><p>SOP Integrated Software Development</p></li>
+<li><p>Risk Management Plan</p></li>
+<li><p>Risk Acceptance Matrix</p></li>
+<li><p>Risk Table</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="quality-policy-objectives">
-<h2>2. Quality Policy &amp; Objectives<a class="headerlink" href="#quality-policy-objectives" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="quality-policy">
-<h3>Quality Policy<a class="headerlink" href="#quality-policy" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd aims to make AI assisted radiotherapy cancer treatments
-accessible to all. With the goals to reduce treatment errors while improving
-overall treatment efficacy and efficiency.</p>
-</div>
-<div class="section" id="quality-objectives">
-<h3>Quality Objectives<a class="headerlink" href="#quality-objectives" title="Permalink to this headline">¶</a></h3>
-<p>When tracking the quality of the AI autocontouring software its
-results are compared to health practitioner ground truth contours. These
-comparisons are undergone utilising the following metrics:</p>
-<ul class="simple">
-<li><p>Hausdorff</p></li>
-<li><p>Surface and Volumetric Dice</p></li>
-<li><p>Four point health practitioner approval scale</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="roles">
-<h2>3. Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Role(s)</p></th>
-<th class="head"><p>People</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>CEO, QMO, CTO, CPO, Software Engineer</p></td>
-<td><p>Simon Biggs</p></td>
-</tr>
-<tr class="row-odd"><td><p>Regulatory Consultant</p></td>
-<td><p>Dr Oliver Eidel</p></td>
-</tr>
-<tr class="row-even"><td><p>Regulatory Consultant</p></td>
-<td><p>Pierre Lonchampt</p></td>
-</tr>
-</tbody>
-</table>
-<p>All C-level roles are referred to as the Management. Management is generally
-responsible to define responsibilities and authorities, to define and
-communicate Quality Policy and Goals and to ensure that the whole organization
-is oriented towards them.</p>
+<div class="section" id="risk-analysis">
+<h2>2. Risk Analysis<a class="headerlink" href="#risk-analysis" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>See ISO 13485, para. 5.1, para. 5.5.1</p>
+<div><p>The general idea about this section is that you simply summarize the amount of stuff you added to your Risk
+Table (separate document).</p>
 </div></blockquote>
-<p>The Quality Management Officer (QMO) is responsible to:</p>
-<ul class="simple">
-<li><p>ensure that processes needed for the company’s quality management system are
-documented</p></li>
-<li><p>report to top management on the effectiveness of the quality management
-system and any need for improvement</p></li>
-<li><p>ensure the promotion of awareness of applicable regulatory requirements and
-QMS requirements throughout the organization.</p></li>
-</ul>
+<div class="section" id="preliminary-hazards-analysis">
+<h3>2.1 Preliminary Hazards Analysis<a class="headerlink" href="#preliminary-hazards-analysis" title="Permalink to this headline">¶</a></h3>
+<p><em>&lt;no. of hazards&gt;</em> hazards were identified based on the Intended Use and Usability Tests. They were further
+analyzed in the Risk Table.</p>
+</div>
+<div class="section" id="failure-modes">
+<h3>2.2 Failure Modes<a class="headerlink" href="#failure-modes" title="Permalink to this headline">¶</a></h3>
+<p><em>&lt;no. of failure modes&gt;</em> failure modes of software systems were identified. They were further analyzed in
+the Risk Table.</p>
+</div>
+<div class="section" id="failure-mode-and-effects-analysis-fmea">
+<h3>2.3 Failure Mode and Effects Analysis (FMEA)<a class="headerlink" href="#failure-mode-and-effects-analysis-fmea" title="Permalink to this headline">¶</a></h3>
+<p>All preliminary hazards and potential failure modes of the software were analyzed. In total, <em>&lt;no. of
+hazards&gt;</em> were identified. The hazardous situation(s) and harm(s) which they could lead to were analyzed,
+including intermediate probabilities (p1 and p2).</p>
+</div>
+</div>
+<div class="section" id="risk-control-measures">
+<h2>3. Risk Control Measures<a class="headerlink" href="#risk-control-measures" title="Permalink to this headline">¶</a></h2>
+<p>Risks were reduces as low as reasonably possible (ALARP). If a risk was classified as “unacceptable” based on
+the Risk Table, Risk Control Measures were implemented. Potential categories of Risk Control Measures are
+“inherent safety by design”, “protective measures” and “information for safety”. In total, <em>&lt;no. of risk
+control measures&gt;</em> were implemented.</p>
+</div>
+<div class="section" id="risk-matrix">
+<h2>4. Risk Matrix<a class="headerlink" href="#risk-matrix" title="Permalink to this headline">¶</a></h2>
+<p>After implementation and verification of all Risk Control Measures, the count of risks in the Risk Acceptance
+Matrix was as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Probability</p></th>
+<th class="head"><p>S1: Negligible</p></th>
+<th class="head"><p>S2: Marginal</p></th>
+<th class="head"><p>S3: Critical</p></th>
+<th class="head"><p>S4: Catastrophic</p></th>
+<th class="head"><p>Estimated Maximum Event Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P5: Certain</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p>1000000</p></td>
+</tr>
+<tr class="row-odd"><td><p>P4: Likely</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p>10000</p></td>
+</tr>
+<tr class="row-even"><td><p>P3: Possible</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>P2: Unlikely</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p><strong>unacceptable: 0</strong></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>P1: Rare</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="summary-of-risks-and-unacceptable-risks">
+<h2>5. Summary of Risks and Unacceptable Risks<a class="headerlink" href="#summary-of-risks-and-unacceptable-risks" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>See ISO 13485, para. 5.1, para. 5.5.2</p>
+<div><p>If you don’t have unacceptable risks (more likely), use this section:</p>
+</div></blockquote>
+<p>After Risk Control Measures, no unacceptable risks remained. The software therefore fulfils the specifications
+of the defined risk policy and is safe. A Benefit-Risk Assessment is not required.</p>
+<blockquote>
+<div><p>If you still have unacceptable risks, use this section:</p>
+</div></blockquote>
+<p>After Risk Control Measures, <em>&lt;no. of unacceptable risks&gt;</em> unacceptable risks remained. They will be further
+assessed in the Benefit-Risk Assessment below.</p>
+<blockquote>
+<div><p>Optionally, mention here your device’s software safety classification according to IEC 62304, resulting from the worst possible risks found above.</p>
 </div></blockquote>
 </div>
-<div class="section" id="processes">
-<h2>4. Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>SOP</p></th>
-<th class="head"><p>Process Category</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>SOP Corrective and Preventive Action</p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p>SOP Document and Record Control</p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-even"><td><p>SOP Integrated Software Development</p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p>SOP Post-Market Surveillance</p></td>
-<td><p>Support</p></td>
-</tr>
-<tr class="row-even"><td><p>SOP Software Validation</p></td>
-<td><p>Support</p></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="benefit-risk-assessment">
+<h2>6. Benefit-Risk Assessment<a class="headerlink" href="#benefit-risk-assessment" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Only use this whole section (Risk-Benefit Assessment) if you have unacceptable risks.</p>
+</div></blockquote>
+<p>The <em>&lt;no. of unacceptable risks&gt;</em> remaining unacceptable risks are compared to the benefits resulting from
+the Clinical Evaluation Report.</p>
+<p>The benefits are as follows:</p>
+<p><em>&lt;Copy-paste benefits from Clinical Evaluation&gt;</em></p>
+<blockquote>
+<div><p>Add a conclusion whether the benefits outweigh the risks</p>
+</div></blockquote>
+<p>Weighing the benefits against the risks, we conclude that..</p>
+</div>
+<div class="section" id="overall-residual-risk">
+<h2>7. Overall Residual Risk<a class="headerlink" href="#overall-residual-risk" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Take a look at your risk mitigating measures and assess whether the combination of them could lead to a risk that has not been taken care of yet, e.g. if one mitigation serves two or more risks at once.</p>
+</div></blockquote>
+<p>The overall residual risk is estimated to have a probabilty of <em>&lt;probability of residual risk&gt;</em> and a severity of <em>&lt;severity of residual risk&gt;</em>. According to the Risk Acceptance Matrix the overall residual risk is assessed as <em>&lt;acceptable&gt;</em>.</p>
 </div>
 </div>
 
@@ -596,7 +597,7 @@ QMS requirements throughout the organization.</p></li>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./released"
+            path: "./drafts"
         },
         predefinedOutput: true
     }
@@ -608,17 +609,17 @@ QMS requirements throughout the organization.</p></li>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="risk-management-plan.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Overview</p>
+            <p class="prev-next-title">Risk Management Plan</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="sop-document-record-control.html" title="next page">
+    <a class='right-next' id="next-link" href="risk-table-fmea/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SOP Document and Record Control</p>
+        <p class="prev-next-title">Failure Mode and Effects Analysis (FMEA): Risk Table</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

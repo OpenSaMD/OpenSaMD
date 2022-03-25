@@ -66,10 +66,20 @@ Please see the relevant processes for the following activities:
 
 ### 2.2 Software
 
-<!--
-  TODO: Describe your device's software safety class according to IEC 62304 and
-  your reasoning behind the classification.
--->
+The external risk control measures sufficiently reduce the risk of the
+hazardous situation. And as such the software process rigour level according to
+IEC 62304 is set to `Level A`.
+
+These external risk control measures are the following:
+
+* The contour data is provided to an independent software treatment planning
+  system where that independent software is utilised for refinement and
+  approval.
+* Contour refinement is undergone by a relevant qualified health practitioner.
+* The subsequent refined contours are then reviewed by at least one other
+  independent relevant qualified health practitioner. Generally however the
+  whole plan, including the contours goes through multiple independent
+  reviewers before being utilised for treatment.
 
 #### Programming Languages
 
@@ -124,26 +134,18 @@ Minimum system requirements for `api` cloud container:
 
 ## 3 Design Phases
 
-<!-- TODO: Read ISO i3485 (or is it 62304)? To see what is meant by design phases here -->
-
-> The 13485 requires you to specify "Design Phases". Here are some suggestions which you could use.
-
-| Title          | Date | Description |
-| -------------- | ---- | ----------- |
-| Specification  |      |             |
-| Implementation |      |             |
-| Testing        |      |             |
-| Validation     |      |             |
-| Release        |      |             |
+The design phases and the corresponding review and verification requirements
+are detailed within [](../released/sop-integrated-software-development.md).
 
 ## 4 Avoiding Common Software Defects Based on Selected Programming Technology
 
-<!-- TODO -->
+<!-- TODO: Do after risk analysis is complete -->
 
-> Discuss how your selected programming technology may introduce risks and how you plan to avoid them. With
-> modern, dynamically-typed languages, an obvious risk is that you encounter runtime exceptions. So you could
-> argue that your test coverage is great and compensates for that. You could also link to your risk analysis
-> here if you analyse those risks further.
+> Discuss how your selected programming technology may introduce risks and how
+> you plan to avoid them. With modern, dynamically-typed languages, an obvious
+> risk is that you encounter runtime exceptions. So you could argue that your
+> test coverage is great and compensates for that. You could also link to your
+> risk analysis here if you analyse those risks further.
 
 ## 5 Configuration Management and Version Control
 

@@ -20,21 +20,21 @@ your centre. This is detailed within the {doc}`intended-use` document.
 ## Data overview
 
 This model was built from the combination of standard clinical data from Chris
-O’Brien Lifehouse as well as the DeepMind open access dataset
-(<https://github.com/deepmind/tcia-ct-scan-dataset>). Both the Chris O’Brien
-Lifehouse data and the DeepMind data were split into "Training”, "Validation",
+O'Brien Lifehouse as well as the DeepMind open access dataset
+(<https://github.com/deepmind/tcia-ct-scan-dataset>). Both the Chris O'Brien
+Lifehouse data and the DeepMind data were split into "Training", "Validation",
 and "Hold-out" groups. Training data was used to train the model, validation
 data was used to iterate on the software development and define when a
 particular contour was ready, hold-out data was used only to report the final
 results with the aim to provide unbiased reporting.
 
-Chris O’Brien Lifehouse validation and hold-out datasets were utilised for
+Chris O'Brien Lifehouse validation and hold-out datasets were utilised for
 empirical visual investigation of the resulting DICOM files. DeepMind
 validation and hold-out datasets were used for metric based comparisons.
 
 ## Number of patient scans utilised per dataset
 
-### Chris O’Brien LifeHouse (Australian scans and protocols)
+### Chris O'Brien LifeHouse (Australian scans and protocols)
 
 |                        | Training | Validation | Hold out |
 | ---------------------- | -------- | ---------- | -------- |
