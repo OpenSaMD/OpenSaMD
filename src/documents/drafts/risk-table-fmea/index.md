@@ -105,9 +105,16 @@ multiple sections:
 >
 > The next table contains the list of Risk Control Measures.
 
+```{csv-table} Hazards and Analysis
+---
+file: hazards-and-analysis.csv
+---
+```
+
+<!--
 | ID | Hazard                 | p1   | Hazardous Situation                      | p2  | Harm                | p1*p2 | P  | S  | Acceptable? | Comment | Risk Control ID(s) | P  | S  | Acceptable? |
 |----|------------------------|------|------------------------------------------|-----|---------------------|-------|----|----|-------------|---------|--------------------|----|----|-------------|
-| 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         |
+| 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         | -->
 
 ## 4. Risk Control Measures
 

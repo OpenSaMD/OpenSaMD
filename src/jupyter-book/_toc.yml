@@ -14,6 +14,10 @@ parts:
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/62304-mapping
+      - file: drafts/risk-acceptance-matrix
+      - file: drafts/risk-management-plan
+      - file: drafts/risk-management-report
+      - file: drafts/risk-table-fmea/index
 
   - caption: Archived
     chapters:
