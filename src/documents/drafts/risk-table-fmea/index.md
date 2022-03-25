@@ -33,10 +33,11 @@ This is a Failure Mode and Effects Analysis ([FMEA][wikipedia-fmea]) of the devi
 multiple sections:
 
  * **Failure Modes** lists everything which can go wrong
- * **Hazards and Analysis** lists everything (harms) which can subsequently happen, including an analysis of
-   probability and severity
- * The list of **Risk Control Measures** which contains all control measures which were implemented for risk
-   reduction, either reducing probability or severity, or both.
+ * **Hazards and Analysis** lists everything (harms) which can subsequently
+   happen, including an analysis of probability and severity
+ * The list of **Risk Control Measures** which contains all control measures
+   which were implemented for risk reduction, either reducing probability or
+   severity, or both.
 
 > Ugh, this became more complex than I initially expected. I am so sorry. From a teaching perspective, it's
 > actually simpler to explain if I throw everything into one table. Instead, we have three here now, because I

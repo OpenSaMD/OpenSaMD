@@ -36,8 +36,8 @@ risks are in the Risk Table.
 
 ### 1.1 Risk Management Process and Activities
 
-Risk Management Activities are integrated in the Software Development Lifecycle as described in SOP Integrated
-Software Development.
+Risk Management Activities are integrated in the Software Development Lifecycle
+as described in SOP Integrated Software Development.
 
 ### 1.2 Risk Policy and Risk Acceptability
 
@@ -45,15 +45,20 @@ Criteria for Risk Acceptability are defined in the Risk Acceptance Matrix.
 
 ### 1.3 Verification of Risk Control Measures
 
-Risk Control Measures are verified as described in SOP Software Development Lifecycle.
+Risk Control Measures are verified as described in SOP Software Development
+Lifecycle.
 
 ### 1.4 Assessment of the overall residual risk
 
-After determination of the Risk Control Measures any risk that could arise from the combination of the individual risks or mitigating measures is assessed. For this purpose, the probability and severity of the possibly residual risk are estimated and evaluated using the existing risk matrix.
+After determination of the Risk Control Measures any risk that could arise from
+the combination of the individual risks or mitigating measures is assessed. For
+this purpose, the probability and severity of the possibly residual risk are
+estimated and evaluated using the existing risk matrix.
 
 ### 1.5 Collection and Review of Post-Production Information
 
-Review and collection of Post-Production information is described in SOP Post-Market Surveillance.
+Review and collection of Post-Production information is described in SOP
+Post-Market Surveillance.
 
 ## 2. Related Documents
 
