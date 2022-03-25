@@ -45,12 +45,11 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -325,11 +324,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#document-approval">
-   Document Approval
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -428,11 +422,6 @@
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#document-approval">
-   Document Approval
-  </a>
  </li>
 </ul>
 
@@ -1280,39 +1269,6 @@ assigned.</p>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="document-approval">
-<h2>Document Approval<a class="headerlink" href="#document-approval" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Activity</p></th>
-<th class="head"><p>Date</p></th>
-<th class="head"><p>Role</p></th>
-<th class="head"><p>Name</p></th>
-<th class="head"><p>Initials</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Creation</p></td>
-<td><p>2022-02-28</p></td>
-<td><p>CEO</p></td>
-<td><p>Simon Biggs</p></td>
-<td><p>SB</p></td>
-</tr>
-<tr class="row-odd"><td><p>Review</p></td>
-<td><p>2022-0</p></td>
-<td><p>Regulatory Consultant</p></td>
-<td><p>Dr. Oliver Eidel</p></td>
-<td><p>OE</p></td>
-</tr>
-<tr class="row-even"><td><p>Approval</p></td>
-<td><p>2022-0</p></td>
-<td><p>CEO</p></td>
-<td><p>Simon Biggs</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 

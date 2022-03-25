@@ -45,12 +45,11 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -653,7 +652,7 @@ the DeepMind dataset will be considered.</p>
 <p>Below is detailed the box-plot comparisons for both the validation and hold-out
 datasets utilising both the Dice and the Hausdorff (95%) metrics. These are
 then compared to a commercial vendor via results published within the
-literature <span id="id1">[<a class="reference internal" href="#id4">WFM+20</a>]</span>.</p>
+literature <span id="id1">[<a class="reference internal" href="#id4" title="Jordan Wong, Allan Fong, Nevin McVicar, Sally Smith, Joshua Giambattista, Derek Wells, Carter Kolbeck, Jonathan Giambattista, Lovedeep Gondara, and Abraham Alexander. Comparing deep learning-based auto-segmentation of organs at risk and clinical target volumes to expert inter-observer variability in radiotherapy planning. Radiotherapy and Oncology, 144:152–158, 2020.">WFM+20</a>]</span>.</p>
 <div class="section" id="structures-deemed-ready">
 <h3>Structures deemed ready<a class="headerlink" href="#structures-deemed-ready" title="Permalink to this headline">¶</a></h3>
 <p>From investigation of the validation dataset all of the DeepMind structures
@@ -668,7 +667,7 @@ starts/ends superiorly/inferiorly on a given slice results in ~multiples of 2.5
 mm values for the Hausdorff distance.</p>
 <p>The following figures compare the <code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code> model detailed within this
 validation report to results found within the literature
-<span id="id2">[<a class="reference internal" href="#id4">WFM+20</a>]</span>. Of note, there was post-processing undergone
+<span id="id2">[<a class="reference internal" href="#id4" title="Jordan Wong, Allan Fong, Nevin McVicar, Sally Smith, Joshua Giambattista, Derek Wells, Carter Kolbeck, Jonathan Giambattista, Lovedeep Gondara, and Abraham Alexander. Comparing deep learning-based auto-segmentation of organs at risk and clinical target volumes to expert inter-observer variability in radiotherapy planning. Radiotherapy and Oncology, 144:152–158, 2020.">WFM+20</a>]</span>. Of note, there was post-processing undergone
 within the literature results to force the inferior borders of the brainstem
 and spinal cord to match each other. No such post processing was undergone
 within the results from the <code class="docutils literal notranslate"><span class="pre">lifehouse-0.2.0</span></code> model.</p>

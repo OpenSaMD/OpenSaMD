@@ -247,11 +247,3 @@ configurable alerts and warnings can provide the appropriate notification.
 
 The device is stand-alone software. It receives input from the user and outputs
 information. It doesn't come in contact with tissue or bodily fluids.
-
-## Document Approval
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-09-20 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2022-03-   | Regulatory Consultant | Pierre Lonchampt |          |
-| Approval | 2022-03-   | CEO                   | Simon Biggs      |          |
