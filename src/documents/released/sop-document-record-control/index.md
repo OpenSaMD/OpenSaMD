@@ -49,7 +49,8 @@ For example:
 - And an archived document with the archival date would be
   `archived/swd-sop-integrated-software-development-2021-02-24`
 
-When a document is undergoing review it exists within a GitHub pull request.
+When a document is undergoing review it exists within a GitHub pull request
+(PR).
 
 Product records are ideally labelled with a device number and device version;
 for instance:
@@ -99,9 +100,9 @@ date, next review date and respective process owners.
 
 #### 1. Creation of Documents
 
-All documents are saved in the Quality Management System (QMS) which is a
-housed within the following git repository on GitHub and is viewable at
-<https://docs.radiotherapy.ai>.
+All documents are saved in the Quality Management System (QMS) which is housed
+within the git repository at <https://github.com/RadiotherapyAI/regulatory>.
+These documents are viewable at <https://docs.radiotherapy.ai>.
 
 New documents can be created by anyone in the company in the
 `src/documents/drafts` folder. Naming of documents follows the general
@@ -109,17 +110,10 @@ considerations of this SOP (see above). Standard Operating Procedures (SOP)
 should specify a process owner responsible to typically update, review and
 release all associated documents.
 
-When initially creating the document a table containing a record of the
-creation activity is provided at the bottom. For example:
-
-| Activity | Date       | Role | Name        | Initials |
-| -------- | ---------- | ---- | ----------- | -------- |
-| Creation | 2021-02-24 | CEO  | Simon Biggs | SB       |
-
 This creation activity undergone is then committed to the git repository using
 a signed commit. This commit signing requirement is enforced by requiring
-signed commits within the `main` branch protection rule for all pull requests
-into the `main` branch.
+signed commits within the `main` branch protection rule for all PRs into the
+`main` branch.
 
 | Participants               |
 | -------------------------- |
@@ -131,29 +125,15 @@ into the `main` branch.
 
 #### 2. Documents Ready for Review
 
-Once a document is ready for review, its author opens a pull request within
-GitHub and the author selects the appropriate reviewers and approvers within
-the GitHub interface.
-
-The author also adds in the respective reviewer and approver items within the
-record at the bottom of the document ready for the reviewers to initial the
-documents.
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel |          |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      |          |
-
-The reviewer may initial the document either using the online GitHub interface
-where commits are signed and verified. Or utilise git locally with signed
-commits.
+Once a document is ready for review, its author opens a PR within GitHub and
+the author selects the appropriate reviewers and approvers within the GitHub
+interface.
 
 An under review document can either be within the PR branch's `draft` directory
 or `released` directory depending on which workflow is more appropriate for the
-review. By having it within the `released` directory the reviewer is more
-easily able to see the difference between the original document and the updated
-document.
+review. By keeping it within the `released` directory, just within a separate
+branch the reviewer is more easily able to see the difference between the
+original document and the updated document.
 
 | Participants               |
 | -------------------------- |
@@ -167,9 +147,12 @@ document.
 
 The respective reviewer(s) and approver(s) review the document. If changes are
 required, they can create comments, suggest changes, or directly add their own
-changes either utilising the GitHub interface or a local git install. If the
-review is successful, they sign their initials at the bottom of the document
-and commit this to the repository with a signed and verified commit.
+changes either utilising the GitHub interface or a local git install. If they
+approve of the changes then they leave their approval within the GitHub
+interface. During a period where there is only one employee within the company,
+that employee is allowed to self-review and mark their approval by merging the
+Pull Request into the released directory of the `main` branch within the GitHub
+interface.
 
 PRs are allowed to be merged even if the document isn't approved, or the review
 was only partial, or not at all. As long as the document either stays, or is
@@ -227,11 +210,11 @@ The Process Owner moves the document to the "released" folder and assigns "-a"
 to the document name as outlined by the general considerations for document
 naming.
 
-A pull request that changes any document within the `released` folder is
-restricted so that it must be explicitly reviewed by employees who have been
-approved for merging into the release directory within the `main` branch by the
-Process Owner. These permission levels are defined within the `CODEOWNERS`
-file at the root of the repository.
+A PR that changes any document within the `released` folder is restricted so
+that it must be explicitly reviewed by employees who have been approved for
+merging into the release directory within the `main` branch by the Process
+Owner. These permission levels are defined within the `CODEOWNERS` file at the
+root of the repository.
 
 This `CODEOWNERS` file is enforced within GitHub by utilising a branch
 protection rule on the `main` branch as well as requiring a review from Code
@@ -240,20 +223,6 @@ Owners.
 The QMO (and, if applicable, the Process Owner) decide if employee training
 is required. In general, training for minor changes/corrections is not
 necessary.
-
-Prior to release the reviewer(s) and approver(s) initial the table at the
-bottom of the document and as before these initials are to be committed as a
-signed commit.
-
-Here is an example review and approval table:
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-
----
 
 | Participants       |
 | ------------------ |
@@ -369,11 +338,3 @@ retention periods as outlined in this SOP.
 | Input             | Output            |
 | ----------------- | ----------------- |
 | Record (released) | Record (archived) |
-
-## Document Approval
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2021-02-24 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2021-02-24 | Regulatory Consultant | Dr. Oliver Eidel | OE       |
-| Approval | 2021-02-28 | CEO                   | Simon Biggs      | SB       |
