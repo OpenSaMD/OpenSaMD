@@ -64,7 +64,7 @@ Review and collection of Post-Production information is described in SOP Post-Ma
 
 ## 3. Roles
 
-| Title                                           | Name(s)     |
-| ----------------------------------------------- | ----------- |
-| Risk Manager                                    | Simon Biggs |
-| Context / Subject Matter Expert, e.g. physician | Simon Biggs |
+| Title                           | Name(s)     |
+| ------------------------------- | ----------- |
+| Risk Manager                    | Simon Biggs |
+| Context / Subject Matter Expert | Simon Biggs |
