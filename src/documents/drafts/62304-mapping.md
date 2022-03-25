@@ -1,11 +1,6 @@
 # IEC 62304:2006 Mapping of Requirements to Documents
 
-This table maps all requirements of the IEC 62304:2006 (by section) to the relevant documents (here:
-OpenRegulatory templates).
-
-> Note that the document names in the "Fulfilled in Document" column are based on the OpenRegulatory
-> templates. You'll probably have a different system for assigning document names, so feel free to rename
-> them.
+This table maps all requirements of the IEC 62304:2006 (by section) to the relevant documents.
 
 | Classes   | Section | Title                                                                  | Fulfilled in Document                                                                          | Comment                                           |
 | --------- | ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- |
