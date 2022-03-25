@@ -77,10 +77,6 @@ jobs:
         run: |
           timeout 10s poetry run pip --version || rm -rf .venv
 
-      - name: Install Pandoc
-        run: |
-          sudo apt-get install -y pandoc
-
       - name: Poetry install
         run: |
           poetry install
