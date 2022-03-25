@@ -98,11 +98,3 @@ The Quality Management Officer (QMO) is responsible to:
 | SOP Software Validation              | Support          |
 
 <!-- TODO: Look into filling in the above table based on the contents of a 'SOP' directory -->
-
-## Document Approval
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2022-0 | Regulatory Consultant | Dr. Oliver Eidel | OE     |
-| Approval | 2022-0 | CEO                   | Simon Biggs      |        |

@@ -103,11 +103,3 @@ OpenRegulatory templates).
 | A, B, C   | 9.6     | Analyse problems for trends                                            | SOP Software Problem Resolution                                                                |                                                   |
 | A, B, C   | 9.7     | Verify software problem resolution                                     | SOP Software Problem Resolution                                                                |                                                   |
 | A, B, C   | 9.8     | Test documentation contents                                            | SOP Integrated Software Development                                                            |                                                   |
-
-## Document Approval
-
-| Activity | Date       | Role                  | Name             | Initials |
-| -------- | ---------- | --------------------- | ---------------- | -------- |
-| Creation | 2022-02-28 | CEO                   | Simon Biggs      | SB       |
-| Review   | 2022-0 | Regulatory Consultant | Dr. Oliver Eidel |        |
-| Approval | 2022-0 | CEO                   | Simon Biggs      |        |
