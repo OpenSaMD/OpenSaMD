@@ -22,7 +22,7 @@ risks are in the Risk Table.
 ## Mapping of Standard Requirements to Document Sections
 
 | ISO 14971:2019 Section | Document Section                                |
-|------------------------|-------------------------------------------------|
+| ---------------------- | ----------------------------------------------- |
 | 4.1                    | 1                                               |
 | 4.2                    | 1.2, 3                                          |
 | 4.3                    | (Records of competence are kept as Part of QMS) |
@@ -57,14 +57,14 @@ Review and collection of Post-Production information is described in SOP Post-Ma
 
 ## 2. Related Documents
 
- * SOP Integrated Software Development
- * Risk Acceptance Matrix
- * Risk Table
- * Risk Management Report
+- [](../released/sop-integrated-software-development.md)
+- [](../drafts/risk-acceptance-matrix.md)
+- [](../drafts/risk-table-fmea/index.md)
+- [](../drafts/risk-management-report.md)
 
 ## 3. Roles
 
-| Title                                           | Name(s) |
-|-------------------------------------------------|---------|
-| Risk Manager                                    |         |
-| Context / Subject Matter Expert, e.g. physician |         |
+| Title                                           | Name(s)     |
+| ----------------------------------------------- | ----------- |
+| Risk Manager                                    | Simon Biggs |
+| Context / Subject Matter Expert, e.g. physician | Simon Biggs |
