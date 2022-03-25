@@ -171,44 +171,6 @@ As long as the impact is only on documents within the `drafts` directory PRs
 are allowed to be merged even if the document isn't approved, or the review was
 only partial, or not at all.
 
-One workflow for signing documents using the online GitHub workflow is first
-creating an inline review as in {numref}`Figure %s <start-inline-review>`:
-
-```{figure} start-inline-review.png
-:name: start-inline-review
-
-Click the blue plus below the activity row in order to begin an in-line GitHub
-PR review.
-```
-
-Then utilise the add a suggestion button to allow editing that line within the
-review as in {numref}`Figure %s <add-a-suggestion>`:
-
-```{figure} add-a-suggestion.png
-:name: add-a-suggestion
-
-Create a suggestion
-```
-
-Then write in your initials followed by pressing `Add single comment` as in
-{numref}`Figure %s <write-in-initials>`:
-
-```{figure} write-in-initials.png
-:name: write-in-initials
-
-Write in your initials
-```
-
-Lastly, press `Commit suggestion` followed by writing in an informative commit
-message and then pressing `Commit changes` as in {numref}`Figure %s <commit-suggestion>`:
-
-```{figure} commit-suggestion.png
-:name: commit-suggestion
-
-Commit the suggestion to the PR. This will use a GitHub signed and verified
-commit that is associated to your GitHub user.
-```
-
 | Participants                                                |
 | ----------------------------------------------------------- |
 | Process owner and/or designated reviewer(s) and approver(s) |
@@ -252,10 +214,8 @@ subsequent PR and review. The document itself does not need to be copied into
 the `draft` folder unless there is a desire to merge the PR into the `main`
 branch before the document is ready for release approval.
 
-After finishing the edit, include and sign a new "changes" row within the
-document approval table and then subsequently the process moves to the
-**Document Ready for Review** stage (step 2), following the same steps as
-above.
+After finishing the edit the process moves to the **Document Ready for Review**
+stage (step 2), following the same steps as above.
 
 A QMS change can trigger a substantial change. Before release, it shall be
 checked whether it may impact the organization's process landscape and hence,
