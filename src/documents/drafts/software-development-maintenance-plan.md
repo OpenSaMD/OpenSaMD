@@ -47,10 +47,11 @@ This document summarizes development and maintenance activities for
 
 Please see the relevant processes for the following activities:
 
-- Risk management activities incl. SOUP risks: SOP Integrated Software Development
+- Risk management activities incl. SOUP risks: SOP Integrated Software
+  Development
 - Problem resolution: SOP Problem Resolution
-- Software development incl. deliverables, traceability, regular update of software development plan: SOP
-  Integrated Software Development
+- Software development incl. deliverables, traceability, regular update of
+  software development plan: SOP Integrated Software Development
 - Change management: SOP Change Management
 - SOUP List
 - SOP Usability Engineering
@@ -59,9 +60,9 @@ Please see the relevant processes for the following activities:
 
 ### 2.1 Team
 
-| Role                                                         | Count | Names       |
-| ------------------------------------------------------------ | ----- | ----------- |
-| CEO, Full-stack developer, Data Scientist, Medical Physicist | 1     | Simon Biggs |
+| Role                                              | Count | Names       |
+| ------------------------------------------------- | ----- | ----------- |
+| CEO, Developer, Data Scientist, Medical Physicist | 1     | Simon Biggs |
 
 ### 2.2 Software
 
@@ -71,11 +72,6 @@ Please see the relevant processes for the following activities:
 -->
 
 #### Programming Languages
-
-<!--
-  TODO: Propagate these values into the data *.yml directory, inheriting from
-  yarn.lock for TypeScript and pyproject for Python.
--->
 
 | System                     | Name       | Version |
 | -------------------------- | ---------- | ------- |
@@ -103,10 +99,6 @@ Minimum system requirements for local systems:
 - 2 GB of RAM
 - 1 MBit/s up- and downlink
 - 20GB SSD storage
-
-<!--
-  TODO: Consider pulling these values from the kubernetes definition files.
--->
 
 Minimum system requirements for `convert` cloud container:
 
@@ -180,8 +172,6 @@ All public functions will be documented through doc strings or comments.
 
 ## 7 Verification Activities
 
-<!-- TODO: Add in code review here when the software development team is > 1 -->
-
 For each commit there is a pre-commit check which verifies that:
 
 - All code ad-hears to the black style guide
@@ -195,15 +185,18 @@ check the items described within **8 Software System Test Activities**.
 Either manual testing is undergone or new automated tests are written to verify
 that the current code changes fulfil the software requirements.
 
+Should the team be a size larger than 1 then all PRs are to undergo code review
+before merging.
+
 ## 8 Software System Test Activities
 
 For every pull request the following automated GitHub actions based system
 tests are undergone:
 
-- Python and Typescript unit and integration testing suites pass
-- Python and Typescript linting passes
-- Typescript type checker passes
-- Python mypy type checker passes
+- Python and Typescript unit and integration testing suites
+- Python and Typescript linting
+- Typescript type checker
+- Python mypy type checker
 
 ## 9 Maintenance Activities
 
