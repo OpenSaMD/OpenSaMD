@@ -3,17 +3,17 @@ root: index
 parts:
   - caption: Released
     chapters:
-      - file: released/sop-document-record-control/index
+      - file: released/quality-manual-policy-objectives
+      - file: released/sop-document-record-control
+      - file: released/sop-integrated-software-development
 
   - caption: Drafts
     chapters:
       - file: drafts/introduction
-      - file: drafts/quality-manual-policy-objectives
       - file: drafts/software-development-maintenance-plan
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/62304-mapping
-      - file: drafts/sop-integrated-software-development
 
   - caption: Archived
     chapters:
