@@ -9,16 +9,18 @@ src := ./src
 CONFIG := $(src)/config.yml
 DATA_FILES := $(wildcard $(src)/data/*.yml)
 
-SRC_MDS := $(shell find $(src)/documents/ -type f -name '*.md')
-SRC_PNGS := $(shell find $(src)/documents/ -type f -name '*.png')
-SRC_JPGS := $(shell find $(src)/documents/ -type f -name '*.jpg')
+SRC_MD := $(shell find $(src)/documents/ -type f -name '*.md')
+SRC_PNG := $(shell find $(src)/documents/ -type f -name '*.png')
+SRC_JPG := $(shell find $(src)/documents/ -type f -name '*.jpg')
+SRC_CSV := $(shell find $(src)/documents/ -type f -name '*.csv')
 
-RELEASE_MDS := $(patsubst $(src)/documents/%.md,$(release)/%.md,$(SRC_MDS))
-RELEASE_PNGS := $(patsubst $(src)/documents/%.png,$(release)/%.png,$(SRC_PNGS))
-RELEASE_JPGS := $(patsubst $(src)/documents/%.jpg,$(release)/%.jpg,$(SRC_JPGS))
-RELEASE_JB_FILES = $(release)/_config.yml $(release)/_toc.yml $(release)/references.bib
+RELEASE_MD := $(patsubst $(src)/documents/%.md,$(release)/%.md,$(SRC_MD))
+RELEASE_PNG := $(patsubst $(src)/documents/%.png,$(release)/%.png,$(SRC_PNG))
+RELEASE_JPG := $(patsubst $(src)/documents/%.jpg,$(release)/%.jpg,$(SRC_JPG))
+RELEASE_CSV := $(patsubst $(src)/documents/%.csv,$(release)/%.csv,$(SRC_CSV))
+RELEASE_JB = $(release)/_config.yml $(release)/_toc.yml $(release)/references.bib
 
-RELEASE_ALL := $(RELEASE_PNGS) $(RELEASE_JPGS) $(RELEASE_MDS) $(RELEASE_JB_FILES)
+RELEASE_ALL := $(RELEASE_PNG) $(RELEASE_JPG) $(RELEASE_MD) $(RELEASE_CSV) $(RELEASE_JB)
 
 all: $(RELEASE_ALL)
 
@@ -31,6 +33,10 @@ $(release)/%.png: $(src)/documents/%.png
 	cp $< $@
 
 $(release)/%.jpg: $(src)/documents/%.jpg
+	@mkdir -p $(@D)
+	cp $< $@
+
+$(release)/%.csv: $(src)/documents/%.csv
 	@mkdir -p $(@D)
 	cp $< $@
 
