@@ -1,3 +1,16 @@
+<!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+
 # IEC 62304:2006 Mapping of Requirements to Documents
 
 This table maps all requirements of the IEC 62304:2006 (by section) to the relevant documents.

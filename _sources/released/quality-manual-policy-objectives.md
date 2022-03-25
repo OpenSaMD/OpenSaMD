@@ -1,3 +1,16 @@
+<!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+
 # Quality Manual, Policy and Objectives
 
 | ISO 13485:2016 Section | Document Section |
@@ -64,10 +77,11 @@ comparisons are undergone utilising the following metrics:
 
 ## 3. Roles
 
-| Role(s)                               | People       |
-| ------------------------------------- | ------------ |
-| CEO, QMO, CTO, CPO, Software Engineer | Simon Biggs  |
-| Regulatory Consultant                 | Oliver Eidel |
+| Role(s)                               | People           |
+| ------------------------------------- | ---------------- |
+| CEO, QMO, CTO, CPO, Software Engineer | Simon Biggs      |
+| Regulatory Consultant                 | Dr Oliver Eidel  |
+| Regulatory Consultant                 | Pierre Lonchampt |
 
 All C-level roles are referred to as the Management. Management is generally
 responsible to define responsibilities and authorities, to define and
@@ -78,7 +92,7 @@ is oriented towards them.
 
 The Quality Management Officer (QMO) is responsible to:
 
-- ensure that processes needed for the company’s quality management system are
+- ensure that processes needed for the company's quality management system are
   documented
 - report to top management on the effectiveness of the quality management
   system and any need for improvement
@@ -96,5 +110,3 @@ The Quality Management Officer (QMO) is responsible to:
 | SOP Integrated Software Development  | Core             |
 | SOP Post-Market Surveillance         | Support          |
 | SOP Software Validation              | Support          |
-
-<!-- TODO: Look into filling in the above table based on the contents of a 'SOP' directory -->

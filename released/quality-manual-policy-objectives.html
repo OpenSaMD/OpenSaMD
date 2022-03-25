@@ -53,8 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Software Development and Maintenance Plan" href="software-development-maintenance-plan.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../released/sop-document-record-control/index.html">
+  <a class="reference internal" href="sop-document-record-control/index.html">
    SOP Document and Record Control
   </a>
  </li>
@@ -110,40 +108,30 @@ const thebe_selector_output = ".output, .cell_output"
   Drafts
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
+  <a class="reference internal" href="../drafts/introduction.html">
    Introduction
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Quality Manual, Policy and Objectives
-  </a>
- </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="software-development-maintenance-plan.html">
+  <a class="reference internal" href="../drafts/software-development-maintenance-plan.html">
    Software Development and Maintenance Plan
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="intended-use.html">
+  <a class="reference internal" href="../drafts/intended-use.html">
    Intended Use
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="intended-performance.html">
+  <a class="reference internal" href="../drafts/intended-performance.html">
    Intended performance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="62304-mapping.html">
+  <a class="reference internal" href="../drafts/62304-mapping.html">
    IEC 62304:2006 Mapping of Requirements to Documents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sop-integrated-software-development.html">
-   SOP Integrated Software Development
   </a>
  </li>
 </ul>
@@ -199,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/drafts/quality-manual-policy-objectives.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/released/quality-manual-policy-objectives.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -219,7 +207,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fdrafts/quality-manual-policy-objectives.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/quality-manual-policy-objectives.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -382,7 +370,19 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="quality-manual-policy-and-objectives">
+  <!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+<div class="tex2jax_ignore mathjax_ignore section" id="quality-manual-policy-and-objectives">
 <h1>Quality Manual, Policy and Objectives<a class="headerlink" href="#quality-manual-policy-and-objectives" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-auto table">
 <thead>
@@ -495,7 +495,10 @@ comparisons are undergone utilising the following metrics:</p>
 <td><p>Simon Biggs</p></td>
 </tr>
 <tr class="row-odd"><td><p>Regulatory Consultant</p></td>
-<td><p>Oliver Eidel</p></td>
+<td><p>Dr Oliver Eidel</p></td>
+</tr>
+<tr class="row-even"><td><p>Regulatory Consultant</p></td>
+<td><p>Pierre Lonchampt</p></td>
 </tr>
 </tbody>
 </table>
@@ -545,7 +548,6 @@ QMS requirements throughout the organization.</p></li>
 </tr>
 </tbody>
 </table>
-<!-- TODO: Look into filling in the above table based on the contents of a 'SOP' directory -->
 </div>
 </div>
 
@@ -562,7 +564,7 @@ QMS requirements throughout the organization.</p></li>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./drafts"
+            path: "./released"
         },
         predefinedOutput: true
     }
@@ -573,21 +575,7 @@ QMS requirements throughout the organization.</p></li>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="software-development-maintenance-plan.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Software Development and Maintenance Plan</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>
@@ -606,14 +594,14 @@ QMS requirements throughout the organization.</p></li>
       src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
   </a><br />
 
-  This work is licensed under a <a
+  This work is licensed under the <a
     rel="license"
     href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
   Attribution 4.0 International License
   </a>
   <br />
-  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>),
-  general content copyright Radiotherapy AI.
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
 </p>
 
       </div>

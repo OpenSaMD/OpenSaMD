@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Intended Use" href="intended-use.html" />
-    <link rel="prev" title="Quality Manual, Policy and Objectives" href="quality-manual-policy-objectives.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,11 +116,6 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="quality-manual-policy-objectives.html">
-   Quality Manual, Policy and Objectives
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Software Development and Maintenance Plan
@@ -139,11 +134,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="62304-mapping.html">
    IEC 62304:2006 Mapping of Requirements to Documents
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sop-integrated-software-development.html">
-   SOP Integrated Software Development
   </a>
  </li>
 </ul>
@@ -432,7 +422,19 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="software-development-and-maintenance-plan">
+  <!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+<div class="tex2jax_ignore mathjax_ignore section" id="software-development-and-maintenance-plan">
 <h1>Software Development and Maintenance Plan<a class="headerlink" href="#software-development-and-maintenance-plan" title="Permalink to this headline">¶</a></h1>
 <p>This document summarizes development and maintenance activities for
 Radiotherapy AI Contour Recommendations <code class="docutils literal notranslate"><span class="pre">v0.1.17</span></code>.</p>
@@ -537,10 +539,11 @@ Radiotherapy AI Contour Recommendations <code class="docutils literal notranslat
 <h2>1 Relevant Processes and Documents<a class="headerlink" href="#relevant-processes-and-documents" title="Permalink to this headline">¶</a></h2>
 <p>Please see the relevant processes for the following activities:</p>
 <ul class="simple">
-<li><p>Risk management activities incl. SOUP risks: SOP Integrated Software Development</p></li>
+<li><p>Risk management activities incl. SOUP risks: SOP Integrated Software
+Development</p></li>
 <li><p>Problem resolution: SOP Problem Resolution</p></li>
-<li><p>Software development incl. deliverables, traceability, regular update of software development plan: SOP
-Integrated Software Development</p></li>
+<li><p>Software development incl. deliverables, traceability, regular update of
+software development plan: SOP Integrated Software Development</p></li>
 <li><p>Change management: SOP Change Management</p></li>
 <li><p>SOUP List</p></li>
 <li><p>SOP Usability Engineering</p></li>
@@ -558,7 +561,7 @@ Integrated Software Development</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>CEO, Full-stack developer, Data Scientist, Medical Physicist</p></td>
+<tr class="row-even"><td><p>CEO, Developer, Data Scientist, Medical Physicist</p></td>
 <td><p>1</p></td>
 <td><p>Simon Biggs</p></td>
 </tr>
@@ -573,10 +576,6 @@ Integrated Software Development</p></li>
 -->
 <div class="section" id="programming-languages">
 <h4>Programming Languages<a class="headerlink" href="#programming-languages" title="Permalink to this headline">¶</a></h4>
-<!--
-  TODO: Propagate these values into the data *.yml directory, inheriting from
-  yarn.lock for TypeScript and pyproject for Python.
--->
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>System</p></th>
@@ -647,9 +646,6 @@ Integrated Software Development</p></li>
 <li><p>1 MBit/s up- and downlink</p></li>
 <li><p>20GB SSD storage</p></li>
 </ul>
-<!--
-  TODO: Consider pulling these values from the kubernetes definition files.
--->
 <p>Minimum system requirements for <code class="docutils literal notranslate"><span class="pre">convert</span></code> cloud container:</p>
 <ul class="simple">
 <li><p>Server-grade single-core CPU</p></li>
@@ -743,7 +739,6 @@ which results in a version of format MAJOR.MINOR.PATCH, e.g. 1.0.0.</p>
 </div>
 <div class="section" id="verification-activities">
 <h2>7 Verification Activities<a class="headerlink" href="#verification-activities" title="Permalink to this headline">¶</a></h2>
-<!-- TODO: Add in code review here when the software development team is > 1 -->
 <p>For each commit there is a pre-commit check which verifies that:</p>
 <ul class="simple">
 <li><p>All code ad-hears to the black style guide</p></li>
@@ -755,16 +750,18 @@ which results in a version of format MAJOR.MINOR.PATCH, e.g. 1.0.0.</p>
 check the items described within <strong>8 Software System Test Activities</strong>.</p>
 <p>Either manual testing is undergone or new automated tests are written to verify
 that the current code changes fulfil the software requirements.</p>
+<p>Should the team be a size larger than 1 then all PRs are to undergo code review
+before merging.</p>
 </div>
 <div class="section" id="software-system-test-activities">
 <h2>8 Software System Test Activities<a class="headerlink" href="#software-system-test-activities" title="Permalink to this headline">¶</a></h2>
 <p>For every pull request the following automated GitHub actions based system
 tests are undergone:</p>
 <ul class="simple">
-<li><p>Python and Typescript unit and integration testing suites pass</p></li>
-<li><p>Python and Typescript linting passes</p></li>
-<li><p>Typescript type checker passes</p></li>
-<li><p>Python mypy type checker passes</p></li>
+<li><p>Python and Typescript unit and integration testing suites</p></li>
+<li><p>Python and Typescript linting</p></li>
+<li><p>Typescript type checker</p></li>
+<li><p>Python mypy type checker</p></li>
 </ul>
 </div>
 <div class="section" id="maintenance-activities">
@@ -799,11 +796,11 @@ date is updated in the SOUP list accordingly.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="quality-manual-policy-objectives.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Quality Manual, Policy and Objectives</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="intended-use.html" title="next page">
@@ -831,14 +828,14 @@ date is updated in the SOUP list accordingly.</p>
       src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
   </a><br />
 
-  This work is licensed under a <a
+  This work is licensed under the <a
     rel="license"
     href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
   Attribution 4.0 International License
   </a>
   <br />
-  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>),
-  general content copyright Radiotherapy AI.
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
 </p>
 
       </div>
