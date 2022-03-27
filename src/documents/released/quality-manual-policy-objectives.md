@@ -103,10 +103,15 @@ The Quality Management Officer (QMO) is responsible to:
 
 ## 4. Processes
 
-| SOP                                                 | Process Category |
-| --------------------------------------------------- | ---------------- |
-| [](../released/sop-capa)                            | Core             |
-| [](../released/sop-document-record-control)         | Core             |
-| [](../released/sop-integrated-software-development) | Core             |
-| [](../released/sop-post-market-surveillance)        | Support          |
-| [](../released/sop-software-validation)             | Support          |
+| SOP                                                        | Process Category |
+| ---------------------------------------------------------- | ---------------- |
+| [](../released/sop-capa)                                   | Core             |
+| [](../released/sop-document-record-control)                | Core             |
+| [](../released/sop-integrated-software-development)        | Core             |
+| [](../released/sop-post-market-surveillance)               | Support          |
+| [](../released/sop-software-validation)                    | Support          |
+| [](../released/sop-management-review)                      |                  |
+| [](../released/sop-product-certification-and-registration) |                  |
+| [](../released/sop-purchasing)                             |                  |
+| [](../released/sop-update-of-regulations)                  |                  |
+| [](../released/sop-human-resources-administration)         |                  |
