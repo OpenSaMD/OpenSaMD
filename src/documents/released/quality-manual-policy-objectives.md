@@ -88,7 +88,7 @@ responsible to define responsibilities and authorities, to define and
 communicate Quality Policy and Goals and to ensure that the whole organization
 is oriented towards them.
 
-> See ISO 13485, para. 5.1, para. 5.5.1
+<!-- > See ISO 13485, para. 5.1, para. 5.5.1 -->
 
 The Quality Management Officer (QMO) is responsible to:
 
@@ -99,14 +99,14 @@ The Quality Management Officer (QMO) is responsible to:
 - ensure the promotion of awareness of applicable regulatory requirements and
   QMS requirements throughout the organization.
 
-> See ISO 13485, para. 5.1, para. 5.5.2
+<!-- > See ISO 13485, para. 5.1, para. 5.5.2 -->
 
 ## 4. Processes
 
-| SOP                                  | Process Category |
-| ------------------------------------ | ---------------- |
-| SOP Corrective and Preventive Action | Core             |
-| SOP Document and Record Control      | Core             |
-| SOP Integrated Software Development  | Core             |
-| SOP Post-Market Surveillance         | Support          |
-| SOP Software Validation              | Support          |
+| SOP                                                 | Process Category |
+| --------------------------------------------------- | ---------------- |
+| [](../released/sop-capa)                            | Core             |
+| [](../released/sop-document-record-control)         | Core             |
+| [](../released/sop-integrated-software-development) | Core             |
+| [](../released/sop-post-market-surveillance)        | Support          |
+| [](../released/sop-software-validation)             | Support          |
