@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quality Manual, Policy and Objectives &#8212; Radiotherapy AI</title>
+    <title>SOP Management Review &#8212; Radiotherapy AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ISO 13485:2016 Mapping of Requirements to Documents" href="13485-mapping.html" />
-    <link rel="prev" title="Overview" href="../index.html" />
+    <link rel="next" title="SOP Post-Market Surveillance" href="sop-post-market-surveillance.html" />
+    <link rel="prev" title="SOP Human Resources Administration" href="sop-human-resources-administration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="quality-manual-policy-objectives.html">
    Quality Manual, Policy and Objectives
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -108,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="13485-mapping.html">
      ISO 13485:2016 Mapping of Requirements to Documents
@@ -134,8 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
      SOP Human Resources Administration
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sop-management-review.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      SOP Management Review
     </a>
    </li>
@@ -303,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/released/quality-manual-policy-objectives.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/released/sop-management-review.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -323,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/quality-manual-policy-objectives.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/sop-management-review.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -355,53 +355,48 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#management-review-input">
+     1.1. Management Review Input
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#management-review-output">
+     1.2. Management Review Output
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#review-period">
+     1.3. Review Period
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
+    <a class="reference internal nav-link" href="#definition-of-strategic-goals-and-process-kpis">
+     2.1 Definition of Strategic Goals and Process KPIs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
+    <a class="reference internal nav-link" href="#data-collection-and-analysis">
+     2.2 Data Collection and Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#management-review-report">
+     2.3 Management Review Report
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
-  </a>
  </li>
 </ul>
 
@@ -413,7 +408,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quality Manual, Policy and Objectives</h1>
+                <h1>SOP Management Review</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -429,53 +424,48 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#management-review-input">
+     1.1. Management Review Input
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#management-review-output">
+     1.2. Management Review Output
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#review-period">
+     1.3. Review Period
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
+    <a class="reference internal nav-link" href="#definition-of-strategic-goals-and-process-kpis">
+     2.1 Definition of Strategic Goals and Process KPIs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
+    <a class="reference internal nav-link" href="#data-collection-and-analysis">
+     2.2 Data Collection and Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#management-review-report">
+     2.3 Management Review Report
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
-  </a>
  </li>
 </ul>
 
@@ -498,200 +488,180 @@ Templates copyright OpenRegulatory. Originals available at:
 
 General content copyright Radiotherapy AI.
 -->
-<div class="tex2jax_ignore mathjax_ignore section" id="quality-manual-policy-and-objectives">
-<h1>Quality Manual, Policy and Objectives<a class="headerlink" href="#quality-manual-policy-and-objectives" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="sop-management-review">
+<h1>SOP Management Review<a class="headerlink" href="#sop-management-review" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>ISO 13485:2016 Section</p></th>
+<tr class="row-odd"><th class="head"><p>Regulatory Requirement</p></th>
 <th class="head"><p>Document Section</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>4.1.1</p></td>
-<td><p>1.</p></td>
-</tr>
-<tr class="row-odd"><td><p>4.1.2</p></td>
-<td><p>4.</p></td>
-</tr>
-<tr class="row-even"><td><p>4.2.1 b)</p></td>
-<td><p>(All)</p></td>
-</tr>
-<tr class="row-odd"><td><p>4.2.2</p></td>
-<td><p>(All)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.3</p></td>
-<td><p>2.</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.4.1</p></td>
-<td><p>2.</p></td>
+<tr class="row-even"><td><p>ISO 13485:2016 Section 5.6</p></td>
+<td><p>All</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The Quality Manual describes the scope of the Quality Management System, its
-documented procedures and a description of their interactions.</p>
+<p>This SOP describes how the surveillance of the quality management system shall
+be conducted to ensure ongoing adequacy, suitability and efficacy of
+organizational processes. The organization regularly conducts a Management
+Review to document the assessment of QMS surveillance outputs and overall
+compliance with regulatory requirements.</p>
 </div>
-<div class="section" id="scope">
-<h2>1. Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
-<p>The QMS described in this Quality Manual applies to all products of
-Radiotherapy AI Pty Ltd.</p>
-<div class="section" id="role-of-company">
-<h3>Role of Company<a class="headerlink" href="#role-of-company" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd is a manufacturer of Medical Devices.</p>
+<div class="section" id="general-considerations">
+<h2>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="management-review-input">
+<h3>1.1. Management Review Input<a class="headerlink" href="#management-review-input" title="Permalink to this headline">¶</a></h3>
+<p>The organization can use varying key performance indicators (KPIs) to measure
+processes. At minimum, the following data must be collected as input for the
+Management Review:</p>
+<ul class="simple">
+<li><p><strong>Status of Measures of Previous Management Reviews</strong><br />
+Input: which measures have been implemented as planned.<br />
+Management shall evaluate the effectiveness and efficacy of previous
+measures.</p></li>
+<li><p><strong>Audits Results</strong><br />
+Input: findings and measures from internal audits, audits by authorities and
+Notified Bodies, supplier audits conducted by the organization.</p></li>
+<li><p><strong>Status of Corrective and Preventive Actions (CAPA)</strong><br />
+Input: summary of nonconformities found and respective actions taken.</p></li>
+<li><p><strong>Status of Feedback Management and Complaint Handling</strong><br />
+Input: summary of feedback and complaints received and actions taken in
+response.</p></li>
+<li><p><strong>Status of Risk Management</strong><br />
+Input: summary of actions taken as part of risk management, e.g. risk
+mitigation, updates of the risk management report, results from post-market
+surveillance, etc.</p></li>
+<li><p><strong>Status of Incident Reporting</strong><br />
+Input: potential incidents that were assessed, incidents that were reported,
+summary of coordination with supervisory authorities, actions taken as
+result.</p></li>
+<li><p><strong>Status of Applicable Regulation</strong><br />
+Input: published and/or anticipated updates of relevant regulation, including
+expected implications for the QM system.</p></li>
+<li><p><strong>Changes to the Quality Management System</strong><br />
+Input: implemented and/or anticipated changes that impact the QM system (and
+which, ideally, are assessed as part of the Change Evaluation List - for
+instance, changes to the organizational structure, infrastructure, processes
+or customer requirements).</p></li>
+<li><p><strong>Other Key Performance Indicators (KPIs)</strong><br />
+While not every process of the QM system requires a KPI, most processes
+should be assigned an indicator that allows the assessment of process
+effectiveness, unless there is a valid explanation for why no KPI is
+reasonably applicable.</p></li>
+</ul>
 </div>
-<div class="section" id="applicable-standards">
-<h3>Applicable Standards<a class="headerlink" href="#applicable-standards" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="management-review-output">
+<h3>1.2. Management Review Output<a class="headerlink" href="#management-review-output" title="Permalink to this headline">¶</a></h3>
+<p>At minimum, the Management Review Report shall provide an assessment of the
+adequacy, suitability and efficacy of the QM system to comply with regulatory
+requirements. Additionally, process impact on product safety shall be
+critically reviewed.</p>
+<p>As part of this process, the Management also reviews the organization’s quality
+policy, quality objectives and the status of previous strategic goals. It
+defines new strategic goals for the next review period.</p>
+<!-- > NOTE: this refers to the section of your quality manual where you describe
+> your organization's process of managing company / team objectives. -->
+<p>Based on findings during the Management Review, the Management may define
+further measures such as the revision of single processes, product changes or
+the (re-)allocation of resources.</p>
+</div>
+<div class="section" id="review-period">
+<h3>1.3. Review Period<a class="headerlink" href="#review-period" title="Permalink to this headline">¶</a></h3>
+<p>The organization shall conduct a Management Review (at least) once per year.
+Ideally, the review is conducted before an external audit (e.g. by a Notified
+Body) and no sooner than audit reports from internal auditing are available.</p>
+</div>
+</div>
+<div class="section" id="process-steps">
+<h2>Process Steps<a class="headerlink" href="#process-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definition-of-strategic-goals-and-process-kpis">
+<h3>2.1 Definition of Strategic Goals and Process KPIs<a class="headerlink" href="#definition-of-strategic-goals-and-process-kpis" title="Permalink to this headline">¶</a></h3>
+<p>At the beginning of every review period, Management together with the QMO
+defines key performance indicators (KPIs) for QMS processes as well as
+strategic goals for the company. The strategic goals are based on the
+organization’s quality objectives as defined in the quality manual. The results
+of this process step are communicated to all relevant members of the
+organization (e.g. process owners).</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Standard</p></th>
-<th class="head"><p>Why Applicable?</p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ISO 13485:2016</p></td>
-<td><p>QMS utilised to meet the TGA essential principles</p></td>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>Management, QMO</p></td>
 </tr>
-<tr class="row-odd"><td><p>ISO 14971:2019</p></td>
-<td><p>Risk management for medical devices</p></td>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Quality Policy, Quality Objectives</p></td>
 </tr>
-<tr class="row-even"><td><p>IEC 62304:2006</p></td>
-<td><p>Software development for medical devices</p></td>
-</tr>
-<tr class="row-odd"><td><p>IEC 62366-1:2015</p></td>
-<td><p>Usability evaluation for medical devices</p></td>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Strategic Goals, Process KPIs</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="exclusions">
-<h3>Exclusions<a class="headerlink" href="#exclusions" title="Permalink to this headline">¶</a></h3>
-<p>The following sections of ISO 13485:2016 will be excluded due to the product
-being stand-alone software:</p>
-<ul class="simple">
-<li><p>6.4.2 Contamination control</p></li>
-<li><p>7.5.2 Cleanliness of product</p></li>
-<li><p>7.5.5 Particular requirements for sterile medical devices</p></li>
-<li><p>7.5.7 Particular requirements for validation of processes for sterilization
-and sterile barrier systems</p></li>
-<li><p>7.5.9.2 Particular requirements for implantable medical devices</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="quality-policy-objectives">
-<h2>2. Quality Policy &amp; Objectives<a class="headerlink" href="#quality-policy-objectives" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="quality-policy">
-<h3>Quality Policy<a class="headerlink" href="#quality-policy" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd aims to make AI assisted radiotherapy cancer treatments
-accessible to all. With the goals to reduce treatment errors while improving
-overall treatment efficacy and efficiency.</p>
-</div>
-<div class="section" id="quality-objectives">
-<h3>Quality Objectives<a class="headerlink" href="#quality-objectives" title="Permalink to this headline">¶</a></h3>
-<p>When tracking the quality of the AI autocontouring software its
-results are compared to health practitioner ground truth contours. These
-comparisons are undergone utilising the following metrics:</p>
-<ul class="simple">
-<li><p>Hausdorff</p></li>
-<li><p>Surface and Volumetric Dice</p></li>
-<li><p>Four point health practitioner approval scale</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="roles">
-<h2>3. Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-collection-and-analysis">
+<h3>2.2 Data Collection and Analysis<a class="headerlink" href="#data-collection-and-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Every process owner is responsible to track the KPI of their process during the
+review period and to keep records as required by the process.</p>
+<p>At the end of a review period, the QMO collects data input from process owners
+and analyses the KPI data against pre-defined criteria in preparation for the
+Management Review. The QMO may undertake further investigation to identify
+nonconformities and to provide a preliminary assessment of the adequacy,
+suitability and efficacy of the QM system.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Role(s)</p></th>
-<th class="head"><p>People</p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>CEO, QMO, CTO, CPO, Software Engineer</p></td>
-<td><p>Simon Biggs</p></td>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>QMO, Process Owners</p></td>
 </tr>
-<tr class="row-odd"><td><p>Regulatory Consultant</p></td>
-<td><p>Dr Oliver Eidel</p></td>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>KPI records</p></td>
 </tr>
-<tr class="row-even"><td><p>Regulatory Consultant</p></td>
-<td><p>Pierre Lonchampt</p></td>
-</tr>
-</tbody>
-</table>
-<p>All C-level roles are referred to as the Management. Management is generally
-responsible to define responsibilities and authorities, to define and
-communicate Quality Policy and Goals and to ensure that the whole organization
-is oriented towards them.</p>
-<!-- > See ISO 13485, para. 5.1, para. 5.5.1 -->
-<p>The Quality Management Officer (QMO) is responsible to:</p>
-<ul class="simple">
-<li><p>ensure that processes needed for the company’s quality management system are
-documented</p></li>
-<li><p>report to top management on the effectiveness of the quality management
-system and any need for improvement</p></li>
-<li><p>ensure the promotion of awareness of applicable regulatory requirements and
-QMS requirements throughout the organization.</p></li>
-</ul>
-<!-- > See ISO 13485, para. 5.1, para. 5.5.2 -->
-</div>
-<div class="section" id="processes">
-<h2>4. Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>SOP</p></th>
-<th class="head"><p>Process Category</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-capa.html"><span class="doc std std-doc">SOP Corrective and Preventive Action (CAPA)</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-document-record-control.html"><span class="doc std std-doc">SOP Document and Record Control</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-integrated-software-development.html"><span class="doc std std-doc">SOP Integrated Software Development</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-post-market-surveillance.html"><span class="doc std std-doc">SOP Post-Market Surveillance</span></a></p></td>
-<td><p>Support</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-software-validation.html"><span class="doc std std-doc">SOP Software Validation</span></a></p></td>
-<td><p>Support</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-management-review.html"><span class="doc std std-doc">SOP Management Review</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-product-certification-and-registration.html"><span class="doc std std-doc">SOP Product Certification and Registration</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-purchasing.html"><span class="doc std std-doc">SOP Purchasing</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-update-of-regulations.html"><span class="doc std std-doc">SOP Update of Regulations</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-human-resources-administration.html"><span class="doc std std-doc">SOP Human Resources Administration</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-change-management.html"><span class="doc std std-doc">SOP Change Management</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-feedback-management.html"><span class="doc std std-doc">SOP Feedback Management and Customer Complaints</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-incident-reporting.html"><span class="doc std std-doc">SOP Incident Reporting</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-internal-audit.html"><span class="doc std std-doc">SOP Internal Auditing</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-software-problem-resolution.html"><span class="doc std std-doc">SOP Software Problem Resolution</span></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Completed data analysis</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="management-review-report">
+<h3>2.3 Management Review Report<a class="headerlink" href="#management-review-report" title="Permalink to this headline">¶</a></h3>
+<p>Management and QMO together discuss the reported input and completed data
+analysis. The Management is responsible to evaluate the results against the
+pre-defined criteria and formulate an assessment of the adequacy, suitability
+and efficacy of the QM system. Where necessary, the Management defines measures
+for improvement. The results of the Management Review are documented in the
+Management Review Report.</p>
+<p>Finally, the Management sets strategic goals and, where necessary, new or
+revised process KPIs for the next review period. This is communicated again to
+all relevant members of the organization.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>Management, QMO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Completed data analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Management Review Report, new or revised KPIs and strategic goals, planned measures</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -720,17 +690,17 @@ QMS requirements throughout the organization.</p></li>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="sop-human-resources-administration.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Overview</p>
+            <p class="prev-next-title">SOP Human Resources Administration</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="13485-mapping.html" title="next page">
+    <a class='right-next' id="next-link" href="sop-post-market-surveillance.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ISO 13485:2016 Mapping of Requirements to Documents</p>
+        <p class="prev-next-title">SOP Post-Market Surveillance</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

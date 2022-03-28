@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quality Manual, Policy and Objectives &#8212; Radiotherapy AI</title>
+    <title>SOP Human Resources Administration &#8212; Radiotherapy AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ISO 13485:2016 Mapping of Requirements to Documents" href="13485-mapping.html" />
-    <link rel="prev" title="Overview" href="../index.html" />
+    <link rel="next" title="SOP Management Review" href="sop-management-review.html" />
+    <link rel="prev" title="SOP Corrective and Preventive Action (CAPA)" href="sop-capa.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="quality-manual-policy-objectives.html">
    Quality Manual, Policy and Objectives
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -108,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="13485-mapping.html">
      ISO 13485:2016 Mapping of Requirements to Documents
@@ -129,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
      SOP Corrective and Preventive Action (CAPA)
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sop-human-resources-administration.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      SOP Human Resources Administration
     </a>
    </li>
@@ -303,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/released/quality-manual-policy-objectives.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/released/sop-human-resources-administration.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -323,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/quality-manual-policy-objectives.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/sop-human-resources-administration.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -355,53 +355,70 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#role-description-and-role-assignment">
+     1.1 Role Description and Role Assignment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#hr-file">
+     1.2 HR File
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#training">
+     1.3 Training
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-provision-and-documentation">
+       Training Provision and Documentation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-effectiveness-evaluation">
+       Training Effectiveness Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#role-specific-training">
+       Role-Specific Training
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
+    <a class="reference internal nav-link" href="#onboarding-of-new-employees">
+     2.1 Onboarding of New Employees
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
+    <a class="reference internal nav-link" href="#continuous-training">
+     2.2 Continuous Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#employee-development">
+     2.3 Employee Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#offboarding-of-employees">
+     2.4 Offboarding of Employees
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
-  </a>
  </li>
 </ul>
 
@@ -413,7 +430,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quality Manual, Policy and Objectives</h1>
+                <h1>SOP Human Resources Administration</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -429,53 +446,70 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scope">
-   1. Scope
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#role-of-company">
-     Role of Company
+    <a class="reference internal nav-link" href="#role-description-and-role-assignment">
+     1.1 Role Description and Role Assignment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#applicable-standards">
-     Applicable Standards
+    <a class="reference internal nav-link" href="#hr-file">
+     1.2 HR File
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exclusions">
-     Exclusions
+    <a class="reference internal nav-link" href="#training">
+     1.3 Training
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-provision-and-documentation">
+       Training Provision and Documentation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-effectiveness-evaluation">
+       Training Effectiveness Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#role-specific-training">
+       Role-Specific Training
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quality-policy-objectives">
-   2. Quality Policy &amp; Objectives
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-policy">
-     Quality Policy
+    <a class="reference internal nav-link" href="#onboarding-of-new-employees">
+     2.1 Onboarding of New Employees
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality-objectives">
-     Quality Objectives
+    <a class="reference internal nav-link" href="#continuous-training">
+     2.2 Continuous Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#employee-development">
+     2.3 Employee Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#offboarding-of-employees">
+     2.4 Offboarding of Employees
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roles">
-   3. Roles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#processes">
-   4. Processes
-  </a>
  </li>
 </ul>
 
@@ -498,200 +532,274 @@ Templates copyright OpenRegulatory. Originals available at:
 
 General content copyright Radiotherapy AI.
 -->
-<div class="tex2jax_ignore mathjax_ignore section" id="quality-manual-policy-and-objectives">
-<h1>Quality Manual, Policy and Objectives<a class="headerlink" href="#quality-manual-policy-and-objectives" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="sop-human-resources-administration">
+<h1>SOP Human Resources Administration<a class="headerlink" href="#sop-human-resources-administration" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>ISO 13485:2016 Section</p></th>
+<tr class="row-odd"><th class="head"><p>Regulatory Requirement</p></th>
 <th class="head"><p>Document Section</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>4.1.1</p></td>
-<td><p>1.</p></td>
-</tr>
-<tr class="row-odd"><td><p>4.1.2</p></td>
-<td><p>4.</p></td>
-</tr>
-<tr class="row-even"><td><p>4.2.1 b)</p></td>
-<td><p>(All)</p></td>
-</tr>
-<tr class="row-odd"><td><p>4.2.2</p></td>
-<td><p>(All)</p></td>
-</tr>
-<tr class="row-even"><td><p>5.3</p></td>
-<td><p>2.</p></td>
-</tr>
-<tr class="row-odd"><td><p>5.4.1</p></td>
-<td><p>2.</p></td>
+<tr class="row-even"><td><p>ISO 13485:2016, sections 6.2 and 7.1</p></td>
+<td><p>All</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The Quality Manual describes the scope of the Quality Management System, its
-documented procedures and a description of their interactions.</p>
+<p>This SOP provides instructions for the management of personnel in the
+organization.</p>
+<p>It covers the onboarding and offboarding of employees, initial and continuous
+employee training, and feedback processes between supervisors and team members.
+Thereby, this process shall ensure that the organization retains sufficient
+qualified and motivated staff.</p>
+<!-- > NOTE: As your organization grows, the following updates to this process can
+> be considered:
+>
+> - _Job descriptions_ are formulated as part of a general template and
+>   respective records instead of sections in the quality manual.
+> - Team compositions and hierarchies are outlined as part of an
+>   _organizational chart_ instead of a table section in the quality manual.
+> - Design of a _competency matrix_ assigning each role its required training. -->
 </div>
-<div class="section" id="scope">
-<h2>1. Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
-<p>The QMS described in this Quality Manual applies to all products of
-Radiotherapy AI Pty Ltd.</p>
-<div class="section" id="role-of-company">
-<h3>Role of Company<a class="headerlink" href="#role-of-company" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd is a manufacturer of Medical Devices.</p>
+<div class="section" id="general-considerations">
+<h2>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="role-description-and-role-assignment">
+<h3>1.1 Role Description and Role Assignment<a class="headerlink" href="#role-description-and-role-assignment" title="Permalink to this headline">¶</a></h3>
+<p>Each employee of the organization is assigned a specific job role for which
+respective tasks and responsibilities as well as the required qualifications
+are outlined as part of the quality manual. Team leaders / supervisors are
+responsible to ensure that the employees working in their team are trained and
+qualified for the tasks assigned to them. Employee qualification is reviewed
+against predetermined requirements every time before an employee assumes a new
+task or role.</p>
+<p>The QMO, together with an HR Manager, determines the training and qualification
+requirements per individual role that are outlined in the quality manual.</p>
 </div>
-<div class="section" id="applicable-standards">
-<h3>Applicable Standards<a class="headerlink" href="#applicable-standards" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="hr-file">
+<h3>1.2 HR File<a class="headerlink" href="#hr-file" title="Permalink to this headline">¶</a></h3>
+<p>The organization keeps certain records on every employee, which combined make
+up the employee’s HR File. These include:</p>
+<ul class="simple">
+<li><p>Employee contract and contractual agreements</p></li>
+<li><p>Health insurance documentation</p></li>
+<li><p>Personal identification (e.g. passport scan)</p></li>
+<li><p>Payroll documentation</p></li>
+<li><p>Proof of qualifications (where relevant)</p></li>
+</ul>
+<!-- > NOTE: such files are subject to stricter data protection requirements and
+> should be made available to external parties (e.g. auditors, authorities)
+> only upon request. You may want to add instructions on how the files should
+> be protected (for example: access limited to HR staff only). -->
+</div>
+<div class="section" id="training">
+<h3>1.3 Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="training-provision-and-documentation">
+<h4>Training Provision and Documentation<a class="headerlink" href="#training-provision-and-documentation" title="Permalink to this headline">¶</a></h4>
+<p>The general aim of employee training is to ensure the necessary competence of
+employees to perform their tasks. At minimum, it must ensure that employees are
+aware of the relevance of their tasks and how they contribute to achieving the
+quality objectives of the organization (ISO 13485, para. 6.2).</p>
+<p>Training may take different forms as deemed most suitable by the instructing
+employee. Training methods may entail:</p>
+<ul class="simple">
+<li><p>Internal or external workshop</p></li>
+<li><p>Media and self-study material (e.g. videos, training documents)</p></li>
+<li><p>Talks and interviews with co-workers or supervisors, supervised working</p></li>
+</ul>
+<p>The QMO should be involved anytime alternative training methods are chosen, in
+order to ensure appropriate training evaluation is guaranteed.</p>
+<p>Completed training is documented as part of the organization’s training
+documentation. For external seminars, respective training records (e.g.
+certificates) are saved as part of the HR file (see 1.2.) of each employee and
+should include at minimum: employee name, training method and content, date and
+signature of instructor.</p>
+<!-- > NOTE: in a larger organization, consider creating a template for a training
+> form that employees can use to document their training. -->
+</div>
+<div class="section" id="training-effectiveness-evaluation">
+<h4>Training Effectiveness Evaluation<a class="headerlink" href="#training-effectiveness-evaluation" title="Permalink to this headline">¶</a></h4>
+<p>Completed training is evaluated to ensure effectiveness of training and that
+employees are qualified to perform their job. For effectiveness evaluation,
+different methods can be used:</p>
+<ul class="simple">
+<li><p>Test / questionnaire</p></li>
+<li><p>Monitoring job performance</p></li>
+<li><p>External testing</p></li>
+</ul>
+<p>Where no evaluation is included in the training, effectiveness is typically
+confirmed by the supervisor after completion of training and also documented by
+the QMO as part of the organization’s training documentation.</p>
+<!-- > NOTE: some collaboration tools like Google Workspace allow you to set up
+> questionnaires through which you can test and document(!) your colleague's
+> self-study success quite easily. -->
+</div>
+<div class="section" id="role-specific-training">
+<h4>Role-Specific Training<a class="headerlink" href="#role-specific-training" title="Permalink to this headline">¶</a></h4>
+<p>Training needs may arise from specific roles within the organization:</p>
+<p><em>Person Responsible for Regulatory Compliance (PRRC)</em></p>
+<p>Before assuming their role, the PRRC is instructed by the QMO on the tasks and
+responsibilities of this role according to Art. 15 of the Medical Device
+Regulation. Specifically, the QMO checks if the candidate’s qualification meets
+all the requirements.</p>
+<p><em>Medical Device Consultants</em></p>
+<p>Employees speaking to a professional community or instructing on the handling
+of the organization’s medical devices may be subject to Chapter 6 and §83 of
+the German MPDG. They must receive training on their tasks and responsibilities
+and regulatory requirements according to the law as well as product-specific
+training that should be repeated regularly or based on substantial product
+changes. The QMO is responsible to keep a list of the organization’s trained
+medical device consultants including the date of their latest training.</p>
+</div>
+</div>
+</div>
+<div class="section" id="process-steps">
+<h2>Process Steps<a class="headerlink" href="#process-steps" title="Permalink to this headline">¶</a></h2>
+<!-- > NOTE: depending on your current processes in place, feel free to add
+> provisions for:
+>
+> - The recruitment of employees (for example: are you using software tools
+>   like BambooHR or Personio for the application process? How do you document
+>   hiring decisions? What kind of data protection requirements, like data
+>   deletion periods, must be met?)
+> - Onboarding checklists for HR staff / new employees (including, for example:
+>   onboarding meetings a new hire should complete with relevant coworkers,
+>   social insurance registration that HR managers must complete for new
+>   employees) -->
+<div class="section" id="onboarding-of-new-employees">
+<h3>2.1 Onboarding of New Employees<a class="headerlink" href="#onboarding-of-new-employees" title="Permalink to this headline">¶</a></h3>
+<p>Upon a signed employment contract and before the start date for a new
+employment, the HR manager is responsible to perform administrative onboarding
+for the new employee, including:</p>
+<ul class="simple">
+<li><p>Creating a an HR file for the new employee (see section 1.2)</p></li>
+<li><p>Health and social insurance documentation</p></li>
+<li><p>Payroll administration</p></li>
+<li><p>Ordering required hardware (e.g. laptop, company mobile phone)</p></li>
+<li><p>Granting access rights to relevant software tools (e.g. company messenger,
+project management tools). Consider: no access should be granted before
+contractual agreements are signed!</p></li>
+</ul>
+<p>Upon the first day, the direct supervisor or team leader is responsible to
+ensure that the new employee receives and completes initial training. QMO is
+responsible for determining required QMS training. Completed training is
+documented as part of <strong>PTR-LIS-TDC</strong>. Initial training must be completed
+as soon as reasonably practicable.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Standard</p></th>
-<th class="head"><p>Why Applicable?</p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ISO 13485:2016</p></td>
-<td><p>QMS utilised to meet the TGA essential principles</p></td>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>New employee<br>HR Manager<br>Team Lead / Supervisor<br>QMO</p></td>
 </tr>
-<tr class="row-odd"><td><p>ISO 14971:2019</p></td>
-<td><p>Risk management for medical devices</p></td>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Signed employment contract</p></td>
 </tr>
-<tr class="row-even"><td><p>IEC 62304:2006</p></td>
-<td><p>Software development for medical devices</p></td>
-</tr>
-<tr class="row-odd"><td><p>IEC 62366-1:2015</p></td>
-<td><p>Usability evaluation for medical devices</p></td>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Completed onboarding process</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="exclusions">
-<h3>Exclusions<a class="headerlink" href="#exclusions" title="Permalink to this headline">¶</a></h3>
-<p>The following sections of ISO 13485:2016 will be excluded due to the product
-being stand-alone software:</p>
+<div class="section" id="continuous-training">
+<h3>2.2 Continuous Training<a class="headerlink" href="#continuous-training" title="Permalink to this headline">¶</a></h3>
+<p>Besides initial onboarding, new training need may arise from one of the
+following:</p>
 <ul class="simple">
-<li><p>6.4.2 Contamination control</p></li>
-<li><p>7.5.2 Cleanliness of product</p></li>
-<li><p>7.5.5 Particular requirements for sterile medical devices</p></li>
-<li><p>7.5.7 Particular requirements for validation of processes for sterilization
-and sterile barrier systems</p></li>
-<li><p>7.5.9.2 Particular requirements for implantable medical devices</p></li>
+<li><p>Annual due date: the QMO may define annually recurring training.</p></li>
+<li><p>Changes in job role: certain job roles require role-specific training (see
+1.3)</p></li>
+<li><p>Nonconformities: root cause analysis of CAPAs may reveal a lack of training</p></li>
+<li><p>Regulatory changes: based on updates to the QM system (e.g. new processes) or
+to applicable regulation, the QMO may determine further training need</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="quality-policy-objectives">
-<h2>2. Quality Policy &amp; Objectives<a class="headerlink" href="#quality-policy-objectives" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="quality-policy">
-<h3>Quality Policy<a class="headerlink" href="#quality-policy" title="Permalink to this headline">¶</a></h3>
-<p>Radiotherapy AI Pty Ltd aims to make AI assisted radiotherapy cancer treatments
-accessible to all. With the goals to reduce treatment errors while improving
-overall treatment efficacy and efficiency.</p>
-</div>
-<div class="section" id="quality-objectives">
-<h3>Quality Objectives<a class="headerlink" href="#quality-objectives" title="Permalink to this headline">¶</a></h3>
-<p>When tracking the quality of the AI autocontouring software its
-results are compared to health practitioner ground truth contours. These
-comparisons are undergone utilising the following metrics:</p>
-<ul class="simple">
-<li><p>Hausdorff</p></li>
-<li><p>Surface and Volumetric Dice</p></li>
-<li><p>Four point health practitioner approval scale</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="roles">
-<h2>3. Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Role(s)</p></th>
-<th class="head"><p>People</p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>CEO, QMO, CTO, CPO, Software Engineer</p></td>
-<td><p>Simon Biggs</p></td>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>QMO<br>Employee<br>Team Lead / Supervisor</p></td>
 </tr>
-<tr class="row-odd"><td><p>Regulatory Consultant</p></td>
-<td><p>Dr Oliver Eidel</p></td>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Additional training need</p></td>
 </tr>
-<tr class="row-even"><td><p>Regulatory Consultant</p></td>
-<td><p>Pierre Lonchampt</p></td>
-</tr>
-</tbody>
-</table>
-<p>All C-level roles are referred to as the Management. Management is generally
-responsible to define responsibilities and authorities, to define and
-communicate Quality Policy and Goals and to ensure that the whole organization
-is oriented towards them.</p>
-<!-- > See ISO 13485, para. 5.1, para. 5.5.1 -->
-<p>The Quality Management Officer (QMO) is responsible to:</p>
-<ul class="simple">
-<li><p>ensure that processes needed for the company’s quality management system are
-documented</p></li>
-<li><p>report to top management on the effectiveness of the quality management
-system and any need for improvement</p></li>
-<li><p>ensure the promotion of awareness of applicable regulatory requirements and
-QMS requirements throughout the organization.</p></li>
-</ul>
-<!-- > See ISO 13485, para. 5.1, para. 5.5.2 -->
-</div>
-<div class="section" id="processes">
-<h2>4. Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>SOP</p></th>
-<th class="head"><p>Process Category</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-capa.html"><span class="doc std std-doc">SOP Corrective and Preventive Action (CAPA)</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-document-record-control.html"><span class="doc std std-doc">SOP Document and Record Control</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-integrated-software-development.html"><span class="doc std std-doc">SOP Integrated Software Development</span></a></p></td>
-<td><p>Core</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-post-market-surveillance.html"><span class="doc std std-doc">SOP Post-Market Surveillance</span></a></p></td>
-<td><p>Support</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-software-validation.html"><span class="doc std std-doc">SOP Software Validation</span></a></p></td>
-<td><p>Support</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-management-review.html"><span class="doc std std-doc">SOP Management Review</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-product-certification-and-registration.html"><span class="doc std std-doc">SOP Product Certification and Registration</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-purchasing.html"><span class="doc std std-doc">SOP Purchasing</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-update-of-regulations.html"><span class="doc std std-doc">SOP Update of Regulations</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-human-resources-administration.html"><span class="doc std std-doc">SOP Human Resources Administration</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-change-management.html"><span class="doc std std-doc">SOP Change Management</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-feedback-management.html"><span class="doc std std-doc">SOP Feedback Management and Customer Complaints</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-incident-reporting.html"><span class="doc std std-doc">SOP Incident Reporting</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sop-internal-audit.html"><span class="doc std std-doc">SOP Internal Auditing</span></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sop-software-problem-resolution.html"><span class="doc std std-doc">SOP Software Problem Resolution</span></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Updated training documentation</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="employee-development">
+<h3>2.3 Employee Development<a class="headerlink" href="#employee-development" title="Permalink to this headline">¶</a></h3>
+<p>At minimum once per year, supervisors schedule meetings with their employees to
+exchange feedback, to discuss the employee’s personal development and also to
+identify additional training needs required to reach development goals.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>Employee<br>Team Lead / Supervisor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Development interview due</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Interview records (e.g. protocol)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="offboarding-of-employees">
+<h3>2.4 Offboarding of Employees<a class="headerlink" href="#offboarding-of-employees" title="Permalink to this headline">¶</a></h3>
+<p>Upon notification that an employment contract is terminated, the HR Manager is
+responsible to perform administrative offboarding. This includes:</p>
+<ul class="simple">
+<li><p>Timely removal of access rights to software tools and company premise</p></li>
+<li><p>Observing data deletion periods:</p>
+<ul>
+<li><p>Payroll data is deleted 10 years after termination of employment according
+to German law (§257 HGB)</p></li>
+<li><p>Administrative data (name, address, title, dates of employment) is deleted
+3 years after termination of employment according to German law (§195 BGB)</p></li>
+<li><p>The employee’s business email account is suspended and deleted 60 days
+after termination of employment</p></li>
+<li><p>All other personal data is deleted immediately after termination of
+employment</p></li>
+<li><p>Where applicable, third-party processors are notified to also delete
+personal data.</p></li>
+</ul>
+</li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Participants</p></td>
+<td><p>HR Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Termination of employment</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Removal of access rights<br>Updated documentation: deleted data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -720,17 +828,17 @@ QMS requirements throughout the organization.</p></li>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="sop-capa.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Overview</p>
+            <p class="prev-next-title">SOP Corrective and Preventive Action (CAPA)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="13485-mapping.html" title="next page">
+    <a class='right-next' id="next-link" href="sop-management-review.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ISO 13485:2016 Mapping of Requirements to Documents</p>
+        <p class="prev-next-title">SOP Management Review</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

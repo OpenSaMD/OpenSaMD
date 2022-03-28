@@ -1,0 +1,914 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOP Incident Reporting &#8212; Radiotherapy AI</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SOP Internal Auditing" href="sop-internal-audit.html" />
+    <link rel="prev" title="SOP Feedback Management and Customer Complaints" href="sop-feedback-management.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Released
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="quality-manual-policy-objectives.html">
+   Quality Manual, Policy and Objectives
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="13485-mapping.html">
+     ISO 13485:2016 Mapping of Requirements to Documents
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-document-record-control.html">
+     SOP Document and Record Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-integrated-software-development.html">
+     SOP Integrated Software Development
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-capa.html">
+     SOP Corrective and Preventive Action (CAPA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-human-resources-administration.html">
+     SOP Human Resources Administration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-management-review.html">
+     SOP Management Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-post-market-surveillance.html">
+     SOP Post-Market Surveillance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-product-certification-and-registration.html">
+     SOP Product Certification and Registration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-purchasing.html">
+     SOP Purchasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-software-validation.html">
+     SOP Software Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-update-of-regulations.html">
+     SOP Update of Regulations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-change-management.html">
+     SOP Change Management
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-feedback-management.html">
+     SOP Feedback Management and Customer Complaints
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SOP Incident Reporting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-internal-audit.html">
+     SOP Internal Auditing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sop-software-problem-resolution.html">
+     SOP Software Problem Resolution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Drafts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drafts/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drafts/software-development-maintenance-plan.html">
+   Software Development and Maintenance Plan
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drafts/intended-use.html">
+   Intended Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drafts/intended-performance.html">
+   Intended performance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drafts/62304-mapping.html">
+   IEC 62304:2006 Mapping of Requirements to Documents
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../drafts/risk-management-plan.html">
+   Risk Management Plan
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../drafts/risk-acceptance-matrix.html">
+     Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../drafts/risk-table-fmea/index.html">
+     Failure Mode and Effects Analysis (FMEA): Risk Table
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../drafts/risk-management-report.html">
+     Risk Management Report
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Archived
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../archived/index.html">
+   Placeholder
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/released/sop-incident-reporting.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RadiotherapyAI/regulatory"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Freleased/sop-incident-reporting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reportable-incident">
+     Reportable Incident
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#field-safety-corrective-action-fsca">
+     Field Safety Corrective Action (FSCA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporting-timescale">
+     Reporting Timescale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#responsible-authorities">
+     Responsible Authorities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation-investigation-and-evaluation-of-incidents">
+     1. Documentation, Investigation and Evaluation of Incidents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporting-of-incidents">
+     2. Reporting of Incidents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-on-immediate-action-fsca">
+     3. Decision on Immediate Action (FSCA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verification-and-evaluation-of-effectiveness">
+     4. Verification and Evaluation of Effectiveness
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SOP Incident Reporting</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reportable-incident">
+     Reportable Incident
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#field-safety-corrective-action-fsca">
+     Field Safety Corrective Action (FSCA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporting-timescale">
+     Reporting Timescale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#responsible-authorities">
+     Responsible Authorities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation-investigation-and-evaluation-of-incidents">
+     1. Documentation, Investigation and Evaluation of Incidents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporting-of-incidents">
+     2. Reporting of Incidents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-on-immediate-action-fsca">
+     3. Decision on Immediate Action (FSCA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verification-and-evaluation-of-effectiveness">
+     4. Verification and Evaluation of Effectiveness
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+<div class="tex2jax_ignore mathjax_ignore section" id="sop-incident-reporting">
+<h1>SOP Incident Reporting<a class="headerlink" href="#sop-incident-reporting" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ISO 13485:2016 Section</p></th>
+<th class="head"><p>Document Section</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8.2.3</p></td>
+<td><p>All</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Medical Device Regulation</p></th>
+<th class="head"><p>Document Section</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Art. 87</p></td>
+<td><p>All</p></td>
+</tr>
+</tbody>
+</table>
+<!-- > Regulatory references: check MEDDEV 2.12./1 for guidance on this topic. As a
+> German manufacturer, you are also subject to national law which lays out more
+> specific requirements (note that in preparation for MDR, the
+> Medizinproduktegesetz (MPG) was replaced by the
+> Medizinprodukte-Durchführungsgesetz (MPDG) and the
+> Medizinprodukte-EU-Anpassungsverordnung (MPEUAnpV) replaced the old
+> Medizinprodukte-Sicherheitsplanverordnung (MPSV)). -->
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This SOP describes how we handle (potential) incidents. Specifically, it
+outlines how we follow the requirements for the reporting of and necessary
+immediate action for adverse events.</p>
+</div>
+<div class="section" id="general-considerations">
+<h2>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reportable-incident">
+<h3>Reportable Incident<a class="headerlink" href="#reportable-incident" title="Permalink to this headline">¶</a></h3>
+<p>Any incident that our organization becomes aware of is reportable, if one of
+our medical devices could be its cause and if it fulfils the definition of an
+incident as outlined in this process. Potential incidents are assessed based on
+our respective template form for incident assessment [reference document ID
+here].</p>
+<p>A medical device incident is defined as “any malfunction or deterioration in
+the characteristics and/or performance of a device, as well as any inadequacy
+in the labelling or the instructions for use which, directly or indirectly,
+<strong>might lead to or might have led</strong> to the death of a patient, user or other
+person or to a serious deterioration in their state of health” (see MEDDEV
+2.12./1). Examples are (non-exclusively):</p>
+<ul class="simple">
+<li><p>malfunctioning (e.g. a software bug) of one of our medical devices</p></li>
+<li><p>incorrect labelling, instruction for use or advertising material</p></li>
+<li><p>usability deficiency causing a misuse</p></li>
+</ul>
+<p>A serious deterioration in state of health includes at least one of the following:</p>
+<ul class="simple">
+<li><p>life-threatening illness</p></li>
+<li><p>permanent impairment of a body function or permanent damage to a body
+structure</p></li>
+<li><p>a condition which requires medical or surgical intervention to prevent one of
+the above</p></li>
+<li><p>any indirect harm as a consequence of an incorrect diagnostic result when
+used within manufacturer’s instructions for use</p></li>
+</ul>
+<!-- > Note that: not all incidents lead to death or serious deterioration in
+> health. The non-occurrence of such a result might have been due to fortunate
+> circumstances or to the intervention of healthcare personnel. It is
+> sufficient that: (a) an incident associated with a device happened, and (b)
+> the incident was such that, if it occurred again, it might lead to death or
+> serious deterioration in health. -->
+</div>
+<div class="section" id="field-safety-corrective-action-fsca">
+<h3>Field Safety Corrective Action (FSCA)<a class="headerlink" href="#field-safety-corrective-action-fsca" title="Permalink to this headline">¶</a></h3>
+<p>A field safety corrective action (FSCA) is an action taken to reduce a risk of
+death or serious deterioration in the state of health associated with a device
+that is already placed on the market. Such actions, whether related to direct
+or indirect harm, should be reported and informed about via a field safety
+notice. FSCAs can include (non-exclusively):</p>
+<ul class="simple">
+<li><p>the return of a medical device to the manufacturer (recall)</p></li>
+<li><p>modification of a medical device, which can include: design changes (e.g.
+software update), permanent or temporary changes to the labelling or the
+instructions for use, changes to make device temporarily not available to
+users (software lock)</p></li>
+<li><p>advice provided by the manufacturer regarding the use or operation of the
+device</p></li>
+</ul>
+</div>
+<div class="section" id="reporting-timescale">
+<h3>Reporting Timescale<a class="headerlink" href="#reporting-timescale" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In the event of imminent danger:</p>
+<ul>
+<li><p><strong>Immediately</strong> (without any delay that could not be justified)</p></li>
+</ul>
+</li>
+<li><p>In the event of a serious public health threat:</p>
+<ul>
+<li><p><strong>Immediately</strong> after a link was established between the device and the
+event, <strong>but no later than 2 elapsed calendar days</strong> following the date of
+awareness of the event.</p></li>
+</ul>
+</li>
+<li><p>Death or serious deterioration in state of health:</p>
+<ul>
+<li><p><strong>immediately</strong> after a link was established between the device and the
+event, <strong>but no later than 10 elapsed calendar days</strong> following the date of
+awareness of the event.</p></li>
+</ul>
+</li>
+<li><p>Other reportable incidents:</p>
+<ul>
+<li><p><strong>Immediately</strong> after a link was established between the device and the
+event, <strong>but not later than 15 elapsed calendar days</strong> following the date
+of awareness of the event.</p></li>
+</ul>
+</li>
+<li><p>Field Safety Corrective Action (FSCA):</p>
+<ul>
+<li><p><strong>Immediately</strong>, at latest with the beginning of the implementation of
+actions.</p></li>
+</ul>
+</li>
+</ul>
+<p>All report times refer to when the national responsible authority must first be
+notified. In case of uncertainty whether the incident has to be reported or
+not, it is reported within the above deadlines.</p>
+</div>
+<div class="section" id="responsible-authorities">
+<h3>Responsible Authorities<a class="headerlink" href="#responsible-authorities" title="Permalink to this headline">¶</a></h3>
+<p>Incidents are reported to the authority of the country in which the reportable
+incident occurred:</p>
+<p><strong>Germany:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.bfarm.de">Federal Institute for Drugs and Medical Devices (BfArM)</a></p></li>
+<li><p>Email: <a class="reference external" href="mailto:medizinprodukte&#37;&#52;&#48;bfarm&#46;de">medizinprodukte<span>&#64;</span>bfarm<span>&#46;</span>de</a>; Phone: +49 228 207 5355</p></li>
+<li><p><a class="reference external" href="https://www.bfarm.de/DE/Service/Formulare/functions/Medizinprodukte/_node.html">Form for incident reporting</a></p></li>
+</ul>
+<p><strong>Spain:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.aemps.gob.es">Spanish Agency for Drugs and Medical Products (AEMPS)</a></p></li>
+<li><p>Email: <a class="reference external" href="mailto:sgps&#37;&#52;&#48;aemps&#46;es">sgps<span>&#64;</span>aemps<span>&#46;</span>es</a>; Phone: +34918225274</p></li>
+</ul>
+<p><strong>Netherlands:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.igj.nl">CIBG-Farmatec</a></p></li>
+<li><p>Email: <a class="reference external" href="mailto:medische_hulpmiddelen&#37;&#52;&#48;minvws&#46;nl">medische_hulpmiddelen<span>&#64;</span>minvws<span>&#46;</span>nl</a></p></li>
+</ul>
+<p><strong>Poland:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.urpl.gov.pl/en">Office for the Registration of Medical Products (URPLWMiPB)</a></p></li>
+<li><p>Email: <a class="reference external" href="mailto:incydenty&#37;&#52;&#48;urpl&#46;gov&#46;pl">incydenty<span>&#64;</span>urpl<span>&#46;</span>gov<span>&#46;</span>pl</a>; Phone:+48 22 492 11 90</p></li>
+</ul>
+<p><strong>Other national authorities:</strong></p>
+<p>More contact data can be found under
+<a class="reference external" href="https://ec.europa.eu/health/md_sector/contact_en">this link on the website of the European Commission</a>.</p>
+<p>FSCA is reported to the authorities in the countries in which the FSCA is
+carried out, including incidents which occurred outside of the European
+Economic Area (EEA) but resulted in a recall within European countries.</p>
+<p>In parallel to reporting incidents to responsible authorities, our Notified
+Body is informed where applicable in respect to the applied conformity
+assessment procedure.</p>
+</div>
+</div>
+<div class="section" id="process-steps">
+<h2>Process Steps<a class="headerlink" href="#process-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="documentation-investigation-and-evaluation-of-incidents">
+<h3>1. Documentation, Investigation and Evaluation of Incidents<a class="headerlink" href="#documentation-investigation-and-evaluation-of-incidents" title="Permalink to this headline">¶</a></h3>
+<p>Any employee of the company that obtains knowledge of an event with a
+potentially negative impact on the state of health shall immediately notify the
+Person Responsible for Regulatory Compliance (PRRC) to initiate this process.</p>
+<p>In a first step, the PRRC investigates the root causes of the event to
+determine if there is a causal relationship between the use of the medical
+device and the event. The investigation is documented as a CAPA. If there is no
+causal relationship, the event is not considered a reportable incident.</p>
+<p>If there is a relationship, the PRRC secondly evaluates if the event qualifies
+as a reportable incident by filling out our template form for incident
+assessment [reference document ID here].</p>
+<p>In the case of uncertainty, the event is reported as a reportable incident.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Person Responsible for Regulatory Compliance (MDSO / PRRC)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Event with a potentially negative impact on the state of health</p></td>
+<td><p>Completed investigation and evaluation of the event</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reporting-of-incidents">
+<h3>2. Reporting of Incidents<a class="headerlink" href="#reporting-of-incidents" title="Permalink to this headline">¶</a></h3>
+<p>Within the applicable reporting timescale (see general considerations above),
+the PRRC informs the responsible national authority about the event using
+respective reporting forms. S/he compiles and provides a report with all
+information required and available at the time.</p>
+<p>If applicable, a copy of the report is sent to the Notified Body involved in
+the conformity assessment procedure of the device.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Person Responsible for Regulatory Compliance (MDSO / PRRC)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Completed investigation and evaluation of the incident</p></td>
+<td><p>Completed reporting to authorities (and Notified Body)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="decision-on-immediate-action-fsca">
+<h3>3. Decision on Immediate Action (FSCA)<a class="headerlink" href="#decision-on-immediate-action-fsca" title="Permalink to this headline">¶</a></h3>
+<p>Based on a risk and root cause analysis of the event, the PRRC decides if field
+safety corrective actions (FSCA) are required to reduce existing risks.
+Possible FSCAs are described as part of the general considerations of this
+process.</p>
+<p>Before actions are taken, we inform users / customers about such as part of a
+field safety notice (FSN). The FSN is written in the language of the respective
+country and must at minimum include:</p>
+<ul class="simple">
+<li><p>Subject: <strong>Safety Alert</strong></p></li>
+<li><p>Manufacturer information (e.g. contact details)</p></li>
+<li><p>Information to identify the affected devices (e.g. device name and software
+version)</p></li>
+<li><p>Description of the incident problem including resulting risks and the reasons
+for FSCA</p></li>
+<li><p>If applicable, actions recommended to the user / customer. For example, this
+could include actions to restore the safety or recommended clinical
+investigations.</p></li>
+</ul>
+<p>All FSCAs are documented as part of the CAPA. A copy of the FSN shall be
+archived. Customers confirm the receipt of FSNs as well as the implementation
+of recommended actions. If a customer does not respond, at least three attempts
+for delivery should be made. It is also documented as part of the CAPA if all
+attempts to inform a customer were unsuccessful.</p>
+<!-- > You may want to consider a separate process regarding the handling of
+> non-conforming products. This process would entail labeling instructions for
+> respective product code and instructions for employees handling those
+> products. -->
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Person Responsible for Regulatory Compliance (MDSO / PRRC)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Risks resulting from incident</p></td>
+<td><p>Implemented FSCA, including FSN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="verification-and-evaluation-of-effectiveness">
+<h3>4. Verification and Evaluation of Effectiveness<a class="headerlink" href="#verification-and-evaluation-of-effectiveness" title="Permalink to this headline">¶</a></h3>
+<p>The effectiveness of implemented FSCAs is evaluated as part of the CAPA. As
+soon as the CAPA is closed, a final report is sent to the responsible
+authorities to verify that all actions taken are deemed sufficient for
+completion.</p>
+<p>All incident records shall be archived as part of the QMS.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Person Responsible for Regulatory Compliance (MDSO / PRRC)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Implementation of FSCA</p></td>
+<td><p>Final incident report and closed CAPA</p></td>
+</tr>
+</tbody>
+</table>
+<!-- Links -->
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./released"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="sop-feedback-management.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SOP Feedback Management and Customer Complaints</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sop-internal-audit.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SOP Internal Auditing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Radiotherapy AI Pty Ltd<br/>
+    
+        &copy; Copyright 2021 – 2022.<br/>
+      <div class="extra_footer">
+        <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+    <img
+      alt="Creative Commons Licence" style="border-width:0"
+      src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+  </a><br />
+
+  This work is licensed under the <a
+    rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+  Attribution 4.0 International License
+  </a>
+  <br />
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
+</p>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
