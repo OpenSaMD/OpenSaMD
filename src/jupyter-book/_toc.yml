@@ -16,6 +16,10 @@ parts:
           - file: released/sop-purchasing
           - file: released/sop-software-validation
           - file: released/sop-update-of-regulations
+          - file: released/sop-change-management
+          - file: released/sop-feedback-management
+          - file: released/sop-incident-reporting
+          - file: released/sop-internal-audit
 
   - caption: Drafts
     chapters:
