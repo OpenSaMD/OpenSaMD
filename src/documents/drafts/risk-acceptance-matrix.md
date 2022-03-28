@@ -29,7 +29,7 @@ process manually without AI assistance.
 | S1: Negligible | Delay of treatment or clinically non-relevant protocol deviation |
 | S2: Minor      | Minor radiotherapy protocol deviation                            |
 | S3: Major      | Major radiotherapy protocol deviation                            |
-| S4: Critical   | Reportable radiotherapy mistreatment                             |
+| S4: Critical   | Reportable radiotherapy mistreatment and/or incident             |
 
 ## Probability
 
