@@ -20,6 +20,7 @@ parts:
           - file: released/sop-feedback-management
           - file: released/sop-incident-reporting
           - file: released/sop-internal-audit
+          - file: released/sop-software-problem-resolution
 
   - caption: Drafts
     chapters:

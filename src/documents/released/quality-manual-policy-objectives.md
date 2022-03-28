@@ -119,3 +119,4 @@ The Quality Management Officer (QMO) is responsible to:
 | [](../released/sop-feedback-management)                    |                  |
 | [](../released/sop-incident-reporting)                     |                  |
 | [](../released/sop-internal-audit)                         |                  |
+| [](../released/sop-software-problem-resolution)            |                  |
