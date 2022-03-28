@@ -13,11 +13,12 @@ General content copyright Radiotherapy AI.
 
 # Risk Management Plan
 
-The Risk Management Plan contains the relevant processes and activities which will be conducted for
-product-specific risk management. In this case, it mainly references other documents because most risk
-management activities are part of the integrated software development process (SOP Integrated Software
-Development). Also, the risk policy and acceptability are defined in the Risk Acceptance Table, and the actual
-risks are in the Risk Table.
+The Risk Management Plan contains the relevant processes and activities which
+will be conducted for product-specific risk management. In this case, it mainly
+references other documents because most risk management activities are part of
+[](../released/sop-integrated-software-development). Also, the risk policy and
+acceptability are defined in [](../drafts/risk-acceptance-matrix), and the
+actual risks are in [](../drafts/risk-table-fmea/index).
 
 ## Mapping of Standard Requirements to Document Sections
 
@@ -62,10 +63,10 @@ Post-Market Surveillance.
 
 ## 2. Related Documents
 
-- [](../released/sop-integrated-software-development.md)
-- [](../drafts/risk-acceptance-matrix.md)
-- [](../drafts/risk-table-fmea/index.md)
-- [](../drafts/risk-management-report.md)
+- [](../released/sop-integrated-software-development)
+- [](../drafts/risk-acceptance-matrix)
+- [](../drafts/risk-table-fmea/index)
+- [](../drafts/risk-management-report)
 
 ## 3. Roles
 
