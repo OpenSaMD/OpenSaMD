@@ -24,28 +24,27 @@ process manually without AI assistance.
 
 ## Severity
 
-| Severity       | Definition and Examples                                       |
-| -------------- | ------------------------------------------------------------- |
-| S1: Negligible | Minor, reversible damage, e.g. delay of treatment             |
-| S2: Marginal   | Minor, reversible damage with required medical intervention   |
-| S3: Critical   | Major, irreversible damage with required medical intervention |
+| Severity       | Definition and Examples                                          |
+| -------------- | ---------------------------------------------------------------- |
+| S1: Negligible | Delay of treatment or clinically non-relevant protocol deviation |
+| S2: Minor      | Minor radiotherapy protocol deviation                            |
+| S3: Major      | Major radiotherapy protocol deviation                            |
+| S4: Critical   | Reportable radiotherapy mistreatment                             |
 
 ## Probability
 
 | Probability  | Upper Limit | Lower Limit | Estimated Maximum Event Count |
 | ------------ | ----------- | ----------- | ----------------------------- |
-| P5: Certain  | 1           | 10^-2       | 10000000                      |
-| P4: Likely   | 10^-2       | 10^-4       | 100000                        |
-| P3: Possible | 10^-4       | 10^-6       | 1000                          |
-| P2: Unlikely | 10^-6       | 10^-8       | 10                            |
-| P1: Rare     | 10^-8       | 0           | 0                             |
+| P4: Likely   | 1           | 10^-2       | 10000000                      |
+| P3: Possible | 10^-2       | 10^-4       | 100000                        |
+| P2: Unlikely | 10^-4       | 10^-6       | 1000                          |
+| P1: Rare     | 10^-6       | 0           | 10                            |
 
 ## Risk Acceptance Matrix
 
-| Probability  | S1: Negligible | S2: Marginal     | S3: Critical     | Estimated Maximum Event Count |
-| ------------ | -------------- | ---------------- | ---------------- | ----------------------------- |
-| P5: Certain  | acceptable     | **unacceptable** | **unacceptable** | 10000000                      |
-| P4: Likely   | acceptable     | **unacceptable** | **unacceptable** | 100000                        |
-| P3: Possible | acceptable     | acceptable       | **unacceptable** | 1000                          |
-| P2: Unlikely | acceptable     | acceptable       | acceptable       | 10                            |
-| P1: Rare     | acceptable     | acceptable       | acceptable       | 0                             |
+| Probability  | S1: Negligible   | S2: Minor        | S3: Major        | S4: Critical     | Estimated Maximum Event Count |
+| ------------ | ---------------- | ---------------- | ---------------- | ---------------- | ----------------------------- |
+| P4: Likely   | **unacceptable** | **unacceptable** | **unacceptable** | **unacceptable** | 10000000                      |
+| P3: Possible | acceptable       | **unacceptable** | **unacceptable** | **unacceptable** | 100000                        |
+| P2: Unlikely | acceptable       | acceptable       | **unacceptable** | **unacceptable** | 1000                          |
+| P1: Rare     | acceptable       | acceptable       | acceptable       | **unacceptable** | 10                            |
