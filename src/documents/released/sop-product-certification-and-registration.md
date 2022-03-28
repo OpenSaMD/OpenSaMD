@@ -18,7 +18,7 @@ General content copyright Radiotherapy AI.
 | MDD Annex I (Essential Requirements) and Annex II, V, VI or VII for EU Declaration of Conformity<br>(depending on device classification) | All              |
 | MDR Annex I (General Safety and Performance Requirements) and Annex IV (EU Declaration of Conformity)                                    | All              |
 | MPDG §8, §96, §97                                                                                                                        | All              |
-| ISO 13485:2015, Sections 4.2.3                                                                                                           | All              |
+| ISO 13485:2016, Sections 4.2.3                                                                                                           | All              |
 
 ## Summary
 
