@@ -4,8 +4,23 @@ parts:
   - caption: Released
     chapters:
       - file: released/quality-manual-policy-objectives
-      - file: released/sop-document-record-control
-      - file: released/sop-integrated-software-development
+        sections:
+          - file: released/13485-mapping
+          - file: released/sop-document-record-control
+          - file: released/sop-integrated-software-development
+          - file: released/sop-capa
+          - file: released/sop-human-resources-administration
+          - file: released/sop-management-review
+          - file: released/sop-post-market-surveillance
+          - file: released/sop-product-certification-and-registration
+          - file: released/sop-purchasing
+          - file: released/sop-software-validation
+          - file: released/sop-update-of-regulations
+          - file: released/sop-change-management
+          - file: released/sop-feedback-management
+          - file: released/sop-incident-reporting
+          - file: released/sop-internal-audit
+          - file: released/sop-software-problem-resolution
 
   - caption: Drafts
     chapters:
@@ -14,10 +29,11 @@ parts:
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/62304-mapping
-      - file: drafts/risk-acceptance-matrix
       - file: drafts/risk-management-plan
-      - file: drafts/risk-management-report
-      - file: drafts/risk-table-fmea/index
+        sections:
+          - file: drafts/risk-acceptance-matrix
+          - file: drafts/risk-table-fmea/index
+          - file: drafts/risk-management-report
 
   - caption: Archived
     chapters:
