@@ -1,0 +1,9 @@
+ID,Description,Type,Probability Reduction,Severity Reduction
+1,"* The contour data is provided to an independent software treatment planning
+  system where that independent software is utilised for refinement and
+  approval.
+* Contour refinement is undergone by a relevant qualified health practitioner.
+* The subsequent refined contours are then reviewed by at least one other
+  independent relevant qualified health practitioner. Generally however the
+  whole plan, including the contours goes through multiple independent
+  reviewers before being utilised for treatment.",Health care procedure (See Note 6 in 62304:2021 in 4.4.3),10^2,3
