@@ -5,6 +5,7 @@ parts:
     chapters:
       - file: released/quality-manual-policy-objectives
         sections:
+          - file: released/13485-mapping
           - file: released/sop-document-record-control
           - file: released/sop-integrated-software-development
           - file: released/sop-capa
@@ -23,7 +24,6 @@ parts:
       - file: drafts/intended-use
       - file: drafts/intended-performance
       - file: drafts/62304-mapping
-      - file: drafts/13485-mapping
       - file: drafts/risk-acceptance-matrix
       - file: drafts/risk-management-plan
       - file: drafts/risk-management-report
