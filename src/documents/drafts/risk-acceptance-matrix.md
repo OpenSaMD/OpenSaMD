@@ -30,6 +30,7 @@ process manually without AI assistance.
 | S2: Minor      | Minor radiotherapy protocol deviation                            |
 | S3: Major      | Major radiotherapy protocol deviation                            |
 | S4: Critical   | Reportable radiotherapy mistreatment and/or incident             |
+| S5: Death      |                                                                  |
 
 ## Probability
 
@@ -42,9 +43,9 @@ process manually without AI assistance.
 
 ## Risk Acceptance Matrix
 
-| Probability  | S1: Negligible   | S2: Minor        | S3: Major        | S4: Critical     | Estimated Maximum Event Count |
-| ------------ | ---------------- | ---------------- | ---------------- | ---------------- | ----------------------------- |
-| P4: Likely   | **unacceptable** | **unacceptable** | **unacceptable** | **unacceptable** | 10000000                      |
-| P3: Possible | acceptable       | **unacceptable** | **unacceptable** | **unacceptable** | 100000                        |
-| P2: Unlikely | acceptable       | acceptable       | **unacceptable** | **unacceptable** | 1000                          |
-| P1: Rare     | acceptable       | acceptable       | acceptable       | **unacceptable** | 10                            |
+| Probability  | S1: Negligible   | S2: Minor        | S3: Major        | S4: Critical     | S5: Death        | Estimated Maximum Event Count |
+| ------------ | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ----------------------------- |
+| P4: Likely   | **unacceptable** | **unacceptable** | **unacceptable** | **unacceptable** | **unacceptable** | 10000000                      |
+| P3: Possible | acceptable       | **unacceptable** | **unacceptable** | **unacceptable** | **unacceptable** | 100000                        |
+| P2: Unlikely | acceptable       | acceptable       | **unacceptable** | **unacceptable** | **unacceptable** | 1000                          |
+| P1: Rare     | acceptable       | acceptable       | acceptable       | **unacceptable** | **unacceptable** | 10                            |

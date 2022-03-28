@@ -1,6 +1,6 @@
 ID,Source,Description,Hazard ID(s)
-1,Intended Use,Organ at risk under-contouring,
-2,Intended Use,Organ at risk over-contouring,
+1,Intended Use,Avoidance organ under-contoured,
+2,Intended Use,Avoidance organ over-contouring,
 3,Intended Use,Target under-contouring,
 4,Intended Use,Target over-contouring,
 5,Technical considerations,No contour produced,

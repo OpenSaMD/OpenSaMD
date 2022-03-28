@@ -14,7 +14,7 @@ General content copyright Radiotherapy AI.
 # Failure Mode and Effects Analysis (FMEA): Risk Table
 
 | ISO 14971:2019 Section | Document Section                                   |
-|------------------------|----------------------------------------------------|
+| ---------------------- | -------------------------------------------------- |
 | 5.2                    | (all; entries about reasonably foreseeable misuse) |
 | 5.4                    | 3                                                  |
 | 5.5                    | 3, 4                                               |
@@ -25,19 +25,19 @@ General content copyright Radiotherapy AI.
 | 7.5                    | 4                                                  |
 
 | IEC 62366-1:2015 Section | Title                                                          | Document Section |
-|--------------------------|----------------------------------------------------------------|------------------|
+| ------------------------ | -------------------------------------------------------------- | ---------------- |
 | 4.1.2                    | Risk Control as it relates to User Interface design            | 4                |
 | 5.3                      | Identify known or foreseeable Hazards and Hazardous Situations | 1,3              |
 
 This is a Failure Mode and Effects Analysis ([FMEA][wikipedia-fmea]) of the
 device. It is separated into multiple sections:
 
- * **Failure Modes** lists everything which can go wrong
- * **Hazards and Analysis** lists everything (harms) which can subsequently
-   happen, including an analysis of probability and severity
- * The list of **Risk Control Measures** which contains all control measures
-   which were implemented for risk reduction, either reducing probability or
-   severity, or both.
+- **Failure Modes** lists everything which can go wrong
+- **Hazards and Analysis** lists everything (harms) which can subsequently
+  happen, including an analysis of probability and severity
+- The list of **Risk Control Measures** which contains all control measures
+  which were implemented for risk reduction, either reducing probability or
+  severity, or both.
 
 <!-- > Ugh, this became more complex than I initially expected. I am so sorry. From
 > a teaching perspective, it's actually simpler to explain if I throw
@@ -71,7 +71,6 @@ file: preliminary-hazards-analysis.csv
 | 2  | Intended Use           | Wrong Covid Prediction                | 1            |
 | 3  | Usability Test         | User misunderstands prediction result | 1            | -->
 
-
 ## 2. Failure Modes
 
 <!-- > This is a list of stuff which can go wrong in your software. You should be
@@ -87,10 +86,10 @@ file: preliminary-hazards-analysis.csv
 > wrongly (ID 2). The both lead to the same hazard (ID 1) which is listed in
 > the Hazards and Analysis table below. -->
 
-| ID | Software System | Failure Mode                       | Hazard ID(s) |
-|----|-----------------|------------------------------------|--------------|
-| 1  | Backend         | Wrong Covid Prediction             | 1            |
-| 2  | Frontend        | Covid Prediction displayed wrongly | 1            |
+| ID  | Software System | Failure Mode                       | Hazard ID(s) |
+| --- | --------------- | ---------------------------------- | ------------ |
+| 1   | Backend         | Wrong Covid Prediction             | 1            |
+| 2   | Frontend        | Covid Prediction displayed wrongly | 1            |
 
 ## 3. Hazards and Analysis
 
@@ -137,7 +136,7 @@ file: hazards-and-analysis.csv
 |----|------------------------|------|------------------------------------------|-----|---------------------|-------|----|----|-------------|---------|--------------------|----|----|-------------|
 | 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         | -->
 
-## 4. Risk Control Measures
+## 4. External Risk Control Measures
 
 <!-- > This is the table of Risk Control Measures which was referenced from the
 > Hazards and Analysis table above. We've used the Risk Control Measure with
@@ -157,10 +156,15 @@ file: hazards-and-analysis.csv
 > displayed in your application to have any effect. Like, not in the user
 > manual, because nobody reads the manual. -->
 
-| ID | Description                               | Type               | Probability Reduction | Severity Reduction |
-|----|-------------------------------------------|--------------------|-----------------------|--------------------|
-| 1  | Check prediction algorithm with test data | Protective Measure | 10^-2                 | 1                  |
+```{csv-table} External Risk Control Measures
+---
+file: risk-control-measures.csv
+---
+```
 
+<!-- | ID  | Description                               | Type               | Probability Reduction | Severity Reduction |
+| --- | ----------------------------------------- | ------------------ | --------------------- | ------------------ |
+| 1   | Check prediction algorithm with test data | Protective Measure | 10^-2                 | 1                  | -->
 
 <!-- Links -->
 
