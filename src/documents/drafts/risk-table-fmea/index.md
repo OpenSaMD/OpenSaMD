@@ -86,10 +86,10 @@ file: preliminary-hazards-analysis.csv
 > wrongly (ID 2). The both lead to the same hazard (ID 1) which is listed in
 > the Hazards and Analysis table below. -->
 
-| ID  | Software System | Failure Mode                       | Hazard ID(s) |
+<!-- | ID  | Software System | Failure Mode                       | Hazard ID(s) |
 | --- | --------------- | ---------------------------------- | ------------ |
 | 1   | Backend         | Wrong Covid Prediction             | 1            |
-| 2   | Frontend        | Covid Prediction displayed wrongly | 1            |
+| 2   | Frontend        | Covid Prediction displayed wrongly | 1            | -->
 
 ## 3. Hazards and Analysis
 
