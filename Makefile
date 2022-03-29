@@ -21,10 +21,7 @@ RELEASE_JPG := $(patsubst $(src)/documents/%.jpg,$(release)/%.jpg,$(SRC_JPG))
 RELEASE_CSV := $(patsubst $(src)/documents/%.csv,$(release)/%.csv,$(SRC_CSV))
 RELEASE_XLSX := $(patsubst $(src)/documents/%.xlsx,$(release)/%.xlsx,$(SRC_XLSX))
 RELEASE_JB = $(release)/_config.yml $(release)/_toc.yml \
-	$(release)/references.bib \
-	$(release)/_static/handsontable.full.min.css \
-	$(release)/_static/handsontable.full.min.js \
-	$(release)/_static/pyexcel.css \
+	$(release)/references.bib
 
 RELEASE_ALL := $(RELEASE_PNG) $(RELEASE_JPG) $(RELEASE_MD) $(RELEASE_CSV) $(RELEASE_JB) $(RELEASE_XLSX)
 
