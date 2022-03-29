@@ -136,7 +136,7 @@ file: hazards-and-analysis.csv
 |----|------------------------|------|------------------------------------------|-----|---------------------|-------|----|----|-------------|---------|--------------------|----|----|-------------|
 | 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         | -->
 
-## 4. External Risk Control Measures
+## 4. Risk Control Measures
 
 <!-- > This is the table of Risk Control Measures which was referenced from the
 > Hazards and Analysis table above. We've used the Risk Control Measure with
@@ -159,6 +159,7 @@ file: hazards-and-analysis.csv
 ```{csv-table} External Risk Control Measures
 ---
 file: risk-control-measures.csv
+widths: 5 20 10 10 10
 ---
 ```
 

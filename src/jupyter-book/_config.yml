@@ -48,6 +48,6 @@ html:
       General content copyright Radiotherapy AI.
     </p>
 
-sphinx:
-  extra_extensions:
-    - sphinxcontrib.excel
+# sphinx:
+#   extra_extensions:
+#     - sphinxcontrib.excel

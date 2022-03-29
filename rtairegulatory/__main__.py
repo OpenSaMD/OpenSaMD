@@ -13,13 +13,7 @@
 # permissions and limitations under the License.
 
 
-import typer
-
-app = typer.Typer()
-
-
-@app.command()
-def build():
+def app():
     from . import _build
 
     _build.build()
