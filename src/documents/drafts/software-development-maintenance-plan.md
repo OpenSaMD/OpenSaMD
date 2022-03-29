@@ -47,12 +47,12 @@ This document summarizes development and maintenance activities for
 
 Please see the relevant processes for the following activities:
 
-- Risk management activities incl. SOUP risks: SOP Integrated Software
-  Development
-- Problem resolution: SOP Problem Resolution
+- Risk management activities incl. SOUP risks:
+  [](../released/sop-integrated-software-development)
+- Problem resolution: [](../released/sop-software-problem-resolution)
 - Software development incl. deliverables, traceability, regular update of
-  software development plan: SOP Integrated Software Development
-- Change management: SOP Change Management
+  software development plan: [](../released/sop-integrated-software-development)
+- Change management: [](../released/sop-change-management)
 - SOUP List
 - SOP Usability Engineering
 
@@ -66,19 +66,18 @@ Please see the relevant processes for the following activities:
 
 ### 2.2 Software
 
-The external risk control measures sufficiently reduce the risk of the
-hazardous situation. And as such the software process rigour level according to
-IEC 62304 is set to `Level A`.
+While the software system can contribute to hazardous situations, none of those
+result in unacceptable risk after consideration of risk control measures
+external to the software system. Therefore, the software system is classified
+as software safety class A. The (external) risk control measures include:
 
-These external risk control measures are the following:
-
-* The contour data is provided to an independent software treatment planning
+- The contour data is provided to an independent software treatment planning
   system where that independent software is utilised for refinement and
   approval.
-* Contour refinement is undergone by a relevant qualified health practitioner.
-* The subsequent refined contours are then reviewed by at least one other
+- Contour refinement is undergone by a relevant qualified health practitioner.
+- The subsequent refined contours are then reviewed by at least one other
   independent relevant qualified health practitioner. Generally however the
-  whole plan, including the contours goes through multiple independent
+  whole plan, including the contours, goes through multiple independent
   reviewers before being utilised for treatment.
 
 #### Programming Languages
@@ -107,14 +106,14 @@ Minimum system requirements for local systems:
 
 - Consumer grade single-core CPU
 - 2 GB of RAM
-- 1 MBit/s up- and downlink
+- 1 MBit/s up and downlink
 - 20GB SSD storage
 
 Minimum system requirements for `convert` cloud container:
 
 - Server-grade single-core CPU
 - 10 GB of RAM
-- 1 GBit/s up- and downlink
+- 1 GBit/s up and downlink
 - 20GB SSD storage
 
 Minimum system requirements for `predict` cloud container:
@@ -122,14 +121,14 @@ Minimum system requirements for `predict` cloud container:
 - Server-grade single-core CPU
 - NVIDIA GPU with 16 GB of VRAM
 - 12 GB of RAM
-- 1 GBit/s up- and downlink
+- 1 GBit/s up and downlink
 - 20GB SSD storage
 
 Minimum system requirements for `api` cloud container:
 
 - Server-grade single-core CPU
 - 512 MiB of RAM
-- 1 GBit/s up- and downlink
+- 1 GBit/s up and downlink
 - 20GB SSD storage
 
 ## 3 Design Phases
