@@ -1,0 +1,9 @@
+ID,p1*p2,P,S,Acceptable without risk controls?
+1,10^-8,P2,S5,No
+2,10^-7,P3,S3,Yes
+3,10^-5,P4,S4,No
+4,10^-5,P4,S2,Yes
+5,10^-7,P3,S5,No
+6,10^-4,P4,S1,Yes
+7,10^-7,P3,S5,No
+8,10^-7,P3,S3,Yes

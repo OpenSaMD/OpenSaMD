@@ -1,0 +1,9 @@
+ID,Hazard,p1,Hazardous Situation,p2,Harm
+1,Avoidance organ under-contoured,10^-5,Radiotherapy treatment plan created and delivered to the patient which irradiates the under-contoured region,10^-3,Death or serious disablement
+2,Avoidance organ over-contouring,10^-5,Radiotherapy treatment plan created and delivered to the patient which compromises too much on target,10^-2,Reduced treatment outcomes
+3,Target under-contouring,10^-3,Radiotherapy treatment plan created and delivered to the patient which compromises too much on target,10^-2,"Major treatment protocol deviation, significantly reduced treatment outcomes"
+4,Target over-contouring,10^-3,Radiotherapy treatment plan created and delivered to the patient where a compromise was needed between organ at risk and the target due to its over contouring,10^-2,Increased treatment side-effects
+5,No contour produced,10^-5,Radiotherapy treatment plan created and delivered to the patient irradiating the organ,10^-2,Death or serious disablement
+6,Delay in contour production,10^-2,Contour needs to be undergone manually following current standard practice,10^-2,Delay in treatment
+7,Contour misidentified,10^-5,Radiotherapy treatment plan created and delivered to the patient irradiating the organ,10^-2,Death or serious disablement
+8,Leakage of Patient Information,10^-6,Cloud server security breach,10^-1,Patient identifying data leak

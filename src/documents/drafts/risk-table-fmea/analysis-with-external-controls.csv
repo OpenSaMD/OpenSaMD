@@ -1,0 +1,9 @@
+ID,External Risk Control ID(s),P,S,Acceptable with external risk controls?
+1,1 and 2,P1,S5,Yes
+2,1 and 2,P1,S3,Yes
+3,1 and 2,P2,S4,Yes
+4,1 and 2,P2,S2,Yes
+5,1 and 2,P1,S5,Yes
+6,,P4,S1,Yes
+7,1 and 2,P1,S5,Yes
+8,,P3,S3,Yes

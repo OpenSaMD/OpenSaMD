@@ -62,6 +62,7 @@ device. It is separated into multiple sections:
 ```{csv-table} Preliminary Hazards Analysis
 ---
 file: preliminary-hazards-analysis.csv
+widths: 5 20 20 10
 ---
 ```
 
@@ -125,18 +126,32 @@ file: preliminary-hazards-analysis.csv
 >
 > The next table contains the list of Risk Control Measures. -->
 
-```{csv-table} Hazards and Analysis
+```{csv-table} Hazards, Hazardous Situations, and Harm
 ---
-file: hazards-and-analysis.csv
+file: hazard-to-harm.csv
+widths: 3 10 3 20 3 10
 ---
 ```
 
-<!--
-| ID | Hazard                 | p1   | Hazardous Situation                      | p2  | Harm                | p1*p2 | P  | S  | Acceptable? | Comment | Risk Control ID(s) | P  | S  | Acceptable? |
-|----|------------------------|------|------------------------------------------|-----|---------------------|-------|----|----|-------------|---------|--------------------|----|----|-------------|
-| 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         | -->
+```{csv-table} Analysis without risk controls
+---
+file: analysis-without-risk-controls.csv
+---
+```
 
-## 4. External Risk Control Measures
+```{csv-table} Analysis with external risk controls
+---
+file: analysis-with-external-controls.csv
+---
+```
+
+```{csv-table} Analysis with external and internal risk controls
+---
+file: analysis-with-all-controls.csv
+---
+```
+
+## 4. Risk Control Measures
 
 <!-- > This is the table of Risk Control Measures which was referenced from the
 > Hazards and Analysis table above. We've used the Risk Control Measure with
@@ -156,16 +171,11 @@ file: hazards-and-analysis.csv
 > displayed in your application to have any effect. Like, not in the user
 > manual, because nobody reads the manual. -->
 
-```{csv-table} External Risk Control Measures
+```{csv-table} Risk Control Measures
 ---
 file: risk-control-measures.csv
+widths: 3 30 10 5 5
 ---
 ```
-
-<!-- | ID  | Description                               | Type               | Probability Reduction | Severity Reduction |
-| --- | ----------------------------------------- | ------------------ | --------------------- | ------------------ |
-| 1   | Check prediction algorithm with test data | Protective Measure | 10^-2                 | 1                  | -->
-
-<!-- Links -->
 
 [wikipedia-fmea]: https://en.wikipedia.org/wiki/Failure_mode_and_effects_analysis

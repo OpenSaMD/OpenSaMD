@@ -1,9 +1,5 @@
 ID,Description,Type,Probability Reduction,Severity Reduction
-1,"* The contour data is provided to an independent software treatment planning
-  system where that independent software is utilised for refinement and
-  approval.
-* Contour refinement is undergone by a relevant qualified health practitioner.
-* The subsequent refined contours are then reviewed by at least one other
-  independent relevant qualified health practitioner. Generally however the
-  whole plan, including the contours goes through multiple independent
-  reviewers before being utilised for treatment.",Health care procedure (See Note 6 in 62304:2021 in 4.4.3),10^2,3
+1,The contour data is provided to an independent software treatment planning system where that independent software is utilised for refinement and approval by a relevant qualified health practitioner.,External measure – Health care procedure,10^2,0
+2,"The subsequent refined contours are then reviewed by at least one other independent relevant qualified health practitioner. Generally however the whole plan, including the contours goes through multiple independent reviewers before being utilised for treatment.",External measure – Health care procedure,10^2,0
+3,After the refinements have been completed they are sent back to the software. The level of refinements are then compared to the original model results and feedback on this compared to the standard amount of refinement generally undergone for that contour type is then provided via notification to an independent relevant qualified health practitioner.,Internal measure – Information for safety,10^2,0
+4,All identifying patient information is deidentified prior to submitting the data to the cloud server,Internal measure – Protective measure,0,1
