@@ -493,24 +493,8 @@ happen, including an analysis of probability and severity</p></li>
 which were implemented for risk reduction, either reducing probability or
 severity, or both.</p></li>
 </ul>
-<!-- > Ugh, this became more complex than I initially expected. I am so sorry. From
-> a teaching perspective, it's actually simpler to explain if I throw
-> everything into one table. Instead, we have three here now, because I can't
-> trivially upload spreadsheets to the website, so I had to reduce the column
-> count to make them fit. Painful. I'll try to explain as we go along. -->
 <div class="section" id="preliminary-hazards-analysis-pha">
 <h2>1. Preliminary Hazards Analysis (PHA)<a class="headerlink" href="#preliminary-hazards-analysis-pha" title="Permalink to this headline">¶</a></h2>
-<!-- > A Preliminary Hazards Analysis (PHA) is simply a list of stuff which can go
-> wrong. Typically, you come up with that stuff when you think about your
-> product. Like, when you do Covid predictions, you come up with the thought
-> that a wrong prediction will result in a bad outcome. Makes sense. So, here's
-> a table in which you can collect those ideas. Besides the description it also
-> has the column "source" which describes where the idea came from (typical
-> options are: Intended Use, User Test, 14971 checklist (there is one in the
-> 2012 version, otherwise there's TR 24971, I think)) and "Hazard ID(s)" which
-> shows where you've continued the analysis (including probability and
-> severity) of that risk. It refers to the ID(s) in the Hazards and Analysis
-> table below. -->
 <table class="colwidths-given table" id="id1">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Preliminary Hazards Analysis</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -567,66 +551,40 @@ severity, or both.</p></li>
 </tr>
 </tbody>
 </table>
-<!-- | ID | Source                 | Description                           | Hazard ID(s) |
-|----|------------------------|---------------------------------------|--------------|
-| 1  | General Considerations | Wrong Covid Prediction                | 1            |
-| 2  | Intended Use           | Wrong Covid Prediction                | 1            |
-| 3  | Usability Test         | User misunderstands prediction result | 1            | -->
 </div>
 <div class="section" id="failure-modes">
 <h2>2. Failure Modes<a class="headerlink" href="#failure-modes" title="Permalink to this headline">¶</a></h2>
-<!-- > This is a list of stuff which can go wrong in your software. You should be
-> able to come up with things while you write code and when you think about it.
-> Typically, stuff which always can go wrong is 1) something becomes
-> unavailable, 2) something returns invalid data, 3) something gets hacked.
-
-> I've written some examples for the Covid predictor application which I cover
-> in my videos - you don't have to watch those for now. The idea is that it's
-> an app which predicts whether a certain patient has Covid, pretty magical. An
-> obvious failure mode would be that the app either calculates wrong
-> predictions on the backend (ID 1), or the frontend displays the predictions
-> wrongly (ID 2). The both lead to the same hazard (ID 1) which is listed in
-> the Hazards and Analysis table below. -->
-<!-- | ID  | Software System | Failure Mode                       | Hazard ID(s) |
-| --- | --------------- | ---------------------------------- | ------------ |
-| 1   | Backend         | Wrong Covid Prediction             | 1            |
-| 2   | Frontend        | Covid Prediction displayed wrongly | 1            | -->
+<table class="colwidths-given table" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Failure Modes</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 67%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ID</p></td>
+<td><p>Failure Mode</p></td>
+<td><p>Hazard ID(s)</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Incorrect contour</p></td>
+<td><p>1, 2, 3, 4, 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Security breach</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Cloud server computation bottlenecks</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="hazards-and-analysis">
 <h2>3. Hazards and Analysis<a class="headerlink" href="#hazards-and-analysis" title="Permalink to this headline">¶</a></h2>
-<!-- > This is a list of stuff which will subsequently happen after your software
-> has failed. It's more about what happens in the real world, not in your
-> software. The 14971 wants you to analyze Hazards, Hazardous Situations and
-> Harms, so that's what you'll find in the table :)
->
-> Here's what happens: In the beginning, there's a hazard, like a wrong Covid
-> prediction. That hazard has a certain probability to lead to the (next)
-> hazardous situation, in this case 1% (0.01), in which the user thinks he is
-> healthy, but actually has Covid. You can estimate p1 with some medical
-> knowledge, in this case maybe the prevalence of Covid in your target
-> population.
->
-> Then, this hazardous situation may lead to a harm, in this case, disease
-> progression - the user who got the wrong Covid prediction (healthy) may
-> actually have Covid and now stay at home instead of going to the hospital. So
-> the disease gets worse. Maybe only 10% (0.1, p2) of users will actually
-> blindly trust my Covid app - so not all of them will get disease progression.
-> Again, estimate this based on your own data.
->
-> Finally, you multiple p1 with p2, check your Risk Acceptance Matrix (other
-> template) which Probability Category it is (in this case P4). Also check that
-> matrix which severity that harm would be, I'm just assuming it could be S2
-> here. Once you have your Probability (P) and Severity (S), check your matrix
-> whether that's acceptable. In this case, it's not.
->
-> So we need a Risk Control Measure which is referenced here by ID (1). As we
-> can see, it reduced the probability to P3, but not the severity. But that's
-> fine, because the P3 and S2 - combination is acceptable, based on our Risk
-> Acceptance Table.
->
-> The next table contains the list of Risk Control Measures. -->
-<table class="colwidths-given table" id="id2">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Hazards, Hazardous Situations, and Harm</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given table" id="id3">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Hazards, Hazardous Situations, and Harm</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 6%" />
 <col style="width: 20%" />
@@ -701,8 +659,8 @@ severity, or both.</p></li>
 </tr>
 </tbody>
 </table>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Analysis without risk controls</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Analysis without risk controls</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -767,8 +725,8 @@ severity, or both.</p></li>
 </tr>
 </tbody>
 </table>
-<table class="table" id="id4">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Analysis with external risk controls</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<table class="table" id="id5">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Analysis with external risk controls</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -784,31 +742,31 @@ severity, or both.</p></li>
 <td><p>Acceptable with external risk controls?</p></td>
 </tr>
 <tr class="row-even"><td><p>1</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P1</p></td>
 <td><p>S5</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P1</p></td>
 <td><p>S3</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P2</p></td>
 <td><p>S4</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>4</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P2</p></td>
 <td><p>S2</p></td>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P1</p></td>
 <td><p>S5</p></td>
 <td><p>Yes</p></td>
@@ -820,7 +778,7 @@ severity, or both.</p></li>
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
-<td><p>1 and 2</p></td>
+<td><p>1, 2</p></td>
 <td><p>P1</p></td>
 <td><p>S5</p></td>
 <td><p>Yes</p></td>
@@ -833,8 +791,8 @@ severity, or both.</p></li>
 </tr>
 </tbody>
 </table>
-<table class="table" id="id5">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">Analysis with external and internal risk controls</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<table class="table" id="id6">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Analysis with external and internal risk controls</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -902,25 +860,8 @@ severity, or both.</p></li>
 </div>
 <div class="section" id="risk-control-measures">
 <h2>4. Risk Control Measures<a class="headerlink" href="#risk-control-measures" title="Permalink to this headline">¶</a></h2>
-<!-- > This is the table of Risk Control Measures which was referenced from the
-> Hazards and Analysis table above. We've used the Risk Control Measure with
-> (ID 1) to reduce the risk of disease progression. For that, we came up with a
-> procedure to check our prediction algorithm with test data before we ship it.
-> That makes sense and that should probably reduce the probability of wrong
-> predictions. In this case, by 0.01 (10^-2, I'm coming up with numbers here).
-> It doesn't reduce the severity, of course - the harm is still disease
-> progression.
-
-> Note that the 14971 has three types of Risk Control Measures:
-> * Inherent Safety by Design
-> * Protective Measures
-> * Information for Safety
->
-> Also note that, in simplified terms, Information for Safety must actually be
-> displayed in your application to have any effect. Like, not in the user
-> manual, because nobody reads the manual. -->
-<table class="colwidths-given table" id="id6">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Risk Control Measures</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given table" id="id7">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Risk Control Measures</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 6%" />
 <col style="width: 57%" />

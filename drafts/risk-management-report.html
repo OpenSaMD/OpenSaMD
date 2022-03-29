@@ -396,16 +396,6 @@ const thebe_selector_output = ".output, .cell_output"
    5. Summary of Risks and Unacceptable Risks
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#benefit-risk-assessment">
-   6. Benefit-Risk Assessment
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overall-residual-risk">
-   7. Overall Residual Risk
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -473,16 +463,6 @@ const thebe_selector_output = ".output, .cell_output"
    5. Summary of Risks and Unacceptable Risks
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#benefit-risk-assessment">
-   6. Benefit-Risk Assessment
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overall-residual-risk">
-   7. Overall Residual Risk
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -540,90 +520,108 @@ Risk Table.</p>
 <div class="section" id="relevant-processes-and-documents">
 <h2>1. Relevant Processes and Documents<a class="headerlink" href="#relevant-processes-and-documents" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>SOP Integrated Software Development</p></li>
-<li><p>Risk Management Plan</p></li>
-<li><p>Risk Acceptance Matrix</p></li>
-<li><p>Risk Table</p></li>
+<li><p><a class="reference internal" href="../released/sop-integrated-software-development.html"><span class="doc std std-doc">SOP Integrated Software Development</span></a></p></li>
+<li><p><a class="reference internal" href="risk-management-plan.html"><span class="doc std std-doc">Risk Management Plan</span></a></p></li>
+<li><p><a class="reference internal" href="risk-acceptance-matrix.html"><span class="doc std std-doc">Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="risk-table-fmea/index.html"><span class="doc std std-doc">Failure Mode and Effects Analysis (FMEA): Risk Table</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="risk-analysis">
 <h2>2. Risk Analysis<a class="headerlink" href="#risk-analysis" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>The general idea about this section is that you simply summarize the amount of stuff you added to your Risk
-Table (separate document).</p>
-</div></blockquote>
 <div class="section" id="preliminary-hazards-analysis">
 <h3>2.1 Preliminary Hazards Analysis<a class="headerlink" href="#preliminary-hazards-analysis" title="Permalink to this headline">¶</a></h3>
-<p><em>&lt;no. of hazards&gt;</em> hazards were identified based on the Intended Use and Usability Tests. They were further
-analyzed in the Risk Table.</p>
+<p>8 hazards were identified based on the Intended Use and Usability Tests. They
+were further analysed in the Risk Table.</p>
 </div>
 <div class="section" id="failure-modes">
 <h3>2.2 Failure Modes<a class="headerlink" href="#failure-modes" title="Permalink to this headline">¶</a></h3>
-<p><em>&lt;no. of failure modes&gt;</em> failure modes of software systems were identified. They were further analyzed in
-the Risk Table.</p>
+<p>3 failure modes of software systems were identified. They were further analysed
+in the Risk Table.</p>
 </div>
 <div class="section" id="failure-mode-and-effects-analysis-fmea">
 <h3>2.3 Failure Mode and Effects Analysis (FMEA)<a class="headerlink" href="#failure-mode-and-effects-analysis-fmea" title="Permalink to this headline">¶</a></h3>
-<p>All preliminary hazards and potential failure modes of the software were analyzed. In total, <em>&lt;no. of
-hazards&gt;</em> were identified. The hazardous situation(s) and harm(s) which they could lead to were analyzed,
-including intermediate probabilities (p1 and p2).</p>
+<p>All preliminary hazards and potential failure modes of the software were
+analysed. In total, 8 were identified. The hazardous situation(s) and harm(s)
+which they could lead to were analysed, including intermediate probabilities
+(p1 and p2).</p>
 </div>
 </div>
 <div class="section" id="risk-control-measures">
 <h2>3. Risk Control Measures<a class="headerlink" href="#risk-control-measures" title="Permalink to this headline">¶</a></h2>
-<p>Risks were reduces as low as reasonably possible (ALARP). If a risk was classified as “unacceptable” based on
-the Risk Table, Risk Control Measures were implemented. Potential categories of Risk Control Measures are
-“inherent safety by design”, “protective measures” and “information for safety”. In total, <em>&lt;no. of risk
-control measures&gt;</em> were implemented.</p>
+<p>Risks were reduces as low as reasonably possible (ALARP). If a risk was
+classified as “unacceptable” based on the Risk Table, Risk Control Measures
+were implemented. Potential categories of Internal Risk Control Measures are
+“inherent safety by design”, “protective measures” and “information for
+safety”. Potential categories for External Risk Control Measures are
+“hardware”, “independent software system”, and “health care procedures”. In
+total, 4 were implemented. Two of these were external protective measures that
+were identified. No hazardous situation resulted in unacceptable risk after the
+consideration of the two external risk control measures.</p>
+<p>Two remaining internal risk control measures were implemented following the
+ALARP principle.</p>
 </div>
 <div class="section" id="risk-matrix">
 <h2>4. Risk Matrix<a class="headerlink" href="#risk-matrix" title="Permalink to this headline">¶</a></h2>
-<p>After implementation and verification of all Risk Control Measures, the count of risks in the Risk Acceptance
-Matrix was as follows:</p>
+<p>After implementation and verification of all Risk Control Measures, the count
+of risks in the Risk Acceptance Matrix was as follows:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Probability</p></th>
 <th class="head"><p>S1: Negligible</p></th>
-<th class="head"><p>S2: Marginal</p></th>
-<th class="head"><p>S3: Critical</p></th>
-<th class="head"><p>S4: Catastrophic</p></th>
+<th class="head"><p>S2: Minor</p></th>
+<th class="head"><p>S3: Major</p></th>
+<th class="head"><p>S4: Critical</p></th>
+<th class="head"><p>S5: Death</p></th>
 <th class="head"><p>Estimated Maximum Event Count</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>P5: Certain</p></td>
-<td><p>acceptable: 0</p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p>1000000</p></td>
+<tr class="row-even"><td><p>P6: Almost certain</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p>10000000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P4: Likely</p></td>
+<tr class="row-odd"><td><p>P5: Likely</p></td>
 <td><p>acceptable: 0</p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p>10000</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p>100000</p></td>
 </tr>
-<tr class="row-even"><td><p>P3: Possible</p></td>
+<tr class="row-even"><td><p>P4: Possible</p></td>
+<td><p>acceptable: 1</p></td>
 <td><p>acceptable: 0</p></td>
-<td><p>acceptable: 0</p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p>100</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p>1000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P2: Unlikely</p></td>
+<tr class="row-odd"><td><p>P3: Unlikely</p></td>
 <td><p>acceptable: 0</p></td>
+<td><p>acceptable: 1</p></td>
 <td><p>acceptable: 0</p></td>
-<td><p>acceptable: 0</p></td>
-<td><p><strong>unacceptable: 0</strong></p></td>
-<td><p>1</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p>10</p></td>
 </tr>
-<tr class="row-even"><td><p>P1: Rare</p></td>
+<tr class="row-even"><td><p>P2: Rare</p></td>
 <td><p>acceptable: 0</p></td>
 <td><p>acceptable: 0</p></td>
 <td><p>acceptable: 0</p></td>
 <td><p>acceptable: 0</p></td>
+<td><p><strong>unacceptable</strong>: 0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P1: Almost impossible</p></td>
+<td><p>acceptable: 0</p></td>
+<td><p>acceptable: 1</p></td>
+<td><p>acceptable: 1</p></td>
+<td><p>acceptable: 1</p></td>
+<td><p>acceptable: 3</p></td>
 <td><p>0</p></td>
 </tr>
 </tbody>
@@ -631,40 +629,13 @@ Matrix was as follows:</p>
 </div>
 <div class="section" id="summary-of-risks-and-unacceptable-risks">
 <h2>5. Summary of Risks and Unacceptable Risks<a class="headerlink" href="#summary-of-risks-and-unacceptable-risks" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>If you don’t have unacceptable risks (more likely), use this section:</p>
-</div></blockquote>
-<p>After Risk Control Measures, no unacceptable risks remained. The software therefore fulfils the specifications
-of the defined risk policy and is safe. A Benefit-Risk Assessment is not required.</p>
-<blockquote>
-<div><p>If you still have unacceptable risks, use this section:</p>
-</div></blockquote>
-<p>After Risk Control Measures, <em>&lt;no. of unacceptable risks&gt;</em> unacceptable risks remained. They will be further
-assessed in the Benefit-Risk Assessment below.</p>
-<blockquote>
-<div><p>Optionally, mention here your device’s software safety classification according to IEC 62304, resulting from the worst possible risks found above.</p>
-</div></blockquote>
-</div>
-<div class="section" id="benefit-risk-assessment">
-<h2>6. Benefit-Risk Assessment<a class="headerlink" href="#benefit-risk-assessment" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Only use this whole section (Risk-Benefit Assessment) if you have unacceptable risks.</p>
-</div></blockquote>
-<p>The <em>&lt;no. of unacceptable risks&gt;</em> remaining unacceptable risks are compared to the benefits resulting from
-the Clinical Evaluation Report.</p>
-<p>The benefits are as follows:</p>
-<p><em>&lt;Copy-paste benefits from Clinical Evaluation&gt;</em></p>
-<blockquote>
-<div><p>Add a conclusion whether the benefits outweigh the risks</p>
-</div></blockquote>
-<p>Weighing the benefits against the risks, we conclude that..</p>
-</div>
-<div class="section" id="overall-residual-risk">
-<h2>7. Overall Residual Risk<a class="headerlink" href="#overall-residual-risk" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Take a look at your risk mitigating measures and assess whether the combination of them could lead to a risk that has not been taken care of yet, e.g. if one mitigation serves two or more risks at once.</p>
-</div></blockquote>
-<p>The overall residual risk is estimated to have a probabilty of <em>&lt;probability of residual risk&gt;</em> and a severity of <em>&lt;severity of residual risk&gt;</em>. According to the Risk Acceptance Matrix the overall residual risk is assessed as <em>&lt;acceptable&gt;</em>.</p>
+<p>After Risk Control Measures, no unacceptable risks remained. The software
+therefore fulfils the specifications of the defined risk policy and is safe. A
+Benefit-Risk Assessment is not required.</p>
+<p>While the software system can contribute to hazardous situations, none of those
+result in unacceptable risk after consideration of risk control measures
+external to the software system. Therefore, the software system is classified
+as software safety class A.</p>
 </div>
 </div>
 
