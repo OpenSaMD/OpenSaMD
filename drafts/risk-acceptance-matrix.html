@@ -453,10 +453,10 @@ process manually without AI assistance.</p>
 <td><p>Delay of treatment or clinically non-relevant protocol deviation</p></td>
 </tr>
 <tr class="row-odd"><td><p>S2: Minor</p></td>
-<td><p>Minor radiotherapy protocol deviation</p></td>
+<td><p>Minor radiotherapy protocol deviation, non-patient identifying data leak</p></td>
 </tr>
 <tr class="row-even"><td><p>S3: Major</p></td>
-<td><p>Major radiotherapy protocol deviation</p></td>
+<td><p>Major radiotherapy protocol deviation, or patient identifying data leak</p></td>
 </tr>
 <tr class="row-odd"><td><p>S4: Critical</p></td>
 <td><p>Reportable radiotherapy mistreatment and/or incident</p></td>
@@ -478,25 +478,35 @@ process manually without AI assistance.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>P4: Likely</p></td>
+<tr class="row-even"><td><p>P6: Almost certain</p></td>
 <td><p>1</p></td>
 <td><p>10^-2</p></td>
 <td><p>10000000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P3: Possible</p></td>
+<tr class="row-odd"><td><p>P5: Likely</p></td>
 <td><p>10^-2</p></td>
 <td><p>10^-4</p></td>
 <td><p>100000</p></td>
 </tr>
-<tr class="row-even"><td><p>P2: Unlikely</p></td>
+<tr class="row-even"><td><p>P4: Possible</p></td>
 <td><p>10^-4</p></td>
 <td><p>10^-6</p></td>
 <td><p>1000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P1: Rare</p></td>
+<tr class="row-odd"><td><p>P3: Unlikely</p></td>
 <td><p>10^-6</p></td>
-<td><p>0</p></td>
+<td><p>10^-8</p></td>
 <td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>P2: Rare</p></td>
+<td><p>10^-8</p></td>
+<td><p>10^-10</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P1: Almost impossible</p></td>
+<td><p>10^-10</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
@@ -515,7 +525,7 @@ process manually without AI assistance.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>P4: Likely</p></td>
+<tr class="row-even"><td><p>P6: Almost certain</p></td>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p><strong>unacceptable</strong></p></td>
@@ -523,7 +533,7 @@ process manually without AI assistance.</p>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p>10000000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P3: Possible</p></td>
+<tr class="row-odd"><td><p>P5: Likely</p></td>
 <td><p>acceptable</p></td>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p><strong>unacceptable</strong></p></td>
@@ -531,7 +541,7 @@ process manually without AI assistance.</p>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p>100000</p></td>
 </tr>
-<tr class="row-even"><td><p>P2: Unlikely</p></td>
+<tr class="row-even"><td><p>P4: Possible</p></td>
 <td><p>acceptable</p></td>
 <td><p>acceptable</p></td>
 <td><p><strong>unacceptable</strong></p></td>
@@ -539,13 +549,29 @@ process manually without AI assistance.</p>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p>1000</p></td>
 </tr>
-<tr class="row-odd"><td><p>P1: Rare</p></td>
+<tr class="row-odd"><td><p>P3: Unlikely</p></td>
 <td><p>acceptable</p></td>
 <td><p>acceptable</p></td>
 <td><p>acceptable</p></td>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p><strong>unacceptable</strong></p></td>
 <td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>P2: Rare</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p><strong>unacceptable</strong></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>P1: Almost impossible</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>acceptable</p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>

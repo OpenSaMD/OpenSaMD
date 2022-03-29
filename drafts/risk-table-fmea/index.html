@@ -365,8 +365,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#external-risk-control-measures">
-   4. External Risk Control Measures
+  <a class="reference internal nav-link" href="#risk-control-measures">
+   4. Risk Control Measures
   </a>
  </li>
 </ul>
@@ -405,8 +405,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#external-risk-control-measures">
-   4. External Risk Control Measures
+  <a class="reference internal nav-link" href="#risk-control-measures">
+   4. Risk Control Measures
   </a>
  </li>
 </ul>
@@ -511,13 +511,13 @@ severity, or both.</p></li>
 > shows where you've continued the analysis (including probability and
 > severity) of that risk. It refers to the ID(s) in the Hazards and Analysis
 > table below. -->
-<table class="table" id="id1">
+<table class="colwidths-given table" id="id1">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Preliminary Hazards Analysis</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 9%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+<col style="width: 18%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>ID</p></td>
@@ -625,23 +625,15 @@ severity, or both.</p></li>
 > Acceptance Table.
 >
 > The next table contains the list of Risk Control Measures. -->
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Hazards and Analysis</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given table" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Hazards, Hazardous Situations, and Harm</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 20%" />
+<col style="width: 6%" />
+<col style="width: 41%" />
+<col style="width: 6%" />
+<col style="width: 20%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>ID</p></td>
@@ -650,14 +642,6 @@ severity, or both.</p></li>
 <td><p>Hazardous Situation</p></td>
 <td><p>p2</p></td>
 <td><p>Harm</p></td>
-<td><p>p1*p2</p></td>
-<td><p>P</p></td>
-<td><p>S</p></td>
-<td><p>Acceptable?</p></td>
-<td><p>External Risk Control ID(s)</p></td>
-<td><p>P</p></td>
-<td><p>S</p></td>
-<td><p>Acceptable?</p></td>
 </tr>
 <tr class="row-even"><td><p>1</p></td>
 <td><p>Avoidance organ under-contoured</p></td>
@@ -665,129 +649,259 @@ severity, or both.</p></li>
 <td><p>Radiotherapy treatment plan created and delivered to the patient which irradiates the under-contoured region</p></td>
 <td><p>10^-3</p></td>
 <td><p>Death or serious disablement</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Avoidance organ over-contouring</p></td>
+<td><p>10^-5</p></td>
+<td><p>Radiotherapy treatment plan created and delivered to the patient which compromises too much on target</p></td>
+<td><p>10^-2</p></td>
+<td><p>Reduced treatment outcomes</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Target under-contouring</p></td>
+<td><p>10^-3</p></td>
+<td><p>Radiotherapy treatment plan created and delivered to the patient which compromises too much on target</p></td>
+<td><p>10^-2</p></td>
+<td><p>Major treatment protocol deviation, significantly reduced treatment outcomes</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Target over-contouring</p></td>
+<td><p>10^-3</p></td>
+<td><p>Radiotherapy treatment plan created and delivered to the patient where a compromise was needed between organ at risk and the target due to its over contouring</p></td>
+<td><p>10^-2</p></td>
+<td><p>Increased treatment side-effects</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>No contour produced</p></td>
+<td><p>10^-5</p></td>
+<td><p>Radiotherapy treatment plan created and delivered to the patient irradiating the organ</p></td>
+<td><p>10^-2</p></td>
+<td><p>Death or serious disablement</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Delay in contour production</p></td>
+<td><p>10^-2</p></td>
+<td><p>Contour needs to be undergone manually following current standard practice</p></td>
+<td><p>10^-2</p></td>
+<td><p>Delay in treatment</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Contour misidentified</p></td>
+<td><p>10^-5</p></td>
+<td><p>Radiotherapy treatment plan created and delivered to the patient irradiating the organ</p></td>
+<td><p>10^-2</p></td>
+<td><p>Death or serious disablement</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Leakage of Patient Information</p></td>
+<td><p>10^-6</p></td>
+<td><p>Cloud server security breach</p></td>
+<td><p>10^-1</p></td>
+<td><p>Patient identifying data leak</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Analysis without risk controls</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ID</p></td>
+<td><p>p1*p2</p></td>
+<td><p>P</p></td>
+<td><p>S</p></td>
+<td><p>Acceptable without risk controls?</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
 <td><p>10^-8</p></td>
-<td><p>P1</p></td>
+<td><p>P2</p></td>
 <td><p>S5</p></td>
 <td><p>No</p></td>
-<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>10^-7</p></td>
+<td><p>P3</p></td>
+<td><p>S3</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>10^-5</p></td>
+<td><p>P4</p></td>
+<td><p>S4</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>10^-5</p></td>
+<td><p>P4</p></td>
+<td><p>S2</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>10^-7</p></td>
+<td><p>P3</p></td>
+<td><p>S5</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>10^-4</p></td>
+<td><p>P4</p></td>
+<td><p>S1</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>10^-7</p></td>
+<td><p>P3</p></td>
+<td><p>S5</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>10^-7</p></td>
+<td><p>P3</p></td>
+<td><p>S3</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Analysis with external risk controls</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ID</p></td>
+<td><p>External Risk Control ID(s)</p></td>
+<td><p>P</p></td>
+<td><p>S</p></td>
+<td><p>Acceptable with external risk controls?</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P1</p></td>
+<td><p>S3</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P2</p></td>
+<td><p>S4</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P2</p></td>
+<td><p>S2</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td></td>
+<td><p>P4</p></td>
+<td><p>S1</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>1 and 2</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td></td>
+<td><p>P3</p></td>
+<td><p>S3</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table" id="id5">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Analysis with external and internal risk controls</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ID</p></td>
+<td><p>Internal Risk Control ID(s)</p></td>
+<td><p>P</p></td>
+<td><p>S</p></td>
+<td><p>Acceptable with all risk controls?</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>P1</p></td>
+<td><p>S3</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>P1</p></td>
+<td><p>S4</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>3</p></td>
 <td><p>P1</p></td>
 <td><p>S2</p></td>
 <td><p>Yes</p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Avoidance organ over-contouring</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Target under-contouring</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Target over-contouring</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 <tr class="row-even"><td><p>5</p></td>
-<td><p>No contour produced</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p>3</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
-<td><p>Delay in contour production</p></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p>P4</p></td>
+<td><p>S1</p></td>
+<td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
-<td><p>Contour misidentified</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p>3</p></td>
+<td><p>P1</p></td>
+<td><p>S5</p></td>
+<td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>8</p></td>
-<td><p>Leakage of Patient Information</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><p>4</p></td>
+<td><p>P3</p></td>
+<td><p>S2</p></td>
+<td><p>Yes</p></td>
 </tr>
 </tbody>
 </table>
-<!--
-| ID | Hazard                 | p1   | Hazardous Situation                      | p2  | Harm                | p1*p2 | P  | S  | Acceptable? | Comment | Risk Control ID(s) | P  | S  | Acceptable? |
-|----|------------------------|------|------------------------------------------|-----|---------------------|-------|----|----|-------------|---------|--------------------|----|----|-------------|
-| 1  | Wrong Covid prediction | 0.01 | User thinks he is healthy, but has Covid | 0.1 | Disease progression | 0.001 | P4 | S2 | No          |         | 1                  | P3 | S2 | Yes         | -->
 </div>
-<div class="section" id="external-risk-control-measures">
-<h2>4. External Risk Control Measures<a class="headerlink" href="#external-risk-control-measures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="risk-control-measures">
+<h2>4. Risk Control Measures<a class="headerlink" href="#risk-control-measures" title="Permalink to this headline">¶</a></h2>
 <!-- > This is the table of Risk Control Measures which was referenced from the
 > Hazards and Analysis table above. We've used the Risk Control Measure with
 > (ID 1) to reduce the risk of disease progression. For that, we came up with a
@@ -805,14 +919,14 @@ severity, or both.</p></li>
 > Also note that, in simplified terms, Information for Safety must actually be
 > displayed in your application to have any effect. Like, not in the user
 > manual, because nobody reads the manual. -->
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">External Risk Control Measures</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given table" id="id6">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Risk Control Measures</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 6%" />
+<col style="width: 57%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>ID</p></td>
@@ -822,27 +936,31 @@ severity, or both.</p></li>
 <td><p>Severity Reduction</p></td>
 </tr>
 <tr class="row-even"><td><p>1</p></td>
-<td><ul class="simple">
-<li><p>The contour data is provided to an independent software treatment planning
-system where that independent software is utilised for refinement and
-approval.</p></li>
-<li><p>Contour refinement is undergone by a relevant qualified health practitioner.</p></li>
-<li><p>The subsequent refined contours are then reviewed by at least one other
-independent relevant qualified health practitioner. Generally however the
-whole plan, including the contours goes through multiple independent
-reviewers before being utilised for treatment.</p></li>
-</ul>
-</td>
-<td><p>Health care procedure (See Note 6 in 62304:2021 in 4.4.3)</p></td>
+<td><p>The contour data is provided to an independent software treatment planning system where that independent software is utilised for refinement and approval by a relevant qualified health practitioner.</p></td>
+<td><p>External measure – Health care procedure</p></td>
 <td><p>10^2</p></td>
-<td><p>3</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>The subsequent refined contours are then reviewed by at least one other independent relevant qualified health practitioner. Generally however the whole plan, including the contours goes through multiple independent reviewers before being utilised for treatment.</p></td>
+<td><p>External measure – Health care procedure</p></td>
+<td><p>10^2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>After the refinements have been completed they are sent back to the software. The level of refinements are then compared to the original model results and feedback on this compared to the standard amount of refinement generally undergone for that contour type is then provided via notification to an independent relevant qualified health practitioner.</p></td>
+<td><p>Internal measure – Information for safety</p></td>
+<td><p>10^2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>All identifying patient information is deidentified prior to submitting the data to the cloud server</p></td>
+<td><p>Internal measure – Protective measure</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
 </tr>
 </tbody>
 </table>
-<!-- | ID  | Description                               | Type               | Probability Reduction | Severity Reduction |
-| --- | ----------------------------------------- | ------------------ | --------------------- | ------------------ |
-| 1   | Check prediction algorithm with test data | Protective Measure | 10^-2                 | 1                  | -->
-<!-- Links -->
 </div>
 </div>
 
