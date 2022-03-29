@@ -62,6 +62,7 @@ device. It is separated into multiple sections:
 ```{csv-table} Preliminary Hazards Analysis
 ---
 file: preliminary-hazards-analysis.csv
+widths: 5 20 20 10
 ---
 ```
 
@@ -125,9 +126,28 @@ file: preliminary-hazards-analysis.csv
 >
 > The next table contains the list of Risk Control Measures. -->
 
-```{csv-table} Hazards and Analysis
+```{csv-table} Hazards, Hazardous Situations, and Harm
 ---
-file: hazards-and-analysis.csv
+file: hazard-to-harm.csv
+widths: 3 10 3 20 3 10
+---
+```
+
+```{csv-table} Analysis without risk controls
+---
+file: analysis-without-risk-controls.csv
+---
+```
+
+```{csv-table} Analysis with external risk controls
+---
+file: analysis-with-external-controls.csv
+---
+```
+
+```{csv-table} Analysis with external and internal risk controls
+---
+file: analysis-with-all-controls.csv
 ---
 ```
 
@@ -159,7 +179,7 @@ file: hazards-and-analysis.csv
 ```{csv-table} External Risk Control Measures
 ---
 file: risk-control-measures.csv
-widths: 5 20 10 10 10
+widths: 3 30 10 5 5
 ---
 ```
 
