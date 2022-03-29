@@ -125,8 +125,10 @@ file: preliminary-hazards-analysis.csv
 >
 > The next table contains the list of Risk Control Measures. -->
 
-```{pyexcel-table} hazards-and-analysis.xlsx
-
+```{csv-table} Hazards and Analysis
+---
+file: hazards-and-analysis.csv
+---
 ```
 
 <!--
