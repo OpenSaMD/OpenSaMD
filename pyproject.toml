@@ -11,6 +11,10 @@ jupyter-book = "^0.12.1"
 typer = "^0.4.0"
 
 rdm = { path = "third-party/rdm", develop = true }
+sphinxcontrib-excel-table = "^1.0.8"
+sphinxcontrib-excel-table-plus = "^1.0.8"
+sphinxcontrib-excel = "^0.0.1"
+pyexcel-xlsx = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 

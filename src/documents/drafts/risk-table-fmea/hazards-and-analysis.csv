@@ -1,9 +1,9 @@
-ID,Hazard,p1,Hazardous Situation,p2,Harm,p1*p2,P,S,Acceptable without risk controls?,External Risk Control ID(s),P,S,Acceptable with external risk controls?,Internal Risk Control ID(s),P,S,Acceptable?
+ID,Hazard,p1,Hazardous Situation,p2,Harm,p1*p2,P,S,Acceptable without risk controls?,External Risk Control ID(s),P,S,Acceptable with external risk controls?,Internal Risk Control ID(s),P,S,Acceptable with all risk controls?
 1,Avoidance organ under-contoured,10^-5,Radiotherapy treatment plan created and delivered to the patient which irradiates the under-contoured region,10^-3,Death or serious disablement,10^-8,P2,S5,No,1 and 2,P1,S5,Yes,3,P1,S5,Yes
 2,Avoidance organ over-contouring,10^-5,Radiotherapy treatment plan created and delivered to the patient which compromises too much on target,10^-2,Reduced treatment outcomes,10^-7,P3,S3,Yes,1 and 2,P1,S3,Yes,3,P1,S3,Yes
-3,Target under-contouring,10^-3,Radiotherapy treatment plan created and delivered to the patient which compromises too much on target,10^-2,Reduced treatment outcomes,10^-5,P4,S3,No,1 and 2,P2,S3,Yes,3,P1,S3,Yes
+3,Target under-contouring,10^-3,Radiotherapy treatment plan created and delivered to the patient which compromises too much on target,10^-2,"Major treatment protocol deviation, significantly reduced treatment outcomes",10^-5,P4,S4,No,1 and 2,P2,S4,Yes,3,P1,S4,Yes
 4,Target over-contouring,10^-3,Radiotherapy treatment plan created and delivered to the patient where a compromise was needed between organ at risk and the target due to its over contouring,10^-2,Increased treatment side-effects,10^-5,P4,S2,Yes,1 and 2,P2,S2,Yes,3,P1,S2,Yes
-5,No contour produced,,,,,,,,,,,,,,,,
-6,Delay in contour production,,,,,,,,,,,,,,,,
-7,Contour misidentified,,,,,,,,,,,,,,,,
-8,Leakage of Patient Information,,,,,,,,,,,,,,,,
+5,No contour produced,10^-5,Radiotherapy treatment plan created and delivered to the patient irradiating the organ,10^-2,Death or serious disablement,10^-7,P3,S5,No,1 and 2,P1,S5,Yes,3,P1,S5,Yes
+6,Delay in contour production,10^-2,Contour needs to be undergone manually following current standard practice,10^-2,Delay in treatment,10^-4,P4,S1,Yes,,,,,,,,
+7,Contour misidentified,10^-5,Radiotherapy treatment plan created and delivered to the patient irradiating the organ,10^-2,Death or serious disablement,10^-7,P3,S5,No,1 and 2,P1,S5,Yes,3,P1,S5,Yes
+8,Leakage of Patient Information,10^-6,Cloud server security breach,10^-1,Patient identifying data leak,10^-7,P3,S3,Yes,,,,,4,P3,S2,Yes

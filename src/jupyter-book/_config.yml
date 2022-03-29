@@ -47,3 +47,7 @@ html:
       Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
       General content copyright Radiotherapy AI.
     </p>
+
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.excel
