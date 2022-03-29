@@ -22,7 +22,7 @@ The process and stages of risk analysis are described in the SOP Integrated Soft
 ## Mapping of Standard Requirements to Document Sections
 
 | ISO 14971:2019 Section                | Document Section             |
-|---------------------------------------|------------------------------|
+| ------------------------------------- | ---------------------------- |
 | 4.5 Risk management file              | (all)                        |
 | 7.4 Benefit-risk analysis             | 6                            |
 | 7.6 Completeness of risk control      | (by review of this document) |
@@ -31,83 +31,66 @@ The process and stages of risk analysis are described in the SOP Integrated Soft
 
 ## 1. Relevant Processes and Documents
 
- * SOP Integrated Software Development
- * Risk Management Plan
- * Risk Acceptance Matrix
- * Risk Table
+- [](../released/sop-integrated-software-development)
+- [](../drafts/risk-management-plan)
+- [](../drafts/risk-acceptance-matrix)
+- [](../drafts/risk-table-fmea/index)
 
 ## 2. Risk Analysis
 
-> The general idea about this section is that you simply summarize the amount of stuff you added to your Risk
-> Table (separate document).
-
 ### 2.1 Preliminary Hazards Analysis
 
-*\<no. of hazards\>* hazards were identified based on the Intended Use and Usability Tests. They were further
-analyzed in the Risk Table.
+8 hazards were identified based on the Intended Use and Usability Tests. They
+were further analysed in the Risk Table.
 
 ### 2.2 Failure Modes
 
-*\<no. of failure modes\>* failure modes of software systems were identified. They were further analyzed in
-the Risk Table.
+3 failure modes of software systems were identified. They were further analysed
+in the Risk Table.
 
 ### 2.3 Failure Mode and Effects Analysis (FMEA)
 
-All preliminary hazards and potential failure modes of the software were analyzed. In total, *\<no. of
-hazards\>* were identified. The hazardous situation(s) and harm(s) which they could lead to were analyzed,
-including intermediate probabilities (p1 and p2).
+All preliminary hazards and potential failure modes of the software were
+analysed. In total, 8 were identified. The hazardous situation(s) and harm(s)
+which they could lead to were analysed, including intermediate probabilities
+(p1 and p2).
 
 ## 3. Risk Control Measures
 
-Risks were reduces as low as reasonably possible (ALARP). If a risk was classified as "unacceptable" based on
-the Risk Table, Risk Control Measures were implemented. Potential categories of Risk Control Measures are
-"inherent safety by design", "protective measures" and "information for safety". In total, *\<no. of risk
-control measures\>* were implemented.
+Risks were reduces as low as reasonably possible (ALARP). If a risk was
+classified as "unacceptable" based on the Risk Table, Risk Control Measures
+were implemented. Potential categories of Internal Risk Control Measures are
+"inherent safety by design", "protective measures" and "information for
+safety". Potential categories for External Risk Control Measures are
+"hardware", "independent software system", and "health care procedures". In
+total, 4 were implemented. Two of these were external protective measures that
+were identified. No hazardous situation resulted in unacceptable risk after the
+consideration of the two external risk control measures.
+
+Two remaining internal risk control measures were implemented following the
+ALARP principle.
 
 ## 4. Risk Matrix
 
-After implementation and verification of all Risk Control Measures, the count of risks in the Risk Acceptance
-Matrix was as follows:
+After implementation and verification of all Risk Control Measures, the count
+of risks in the Risk Acceptance Matrix was as follows:
 
-| Probability  | S1: Negligible | S2: Marginal        | S3: Critical        | S4: Catastrophic    | Estimated Maximum Event Count |
-|--------------|----------------|---------------------|---------------------|---------------------|-------------------------------|
-| P5: Certain  | acceptable: 0  | **unacceptable: 0** | **unacceptable: 0** | **unacceptable: 0** | 1000000                       |
-| P4: Likely   | acceptable: 0  | **unacceptable: 0** | **unacceptable: 0** | **unacceptable: 0** | 10000                         |
-| P3: Possible | acceptable: 0  | acceptable: 0       | **unacceptable: 0** | **unacceptable: 0** | 100                           |
-| P2: Unlikely | acceptable: 0  | acceptable: 0       | acceptable: 0       | **unacceptable: 0** | 1                             |
-| P1: Rare     | acceptable: 0  | acceptable: 0       | acceptable: 0       | acceptable: 0       | 0                             |
+| Probability           | S1: Negligible      | S2: Minor           | S3: Major           | S4: Critical        | S5: Death           | Estimated Maximum Event Count |
+| --------------------- | ------------------- | ------------------- | ------------------- | ------------------- | ------------------- | ----------------------------- |
+| P6: Almost certain    | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | 10000000                      |
+| P5: Likely            | acceptable: 0       | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | 100000                        |
+| P4: Possible          | acceptable: 1       | acceptable: 0       | **unacceptable**: 0 | **unacceptable**: 0 | **unacceptable**: 0 | 1000                          |
+| P3: Unlikely          | acceptable: 0       | acceptable: 1       | acceptable: 0       | **unacceptable**: 0 | **unacceptable**: 0 | 10                            |
+| P2: Rare              | acceptable: 0       | acceptable: 0       | acceptable: 0       | acceptable: 0       | **unacceptable**: 0 | 0                             |
+| P1: Almost impossible | acceptable: 0       | acceptable: 1       | acceptable: 1       | acceptable: 1       | acceptable: 3       | 0                             |
 
 ## 5. Summary of Risks and Unacceptable Risks
 
-> If you don't have unacceptable risks (more likely), use this section:
+After Risk Control Measures, no unacceptable risks remained. The software
+therefore fulfils the specifications of the defined risk policy and is safe. A
+Benefit-Risk Assessment is not required.
 
-After Risk Control Measures, no unacceptable risks remained. The software therefore fulfils the specifications
-of the defined risk policy and is safe. A Benefit-Risk Assessment is not required.
-
-> If you still have unacceptable risks, use this section:
-
-After Risk Control Measures, *\<no. of unacceptable risks\>* unacceptable risks remained. They will be further
-assessed in the Benefit-Risk Assessment below.
-
-> Optionally, mention here your device's software safety classification according to IEC 62304, resulting from the worst possible risks found above.
-
-## 6. Benefit-Risk Assessment
-
-> Only use this whole section (Risk-Benefit Assessment) if you have unacceptable risks.
-
-The *\<no. of unacceptable risks\>* remaining unacceptable risks are compared to the benefits resulting from
-the Clinical Evaluation Report.
-
-The benefits are as follows:
-
-*\<Copy-paste benefits from Clinical Evaluation\>*
-
-> Add a conclusion whether the benefits outweigh the risks
-
-Weighing the benefits against the risks, we conclude that..
-
-## 7. Overall Residual Risk
-
-> Take a look at your risk mitigating measures and assess whether the combination of them could lead to a risk that has not been taken care of yet, e.g. if one mitigation serves two or more risks at once.
-
-The overall residual risk is estimated to have a probabilty of *\<probability of residual risk\>* and a severity of *\<severity of residual risk\>*. According to the Risk Acceptance Matrix the overall residual risk is assessed as *\<acceptable\>*.
+While the software system can contribute to hazardous situations, none of those
+result in unacceptable risk after consideration of risk control measures
+external to the software system. Therefore, the software system is classified
+as software safety class A.
