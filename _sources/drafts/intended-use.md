@@ -16,8 +16,8 @@
 
 ## Product
 
-- Name: Radiotherapy AI Contour Recommendations
-- Version: `v0.1.17`
+- Name: {{device_name}}
+- Version: {{device_version}}
 - Basic UDI-DI: N/A
 
 ## Intended Medical Indication

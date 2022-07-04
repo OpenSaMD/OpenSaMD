@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Intended Use &#8212; Radiotherapy AI</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Released
  </span>
@@ -265,90 +280,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/drafts/intended-use.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/RadiotherapyAI/regulatory"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fdrafts/intended-use.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fdrafts/intended-use.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/drafts/intended-use.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mapping-of-requirements-to-document-sections">
    Mapping of Requirements to Document Sections
@@ -454,12 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Intended Use</h1>
@@ -581,13 +685,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="intended-use">
-<h1>Intended Use<a class="headerlink" href="#intended-use" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mapping-of-requirements-to-document-sections">
-<h2>Mapping of Requirements to Document Sections<a class="headerlink" href="#mapping-of-requirements-to-document-sections" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="intended-use">
+<h1>Intended Use<a class="headerlink" href="#intended-use" title="Permalink to this headline">#</a></h1>
+<section id="mapping-of-requirements-to-document-sections">
+<h2>Mapping of Requirements to Document Sections<a class="headerlink" href="#mapping-of-requirements-to-document-sections" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>MDR Class</p></th>
@@ -626,17 +731,17 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="product">
-<h2>Product<a class="headerlink" href="#product" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="product">
+<h2>Product<a class="headerlink" href="#product" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Name: Radiotherapy AI Contour Recommendations</p></li>
 <li><p>Version: <code class="docutils literal notranslate"><span class="pre">v0.1.17</span></code></p></li>
 <li><p>Basic UDI-DI: N/A</p></li>
 </ul>
-</div>
-<div class="section" id="intended-medical-indication">
-<h2>Intended Medical Indication<a class="headerlink" href="#intended-medical-indication" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="intended-medical-indication">
+<h2>Intended Medical Indication<a class="headerlink" href="#intended-medical-indication" title="Permalink to this headline">#</a></h2>
 <p>Utilised as clinical decision support software within the radiotherapy
 treatment workflow. Provides anatomical contours utilised by health
 practitioners to create a radiotherapy treatment plan to assist in cancer
@@ -644,8 +749,8 @@ treatment or other radiotherapy treatments.</p>
 <!-- > Describe the condition(s) and/or disease(s) to be screened, monitored, treated, diagnosed, or prevented by
 > your software. Importantly, also list exclusion criteria: Maybe patients with a certain diagnosis should not
 > be using your device. -->
-<div class="section" id="used-in-cases-where-there-is-already-a-clinically-implemented-contouring-protocol">
-<h3>Used in cases where there is already a clinically implemented contouring protocol<a class="headerlink" href="#used-in-cases-where-there-is-already-a-clinically-implemented-contouring-protocol" title="Permalink to this headline">¶</a></h3>
+<section id="used-in-cases-where-there-is-already-a-clinically-implemented-contouring-protocol">
+<h3>Used in cases where there is already a clinically implemented contouring protocol<a class="headerlink" href="#used-in-cases-where-there-is-already-a-clinically-implemented-contouring-protocol" title="Permalink to this headline">#</a></h3>
 <p>For each contour provided by the software to the user, the user needs to be
 able to validate the contour against the clinically implemented contouring
 protocol, and if needed, either refine the provided contour to come into
@@ -666,9 +771,9 @@ independently reviewed by the user. The user may rely on their own judgement
 and reach a recommendation without primarily relying on the software
 function.</p>
 </div></blockquote>
-</div>
-<div class="section" id="limited-by-case-validation-of-the-deployed-model">
-<span id="case-validation"></span><h3>Limited by case validation of the deployed model<a class="headerlink" href="#limited-by-case-validation-of-the-deployed-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="limited-by-case-validation-of-the-deployed-model">
+<span id="case-validation"></span><h3>Limited by case validation of the deployed model<a class="headerlink" href="#limited-by-case-validation-of-the-deployed-model" title="Permalink to this headline">#</a></h3>
 <p>It is intended that the usage of the model be limited to use within the
 radiotherapy treatment workflow in cases where the model has been validated for
 the combination of:</p>
@@ -699,34 +804,34 @@ V. (2020).
 <a class="reference external" href="https://doi.org/10.1016/j.radonc.2020.09.008">Overview of artificial intelligence-based applications in radiotherapy: Recommendations for implementation and quality assurance.</a>
 Radiotherapy and Oncology.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="patient-population">
-<h2>Patient Population<a class="headerlink" href="#patient-population" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="patient-population">
+<h2>Patient Population<a class="headerlink" href="#patient-population" title="Permalink to this headline">#</a></h2>
 <p>The patient population is to be limited to where the model itself has undergone
 validation. See section <a class="reference internal" href="#case-validation"><span class="std std-ref">Limited by case validation of the deployed model</span></a> for further details.</p>
-</div>
-<div class="section" id="user-profile">
-<h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="user-profile">
+<h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this headline">#</a></h2>
 <!-- > Describe the typical user of the software. Some ideas could be: Qualifications, prior training (for your
 > software), technical proficiency, time spent using the software. -->
-<div class="section" id="used-by-those-with-appropriate-training-and-knowledge">
-<h3>Used by those with appropriate training and knowledge<a class="headerlink" href="#used-by-those-with-appropriate-training-and-knowledge" title="Permalink to this headline">¶</a></h3>
+<section id="used-by-those-with-appropriate-training-and-knowledge">
+<h3>Used by those with appropriate training and knowledge<a class="headerlink" href="#used-by-those-with-appropriate-training-and-knowledge" title="Permalink to this headline">#</a></h3>
 <p>The contours provided by the Radiotherapy AI Contour Recommendations software
 are a recommendation only. When being used to support clinical radiotherapy
 treatment within Australia these contours are to be provided to a RANZCR
 certified Radiation Oncologist or an ASMIRT certified Radiation Therapist for
 subsequent refinement according to that clinic’s approved contouring protocols.</p>
-</div>
-<div class="section" id="refined-by-a-relevant-health-professional-and-subsequently-checked-by-an-independent-relevant-health-professional">
-<h3>Refined by a relevant health professional and subsequently checked by an independent relevant health professional<a class="headerlink" href="#refined-by-a-relevant-health-professional-and-subsequently-checked-by-an-independent-relevant-health-professional" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="refined-by-a-relevant-health-professional-and-subsequently-checked-by-an-independent-relevant-health-professional">
+<h3>Refined by a relevant health professional and subsequently checked by an independent relevant health professional<a class="headerlink" href="#refined-by-a-relevant-health-professional-and-subsequently-checked-by-an-independent-relevant-health-professional" title="Permalink to this headline">#</a></h3>
 <p>It is intended that the software results be refined by a relevant health
 professional and then be subsequently checked by a separate and independent
 relevant health professional before the patient contours are utilised to create
 the radiotherapy treatment plan.</p>
-</div>
-<div class="section" id="provides-a-recommendation-only-and-is-not-intended-to-replace-clinical-judgement">
-<h3>Provides a recommendation only and is not intended to replace clinical judgement<a class="headerlink" href="#provides-a-recommendation-only-and-is-not-intended-to-replace-clinical-judgement" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="provides-a-recommendation-only-and-is-not-intended-to-replace-clinical-judgement">
+<h3>Provides a recommendation only and is not intended to replace clinical judgement<a class="headerlink" href="#provides-a-recommendation-only-and-is-not-intended-to-replace-clinical-judgement" title="Permalink to this headline">#</a></h3>
 <p>The software provides unapproved DICOM-RT Structure set files. These are then
 sent through to a contour drawing, refining and approval system, either a TPS
 or a dedicated contouring software system.</p>
@@ -751,10 +856,10 @@ diagnosis, curing or alleviating a disease, ailment, defect or injury.</p>
 health professional in relation to making a clinical diagnosis or decision
 about the treatment of patients</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="use-environment-including-software-hardware">
-<h2>Use Environment Including Software/Hardware<a class="headerlink" href="#use-environment-including-software-hardware" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="use-environment-including-software-hardware">
+<h2>Use Environment Including Software/Hardware<a class="headerlink" href="#use-environment-including-software-hardware" title="Permalink to this headline">#</a></h2>
 <!-- > Describe the typical use environment. What sort of devices is this running on? Does the software only run on
 > one device or on multiple devices? Is it loud and chaotic like in an emergency ward? How's the lighting?
 >
@@ -767,12 +872,14 @@ environment of that other piece of software where the results from this product
 are utilised by the health practitioner.</p>
 <p>The data workflow of data for the deployment within the clinic is outlining
 within the diagram in <a class="reference internal" href="#intended-use-pipeline"><span class="std std-numref">Figure 2</span></a>:</p>
-<div class="figure align-default" id="intended-use-pipeline">
+<figure class="align-default" id="intended-use-pipeline">
 <img alt="../_images/deployment-diagram.png" src="../_images/deployment-diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Outline of the data transmitted between the different systems in the pipeline.</span><a class="headerlink" href="#intended-use-pipeline" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="be-installed-on-a-server-with-appropriate-network-and-internet-bandwidth">
-<h3>Be installed on a server with appropriate network and internet bandwidth<a class="headerlink" href="#be-installed-on-a-server-with-appropriate-network-and-internet-bandwidth" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Outline of the data transmitted between the different systems in the pipeline.</span><a class="headerlink" href="#intended-use-pipeline" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="be-installed-on-a-server-with-appropriate-network-and-internet-bandwidth">
+<h3>Be installed on a server with appropriate network and internet bandwidth<a class="headerlink" href="#be-installed-on-a-server-with-appropriate-network-and-internet-bandwidth" title="Permalink to this headline">#</a></h3>
 <p>In order to receive DICOM structure results in a timely fashion the provided
 network and internet bandwidth, in particular the upload bandwidth, needs to
 meet the requirements of the clinic. For a 200 slice CT scan at 512 kB per
@@ -784,15 +891,15 @@ will upload this data in ~15 minutes.</p>
 <p>Hospital and network traffic can cause upload bottlenecks. Enterprise routers
 can be configured using “Quality of Service” so as to prioritise uploads from
 specific servers.</p>
-</div>
-</div>
-<div class="section" id="operating-principle">
-<h2>Operating Principle<a class="headerlink" href="#operating-principle" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="operating-principle">
+<h2>Operating Principle<a class="headerlink" href="#operating-principle" title="Permalink to this headline">#</a></h2>
 <!-- > It's kind of a stretch to describe the "operating principle" of software. I guess this makes more sense for
 > hardware devices. In any case, I'd just generally state what sort of input goes in and what output comes
 > out, e.g. you could be processing images and returning diagnoses. -->
-<div class="section" id="to-be-utilised-within-the-framework-of-standard-dicom-input-and-output">
-<h3>To be utilised within the framework of standard DICOM input and output<a class="headerlink" href="#to-be-utilised-within-the-framework-of-standard-dicom-input-and-output" title="Permalink to this headline">¶</a></h3>
+<section id="to-be-utilised-within-the-framework-of-standard-dicom-input-and-output">
+<h3>To be utilised within the framework of standard DICOM input and output<a class="headerlink" href="#to-be-utilised-within-the-framework-of-standard-dicom-input-and-output" title="Permalink to this headline">#</a></h3>
 <p>The software is intended to receive DICOM files that conform to the DICOM
 standard. The software that it provides results to is intended to receive and
 appropriately handle standards compliant DICOM structure files. It is not
@@ -805,9 +912,9 @@ met:</p>
 image or a signal from another medical device (including an in vitro
 diagnostic device).</p>
 </div></blockquote>
-</div>
-<div class="section" id="pseudonymisation-key-for-patient-header-information">
-<h3>Pseudonymisation key for patient header information<a class="headerlink" href="#pseudonymisation-key-for-patient-header-information" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pseudonymisation-key-for-patient-header-information">
+<h3>Pseudonymisation key for patient header information<a class="headerlink" href="#pseudonymisation-key-for-patient-header-information" title="Permalink to this headline">#</a></h3>
 <p>Identifying patient header information is pseudonymised so that reversal is
 only achievable via a key that is never sent to the Radiotherapy AI cloud
 server. This key is stored within the Windows Credential manager vault within
@@ -817,18 +924,18 @@ information it is encrypting. The Windows Credential vault is encrypted by the
 OS using the Windows account login password. It is expected that both
 access to that account and its account password meets requirements appropriate
 to the protection of identifying patient information.</p>
-</div>
-<div class="section" id="validation-of-pseudonymisation-undergone-with-a-representative-sample">
-<h3>Validation of pseudonymisation undergone with a representative sample<a class="headerlink" href="#validation-of-pseudonymisation-undergone-with-a-representative-sample" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="validation-of-pseudonymisation-undergone-with-a-representative-sample">
+<h3>Validation of pseudonymisation undergone with a representative sample<a class="headerlink" href="#validation-of-pseudonymisation-undergone-with-a-representative-sample" title="Permalink to this headline">#</a></h3>
 <p>The Radiotherapy AI DICOM server can be configured to not send files to the
 cloud but to instead send the pseudonymised data either to file, or to another
 piece of software via a DICOM send. This utility is to be used after
 installation, and after any upgrades to the DICOM server that adjust the
 pseudonymisation to verify that the appropriate header items within the DICOM
 file have been appropriately de-identified by the installed server.</p>
-</div>
-<div class="section" id="not-to-receive-dicom-images-that-have-identifying-patient-information-burned-into-the-pixel-data">
-<h3>Not to receive DICOM images that have identifying patient information burned into the pixel data<a class="headerlink" href="#not-to-receive-dicom-images-that-have-identifying-patient-information-burned-into-the-pixel-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="not-to-receive-dicom-images-that-have-identifying-patient-information-burned-into-the-pixel-data">
+<h3>Not to receive DICOM images that have identifying patient information burned into the pixel data<a class="headerlink" href="#not-to-receive-dicom-images-that-have-identifying-patient-information-burned-into-the-pixel-data" title="Permalink to this headline">#</a></h3>
 <p>Only identifying patient information that is stored within the standards
 compliant DICOM header is pseudonymised before sending to the cloud sever.</p>
 <p>The DICOM software can be configured to only send through certain DICOM file
@@ -836,22 +943,22 @@ types. By default this is CT, MRI and RT-DICOM specific files. This is to help
 prevent bulk DICOM sends containing other DICOM types that sometimes have burnt
 in pixel data included having those extra images included in the
 pseudonymisation + upload.</p>
-</div>
-<div class="section" id="prompt-access-to-notifications-warnings-and-alerts">
-<h3>Prompt access to notifications, warnings and alerts<a class="headerlink" href="#prompt-access-to-notifications-warnings-and-alerts" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="prompt-access-to-notifications-warnings-and-alerts">
+<h3>Prompt access to notifications, warnings and alerts<a class="headerlink" href="#prompt-access-to-notifications-warnings-and-alerts" title="Permalink to this headline">#</a></h3>
 <p>Through the dashboard interface users can designate warning and alert
 thresholds for a range of relevant scenarios. The software itself may also
 present warnings and alerts. The email address of the user account used to
 access the software needs to be able to be readily accessed so that these
 configurable alerts and warnings can provide the appropriate notification.</p>
-</div>
-</div>
-<div class="section" id="part-of-the-body-type-of-tissue-interacted-with">
-<h2>Part of the Body / Type of Tissue Interacted With<a class="headerlink" href="#part-of-the-body-type-of-tissue-interacted-with" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="part-of-the-body-type-of-tissue-interacted-with">
+<h2>Part of the Body / Type of Tissue Interacted With<a class="headerlink" href="#part-of-the-body-type-of-tissue-interacted-with" title="Permalink to this headline">#</a></h2>
 <p>The device is stand-alone software. It receives input from the user and outputs
 information. It doesn’t come in contact with tissue or bodily fluids.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -875,9 +982,11 @@ information. It doesn’t come in contact with tissue or bodily fluids.</p>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="software-development-maintenance-plan.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -893,17 +1002,17 @@ information. It doesn’t come in contact with tissue or bodily fluids.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      By Radiotherapy AI Pty Ltd<br/>
-    
-        &copy; Copyright 2021 – 2022.<br/>
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Radiotherapy AI Pty Ltd<br/>
+  
+      &copy; Copyright 2021 – 2022.<br/>
+    <div class="extra_footer">
+      <p>
   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
     <img
       alt="Creative Commons Licence" style="border-width:0"
@@ -920,16 +1029,20 @@ information. It doesn’t come in contact with tissue or bodily fluids.</p>
   General content copyright Radiotherapy AI.
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

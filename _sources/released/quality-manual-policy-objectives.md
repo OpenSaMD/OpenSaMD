@@ -30,11 +30,11 @@ documented procedures and a description of their interactions.
 ## 1. Scope
 
 The QMS described in this Quality Manual applies to all products of
-Radiotherapy AI Pty Ltd.
+{{device_manufacturer}}.
 
 ### Role of Company
 
-Radiotherapy AI Pty Ltd is a manufacturer of Medical Devices.
+{{device_manufacturer}} is a manufacturer of Medical Devices.
 
 ### Applicable Standards
 
@@ -61,7 +61,7 @@ being stand-alone software:
 
 ### Quality Policy
 
-Radiotherapy AI Pty Ltd aims to make AI assisted radiotherapy cancer treatments
+{{device_manufacturer}} aims to make AI assisted radiotherapy cancer treatments
 accessible to all. With the goals to reduce treatment errors while improving
 overall treatment efficacy and efficiency.
 
