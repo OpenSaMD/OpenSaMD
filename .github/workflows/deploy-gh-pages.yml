@@ -83,7 +83,7 @@ jobs:
 
       - name: Build docs
         run: |
-          poetry run rtairegulatory
+          poetry run rtai
 
       - name: Add GitHub Pages config files
         if: github.event_name == 'push'

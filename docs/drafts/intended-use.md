@@ -16,8 +16,8 @@
 
 ## Product
 
-- Name: {{device.name}}
-- Version: {{device.version}}
+- Name: {{device_name}}
+- Version: {{device_version}}
 - Basic UDI-DI: N/A
 
 ## Intended Medical Indication

@@ -1,20 +1,20 @@
 [tool.poetry]
-name = "rtairegulatory"
-version = "0.1.16"
-description = "Radiotherapy AI's Regulatory Documentation Manager"
+name = "radiotherapyai"
+version = "0.1.0"
+description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-jupyter-book = "^0.12.1"
-
-rdm = { path = "third-party/rdm", develop = true }
 
 [tool.poetry.dev-dependencies]
+jupyter-book = "*"
+black = "*"
 
 [tool.poetry.scripts]
-rtairegulatory = "rtairegulatory.__main__:app"
+radiotherapyai = "radiotherapyai.__main__:app"
+rtai = "radiotherapyai.__main__:app"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

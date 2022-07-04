@@ -1,3 +1,0 @@
-[submodule "third-party/rdm"]
-	path = third-party/rdm
-	url = git@github.com:RadiotherapyAI/rdm.git
