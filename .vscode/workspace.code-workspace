@@ -1,0 +1,70 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "editor.detectIndentation": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.insertSpaces": true,
+    "editor.rulers": [79, 119],
+    "files.trimTrailingWhitespace": true,
+    "python.formatting.provider": "black",
+    "python.sortImports.path": "isort",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintArgs": [
+      "--rcfile",
+      "$HOME/git/RadiotherapyAI/.pylintrc"
+    ],
+    "[markdown]": {
+      "editor.formatOnSave": false
+    },
+    "[typescriptreact]": {
+      "editor.tabSize": 2,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[javascript]": {
+      "editor.tabSize": 2,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.tabSize": 2,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[python]": {
+      "editor.rulers": [72, 88]
+    },
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/python-embed/*/**": true
+    },
+    "python.testing.promptToConfigure": false,
+    "cSpell.language": "en-GB",
+    "cSpell.words": [
+      "bibfiles",
+      "bibtex",
+      "capa",
+      "fmea",
+      "sphinxcontrib",
+      "targetname"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "executablebookproject.myst-highlight",
+      "jasonnutter.vscode-codeowners"
+    ]
+  }
+}

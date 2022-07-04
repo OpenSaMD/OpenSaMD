@@ -51,3 +51,10 @@ html:
 # sphinx:
 #   extra_extensions:
 #     - sphinxcontrib.excel
+
+
+parse:
+  myst_substitutions:
+    device_name: "Radiotherapy AI Contour Recommendations"
+    device_version: "`v0.1.17`"
+    device_manufacturer: "Radiotherapy AI"

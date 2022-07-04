@@ -14,7 +14,7 @@ General content copyright Radiotherapy AI.
 # Software Development and Maintenance Plan
 
 This document summarizes development and maintenance activities for
-{{device.name}} {{device.version}}.
+{{device_name}} {{device_version}}.
 
 ## Mapping of Standard Requirements to Document Sections
 
