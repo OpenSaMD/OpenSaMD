@@ -79,6 +79,10 @@ jobs:
         run: |
           poetry install
 
+      - name: Run PyRight
+        run: |
+          poetry run pyright
+
       - name: Run PyTest
         run: |
           poetry run pytest

@@ -25,7 +25,7 @@ class Polygon(shapely.geometry.polygon.Polygon):  # type: ignore
 
 
 def from_polygons(a: Polygon, b: Polygon) -> float:
-    """Determine the Dice coefficient metric comparing two shapely polygons.
+    """Determine the Dice coefficient metric from two shapely polygons.
 
     Explanation of the Dice coefficient is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>

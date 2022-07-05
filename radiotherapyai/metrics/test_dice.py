@@ -21,7 +21,7 @@ from . import dice
 Number = Union[float, int]
 
 
-class Case(TypedDict):
+class TestCase(TypedDict):
     label: str
     a: list[tuple[Number, Number]]
     b: list[tuple[Number, Number]]
@@ -29,7 +29,7 @@ class Case(TypedDict):
 
 
 def test_dice_from_polygons():
-    cases: list[Case] = [
+    cases: list[TestCase] = [
         {
             "label": "Two unit squares with 50% overlap",
             "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
