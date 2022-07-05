@@ -17,11 +17,11 @@ import shapely.geometry
 
 class Polygon(shapely.geometry.polygon.Polygon):
     def intersection(self, other: "Polygon") -> "Polygon":
-        ...
+        return super().intersection(other)  # type: ignore
 
     @property
     def area(self) -> float:
-        ...
+        return super().area  # type: ignore
 
 
 def from_polygons(a: Polygon, b: Polygon) -> float:
