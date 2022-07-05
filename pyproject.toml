@@ -27,8 +27,6 @@ exclude = [
     "**/__pycache__",
 ]
 typeCheckingMode = "strict"
-reportMissingTypeStubs = false
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

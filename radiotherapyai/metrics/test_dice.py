@@ -12,17 +12,19 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-from typing import TypedDict
+from typing import TypedDict, Union
 
 import numpy as np
 
 from . import dice
 
+Number = Union[float, int]
+
 
 class Case(TypedDict):
     label: str
-    a: list[tuple[float, float]]
-    b: list[tuple[float, float]]
+    a: list[tuple[Number, Number]]
+    b: list[tuple[Number, Number]]
     expected_dice: float
 
 

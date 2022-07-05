@@ -12,10 +12,10 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-import shapely.geometry
+import shapely.geometry  # type: ignore
 
 
-class Polygon(shapely.geometry.polygon.Polygon):
+class Polygon(shapely.geometry.polygon.Polygon):  # type: ignore
     def intersection(self, other: "Polygon") -> "Polygon":
         return super().intersection(other)  # type: ignore
 
