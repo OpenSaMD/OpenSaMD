@@ -19,11 +19,37 @@ from .dice import dice_from_polygons
 
 
 def test_dice_from_polygons():
-    # Two unit squares with 50% overlap
-    a = shapely.geometry.polygon.Polygon([(0, 0), (0, 1), (1, 1), (1, 0)])
-    b = shapely.geometry.polygon.Polygon([(0.5, 0), (0.5, 1), (1.5, 1), (1.5, 0)])
+    cases = [
+        {
+            "label": "Two unit squares with 50% overlap",
+            "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
+            "b": [(0.5, 0), (0.5, 1), (1.5, 1), (1.5, 0)],
+            "expected_dice": 2 * 0.5 / (1 + 1),
+        },
+        {
+            "label": "Two unit squares with no overlap",
+            "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
+            "b": [(1, 0), (1, 1), (1, 1), (1, 0)],
+            "expected_dice": 0,
+        },
+        {
+            "label": "Two unit squares with 100% overlap",
+            "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
+            "b": [(0, 0), (0, 1), (1, 1), (1, 0)],
+            "expected_dice": 1,
+        },
+        {
+            "label": "Squares with different area",
+            "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
+            "b": [(0, 0), (0, 2), (2, 2), (2, 0)],
+            "expected_dice": 2 * 1 / (1 + 4),
+        },
+    ]
 
-    expected_dice = 2 * 0.5 / (1 + 1)
-    returned_dice = dice_from_polygons(a, b)
+    for case in cases:
+        a = shapely.geometry.polygon.Polygon(case["a"])
+        b = shapely.geometry.polygon.Polygon(case["b"])
 
-    assert np.isclose(returned_dice, expected_dice)
+        returned_dice = dice_from_polygons(a, b)
+
+        assert np.isclose(returned_dice, case["expected_dice"]), case["label"]
