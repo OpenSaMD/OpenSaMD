@@ -15,17 +15,24 @@
 import shapely.geometry
 
 
-def dice_from_polygons(
-    a: shapely.geometry.polygon.LinearRing, b: shapely.geometry.polygon.LinearRing
-) -> float:
+class Polygon(shapely.geometry.polygon.Polygon):
+    def intersection(self, other: "Polygon") -> "Polygon":
+        ...
+
+    @property
+    def area(self) -> float:
+        ...
+
+
+def from_polygons(a: Polygon, b: Polygon) -> float:
     """Determine the Dice coefficient metric comparing two shapely polygons.
 
     Explanation of the Dice coefficient is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
     Args:
-        a (shapely.geometry.polygon.LinearRing)
-        b (shapely.geometry.polygon.LinearRing)
+        a (shapely.geometry.polygon.Polygon)
+        b (shapely.geometry.polygon.Polygon)
     """
 
     return 2 * a.intersection(b).area / (a.area + b.area)

@@ -14,10 +14,21 @@ numpy = "*"
 jupyter-book = "*"
 black = "*"
 pytest = "*"
+pyright = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:app"
 rtai = "radiotherapyai.__main__:app"
+
+[tool.pyright]
+include = ["radiotherapyai"]
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

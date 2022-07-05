@@ -12,14 +12,22 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-import numpy as np
-import shapely.geometry
+from typing import TypedDict
 
-from .dice import dice_from_polygons
+import numpy as np
+
+from . import dice
+
+
+class Case(TypedDict):
+    label: str
+    a: list[tuple[float, float]]
+    b: list[tuple[float, float]]
+    expected_dice: float
 
 
 def test_dice_from_polygons():
-    cases = [
+    cases: list[Case] = [
         {
             "label": "Two unit squares with 50% overlap",
             "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
@@ -47,9 +55,9 @@ def test_dice_from_polygons():
     ]
 
     for case in cases:
-        a = shapely.geometry.polygon.Polygon(case["a"])
-        b = shapely.geometry.polygon.Polygon(case["b"])
+        a = dice.Polygon(case["a"])
+        b = dice.Polygon(case["b"])
 
-        returned_dice = dice_from_polygons(a, b)
+        returned_dice = dice.from_polygons(a, b)
 
-        assert np.isclose(returned_dice, case["expected_dice"]), case["label"]
+        assert np.abs(returned_dice - case["expected_dice"]) < 0.00001, case["label"]
