@@ -1,4 +1,4 @@
-name: Docs
+name: PyTest
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: ["gh-pages"]
+        task: ["pytest"]
         python-version: ["3.9"]
 
     steps:
@@ -79,19 +79,6 @@ jobs:
         run: |
           poetry install
 
-      - name: Build docs
+      - name: Run PyTest
         run: |
-          poetry run rtai
-
-      - name: Add GitHub Pages config files
-        if: github.event_name == 'push'
-        run: |
-          echo docs.radiotherapy.ai > docs/_build/html/CNAME
-          touch docs/_build/html/.nojekyll
-
-      - name: Deploy to gh-pages branch
-        if: github.event_name == 'push'
-        uses: JamesIves/github-pages-deploy-action@4.1.3
-        with:
-          branch: gh-pages
-          folder: docs/_build/html
+          poetry run pytest
