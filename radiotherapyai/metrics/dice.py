@@ -28,4 +28,4 @@ def dice_from_polygons(
         b (shapely.geometry.polygon.LinearRing)
     """
 
-    return 2 * a.union(b).area / (a.area + b.area)
+    return 2 * a.intersection(b).area / (a.area + b.area)
