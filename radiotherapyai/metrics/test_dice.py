@@ -12,19 +12,18 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-from typing import TypedDict, Union
+from typing import TypedDict
 
 import numpy as np
+import shapely.geometry
 
 from . import dice
-
-Number = Union[float, int]
 
 
 class TestCase(TypedDict):
     label: str
-    a: list[tuple[Number, Number]]
-    b: list[tuple[Number, Number]]
+    a: list[tuple[float, float]]
+    b: list[tuple[float, float]]
     expected_dice: float
 
 
@@ -57,8 +56,8 @@ def test_dice_from_polygons():
     ]
 
     for case in cases:
-        a = dice.Polygon(case["a"])
-        b = dice.Polygon(case["b"])
+        a = shapely.geometry.Polygon(case["a"])
+        b = shapely.geometry.Polygon(case["b"])
 
         returned_dice = dice.from_polygons(a, b)
 

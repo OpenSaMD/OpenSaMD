@@ -15,6 +15,8 @@ jupyter-book = "*"
 black = "*"
 pytest = "*"
 pyright = "*"
+pylint = "*"
+pytest-pylint = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:app"

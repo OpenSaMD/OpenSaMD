@@ -12,27 +12,18 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-import shapely.geometry  # type: ignore
+import shapely.geometry
 
 
-class Polygon(shapely.geometry.polygon.Polygon):  # type: ignore
-    def intersection(self, other: "Polygon") -> "Polygon":
-        return super().intersection(other)  # type: ignore
-
-    @property
-    def area(self) -> float:
-        return super().area  # type: ignore
-
-
-def from_polygons(a: Polygon, b: Polygon) -> float:
+def from_polygons(a: shapely.geometry.Polygon, b: shapely.geometry.Polygon) -> float:
     """Determine the Dice coefficient metric from two shapely polygons.
 
     Explanation of the Dice coefficient is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
     Args:
-        a (shapely.geometry.polygon.Polygon)
-        b (shapely.geometry.polygon.Polygon)
+        a (shapely.geometry.Polygon)
+        b (shapely.geometry.Polygon)
     """
 
     return 2 * a.intersection(b).area / (a.area + b.area)
