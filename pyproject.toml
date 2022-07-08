@@ -17,6 +17,7 @@ pytest = "*"
 pyright = "*"
 pylint = "*"
 pytest-pylint = "*"
+pre-commit = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:app"
@@ -29,6 +30,14 @@ exclude = [
     "**/__pycache__",
 ]
 typeCheckingMode = "strict"
+
+[tool.isort]
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
