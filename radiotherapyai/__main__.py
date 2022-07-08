@@ -19,5 +19,11 @@ Currently only utilised to build the docs
 
 from . import _build
 
-if __name__ == "__main__":
+
+def app():
+    """The function called by the CLI commands `rtai` and `radiotherapyai`"""
     _build.build()
+
+
+if __name__ == "__main__":
+    app()

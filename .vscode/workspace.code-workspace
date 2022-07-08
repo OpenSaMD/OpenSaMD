@@ -58,6 +58,8 @@
       "bibtex",
       "capa",
       "fmea",
+      "radiotherapyai",
+      "rtai",
       "sphinxcontrib",
       "targetname"
     ]
