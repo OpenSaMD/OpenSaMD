@@ -13,8 +13,8 @@
 # permissions and limitations under the License.
 
 import os
-import subprocess
 import pathlib
+import subprocess
 
 HERE = pathlib.Path(__file__)
 REPO_ROOT = HERE.parents[1]
