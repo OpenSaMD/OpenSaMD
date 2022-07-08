@@ -1,3 +1,7 @@
+[MASTER]
+ignore =
+    typings
+
 [MESSAGES CONTROL]
 disable =
     invalid-name

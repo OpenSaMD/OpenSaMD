@@ -12,12 +12,12 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+"""CLI entrance
 
-def app():
-    from . import _build
+Currently only utilised to build the docs
+"""
 
-    _build.build()
-
+from . import _build
 
 if __name__ == "__main__":
-    app()
+    _build.build()

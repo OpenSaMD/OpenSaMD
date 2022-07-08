@@ -24,6 +24,8 @@ TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
 
 
 def build():
+    """Build the Jupyter Book documentation"""
+
     env = os.environ.copy()
 
     subprocess.check_call(
