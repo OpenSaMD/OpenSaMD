@@ -14,7 +14,6 @@
 
 """Determining the Dice metric"""
 
-import shapely.geometry
 import shapely.geometry.base
 
 
