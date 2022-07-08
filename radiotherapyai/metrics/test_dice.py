@@ -20,15 +20,14 @@ import shapely.geometry
 from . import dice
 
 
-class TestCase(TypedDict):
-    label: str
-    a: list[tuple[float, float]]
-    b: list[tuple[float, float]]
-    expected_dice: float
-
-
 def test_dice_from_polygons():
-    cases: list[TestCase] = [
+    """Compare a range of simple easily calculable dice scores to their
+    shapely based equivalent.
+
+    The expected Dice is 2 * intersection_area / sum_of_areas
+    """
+
+    cases: list[_TestCase] = [
         {
             "label": "Two unit squares with 50% overlap",
             "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
@@ -62,3 +61,10 @@ def test_dice_from_polygons():
         returned_dice = dice.from_shapely(a, b)
 
         assert np.abs(returned_dice - case["expected_dice"]) < 0.00001, case["label"]
+
+
+class _TestCase(TypedDict):
+    label: str
+    a: list[tuple[float, float]]
+    b: list[tuple[float, float]]
+    expected_dice: float

@@ -95,7 +95,7 @@ jobs:
       - name: Run PyTest
         if: matrix.task == 'pytest'
         run: |
-          poetry run pytest
+          poetry run pytest --pylint
 
       # ====
       # Docs
