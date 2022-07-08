@@ -59,6 +59,6 @@ def test_dice_from_polygons():
         a = shapely.geometry.Polygon(case["a"])
         b = shapely.geometry.Polygon(case["b"])
 
-        returned_dice = dice.from_polygons(a, b)
+        returned_dice = dice.from_shapely(a, b)
 
         assert np.abs(returned_dice - case["expected_dice"]) < 0.00001, case["label"]

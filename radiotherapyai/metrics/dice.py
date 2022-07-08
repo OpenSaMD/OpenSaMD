@@ -15,15 +15,17 @@
 import shapely.geometry
 
 
-def from_polygons(a: shapely.geometry.Polygon, b: shapely.geometry.Polygon) -> float:
-    """Determine the Dice coefficient metric from two shapely polygons.
+def from_shapely(
+    a: shapely.geometry.BaseGeometry, b: shapely.geometry.BaseGeometry
+) -> float:
+    """Determine the Dice coefficient metric from two shapely geometries.
 
     Explanation of the Dice coefficient is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
     Args:
-        a (shapely.geometry.Polygon)
-        b (shapely.geometry.Polygon)
+        a (shapely.geometry.BaseGeometry)
+        b (shapely.geometry.BaseGeometry)
     """
 
     return 2 * a.intersection(b).area / (a.area + b.area)
