@@ -82,11 +82,9 @@ as software safety class A. The (external) risk control measures include:
 
 #### Programming Languages
 
-| System                     | Name       | Version |
-| -------------------------- | ---------- | ------- |
-| Cloud container instances  | Python     | 3.9     |
-| Local DICOM and app server | Python     | 3.9     |
-| Local frontend dashboard   | TypeScript | 4.3     |
+| System                          | Name   | Version |
+| ------------------------------- | ------ | ------- |
+| Local DICOM server and ML model | Python | 3.9     |
 
 #### Development Software
 
@@ -96,40 +94,19 @@ as software safety class A. The (external) risk control measures include:
 
 ### 2.3 System Requirement / Target Runtime
 
-| System                     | Name     | Version |
-| -------------------------- | -------- | ------- |
-| Cloud container instances  | CPython  | 3.9     |
-| Local DICOM and app server | CPython  | 3.9     |
-| Local frontend dashboard   | Electron | 15.0    |
+| System                          | Name    | Version |
+| ------------------------------- | ------- | ------- |
+| Local DICOM server and ML model | CPython | 3.9     |
 
-Minimum system requirements for local systems:
+Minimum system requirements:
 
-- Consumer grade single-core CPU
-- 2 GB of RAM
-- 1 MBit/s up and downlink
-- 20GB SSD storage
+- Consumer grade CPU
+- 4 GB of RAM
+- 100 GB SSD storage
 
-Minimum system requirements for `convert` cloud container:
+Additional recommended system requirements:
 
-- Server-grade single-core CPU
-- 10 GB of RAM
-- 1 GBit/s up and downlink
-- 20GB SSD storage
-
-Minimum system requirements for `predict` cloud container:
-
-- Server-grade single-core CPU
-- NVIDIA GPU with 16 GB of VRAM
-- 12 GB of RAM
-- 1 GBit/s up and downlink
-- 20GB SSD storage
-
-Minimum system requirements for `api` cloud container:
-
-- Server-grade single-core CPU
-- 512 MiB of RAM
-- 1 GBit/s up and downlink
-- 20GB SSD storage
+- A CUDA enabled NVIDIA GPU
 
 ## 3 Design Phases
 
@@ -138,17 +115,14 @@ are detailed within [](../released/sop-integrated-software-development.md).
 
 ## 4 Avoiding Common Software Defects Based on Selected Programming Technology
 
-<!-- TODO: Do after risk analysis is complete -->
-
-> Discuss how your selected programming technology may introduce risks and how
-> you plan to avoid them. With modern, dynamically-typed languages, an obvious
-> risk is that you encounter runtime exceptions. So you could argue that your
-> test coverage is great and compensates for that. You could also link to your
-> risk analysis here if you analyse those risks further.
+Python is a dynamically typed language, however, modern Python enables strict
+type checking using Microsoft's PyRight and PyLance tools. These type checkers
+are activated and run on strict mode. These are activated within the
+development environment and within the continuous integration suite.
 
 ## 5 Configuration Management and Version Control
 
-git is used as version control software. All source code and build files are
+`git` is used as version control software. All source code and build files are
 committed to version control
 
 When implementing software requirements, developers create a new branch
@@ -181,23 +155,23 @@ For each commit there is a pre-commit check which verifies that:
 - TOML files are valid
 
 For each pull request, there are automated checks within GitHub actions which
-check the items described within **8 Software System Test Activities**.
+check the items described within [](software-tests).
 
 Either manual testing is undergone or new automated tests are written to verify
 that the current code changes fulfil the software requirements.
 
-Should the team be a size larger than 1 then all PRs are to undergo code review
-before merging.
+All PRs are to undergo code review before merging.
+
+(software-tests)=
 
 ## 8 Software System Test Activities
 
 For every pull request the following automated GitHub actions based system
 tests are undergone:
 
-- Python and Typescript unit and integration testing suites
-- Python and Typescript linting
-- Typescript type checker
-- Python mypy type checker
+- Python unit and integration testing suites with pytest
+- Python linting with pylint
+- Python pyright type checker
 
 ## 9 Maintenance Activities
 
