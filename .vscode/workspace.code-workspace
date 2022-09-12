@@ -57,8 +57,11 @@
       "bibtex",
       "capa",
       "fmea",
+      "maxdepth",
       "sphinxcontrib",
-      "targetname"
+      "targetname",
+      "techdoc",
+      "toctree"
     ]
   },
   "extensions": {
