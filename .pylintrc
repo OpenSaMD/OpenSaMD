@@ -1,0 +1,7 @@
+[MASTER]
+ignore =
+    typings
+
+[FORMAT]
+good-names =
+    i,j,k,x,y,a,b

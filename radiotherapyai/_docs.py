@@ -13,18 +13,24 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""CLI entrance
+"""Building the documentation"""
 
-Currently only utilised to build the docs
-"""
+import os
+import pathlib
+import subprocess
 
-from . import _docs
+HERE = pathlib.Path(__file__)
+REPO_ROOT = HERE.parents[1]
+DOCS_DIR = REPO_ROOT / "docs"
+SRC_DIR = REPO_ROOT / "src"
+TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
 
 
-def app():
-    """The function called by the CLI commands `rtai` and `radiotherapyai`"""
-    _docs.build()
+def build():
+    """Build the Jupyter Book documentation"""
 
+    env = os.environ.copy()
 
-if __name__ == "__main__":
-    app()
+    subprocess.check_call(
+        ["jupyter-book", "build", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
+    )
