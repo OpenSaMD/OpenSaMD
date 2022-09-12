@@ -53,7 +53,7 @@ The following categories of Risk Control Measures were implemented in priority a
 
 1. Inherent safety by design
 2. Protective measures
-3. Information for safety 
+3. Information for safety
 
 In total, *\<no. of risk control measures\>* were implemented.
 

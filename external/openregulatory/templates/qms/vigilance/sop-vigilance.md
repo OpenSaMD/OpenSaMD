@@ -80,7 +80,7 @@ Incidents are reported to the authority of the country in which the reportable i
 **Germany:**
 
 * Federal Institute for Drugs and Medical Devices (BfArM)
-* Website: www.bfarm.de 
+* Website: www.bfarm.de
 * Email: medizinprodukte@bfarm.de; Phone: +49 228 207 5355
 * Incident reporting: look for “MIR Formular”
 
@@ -111,7 +111,7 @@ Incidents are reported to the authority of the country in which the reportable i
 **Other national authorities:**
 
 More contact data can be found on the website of the European Commission:
-https://ec.europa.eu/health/medical-devices-sector/new-regulations/contacts_en 
+https://ec.europa.eu/health/medical-devices-sector/new-regulations/contacts_en
 
 FSCA is reported to the authorities in the countries in which the FSCA is carried out, including incidents
 which occurred outside of the European Economic Area (EEA) but resulted in a recall within European countries.
