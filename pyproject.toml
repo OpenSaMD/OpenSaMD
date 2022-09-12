@@ -3,7 +3,7 @@ name = "radiotherapyai"
 version = "0.1.0"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
-license = "Apache-2.0"
+license = "AGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
 python = "^3.9"
