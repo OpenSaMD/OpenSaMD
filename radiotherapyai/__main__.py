@@ -18,12 +18,12 @@
 Currently only utilised to build the docs
 """
 
-from . import _build
+from . import _docs
 
 
 def app():
     """The function called by the CLI commands `rtai` and `radiotherapyai`"""
-    _build.build()
+    _docs.build()
 
 
 if __name__ == "__main__":
