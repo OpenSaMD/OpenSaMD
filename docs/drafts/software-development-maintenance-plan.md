@@ -175,7 +175,7 @@ All public functions will be documented through doc strings or comments.
 
 For each commit there is a pre-commit check which verifies that:
 
-- All code ad-hears to the black style guide
+- All code adheres to the black style guide
 - Imports are appropriately organised
 - Jupyter notebook outputs are not committed
 - TOML files are valid
