@@ -2,6 +2,6 @@
 ignore =
     typings
 
-[MESSAGES CONTROL]
-disable =
-    invalid-name
+[FORMAT]
+good-names =
+    i,j,k,x,y,a,b
