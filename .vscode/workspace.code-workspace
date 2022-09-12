@@ -17,9 +17,10 @@
     "python.linting.lintOnSave": true,
     "python.linting.pylintEnabled": true,
     "python.linting.mypyEnabled": true,
-    "python.linting.pylintArgs": [
-      "--rcfile",
-      "$HOME/git/RadiotherapyAI/.pylintrc"
+    "python.linting.ignorePatterns": [
+      "**/site-packages/**/*.py",
+      ".vscode/*.py",
+      "**/*.pyi"
     ],
     "[markdown]": {
       "editor.formatOnSave": false
@@ -57,6 +58,8 @@
       "bibtex",
       "capa",
       "fmea",
+      "radiotherapyai",
+      "rtai",
       "sphinxcontrib",
       "targetname"
     ]

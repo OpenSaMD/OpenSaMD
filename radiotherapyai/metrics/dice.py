@@ -13,18 +13,22 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""CLI entrance
+"""Determining the Dice metric"""
 
-Currently only utilised to build the docs
-"""
-
-from . import _docs
+import shapely.geometry.base
 
 
-def app():
-    """The function called by the CLI commands `rtai` and `radiotherapyai`"""
-    _docs.build()
+def from_shapely(
+    a: shapely.geometry.base.BaseGeometry, b: shapely.geometry.base.BaseGeometry
+) -> float:
+    """Determine the Dice metric from two shapely geometries.
 
+    Explanation of the Dice is available at:
+    <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
-if __name__ == "__main__":
-    app()
+    Args:
+        a (shapely.geometry.base.BaseGeometry)
+        b (shapely.geometry.base.BaseGeometry)
+    """
+
+    return 2 * a.intersection(b).area / (a.area + b.area)

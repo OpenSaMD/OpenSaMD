@@ -1,4 +1,4 @@
-name: Docs
+name: Main
 
 on:
   push:
@@ -14,13 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: ["gh-pages"]
+        task: ["pytest", "docs", "pyright"]
         python-version: ["3.9"]
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: true
 
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
@@ -81,18 +79,41 @@ jobs:
         run: |
           poetry install
 
+      # =======
+      # PyRight
+      # =======
+
+      - name: Run PyRight
+        if: matrix.task == 'pyright'
+        run: |
+          poetry run pyright
+
+      # ======
+      # PyTest
+      # ======
+
+      - name: Run PyTest
+        if: matrix.task == 'pytest'
+        run: |
+          poetry run pytest --pylint
+
+      # ====
+      # Docs
+      # ====
+
       - name: Build docs
+        if: matrix.task == 'docs'
         run: |
           poetry run rtai
 
       - name: Add GitHub Pages config files
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && matrix.task == 'docs'
         run: |
           echo docs.radiotherapy.ai > docs/_build/html/CNAME
           touch docs/_build/html/.nojekyll
 
       - name: Deploy to gh-pages branch
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && matrix.task == 'docs'
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           branch: gh-pages
