@@ -57,11 +57,25 @@
       "bibfiles",
       "bibtex",
       "capa",
+      "creativecommons",
       "fmea",
+      "Generis",
+      "labeled",
+      "nojekyll",
+      "pylint",
+      "pyright",
+      "pytest",
       "radiotherapyai",
       "rtai",
+      "setuptools",
+      "snok",
       "sphinxcontrib",
-      "targetname"
+      "sublicensable",
+      "synched",
+      "targetname",
+      "venv",
+      "virtualenvs",
+      "waivable"
     ]
   },
   "extensions": {
