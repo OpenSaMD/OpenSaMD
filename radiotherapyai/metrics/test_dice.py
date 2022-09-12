@@ -59,7 +59,10 @@ def test_dice_from_polygons():
             "label": "Mirrored concave box-C shapes",
             "a": [(0, 0), (0, 3), (2, 3), (2, 2), (1, 2), (1, 1), (2, 1), (2, 0)],
             "b": [(0, 0), (0, 1), (1, 1), (1, 2), (0, 2), (0, 3), (2, 3), (2, 0)],
-            # Intersects at top and bottom third
+            # Creates two C-shapes each with 5 unit square area. The
+            # shapes are the mirror of each other. Hence there is no
+            # overlap in the middle third, but the top and bottom
+            # sections are both intersected.
             "expected_dice": 2 * 4 / (5 + 5),
         },
     ]
