@@ -1,20 +1,29 @@
+<!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+
 # Software Development and Maintenance Plan
 
-> This document is related to your product. You somehow need to associate it with it. The easiest way would be
-> to just put all product-related documents into a folder in your QMS so that the association is
-> clear. Alternatively, you could mention the related product and version here, but then you'd have to update
-> the version here any time you do a new release. Painful!
-
-This document summarizes development and maintenance activities.
+This document summarizes development and maintenance activities for
+{{device_name}} {{device_version}}.
 
 ## Mapping of Standard Requirements to Document Sections
 
 | ISO 13485:2016 Section                | Document Section |
-|---------------------------------------|------------------|
+| ------------------------------------- | ---------------- |
 | 7.3.2 Design and Development Planning | 1, 2, 3, 7       |
 
 | Classes | IEC 62304:2006 Section                                                     | Document Section |
-|---------|----------------------------------------------------------------------------|------------------|
+| ------- | -------------------------------------------------------------------------- | ---------------- |
 | A, B, C | 4.4.2 Risk Management Activities                                           | 1                |
 | A, B, C | 5.1.1 a) (Processes)                                                       | 1                |
 | A, B, C | 5.1.1 b) (Deliverables)                                                    | 1                |
@@ -38,138 +47,159 @@ This document summarizes development and maintenance activities.
 
 Please see the relevant processes for the following activities:
 
- * Risk management activities incl. SOUP risks: SOP Integrated Software Development
- * Problem resolution: SOP Problem Resolution
- * Software development incl. deliverables, traceability, regular update of software development plan: SOP
-   Integrated Software Development
- * Change management: SOP Change Management
- * SOUP List
- * SOP Usability Engineering
+- Risk management activities incl. SOUP risks:
+  [](../released/sop-integrated-software-development)
+- Problem resolution: [](../released/sop-software-problem-resolution)
+- Software development incl. deliverables, traceability, regular update of
+  software development plan: [](../released/sop-integrated-software-development)
+- Change management: [](../released/sop-change-management)
+- SOUP List
+- SOP Usability Engineering
 
 ## 2. Required Resources
 
 ### 2.1 Team
 
-| Role               | Count | Names                    |
-|--------------------|-------|--------------------------|
-| Frontend Developer | 2     | Ada Lovelace, Steve Jobs |
-| Backend Developer  | 1     | Alan Turing              |
+| Role                                              | Count | Names       |
+| ------------------------------------------------- | ----- | ----------- |
+| CEO, Developer, Data Scientist, Medical Physicist | 1     | Simon Biggs |
 
 ### 2.2 Software
 
-Describe your device's software safety class according to IEC 62304 and your reasoning behind the classification.
+While the software system can contribute to hazardous situations, none of those
+result in unacceptable risk after consideration of risk control measures
+external to the software system. Therefore, the software system is classified
+as software safety class A. The (external) risk control measures include:
+
+- The contour data is provided to an independent software treatment planning
+  system where that independent software is utilised for refinement and
+  approval.
+- Contour refinement is undergone by a relevant qualified health practitioner.
+- The subsequent refined contours are then reviewed by at least one other
+  independent relevant qualified health practitioner. Generally however the
+  whole plan, including the contours, goes through multiple independent
+  reviewers before being utilised for treatment.
 
 #### Programming Languages
 
-> List the languages you’ll be using, including compiler and language versions.
-
-| Name   | Version |
-|--------|---------|
-| Python | 3.8     |
+| System                     | Name       | Version |
+| -------------------------- | ---------- | ------- |
+| Cloud container instances  | Python     | 3.9     |
+| Local DICOM and app server | Python     | 3.9     |
+| Local frontend dashboard   | TypeScript | 4.3     |
 
 #### Development Software
 
-> List software used to support development, e.g., IDEs.
-
-| Name    | Version  |
-|---------|----------|
-| PyCharm | 2020.1.4 |
+| Name   | Version |
+| ------ | ------- |
+| VSCode | >= 1.64 |
 
 ### 2.3 System Requirement / Target Runtime
 
-> List your target runtime(s).
+| System                     | Name     | Version |
+| -------------------------- | -------- | ------- |
+| Cloud container instances  | CPython  | 3.9     |
+| Local DICOM and app server | CPython  | 3.9     |
+| Local frontend dashboard   | Electron | 15.0    |
 
-| Name    | Version |
-|---------|---------|
-| CPython | 3.8     |
+Minimum system requirements for local systems:
 
-> Specify system requirements, e.g., the minimum specifications of the server / compute instance you'll be
-> running your software on
+- Consumer grade single-core CPU
+- 2 GB of RAM
+- 1 MBit/s up and downlink
+- 20GB SSD storage
 
-*Minimum system requirements:*
+Minimum system requirements for `convert` cloud container:
 
- * *Server-grade dual-core CPU, e.g., Intel Xeon E3-1230 v5 or higher*
- * *4 GB of RAM*
- * *1 GBit/s up- and downlink*
- * *20GB SSD storage*
+- Server-grade single-core CPU
+- 10 GB of RAM
+- 1 GBit/s up and downlink
+- 20GB SSD storage
+
+Minimum system requirements for `predict` cloud container:
+
+- Server-grade single-core CPU
+- NVIDIA GPU with 16 GB of VRAM
+- 12 GB of RAM
+- 1 GBit/s up and downlink
+- 20GB SSD storage
+
+Minimum system requirements for `api` cloud container:
+
+- Server-grade single-core CPU
+- 512 MiB of RAM
+- 1 GBit/s up and downlink
+- 20GB SSD storage
 
 ## 3 Design Phases
 
-> The 13485 requires you to specify "Design Phases". Here are some suggestions which you could use.
-
-| Title          | Date | Description |
-|----------------|------|-------------|
-| Specification  |      |             |
-| Implementation |      |             |
-| Testing        |      |             |
-| Validation     |      |             |
-| Release        |      |             |
+The design phases and the corresponding review and verification requirements
+are detailed within [](../released/sop-integrated-software-development.md).
 
 ## 4 Avoiding Common Software Defects Based on Selected Programming Technology
 
-> Discuss how your selected programming technology may introduce risks and how you plan to avoid them. With
-> modern, dynamically-typed languages, an obvious risk is that you encounter runtime exceptions. So you could
-> argue that your test coverage is great and compensates for that. You could also link to your risk analysis
-> here if you analyse those risks further.
+<!-- TODO: Do after risk analysis is complete -->
+
+> Discuss how your selected programming technology may introduce risks and how
+> you plan to avoid them. With modern, dynamically-typed languages, an obvious
+> risk is that you encounter runtime exceptions. So you could argue that your
+> test coverage is great and compensates for that. You could also link to your
+> risk analysis here if you analyse those risks further.
 
 ## 5 Configuration Management and Version Control
 
-> Describe which version control software you're using (probably git, like all human beings on this planet
-> right now, except enterprise developers). Also describe your branching model, i.e., how your developers
-> create branches during development, how you name them and how you merge them (pull requests? merge commits?
-> squash before?). Your code review will be described in the next section.
->
-> Importantly, describe which things (code, build files, etc.) are put in version control. Describe how you
-> name versions and how you tag them. Your goal should be that you can retrieve an old version and build
-> it. Why? Something with a newer version may go wrong (harm patients) and you may need to roll back.
+git is used as version control software. All source code and build files are
+committed to version control
 
-*git is used as version control software. All source code and build files are committed to version control.*
+When implementing software requirements, developers create a new branch
+starting at `main`. During development, developers may create intermediate
+commits on this development branch.
 
-*When implementing software requirements, developers create a new branch starting at master. During
-development, developers may create intermediate commits on this development branch.*
+When implementation is completed, a new merge commit to `main` is created.
 
-*When implementation is completed, a new merge commit to master is created.*
+**This is also the activity which constitutes integration of software units.**
 
-***This is also the activity which constitutes integration of software units.***
+For each release, the goal is to be able to uniquely identify it and retrieve
+all relevant files (code, configuration files like build scripts, SOUPs, etc.)
+at any time in the future.
 
-*For each release, the goal is to be able to uniquely identify it and retrieve all relevant files (code,
-configuration files like build scripts, SOUPs, etc.) at any time in the future.*
-
-*When a new software version is released, its commit is tagged in git. The tag is constructed by adhering to
-semver ([semver.org](https://semver.org)) 2.0.0 which results in a version of format MAJOR.MINOR.PATCH,
-e.g., 1.0.0.*
+When a new software version is released, its commit is tagged in git. The tag
+is constructed by adhering to semver ([semver.org](https://semver.org)) 2.0.0
+which results in a version of format MAJOR.MINOR.PATCH, e.g. 1.0.0.
 
 ## 6 Documentation Activities
 
-> Describe your policy on what should be documented while you develop software. Maybe you want to require
-> your developers to document all methods which are private. Maybe you want to keep an up-to-date software
-> architecture diagram in the repository, etc.
+All public functions will be documented through doc strings or comments.
 
-## 7 Implementation Verification Activities
+## 7 Verification Activities
 
-> Describe verification activities, e.g. code review.
+For each commit there is a pre-commit check which verifies that:
 
-*For each pull request, a code review is performed by a team member who was not the main author of the code
-under review. The code review is only marked as "approved" if the code complies with the code review
-criteria. This is:*
+- All code ad-hears to the black style guide
+- Imports are appropriately organised
+- Jupyter notebook outputs are not committed
+- TOML files are valid
 
- * *Code fulfils the software requirements*
- * *Adherence to [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)*
+For each pull request, there are automated checks within GitHub actions which
+check the items described within **8 Software System Test Activities**.
+
+Either manual testing is undergone or new automated tests are written to verify
+that the current code changes fulfil the software requirements.
+
+Should the team be a size larger than 1 then all PRs are to undergo code review
+before merging.
 
 ## 8 Software System Test Activities
 
-> Describe software system test activities. This could be continuous integration which is triggered by opening
-> a pull request (e.g. Travis CI, Circle CI). Describe what is tested and how that automated system works.
+For every pull request the following automated GitHub actions based system
+tests are undergone:
 
-*Integration tests are included in software system tests.*
+- Python and Typescript unit and integration testing suites
+- Python and Typescript linting
+- Typescript type checker
+- Python mypy type checker
 
-## 9 Validation Activities
+## 9 Maintenance Activities
 
-Validation is carried out as formative and summative usability evaluation as described in the software development process. A usability evaluation file (plan, protocol and report) will be prepared.
-
-## 10 Maintenance Activities
-
-> Describe how often you check SOUP issue trackers and how you document them.
-
-*SOUP issue trackers are checked at least once every 6 months. The verification date is updated in the SOUP
-list accordingly.*
+SOUP issue trackers are checked at least once every 6 months. The verification
+date is updated in the SOUP list accordingly.
