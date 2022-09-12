@@ -55,6 +55,13 @@ def test_dice_from_polygons():
             "b": [(0, 0), (0, 2), (2, 2), (2, 0)],
             "expected_dice": 2 * 1 / (1 + 4),
         },
+        {
+            "label": "Mirrored concave box-C shapes",
+            "a": [(0, 0), (0, 3), (2, 3), (2, 2), (1, 2), (1, 1), (2, 1), (2, 0)],
+            "b": [(0, 0), (0, 1), (1, 1), (1, 2), (0, 2), (0, 3), (2, 3), (2, 0)],
+            # Intersects at top and bottom third
+            "expected_dice": 2 * 4 / (5 + 5),
+        },
     ]
 
     for case in cases:
