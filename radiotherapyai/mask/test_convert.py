@@ -81,16 +81,25 @@ def test_conversion_round_trip():
 
     assert dice.from_contours(a=contours, b=round_trip_contours) > 0.99
 
-    fig, ax = plt.subplots()
-    ax.pcolormesh(x_grid, y_grid, mask, shading="nearest")
-    ax.plot(x, y)
+    fig, ax = plt.subplots()  # pyright: ignore [reportUnknownMemberType]
+    c = ax.pcolormesh(  # pyright: ignore [reportUnknownMemberType]
+        x_grid, y_grid, mask, shading="nearest"
+    )
+    fig.colorbar(c)  # pyright: ignore [reportUnknownMemberType]
+
+    ax.plot(  # pyright: ignore [reportUnknownMemberType]
+        x, y, "C3", lw=4, label="original contours"
+    )
 
     for contour in round_trip_contours:
-        ax.plot(contour[:, 1], contour[:, 0])
+        ax.plot(  # pyright: ignore [reportUnknownMemberType]
+            contour[:, 1], contour[:, 0], "--", lw=2, label="round-trip contours"
+        )
 
-    ax.set_aspect("equal")
+    ax.set_aspect("equal")  # pyright: ignore [reportUnknownMemberType]
+    fig.legend()  # pyright: ignore [reportUnknownMemberType]
 
-    fig.savefig(FIGURE_DIR / "round-trip.png")
+    fig.savefig(FIGURE_DIR / "round-trip.png")  # type: ignore
 
 
 # For this test to pass, need to implement contour keyhole technique.
