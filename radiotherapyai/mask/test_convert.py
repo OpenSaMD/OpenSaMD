@@ -30,41 +30,20 @@ HERE = pathlib.Path(__file__).parent
 FIGURE_DIR = HERE / "test_figures"
 
 
-def test_mask_at_edge_of_image():
-    """Test the effect of a contour at the edge of an image"""
-    mask = np.array(
-        [
-            [255, 255, 127, 0],
-            [255, 255, 127, 0],
-            [127, 127, 64, 0],
-            [0, 0, 0, 0],
-        ],
-        dtype=np.uint8,
-    )
-
-    y_grid = np.array([10, 12, 14, 16])
-    x_grid = np.array([0, 1, 2, 3])
-
-    ideal_expected_contour = np.array([(9, -0.5), (9, 2), (14, 2), (14, -0.5)])
-    ideal_contours = [ideal_expected_contour]
-
-    # Marching squares doesn't perfectly follow the in-out proportion,
-    # instead, it cuts off corners.
-    marching_squares_expected_contour = np.array(
-        [(9, 0), (10, -0.5), (12, -0.5), (14, 0), (14, 1), (12, 2), (10, 2), (9, 1)]
-    )
-    marching_squares_expected_contours = [marching_squares_expected_contour]
-
-    contours = mask_to_contours(x_grid, y_grid, mask)
-
-    assert dice.from_contours(a=contours, b=ideal_contours) > 0.89
-    assert dice.from_contours(a=contours, b=marching_squares_expected_contours) > 0.99
-
-
 def test_conversion_round_trip():
     """Test a round trip of contours -> mask -> contours"""
 
     cases: list[_TestCase] = []
+
+    cases.append(
+        {
+            "title": "edge-of-mask",
+            "x_grid": np.array([0, 1, 2, 3]),
+            "y_grid": np.array([10, 12, 14, 16]),
+            "contours": [np.array([(9, -0.5), (9, 2), (14, 2), (14, -0.5)])],
+            "dice_lower_bound": 0.90,
+        }
+    )
 
     t = np.linspace(0, 2 * np.pi)
     x = 1.5 * np.sin(t)
@@ -83,18 +62,40 @@ def test_conversion_round_trip():
         }
     )
 
-    yx_coords = np.array([(0, 0), (10, 0), (0, 2), (0, 0)])
-
     cases.append(
         {
             "title": "right-angle-triangle",
             "x_grid": np.linspace(0, 4, 5),
             "y_grid": np.linspace(0, 10, 11),
-            "contours": [yx_coords],
+            "contours": [np.array([(0, 0), (10, 0), (0, 2), (0, 0)])],
             # TODO: This results in an overlapping contour. Contour
             # overlaps like this need to be cleaned up with shapely in
             # post-processing.
             "dice_lower_bound": 0.81,  # Sharp sub-pixel points are not handled well
+        }
+    )
+
+    x_left = np.sin(t)
+    y = np.cos(t)
+
+    x_right = x_left + 2
+
+    contours = [
+        np.concatenate(  # pyright: ignore [reportUnknownMemberType]
+            [y[:, None], x_left[:, None]], axis=-1
+        ),
+        np.concatenate(  # pyright: ignore [reportUnknownMemberType]
+            [y[:, None], x_right[:, None]], axis=-1
+        ),
+    ]
+
+    cases.append(
+        {
+            "title": "two-small-abutting-circles",
+            "x_grid": np.linspace(-1, 4, 13),
+            "y_grid": np.linspace(-2, 2, 6),
+            "contours": contours,
+            "dice_lower_bound": 0.94,
         }
     )
 
@@ -116,7 +117,7 @@ def _run_round_trip_test(
     mask = contours_to_mask(x_grid, y_grid, contours)
     round_trip_contours = mask_to_contours(x_grid, y_grid, mask)
 
-    assert dice.from_contours(a=contours, b=round_trip_contours) > dice_lower_bound
+    assert dice.from_contours(a=contours, b=round_trip_contours) >= dice_lower_bound
 
     fig, ax = plt.subplots()  # pyright: ignore [reportUnknownMemberType]
     c = ax.pcolormesh(  # pyright: ignore [reportUnknownMemberType]
@@ -135,11 +136,10 @@ def _run_round_trip_test(
         )
 
     ax.set_aspect("equal")  # pyright: ignore [reportUnknownMemberType]
-    expanded_title = f"round-trip-{title}"
-    ax.set_title(expanded_title)  # pyright: ignore [reportUnknownMemberType]
+    ax.set_title(title)  # pyright: ignore [reportUnknownMemberType]
     fig.legend(loc="upper left")  # pyright: ignore [reportUnknownMemberType]
 
-    fig.savefig(FIGURE_DIR / f"{expanded_title}.png")  # type: ignore
+    fig.savefig(FIGURE_DIR / f"{title}.png")  # type: ignore
 
 
 # For this test to pass, need to implement contour keyhole technique.
