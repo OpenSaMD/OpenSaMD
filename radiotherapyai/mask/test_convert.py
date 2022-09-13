@@ -16,10 +16,14 @@
 
 import numpy as np
 
+from radiotherapyai.metrics import dice
+
 from .convert import contours_to_mask, mask_to_contours
 
 
 def test_conversion_round_trip():
+    """Test a round trip of contours -> mask -> contours"""
+
     t = np.linspace(0, 2 * np.pi, endpoint=False)
     x = 1.5 * np.sin(t)
     y = np.cos(t) + 0.5
@@ -35,5 +39,5 @@ def test_conversion_round_trip():
     mask = contours_to_mask(x_grid, y_grid, contours)
 
     round_trip_contours = mask_to_contours(x_grid, y_grid, mask)
-    round_trip_y = round_trip_contours[0][:, 0]
-    round_trip_x = round_trip_contours[0][:, 1]
+
+    assert dice.from_contours(a=contours, b=round_trip_contours) > 0.99

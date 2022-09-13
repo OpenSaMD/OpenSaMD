@@ -4,7 +4,7 @@ ignore =
 
 [FORMAT]
 good-names =
-    i,j,k,x,y,a,b,dx,dy,x0,y0,p
+    i,j,k,x,y,a,b,dx,dy,x0,y0,p,t
 
 
 [DESIGN]
