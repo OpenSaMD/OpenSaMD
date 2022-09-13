@@ -91,6 +91,9 @@ def test_conversion_round_trip():
             "x_grid": np.linspace(0, 4, 5),
             "y_grid": np.linspace(0, 10, 11),
             "contours": [yx_coords],
+            # TODO: This results in an overlapping contour. Contour
+            # overlaps like this need to be cleaned up with shapely in
+            # post-processing.
             "dice_lower_bound": 0.81,  # Sharp sub-pixel points are not handled well
         }
     )
