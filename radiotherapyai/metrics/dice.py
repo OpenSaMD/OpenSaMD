@@ -15,7 +15,10 @@
 
 """Determining the Dice metric"""
 
+import numpy as np
+import shapely.geometry
 import shapely.geometry.base
+from numpy.typing import NDArray
 
 
 def from_shapely(
@@ -26,9 +29,48 @@ def from_shapely(
     Explanation of the Dice is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
-    Args:
-        a (shapely.geometry.base.BaseGeometry)
-        b (shapely.geometry.base.BaseGeometry)
+    Parameters
+    ----------
+    a : shapely.geometry.base.BaseGeometry
+    b : shapely.geometry.base.BaseGeometry
+
+    Returns
+    -------
+    float
+        The Dice score
     """
 
     return 2 * a.intersection(b).area / (a.area + b.area)
+
+
+def from_contours(a: list[NDArray[np.float64]], b: list[NDArray[np.float64]]):
+    """Determine the Dice metric from two coordinate lists.
+
+    Explanation of the Dice is available at:
+    <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
+
+    Parameters
+    ----------
+    a : list of (n,2)-ndarrays in row column (y x) order
+    b : list of (n,2)-ndarrays in row column (y x) order
+
+    Returns
+    -------
+    float
+        The Dice score
+    """
+    return from_shapely(
+        a=_contours_to_shapely(a),
+        b=_contours_to_shapely(b),
+    )
+
+
+def _contours_to_shapely(contours: list[NDArray[np.float64]]):
+    geom = shapely.geometry.Polygon()
+    for yx_coords in contours:
+        xy_coords = np.flip(  # pyright: ignore [reportUnknownMemberType]
+            yx_coords, axis=1
+        )
+        geom = geom.union(shapely.geometry.Polygon(xy_coords))
+
+    return geom

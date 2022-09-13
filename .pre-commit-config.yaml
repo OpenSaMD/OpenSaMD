@@ -1,6 +1,10 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
+  - repo: https://github.com/SimonBiggs/nbstripout
+    rev: 0a4fa37151ce3c2fb522bf64469224c831a41773
+    hooks:
+      - id: nbstripout
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
     hooks:
