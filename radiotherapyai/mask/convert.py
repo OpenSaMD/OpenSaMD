@@ -108,6 +108,9 @@ def contours_to_mask(
         encompassed by the contours.
     """
 
+    # By expanding the mask first, and then shrinking it back down with
+    # an np.mean function edge pixels and up being scaled between 0 and
+    # 1 based on how much a given pixel is within the contour.
     expanded_mask = _contours_to_expanded_mask(x_grid, y_grid, contours, expansion)
     float_mask = skimage.measure.block_reduce(
         expanded_mask, block_size=(expansion, expansion), func=np.mean
