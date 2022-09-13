@@ -16,11 +16,17 @@
 
 """Testing the mask conversion to and from contour lines"""
 
+import pathlib
+
+import matplotlib.pyplot as plt
 import numpy as np
 
 from radiotherapyai.metrics import dice
 
 from .convert import contours_to_mask, mask_to_contours
+
+HERE = pathlib.Path(__file__).parent
+FIGURE_DIR = HERE / "test_figures"
 
 
 def test_mask_at_edge_of_image():
@@ -71,10 +77,20 @@ def test_conversion_round_trip():
     y_grid = np.linspace(-2, 2, 31)
 
     mask = contours_to_mask(x_grid, y_grid, contours)
-
     round_trip_contours = mask_to_contours(x_grid, y_grid, mask)
 
     assert dice.from_contours(a=contours, b=round_trip_contours) > 0.99
+
+    fig, ax = plt.subplots()
+    ax.pcolormesh(x_grid, y_grid, mask, shading="nearest")
+    ax.plot(x, y)
+
+    for contour in round_trip_contours:
+        ax.plot(contour[:, 1], contour[:, 0])
+
+    ax.set_aspect("equal")
+
+    fig.savefig(FIGURE_DIR / "round-trip.png")
 
 
 # For this test to pass, need to implement contour keyhole technique.
