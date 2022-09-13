@@ -26,9 +26,15 @@ def from_shapely(
     Explanation of the Dice is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
-    Args:
-        a (shapely.geometry.base.BaseGeometry)
-        b (shapely.geometry.base.BaseGeometry)
+    Parameters
+    ----------
+    a : shapely.geometry.base.BaseGeometry
+    b : shapely.geometry.base.BaseGeometry
+
+    Returns
+    -------
+    float
+        The Dice score
     """
 
     return 2 * a.intersection(b).area / (a.area + b.area)
