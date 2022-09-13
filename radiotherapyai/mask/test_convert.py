@@ -19,7 +19,7 @@
 import pathlib
 from typing import TypedDict
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
 
 from radiotherapyai.metrics import dice
@@ -119,8 +119,11 @@ def _run_round_trip_test(
 
     assert dice.from_contours(a=contours, b=round_trip_contours) >= dice_lower_bound
 
-    fig, ax = plt.subplots()  # pyright: ignore [reportUnknownMemberType]
-    c = ax.pcolormesh(  # pyright: ignore [reportUnknownMemberType]
+    (
+        fig,  # pyright: ignore [reportUnknownVariableType]
+        ax,  # pyright: ignore [reportUnknownVariableType]
+    ) = plt.subplots()  # pyright: ignore [reportUnknownMemberType]
+    c = ax.pcolormesh(  # pyright: ignore [reportUnknownMemberType, reportUnknownVariableType]
         x_grid, y_grid, mask, shading="nearest"
     )
     fig.colorbar(c)  # pyright: ignore [reportUnknownMemberType]
