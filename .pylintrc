@@ -2,6 +2,7 @@
 ignore =
     typings
     fixme
+    line-too-long
 
 [FORMAT]
 good-names =
