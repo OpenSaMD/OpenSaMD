@@ -88,12 +88,12 @@ def test_conversion_round_trip():
     fig.colorbar(c)  # pyright: ignore [reportUnknownMemberType]
 
     ax.plot(  # pyright: ignore [reportUnknownMemberType]
-        x, y, "C3", lw=4, label="original contours"
+        x, y, "C3", lw=4, label="original contour"
     )
 
     for contour in round_trip_contours:
         ax.plot(  # pyright: ignore [reportUnknownMemberType]
-            contour[:, 1], contour[:, 0], "--", lw=2, label="round-trip contours"
+            contour[:, 1], contour[:, 0], "--", lw=2, label="round-trip contour"
         )
 
     ax.set_aspect("equal")  # pyright: ignore [reportUnknownMemberType]
