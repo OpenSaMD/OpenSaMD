@@ -1,13 +1,15 @@
 [MASTER]
 ignore =
     typings
-    fixme
-    line-too-long
+
+[MESSAGES CONTROL]
+disable =
+    fixme,
+    line-too-long,
 
 [FORMAT]
 good-names =
     i,j,k,x,y,a,b,dx,dy,x0,y0,p,t,ax,c
-
 
 [DESIGN]
 max-locals = 16
