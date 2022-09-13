@@ -1,6 +1,7 @@
 [MASTER]
 ignore =
     typings
+    fixme
 
 [FORMAT]
 good-names =
