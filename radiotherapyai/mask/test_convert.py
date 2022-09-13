@@ -14,6 +14,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+"""Testing the mask conversion to and from contour lines"""
+
 import numpy as np
 
 from radiotherapyai.metrics import dice
