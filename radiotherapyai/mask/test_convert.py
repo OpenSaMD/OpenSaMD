@@ -12,3 +12,28 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+import numpy as np
+
+from .convert import contours_to_mask, mask_to_contours
+
+
+def test_conversion_round_trip():
+    t = np.linspace(0, 2 * np.pi, endpoint=False)
+    x = 1.5 * np.sin(t)
+    y = np.cos(t) + 0.5
+
+    yx_coords = np.concatenate(  # pyright: ignore [reportUnknownMemberType]
+        [y[:, None], x[:, None]], axis=-1
+    )
+    contours = [yx_coords]
+
+    x_grid = np.linspace(-2, 2, 21)
+    y_grid = np.linspace(-2, 2, 31)
+
+    mask = contours_to_mask(x_grid, y_grid, contours)
+
+    round_trip_contours = mask_to_contours(x_grid, y_grid, mask)
+    round_trip_y = round_trip_contours[0][:, 0]
+    round_trip_x = round_trip_contours[0][:, 1]

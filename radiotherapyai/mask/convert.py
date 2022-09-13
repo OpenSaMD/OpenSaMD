@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Mask conversion to and from contour lines"""
+
 import numpy as np
 import skimage.draw
 import skimage.measure
@@ -45,10 +47,10 @@ def mask_to_contours(
 
     Returns
     -------
-    contours : list of (n,2)-ndarrays
+    contours : list of (n,2)-ndarrays in row column (y x) order
         Each contour is an ndarray of shape (n, 2), consisting of n
-        (row, column) coordinates along the contour. This is inline with
-        the return value of `skimage.measure.find_contours`.
+        (row, column aka y, x) coordinates along the contour. This is
+        inline with the return value of `skimage.measure.find_contours`.
 
     """
 
@@ -79,7 +81,7 @@ def mask_to_contours(
 def contours_to_mask(
     x_grid: NDArray[np.float64],
     y_grid: NDArray[np.float64],
-    contours: NDArray[np.float64],
+    contours: list[NDArray[np.float64]],
     expansion: int = 16,
 ) -> NDArray[np.uint8]:
     """Creates a uint8 anti-aliased mask from a list of contours.
@@ -90,7 +92,7 @@ def contours_to_mask(
         The x-coordinates of the resulting mask
     y_grid : NDArray[np.float64]
         The y-coordinates of the resulting mask
-    contours : list of (n,2)-ndarrays
+    contours : list of (n,2)-ndarrays in row column (y x) order
         A list of contours where each contour is an ndarray of shape
         (n, 2)
     expansion : int, optional
@@ -108,9 +110,10 @@ def contours_to_mask(
         encompassed by the contours.
     """
 
-    # By expanding the mask first, and then shrinking it back down with
-    # an np.mean function edge pixels and up being scaled between 0 and
-    # 1 based on how much a given pixel is within the contour.
+    # By creating a binary mask on an expanded grid first, and then
+    # shrinking it back down with an np.mean function edge pixels end up
+    # being scaled between 0 and 1 based on how much a given pixel is
+    # within the contour.
     expanded_mask = _contours_to_expanded_mask(x_grid, y_grid, contours, expansion)
     float_mask = skimage.measure.block_reduce(
         expanded_mask, block_size=(expansion, expansion), func=np.mean
@@ -126,7 +129,7 @@ def contours_to_mask(
 def _contours_to_expanded_mask(
     x_grid: NDArray[np.float64],
     y_grid: NDArray[np.float64],
-    contours: NDArray[np.float64],
+    contours: list[NDArray[np.float64]],
     expansion: int,
 ):
     expanded_mask_size = (len(y_grid) * expansion, len(x_grid) * expansion)
