@@ -66,8 +66,7 @@ def test_conversion_round_trip():
 
     cases: list[_TestCase] = []
 
-    # An offset ellipse
-    t = np.linspace(0, 2 * np.pi, endpoint=False)
+    t = np.linspace(0, 2 * np.pi)
     x = 1.5 * np.sin(t)
     y = np.cos(t) + 0.5
     yx_coords = np.concatenate(  # pyright: ignore [reportUnknownMemberType]
@@ -81,6 +80,18 @@ def test_conversion_round_trip():
             "y_grid": np.linspace(-2, 2, 31),
             "contours": [yx_coords],
             "dice_lower_bound": 0.99,
+        }
+    )
+
+    yx_coords = np.array([(0, 0), (10, 0), (0, 2), (0, 0)])
+
+    cases.append(
+        {
+            "title": "right-angle-triangle",
+            "x_grid": np.linspace(0, 4, 5),
+            "y_grid": np.linspace(0, 10, 11),
+            "contours": [yx_coords],
+            "dice_lower_bound": 0.81,  # Sharp sub-pixel points are not handled well
         }
     )
 
@@ -117,14 +128,13 @@ def _run_round_trip_test(
 
     for contour in round_trip_contours:
         ax.plot(  # pyright: ignore [reportUnknownMemberType]
-            contour[:, 1], contour[:, 0], "C0--", lw=2, label="round-trip contour"
+            contour[:, 1], contour[:, 0], "k--", lw=2, label="round-trip contour"
         )
 
     ax.set_aspect("equal")  # pyright: ignore [reportUnknownMemberType]
-    fig.legend()  # pyright: ignore [reportUnknownMemberType]
-
     expanded_title = f"round-trip-{title}"
     ax.set_title(expanded_title)  # pyright: ignore [reportUnknownMemberType]
+    fig.legend(loc="upper left")  # pyright: ignore [reportUnknownMemberType]
 
     fig.savefig(FIGURE_DIR / f"{expanded_title}.png")  # type: ignore
 
