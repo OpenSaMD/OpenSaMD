@@ -5,3 +5,7 @@ ignore =
 [FORMAT]
 good-names =
     i,j,k,x,y,a,b,dx,dy,x0,y0,p
+
+
+[DESIGN]
+max-locals = 16

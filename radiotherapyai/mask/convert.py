@@ -14,6 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import numpy as np
+import skimage.draw
 import skimage.measure
 from numpy.typing import NDArray
 
@@ -53,14 +54,20 @@ def contours_to_mask(
         expanded_mask, block_size=(expansion, expansion), func=np.mean
     )
 
-    mask = np.round(float_mask * 255).astype(np.uint8)
+    mask = np.round(  # pyright: ignore [reportUnknownMemberType]
+        float_mask * 255
+    ).astype(np.uint8)
 
     return mask
 
 
-def _contours_to_expanded_mask(x_grid, y_grid, contours, expansion):
-    mask_size = (len(y_grid), len(x_grid))
-    expanded_mask_size = np.array(mask_size) * expansion
+def _contours_to_expanded_mask(
+    x_grid: NDArray[np.float64],
+    y_grid: NDArray[np.float64],
+    contours: NDArray[np.float64],
+    expansion: int,
+):
+    expanded_mask_size = (len(y_grid) * expansion, len(x_grid) * expansion)
 
     x0, dx = _grid_to_transform(x_grid)
     y0, dy = _grid_to_transform(y_grid)
@@ -74,18 +81,22 @@ def _contours_to_expanded_mask(x_grid, y_grid, contours, expansion):
         i = ((y - y0) / dy) * expansion + (expansion - 1) * 0.5
         j = ((x - x0) / dx) * expansion + (expansion - 1) * 0.5
 
+        ij_points = np.concatenate(  # pyright: ignore [reportUnknownMemberType]
+            [i[:, None], j[:, None]], axis=-1
+        )
+
         expanded_mask = np.logical_or(
             expanded_mask,
-            skimage.draw.polygon2mask(expanded_mask_size, np.array(list(zip(i, j)))),
+            skimage.draw.polygon2mask(expanded_mask_size, ij_points),
         )
 
     return expanded_mask
 
 
-def _grid_to_transform(grid):
+def _grid_to_transform(grid: NDArray[np.float64]) -> tuple[float, float]:
     x0 = grid[0]
-    all_dx = np.diff(grid)
+    all_dx = np.diff(grid)  # pyright: ignore [reportUnknownMemberType]
     dx = all_dx[0]
-    assert np.allclose(dx, all_dx)
+    assert np.allclose(dx, all_dx)  # pyright: ignore [reportUnknownMemberType]
 
     return x0, dx
