@@ -34,8 +34,8 @@ def from_shapely(
 
     Parameters
     ----------
-    a : shapely.geometry.base.BaseGeometry b :
-    shapely.geometry.base.BaseGeometry
+    a : shapely.geometry.base.BaseGeometry
+    b : shapely.geometry.base.BaseGeometry
 
     Returns
     -------
