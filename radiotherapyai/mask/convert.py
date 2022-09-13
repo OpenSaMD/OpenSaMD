@@ -21,8 +21,41 @@ from numpy.typing import NDArray
 
 def mask_to_contours(
     x_grid: NDArray[np.float64], y_grid: NDArray[np.float64], mask: NDArray[np.uint8]
-):
+) -> list[NDArray[np.float64]]:
+    """Converts a uint8 anti-aliased mask into a series of contours.
+
+    This is a wrapper around `skimage.measure.find_contours` with the
+    differences being:
+
+    - A contour that touches the edge of the image will be connected by
+      a line that conforms to the image edge
+    - Contour points are transformed to the reference frame governed by
+      x_grid and y_grid.
+
+    Parameters
+    ----------
+    x_grid : NDArray[np.float64]
+        The x-coordinates of the mask
+    y_grid : NDArray[np.float64]
+        The y-coordinates of the mask
+    mask : NDArray[np.uint8]
+        A mask between 0-255 where 0 is outside the contours, 255 inside
+        the contours and 1-254 represents a pixel that is partially
+        encompassed by the contours.
+
+    Returns
+    -------
+    contours : list of (n,2)-ndarrays
+        Each contour is an ndarray of shape (n, 2), consisting of n
+        (row, column) coordinates along the contour. This is inline with
+        the return value of `skimage.measure.find_contours`.
+
+    """
+
+    # The mask is padded so as to force contour closure around the mask
+    # edge
     padded_mask = np.pad(mask, 1)  # pyright: ignore [reportUnknownMemberType]
+
     contours_coords_padded_image_frame = skimage.measure.find_contours(
         padded_mask, level=127.5
     )
@@ -48,7 +81,33 @@ def contours_to_mask(
     y_grid: NDArray[np.float64],
     contours: NDArray[np.float64],
     expansion: int = 16,
-):
+) -> NDArray[np.uint8]:
+    """Creates a uint8 anti-aliased mask from a list of contours.
+
+    Parameters
+    ----------
+    x_grid : NDArray[np.float64]
+        The x-coordinates of the resulting mask
+    y_grid : NDArray[np.float64]
+        The y-coordinates of the resulting mask
+    contours : list of (n,2)-ndarrays
+        A list of contours where each contour is an ndarray of shape
+        (n, 2)
+    expansion : int, optional
+        The amount to expand the mask by prior to averaging down. The
+        default value results in 16 x 16 = 256 possible values for each
+        pixel after it has been averaged back to the original size. This
+        causes the least amount of information loss when storing the
+        resulting mask as a uint8.
+
+    Returns
+    -------
+    NDArray[np.uint8]
+        A mask between 0-255 where 0 is outside the contours, 255 inside
+        the contours and 1-254 represents a pixel that is partially
+        encompassed by the contours.
+    """
+
     expanded_mask = _contours_to_expanded_mask(x_grid, y_grid, contours, expansion)
     float_mask = skimage.measure.block_reduce(
         expanded_mask, block_size=(expansion, expansion), func=np.mean
