@@ -20,10 +20,12 @@ import skimage.draw
 import skimage.measure
 from numpy.typing import NDArray
 
+Contours = list[NDArray[np.float64]]
+Grid = NDArray[np.float64]
+Mask = NDArray[np.uint8]
 
-def mask_to_contours(
-    x_grid: NDArray[np.float64], y_grid: NDArray[np.float64], mask: NDArray[np.uint8]
-) -> list[NDArray[np.float64]]:
+
+def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
     """Converts a uint8 anti-aliased mask into a series of contours.
 
     This is a wrapper around `skimage.measure.find_contours` with the
@@ -79,11 +81,8 @@ def mask_to_contours(
 
 
 def contours_to_mask(
-    x_grid: NDArray[np.float64],
-    y_grid: NDArray[np.float64],
-    contours: list[NDArray[np.float64]],
-    expansion: int = 16,
-) -> NDArray[np.uint8]:
+    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int = 16
+) -> Mask:
     """Creates a uint8 anti-aliased mask from a list of contours.
 
     Parameters
@@ -127,10 +126,7 @@ def contours_to_mask(
 
 
 def _contours_to_expanded_mask(
-    x_grid: NDArray[np.float64],
-    y_grid: NDArray[np.float64],
-    contours: list[NDArray[np.float64]],
-    expansion: int,
+    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int
 ):
     expanded_mask_size = (len(y_grid) * expansion, len(x_grid) * expansion)
 
@@ -158,7 +154,7 @@ def _contours_to_expanded_mask(
     return expanded_mask
 
 
-def _grid_to_transform(grid: NDArray[np.float64]) -> tuple[float, float]:
+def _grid_to_transform(grid: Grid) -> tuple[float, float]:
     x0 = grid[0]
     all_dx = np.diff(grid)  # pyright: ignore [reportUnknownMemberType]
     dx = all_dx[0]

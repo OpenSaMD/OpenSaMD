@@ -26,7 +26,10 @@ def from_shapely(
 ) -> float:
     """Determine the Dice metric from two shapely geometries.
 
-    Explanation of the Dice is available at:
+    The Dice score is an overlap metric where a value of 1 indicates
+    100% overlap, and a value of 0 indicates 0% overlap.
+
+    Further explanation of the Dice is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
     Parameters
@@ -46,7 +49,10 @@ def from_shapely(
 def from_contours(a: list[NDArray[np.float64]], b: list[NDArray[np.float64]]):
     """Determine the Dice metric from two coordinate lists.
 
-    Explanation of the Dice is available at:
+    The Dice score is an overlap metric where a value of 1 indicates
+    100% overlap, and a value of 0 indicates 0% overlap.
+
+    Further explanation of the Dice is available at:
     <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
 
     Parameters
