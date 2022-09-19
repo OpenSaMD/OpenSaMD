@@ -63,6 +63,7 @@
       "capa",
       "colorbar",
       "creativecommons",
+      "dlqms",
       "dtype",
       "fmea",
       "Generis",
@@ -93,6 +94,8 @@
       "sublicensable",
       "synched",
       "targetname",
+      "techdoc",
+      "tmpl",
       "venv",
       "virtualenvs",
       "waivable"

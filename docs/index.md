@@ -1,4 +1,13 @@
-# Introduction
+# Radiotherapy AI's QMS and TechDoc
+
+Radiotherapy AI's Quality Management System and Technical Documentation. Built
+on top of [GitHub](https://github.com/RadiotherapyAI/RadiotherapyAI) and `git`,
+[OpenRegulatory templates](https://github.com/openregulatory/templates), and
+[Jupyter Book](https://jupyterbook.org/).
+
+All source for the Medical Device, the Quality Management System, and the
+Technical Documentation are available at
+<https://github.com/RadiotherapyAI/RadiotherapyAI>.
 
 ## Disclaimer while QMS and TechDocs are under initial development
 
@@ -7,9 +16,6 @@ under active development and there is likely to be both mistakes and omissions.
 The creation of these documents is being shared publicly out in the open in the
 hope that the development of these documents is able to help other SaMD
 companies create and regulate their products and help their patients.
-
-To view the online source code for these documents see
-<https://github.com/RadiotherapyAI/RadiotherapyAI>.
 
 ## Device
 

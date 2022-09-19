@@ -9,7 +9,9 @@
 > It's painful - but you will have to go through the entire text and adjust it to your own company website
 > where necessary. We hope this template still hopes you with a general structure.
 
-# Website Data Protection Statement for Data Subjects Pursuant to Articles 13 and 14 of the EU General Data Protection Regulation
+# Website Data Protection Statement
+
+For Data Subjects Pursuant to Articles 13 and 14 of the EU General Data Protection Regulation
 
 Data protection is a particularly high priority for the management of \<enter company name\>. The use of the
 website of \<enter company name\> is possible without any indication of personal data; however, if a data
@@ -39,7 +41,7 @@ partners. To ensure this, we would like to first explain the terminology used.
 In this data protection declaration, we use, inter alia, the following terms:
 
 * **a) Personal data** Personal data means any information relating to an identified or identifiable natural
-  person (“data subject”). An identifiable natural person is one who can be identified, directly or
+  person ("data subject"). An identifiable natural person is one who can be identified, directly or
   indirectly, in particular by reference to an identifier such as a name, an identification number, location
   data, an online identifier or to one or more factors specific to the physical, physiological, genetic,
   mental, economic, cultural or social identity of that natural person.
