@@ -9,35 +9,35 @@ entries:
   - file: 1-qms/sop-internal-audit
   - file: 1-qms/sop-product-certification-and-registration
   - file: 1-qms/sop-update-of-regulations
-  - file: 1-qms/capa/0-sop-capa
+  - file: 1-qms/capa/0-sop
     entries:
     - file: 1-qms/capa/list-capa
-  - file: 1-qms/document-and-record-control/0-sop-document-record-control
+  - file: 1-qms/document-and-record-control/0-sop
     entries:
     - file: 1-qms/document-and-record-control/document-list-dlqms
-  - file: 1-qms/human-resources/0-sop-human-resources-administration
+  - file: 1-qms/human-resources/0-sop
     entries:
     - file: 1-qms/human-resources/list-of-medical-device-consultants
     - file: 1-qms/human-resources/list-of-training-documentation
     - file: 1-qms/human-resources/tmpl-training-record
-  - file: 1-qms/management-review/0-sop-management-review
+  - file: 1-qms/management-review/0-sop
     entries:
     - file: 1-qms/management-review/management-review-report
-  - file: 1-qms/post-market-surveillance/0-sop-post-market-surveillance
+  - file: 1-qms/post-market-surveillance/0-sop
     entries:
     - file: 1-qms/post-market-surveillance/periodic-safety-update-report
     - file: 1-qms/post-market-surveillance/post-market-clinical-follow-up-plan
     - file: 1-qms/post-market-surveillance/post-market-clinical-follow-up-report
     - file: 1-qms/post-market-surveillance/post-market-surveillance-plan
-  - file: 1-qms/purchasing/0-sop-purchasing
+  - file: 1-qms/purchasing/0-sop
     entries:
     - file: 1-qms/purchasing/list-of-qualified-suppliers
     - file: 1-qms/purchasing/supplier-checklist
-  - file: 1-qms/software-validation/0-sop-software-validation
+  - file: 1-qms/software-validation/0-sop
     entries:
     - file: 1-qms/software-validation/software-list
     - file: 1-qms/software-validation/software-validation-form
-  - file: 1-qms/vigilance/0-sop-vigilance
+  - file: 1-qms/vigilance/0-sop
     entries:
     - file: 1-qms/vigilance/tmpl-field-safety-notice
     - file: 1-qms/vigilance/tmpl-incident-assessment-form

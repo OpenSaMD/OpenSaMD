@@ -106,11 +106,11 @@ comparisons are undergone utilising the following metrics:
 > drawing an organigram (you could use draw.io for that). Or, you just use a
 > table like below. -->
 
-| Role(s)                               | People           |
-| ------------------------------------- | ---------------- |
-| CEO, QMO, CTO, CPO, Software Engineer | Simon Biggs      |
-| Regulatory Consultant                 | Dr Oliver Eidel  |
-| Regulatory Consultant                 | Pierre Lonchampt |
+| Role(s)                                     | People           |
+| ------------------------------------------- | ---------------- |
+| CEO, QMO, PRRC, CTO, CPO, Software Engineer | Simon Biggs      |
+| Regulatory Consultant                       | Dr Oliver Eidel  |
+| Regulatory Consultant                       | Pierre Lonchampt |
 
 All C-level roles are referred to as the Management. Management is generally
 responsible to define responsibilities and authorities, to define and
@@ -173,18 +173,19 @@ Required qualification for this role:
 
 | SOP                                                        | Process Category |
 | ---------------------------------------------------------- | ---------------- |
-| [](../released/sop-capa)                                   | Core             |
-| [](../released/sop-document-record-control)                | Core             |
-| [](../released/sop-integrated-software-development)        | Core             |
-| [](../released/sop-post-market-surveillance)               | Support          |
-| [](../released/sop-software-validation)                    | Support          |
-| [](../released/sop-management-review)                      |                  |
-| [](../released/sop-product-certification-and-registration) |                  |
-| [](../released/sop-purchasing)                             |                  |
-| [](../released/sop-update-of-regulations)                  |                  |
-| [](../released/sop-human-resources-administration)         |                  |
-| [](../released/sop-change-management)                      |                  |
-| [](../released/sop-feedback-management)                    |                  |
-| [](../released/sop-incident-reporting)                     |                  |
-| [](../released/sop-internal-audit)                         |                  |
-| [](../released/sop-software-problem-resolution)            |                  |
+| [](./capa/0-sop)                                           | Core             |
+| [](./document-record-control/0-sop)                        | Core             |
+| [](../2-techdoc/62304/sop-integrated-software-development) | Core             |
+| [](./post-market-surveillance/0-sop)                       | Support          |
+| [](./software-validation/0-sop)                            | Support          |
+| [](./management-review/0-sop)                              |                  |
+| [](./sop-product-certification-and-registration)           |                  |
+| [](./purchasing/0-sop)                                     |                  |
+| [](./sop-update-of-regulations)                            |                  |
+| [](./human-resources/0-sop)                                |                  |
+| [](../2-techdoc/62304/sop-change-management)               |                  |
+| [](../2-techdoc/62304/sop-deployment)                      |                  |
+| [](./sop-feedback-management)                              |                  |
+| [](./vigilance/0-sop)                                      |                  |
+| [](.sop-internal-audit)                                    |                  |
+| [](../2-techdoc/62304/sop-software-problem-resolution)     |                  |

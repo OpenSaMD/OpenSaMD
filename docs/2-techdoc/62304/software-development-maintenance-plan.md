@@ -48,11 +48,11 @@ This document summarizes development and maintenance activities for
 Please see the relevant processes for the following activities:
 
 - Risk management activities incl. SOUP risks:
-  [](../released/sop-integrated-software-development)
-- Problem resolution: [](../released/sop-software-problem-resolution)
+  [](./sop-integrated-software-development)
+- Problem resolution: [](./sop-software-problem-resolution)
 - Software development incl. deliverables, traceability, regular update of
-  software development plan: [](../released/sop-integrated-software-development)
-- Change management: [](../released/sop-change-management)
+  software development plan: [](./sop-integrated-software-development)
+- Change management: [](./sop-change-management)
 - SOUP List
 - SOP Usability Engineering
 

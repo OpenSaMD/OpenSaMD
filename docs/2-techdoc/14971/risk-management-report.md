@@ -33,10 +33,10 @@ Software Development.
 
 ## 1. Relevant Processes and Documents
 
-- [](../released/sop-integrated-software-development)
-- [](../drafts/risk-management-plan)
-- [](../drafts/risk-acceptance-matrix)
-- [](../drafts/risk-table-fmea/index)
+- [](../62304/sop-integrated-software-development)
+- [](./risk-management-plan)
+- [](./risk-acceptance-matrix)
+- [](./risk-table-fmea/index)
 
 ## 2. Risk Analysis
 
