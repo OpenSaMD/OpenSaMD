@@ -1,40 +1,95 @@
-format: jb-book
 root: index
-parts:
-  - caption: Released
-    chapters:
-      - file: released/quality-manual-policy-objectives
-        sections:
-          - file: released/13485-mapping
-          - file: released/sop-document-record-control
-          - file: released/sop-integrated-software-development
-          - file: released/sop-capa
-          - file: released/sop-human-resources-administration
-          - file: released/sop-management-review
-          - file: released/sop-post-market-surveillance
-          - file: released/sop-product-certification-and-registration
-          - file: released/sop-purchasing
-          - file: released/sop-software-validation
-          - file: released/sop-update-of-regulations
-          - file: released/sop-change-management
-          - file: released/sop-feedback-management
-          - file: released/sop-incident-reporting
-          - file: released/sop-internal-audit
-          - file: released/sop-software-problem-resolution
-
-  - caption: Drafts
-    chapters:
-      - file: drafts/introduction
-      - file: drafts/software-development-maintenance-plan
-      - file: drafts/intended-use
-      - file: drafts/intended-performance
-      - file: drafts/62304-mapping
-      - file: drafts/risk-management-plan
-        sections:
-          - file: drafts/risk-acceptance-matrix
-          - file: drafts/risk-table-fmea/index
-          - file: drafts/risk-management-report
-
-  - caption: Archived
-    chapters:
-      - file: archived/index
+entries:
+- file: clinical_evaluation/clinical-evaluation-plan
+  entries:
+  - file: clinical_evaluation/clinical-evaluation-report
+  - file: clinical_evaluation/sop-clinical-evaluation
+- file: data_protection/data-protection-statement-website
+  entries:
+  - file: data_protection/employee-data-protection-and-confidentiality-agreement
+  - file: data_protection/list-of-data-processing-activities
+  - file: data_protection/technical-and-organizational-measures
+- file: general/checklist-mdr
+  entries:
+  - file: general/declaration-of-conformity-mdd-class-i
+  - file: general/essential-requirements-mdd
+  - file: general/instructions-for-use
+  - file: general/intended-use
+  - file: general/mdd-classification-document
+  - file: general/mdr-classification-document
+- file: performance_evaluation/performance-evaluation-plan-ivdd
+  entries:
+  - file: performance_evaluation/performance-evaluation-report-ivdd
+- file: qms/13485-mapping
+  entries:
+  - file: qms/quality-manual-policy-objectives
+  - file: qms/sop-feedback-management
+  - file: qms/sop-internal-audit
+  - file: qms/sop-product-certification-and-registration
+  - file: qms/sop-update-of-regulations
+  - file: qms/capa/list-capa
+    entries:
+    - file: qms/capa/sop-capa
+  - file: qms/document-and-record-control/document-list-dlqms
+    entries:
+    - file: qms/document-and-record-control/sop-document-record-control
+  - file: qms/human-resources/list-of-medical-device-consultants
+    entries:
+    - file: qms/human-resources/list-of-training-documentation
+    - file: qms/human-resources/sop-human-resources-administration
+    - file: qms/human-resources/training-record
+  - file: qms/management-review/management-review-report
+    entries:
+    - file: qms/management-review/sop-management-review
+  - file: qms/post-market-surveillance/periodic-safety-update-report
+    entries:
+    - file: qms/post-market-surveillance/post-market-clinical-follow-up-plan
+    - file: qms/post-market-surveillance/post-market-clinical-follow-up-report
+    - file: qms/post-market-surveillance/post-market-surveillance-plan
+    - file: qms/post-market-surveillance/sop-post-market-surveillance
+  - file: qms/purchasing/list-of-qualified-suppliers
+    entries:
+    - file: qms/purchasing/sop-purchasing
+    - file: qms/purchasing/supplier-checklist
+  - file: qms/software-validation/software-list
+    entries:
+    - file: qms/software-validation/software-validation-form
+    - file: qms/software-validation/sop-software-validation
+  - file: qms/vigilance/field-safety-notice
+    entries:
+    - file: qms/vigilance/incident-assessment-form
+    - file: qms/vigilance/sop-vigilance
+- file: techdoc/document-roadmap
+  entries:
+  - file: techdoc/list-of-known-anomalies
+  - file: techdoc/14971/risk-acceptance-matrix
+    entries:
+    - file: techdoc/14971/risk-management-plan
+    - file: techdoc/14971/risk-management-report
+    - file: techdoc/14971/risk-table-fmea/index
+  - file: techdoc/62304/62304-mapping
+    entries:
+    - file: techdoc/62304/algorithm-validation-report
+    - file: techdoc/62304/bug-fixes-documentation-list
+    - file: techdoc/62304/change-evaluation-list
+    - file: techdoc/62304/checklist-software-release
+    - file: techdoc/62304/checklist-software-requirements-review
+    - file: techdoc/62304/checklist-user-needs-review
+    - file: techdoc/62304/list-of-medical-devices
+    - file: techdoc/62304/software-architecture-checklist
+    - file: techdoc/62304/software-architecture-description
+    - file: techdoc/62304/software-development-maintenance-plan
+    - file: techdoc/62304/software-requirements-list
+    - file: techdoc/62304/software-system-test-plan
+    - file: techdoc/62304/sop-change-management
+    - file: techdoc/62304/sop-deployment
+    - file: techdoc/62304/sop-integrated-software-development
+    - file: techdoc/62304/sop-software-problem-resolution
+    - file: techdoc/62304/soup-list
+    - file: techdoc/62304/user-needs-list
+  - file: techdoc/62366/62366-mapping
+    entries:
+    - file: techdoc/62366/list-of-hazard-related-use-scenarios
+    - file: techdoc/62366/usability-evaluation-plan
+    - file: techdoc/62366/usability-evaluation-protocol
+    - file: techdoc/62366/usability-evaluation-report
