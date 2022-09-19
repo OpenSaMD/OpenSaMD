@@ -31,6 +31,13 @@ def build():
 
     env = os.environ.copy()
 
+    with open(DOCS_DIR / "_toc.yml", "w", encoding="utf8") as f:
+        subprocess.check_call(
+            ["jupyter-book", "toc", "from-project", str(DOCS_DIR)],
+            cwd=REPO_ROOT,
+            env=env,
+            stdout=f,
+        )
     subprocess.check_call(
         ["jupyter-book", "build", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
     )
