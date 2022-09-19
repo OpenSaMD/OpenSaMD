@@ -24,24 +24,6 @@
       ".vscode/*.py",
       "**/*.pyi"
     ],
-    "[markdown]": {
-      "editor.formatOnSave": false
-    },
-    "[typescriptreact]": {
-      "editor.tabSize": 2,
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "[javascript]": {
-      "editor.tabSize": 2,
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "[typescript]": {
-      "editor.tabSize": 2,
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
     "[python]": {
       "editor.rulers": [72, 88]
     },
@@ -63,8 +45,11 @@
       "bibtex",
       "blackbox",
       "capa",
+      "CODEOWNERS",
       "colorbar",
       "creativecommons",
+      "CUDA",
+      "DICOM",
       "dlqms",
       "dtype",
       "fmea",
