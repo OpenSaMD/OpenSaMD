@@ -1,4 +1,6 @@
-# 1. General Information
+# List of Medical Devices
+
+## 1. General Information
 
 This document describes the latest device details and as well as details for previous device versions.
 
@@ -9,7 +11,7 @@ This document describes the latest device details and as well as details for pre
 > Use this template to give you an idea of the necessary structure and contents. Ideally, this documentation
 > is maintained best in a spreadsheet / excel file format. Think of every heading as a separate sheet / tab.
 
-# 2. Current Medical Device Version
+## 2. Current Medical Device Version
 
 > Fill out the table below for every installed device version. For example (in B2B business), use one row to
 > describe every customer site the software device is installed at.
@@ -19,7 +21,7 @@ This document describes the latest device details and as well as details for pre
 | \<enter device name\> | \<released / in trial / etc.\> | (...)        | \<e.g. clinical use\> | (...)                  | (...)                   | (...)            | (...)                     | (...)         | (...)      |
 |                       |                                |              |                       |                        |                         |                  |                           |               |            |
 
-# 3. Previous Versions
+## 3. Previous Versions
 
 > Use the table below to document your device's versions history.
 
@@ -29,7 +31,7 @@ This document describes the latest device details and as well as details for pre
 | \<enter device name\> | V.1.0          | (...)        | (...)                | (...)                  | (...)                   | (...)      |
 |                       |                |              |                      |                        |                         |            |
 
-# 4. Similar Devices
+## 4. Similar Devices
 
 | Product Name          | Manufacturer | Country of Origin | Additional Information | Device Identifier (DI) |
 |-----------------------|--------------|-------------------|------------------------|------------------------|

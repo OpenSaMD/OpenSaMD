@@ -1,3 +1,5 @@
+# Training Record
+
 ## 1. General Information
 
 |                  |   |

@@ -1,4 +1,6 @@
-# 1. General Information
+# Deployment
+
+## 1. General Information
 
 This SOP describes how we support the initial integration and update of integrations of our medical devices
 into the IT systems of our customers. Furthermore, it covers user management and user training. By following
@@ -26,12 +28,12 @@ way.
 * Template User Training Record
 * User Consent Form (if applicable)
 
-## 1.1. Integration Specifications
+### 1.1. Integration Specifications
 
 Integration Specifications are the technical requirements defined in the instructions for use as part of the
 technical documentation of medical devices.
 
-## 1.2. Integration Checklists
+### 1.2. Integration Checklists
 
 The Integration Specifications are used to compile the Integration Evaluation Checklist. It is ensured that we
 do not offer medical devices or services which cannot be delivered by filling out this checklist, for which
@@ -39,7 +41,7 @@ the Operations Team Representative is responsible. We fill out the Integration V
 concluding integration work in order to validate if all technical requirements for successful integration have
 been completed.
 
-## 1.3. Device Traceability
+### 1.3. Device Traceability
 
 The operations team ensures that only released device versions are deployed to the customer
 environment. Deployment of device versions is documented as part of the medical device list. This file must
@@ -50,15 +52,15 @@ contain at minimum:
   certificate)
 * Company and contact data to a responsible person, deployment location
 
-## 1.4. Project Management Tool
+### 1.4. Project Management Tool
 
 Optional:
 
 \<enter name\> is used as the project management tool to coordinate integration work.
 
-# 2. Process Overview
+## 2. Process Overview
 
-## 2.1. Evaluation of Integration Requirements per Customer
+### 2.1. Evaluation of Integration Requirements per Customer
 
 > Possible contents of this process step:
 >
@@ -72,7 +74,7 @@ Optional:
 
 (...)
 
-## 2.2. Integration Coordination
+### 2.2. Integration Coordination
 
 > Possible contents of this process step:
 >
@@ -90,7 +92,7 @@ Optional:
 
 (...)
 
-## 2.3. Algorithm Deployment and Configuration
+### 2.3. Algorithm Deployment and Configuration
 
 > Optional for ML-driven devices: after integration and before go-live, test the algorithm on
 > customer-specific live data (e.g. in the form of a “shadow mode” where algorithm results are not used in the
@@ -98,7 +100,7 @@ Optional:
 
 (...)
 
-## 2.4. User Administration
+### 2.4. User Administration
 
 > Possible contents of this process step:
 >
@@ -110,7 +112,7 @@ Optional:
 
 (...)
 
-## 2.5. User Training
+### 2.5. User Training
 
 > Possible contents of this process step:
 >
@@ -122,12 +124,12 @@ Optional:
 
 (...)
 
-## 2.6. Handling of Feedback
+### 2.6. Handling of Feedback
 
 In case the operations team receives feedback (questions, complaints, praise, etc.) regarding the
 organization’s medical devices and services, it proceeds as outlined in the SOP feedback management.
 
-## 2.7. Handling of Updates
+### 2.7. Handling of Updates
 
 > Possible contents of this process step:
 >
@@ -139,7 +141,7 @@ organization’s medical devices and services, it proceeds as outlined in the SO
 
 (...)
 
-## 2.8. Handling of Terminated Contracts
+### 2.8. Handling of Terminated Contracts
 
 > Possible contents of this process step:
 >
