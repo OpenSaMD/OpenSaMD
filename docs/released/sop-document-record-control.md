@@ -61,7 +61,7 @@ well as any of the required attachments.
 
 The document drafting, review, approval and release are managed with the `git`
 version control system and the online `GitHub` interface. This is in-line with
-the same process undergone to review the companies regulated software.
+the same process undergone to review the company's regulated software.
 
 A draft document exists within a separate `git` branch. Once it undergoes
 review and approval it is able to be merged into the `main` branch which is
