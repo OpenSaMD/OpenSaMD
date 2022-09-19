@@ -118,6 +118,9 @@ release all associated documents.
 This creation activity undergone is then committed and pushed to the online git
 repository.
 
+Generally documents are created following the templates provided by Open
+Regulatory at <https://github.com/openregulatory/templates>.
+
 | Participants    |
 | --------------- |
 | Any contributor |
@@ -147,6 +150,16 @@ required, they can create comments, suggest changes, or directly add their own
 changes either utilising the GitHub interface or a local `git` install. If they
 approve of the changes then they leave their approval within the GitHub
 interface.
+
+In some cases, especially when the document was retrieved from provided
+regulatory templates and the processes defined by the new documents are not yet
+in place within the company, it can be appropriate to approve the inclusion of
+the document and keep a record of the need to undergo follow-up change and
+review of the documents in question. This is particularly helpful in the
+scenario of initially creating a whole new set of documents based on regulatory
+templates. An appropriate record in this case would be a GitHub issue with a
+checklist for each of the documents that need subsequent further refinement and
+review.
 
 | Participants                                                |
 | ----------------------------------------------------------- |
