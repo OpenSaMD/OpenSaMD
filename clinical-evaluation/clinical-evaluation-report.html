@@ -1,0 +1,2464 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Clinical Evaluation Report &#8212; Radiotherapy AI</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Protection" href="../data-protection/index.html" />
+    <link rel="prev" title="Clinical Evaluation Plan" href="clinical-evaluation-plan.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Radiotherapy AI’s QMS and TechDoc
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../0-intended-use/index.html">
+   Intended Use
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../1-qms/index.html">
+   Quality Management System
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/0-quality-manual-policy-objectives.html">
+     Quality Manual, Policy and Objectives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/13485-mapping.html">
+     ISO 13485:2016 Mapping of Requirements to Documents
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-feedback-management.html">
+     Feedback Management and Customer Complaints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-internal-audit.html">
+     Internal Audit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-product-certification-and-registration.html">
+     Product Certification and Registration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-update-of-regulations.html">
+     Update of Regulations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/capa/0-sop.html">
+     Corrective and Preventive Action
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/capa/list-capa.html">
+       List of CAPAs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/document-and-record-control/0-sop.html">
+     Document and Record Control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/document-and-record-control/document-list-dlqms.html">
+       Document List QMS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/human-resources/0-sop.html">
+     Human Resources Administration
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/list-of-medical-device-consultants.html">
+       List of Medical Device Consultants
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/list-of-training-documentation.html">
+       List of Training Documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/tmpl-training-record.html">
+       Training Record
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/management-review/0-sop.html">
+     Management Review
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/management-review/management-review-report.html">
+       Management Review Report
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/post-market-surveillance/0-sop.html">
+     Post-Market Surveillance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/periodic-safety-update-report.html">
+       Periodic Safety Update Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-clinical-follow-up-plan.html">
+       Post-Market Clinical Follow-Up Plan (PMCFP)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-clinical-follow-up-report.html">
+       Post-Market Clinical Follow-Up Report (PMCFR)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-surveillance-plan.html">
+       Post-Market Surveillance Plan
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/purchasing/0-sop.html">
+     Purchasing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/purchasing/list-of-qualified-suppliers.html">
+       List of Qualified Suppliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/purchasing/supplier-checklist.html">
+       Supplier Checklist
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/software-validation/0-sop.html">
+     Software Validation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/software-validation/software-list.html">
+       Software List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/software-validation/software-validation-form.html">
+       &lt;Software Title&gt; - Software Validation Form
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/vigilance/0-sop.html">
+     Vigilance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/vigilance/tmpl-field-safety-notice.html">
+       Field Safety Notice Template
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/vigilance/tmpl-incident-assessment-form.html">
+       Incident Assessment Form
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../2-techdoc/index.html">
+   Technical Documentation File
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2-techdoc/document-roadmap.html">
+     Document Roadmap TechDoc
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2-techdoc/list-of-known-anomalies.html">
+     List of Known Anomalies
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/14971/index.html">
+     14971
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-acceptance-matrix.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-management-plan.html">
+       Risk Management Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-management-report.html">
+       Risk Management Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-table-fmea/index.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Table
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/62304/index.html">
+     62304
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/62304-mapping.html">
+       IEC 62304:2006 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/algorithm-validation-report.html">
+       AI Algorithm Validation Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/bug-fixes-documentation-list.html">
+       Bug Fixes Documentation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/change-evaluation-list.html">
+       Change Evaluation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-software-release.html">
+       Checklist: Software Release
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-software-requirements-review.html">
+       Checklist: Software Requirements Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-user-needs-review.html">
+       Checklist User Needs Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/list-of-medical-devices.html">
+       List of Medical Devices
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-architecture-checklist.html">
+       Software Architecture Checklist
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-architecture-description.html">
+       1. Regulatory References
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-development-maintenance-plan.html">
+       Software Development and Maintenance Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-requirements-list.html">
+       Software Requirements List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-system-test-plan.html">
+       Software System Test Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-change-management.html">
+       SOP Change Management
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-deployment.html">
+       Deployment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-integrated-software-development.html">
+       SOP Integrated Software Development
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-software-problem-resolution.html">
+       SOP Software Problem Resolution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/soup-list.html">
+       SOUP List (Software of Unknown Provenance)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/user-needs-list.html">
+       User Needs List
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/62366/index.html">
+     62366
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/62366-mapping.html">
+       IEC 62366-1:2015 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/list-of-hazard-related-use-scenarios.html">
+       List of Hazard-Related Use Scenarios
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-plan.html">
+       Usability Evaluation Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-protocol.html">
+       Usability Evaluation Protocol
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-report.html">
+       Usability Evaluation Report
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../3-general/index.html">
+   General Regulatory Requirements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/checklist-mdr.html">
+     Checklist: MDR General Safety and Performance Requirements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/declaration-of-conformity-mdd-class-i.html">
+     EC Declaration of Conformity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/essential-requirements-mdd.html">
+     Essential Requirements MDD (93/42/EEC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/instructions-for-use.html">
+     User Manual [enter Product Name]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/mdd-classification-document.html">
+     MDD Classification Document
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-general/mdr-classification-document.html">
+     MDR Classification Document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="0-sop-clinical-evaluation.html">
+   Clinical Evaluation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="clinical-evaluation-plan.html">
+     Clinical Evaluation Plan
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Clinical Evaluation Report
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data-protection/index.html">
+   Data Protection
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/data-protection-statement-website.html">
+     Website Data Protection Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/employee-data-protection-and-confidentiality-agreement.html">
+     Data Protection and Confidentiality Agreement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/list-of-data-processing-activities.html">
+     List of Data Processing Activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/technical-and-organizational-measures.html">
+     &lt;Product Name&gt; - Technical and Organizational Measures
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2Fclinical-evaluation/clinical-evaluation-report.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/clinical-evaluation/clinical-evaluation-report.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#product">
+   Product
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-abbreviations">
+   1. List of Abbreviations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2. Product
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relevant-regulatory-references">
+   3. Relevant Regulatory References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope-of-the-clinical-evaluation">
+   4. Scope of the Clinical Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#device">
+   5. Device
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#device-description">
+     5.1 Device Description
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-benefits-outcome-parameters">
+     5.2 Clinical Benefits, Outcome Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-safety-methods-for-analysis">
+     5.3 Clinical Safety, Methods for Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acceptability-of-benefit-risk-ratio">
+     5.4 Acceptability of Benefit-Risk-Ratio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clinical-background-current-knowledge-state-of-the-art">
+   6. Clinical Background, Current Knowledge, State of the Art
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-background-current-knowledge">
+     6.1 Clinical Background &amp; Current Knowledge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#state-of-the-art-incl-alternative-treatments">
+     6.2 State of the Art incl. Alternative Treatments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-of-evaluation">
+   7. Type of Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literature-search">
+   8. Literature Search
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-methods">
+     8.1 Literature Search Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-appraisal-criteria">
+     8.2 Literature Appraisal Criteria
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-protocol">
+     8.3 Literature Search Protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-search-overview">
+     8.4 Database Search Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-pubmed">
+     8.5 Database: PubMed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-google-scholar">
+     8.6 Database: Google Scholar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-cochrane">
+     8.7 Database: Cochrane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-report">
+     9.8 Literature Search Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation-of-study-quality">
+     8.10 Evaluation of study Quality
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#level-of-evidence-loe">
+       8.10.1  Level of Evidence (LoE)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tendency-t">
+       8.10.2 Tendency (T)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparability-c">
+     8.10.3 Comparability (C)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-appraisal-of-searched-clinical-studies">
+     8.10.4  Single Appraisal of Searched Clinical Studies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-data-on-the-performance-of-the-medical-device">
+     8.10.5 Literature Data on the Performance of the Medical Device
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#literature-data-about-the-safety-of-the-medical-device">
+       8.10.6 Literature Data about the Safety of the Medical Device
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clinical-data">
+   9. Clinical Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-literature">
+     9.1 Clinical Data From Literature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-clinical-study-databases">
+     9.2 Clinical Data from Clinical Study Databases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-adverse-event-databases">
+     9.3 Clinical Data From Adverse Event Databases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-and-appraisal-of-clinical-data">
+     9.4 Summary and Appraisal of Clinical Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-the-clinical-data">
+     9.5 Analysis of the Clinical Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equivalence">
+   10. Equivalence
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equivalent-device">
+     10.1 Equivalent Device
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demonstration-of-equivalence-technical-biological-clinical">
+     10.2 Demonstration of Equivalence (Technical, Biological, Clinical)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clinical-equivalence">
+       Clinical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#technical-equivalence">
+       Technical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#biological-equivalence">
+       Biological Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optional-effectiveness-equivalence">
+       Optional: Effectiveness Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       10.2.1 Clinical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       10.2.2 Technical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       10.2.3 Biological Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conclusion">
+       10.2.4 Conclusion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-market-activities">
+   11. Post-Market Activities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   12. Conclusions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date-of-the-next-clinical-evaluation">
+   13. Date of the Next Clinical Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dates-and-signatures">
+   14. Dates and Signatures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualification-of-the-responsible-evaluators">
+   15. Qualification of the Responsible Evaluators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   16. References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clinical Evaluation Report</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#product">
+   Product
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-abbreviations">
+   1. List of Abbreviations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2. Product
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relevant-regulatory-references">
+   3. Relevant Regulatory References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scope-of-the-clinical-evaluation">
+   4. Scope of the Clinical Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#device">
+   5. Device
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#device-description">
+     5.1 Device Description
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-benefits-outcome-parameters">
+     5.2 Clinical Benefits, Outcome Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-safety-methods-for-analysis">
+     5.3 Clinical Safety, Methods for Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acceptability-of-benefit-risk-ratio">
+     5.4 Acceptability of Benefit-Risk-Ratio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clinical-background-current-knowledge-state-of-the-art">
+   6. Clinical Background, Current Knowledge, State of the Art
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-background-current-knowledge">
+     6.1 Clinical Background &amp; Current Knowledge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#state-of-the-art-incl-alternative-treatments">
+     6.2 State of the Art incl. Alternative Treatments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-of-evaluation">
+   7. Type of Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literature-search">
+   8. Literature Search
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-methods">
+     8.1 Literature Search Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-appraisal-criteria">
+     8.2 Literature Appraisal Criteria
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-protocol">
+     8.3 Literature Search Protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-search-overview">
+     8.4 Database Search Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-pubmed">
+     8.5 Database: PubMed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-google-scholar">
+     8.6 Database: Google Scholar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-cochrane">
+     8.7 Database: Cochrane
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-search-report">
+     9.8 Literature Search Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation-of-study-quality">
+     8.10 Evaluation of study Quality
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#level-of-evidence-loe">
+       8.10.1  Level of Evidence (LoE)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tendency-t">
+       8.10.2 Tendency (T)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparability-c">
+     8.10.3 Comparability (C)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-appraisal-of-searched-clinical-studies">
+     8.10.4  Single Appraisal of Searched Clinical Studies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literature-data-on-the-performance-of-the-medical-device">
+     8.10.5 Literature Data on the Performance of the Medical Device
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#literature-data-about-the-safety-of-the-medical-device">
+       8.10.6 Literature Data about the Safety of the Medical Device
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clinical-data">
+   9. Clinical Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-literature">
+     9.1 Clinical Data From Literature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-clinical-study-databases">
+     9.2 Clinical Data from Clinical Study Databases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clinical-data-from-adverse-event-databases">
+     9.3 Clinical Data From Adverse Event Databases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-and-appraisal-of-clinical-data">
+     9.4 Summary and Appraisal of Clinical Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-the-clinical-data">
+     9.5 Analysis of the Clinical Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equivalence">
+   10. Equivalence
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equivalent-device">
+     10.1 Equivalent Device
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demonstration-of-equivalence-technical-biological-clinical">
+     10.2 Demonstration of Equivalence (Technical, Biological, Clinical)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clinical-equivalence">
+       Clinical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#technical-equivalence">
+       Technical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#biological-equivalence">
+       Biological Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optional-effectiveness-equivalence">
+       Optional: Effectiveness Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       10.2.1 Clinical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       10.2.2 Technical Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       10.2.3 Biological Equivalence
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conclusion">
+       10.2.4 Conclusion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-market-activities">
+   11. Post-Market Activities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   12. Conclusions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date-of-the-next-clinical-evaluation">
+   13. Date of the Next Clinical Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dates-and-signatures">
+   14. Dates and Signatures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualification-of-the-responsible-evaluators">
+   15. Qualification of the Responsible Evaluators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   16. References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="clinical-evaluation-report">
+<h1>Clinical Evaluation Report<a class="headerlink" href="#clinical-evaluation-report" title="Permalink to this headline">#</a></h1>
+<p>The Clinical Evaluation Report states the clinical benefits and safety characteristics of the device, based on
+clinical data. It is the output of the Clinical Evaluation Plan.</p>
+<blockquote>
+<div><p>While the content of the Clinical Evaluation is simple, writing it, coming up with the right structure and
+forming a sensible line of reasoning (equivalence) can be a bit tricky.</p>
+<p>These are the guidance documents on Clinical Evaluation. If you’re the person writing it, you should read
+them:</p>
+<ul class="simple">
+<li><p>MDCG 2020-1, 2020-5, 2020-6</p></li>
+<li><p>MDCG 2020-13: Quite helpful as it gives you an idea of the structure.</p></li>
+<li><p>MEDDEV 2.7.1 rev. 4. (mostly for MDD, but still a good starting point; especially the list of proposed
+headings for a report at the end of the document).</p></li>
+</ul>
+<p>Finally, this Clinical Evaluation Report is for Medical Devices. If you are an IVD manufacturer you will
+write a Performance Evaluation Report which has many similarities but some essential parts are different,
+e.g., Post-Market Performance Follow-Up and procedural descriptions of evaluation and validation).</p>
+</div></blockquote>
+<section id="product">
+<h2>Product<a class="headerlink" href="#product" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Name: <em>&lt;product name&gt;</em></p></li>
+<li><p>Version: <em>&lt;product version&gt;</em></p></li>
+<li><p>Basic UDI-DI: <em>&lt;insert UDI-DI, if/when available&gt;</em></p></li>
+</ul>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>A list of the sections is presented below. You have to update this manually when you edit headings as this
+is a markdown file (sorry - guilty dog face).</p>
+</div></blockquote>
+<ol class="simple">
+<li><p>List of Abbreviations</p></li>
+<li><p>Product</p></li>
+<li><p>Relevant Documents</p></li>
+<li><p>Scope of the Clinical Evaluation</p></li>
+<li><p>Device</p></li>
+<li><p>Clinical Background, Current Knowledge, State of the Art</p></li>
+<li><p>Type of Evaluation</p></li>
+<li><p>Equivalence</p></li>
+<li><p>Literature Search</p></li>
+<li><p>Clinical Data</p></li>
+<li><p>Post-Market Activities</p></li>
+<li><p>Conclusions</p></li>
+<li><p>Date of the Next Clinical Evaluation</p></li>
+<li><p>Dates and Signatures</p></li>
+<li><p>Qualification of the Responsible Evaluators</p></li>
+<li><p>References</p></li>
+</ol>
+</section>
+<section id="list-of-abbreviations">
+<h2>1. List of Abbreviations<a class="headerlink" href="#list-of-abbreviations" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Abbreviation</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AE</p></td>
+<td><p>Adverse Event</p></td>
+</tr>
+<tr class="row-odd"><td><p>BfArM</p></td>
+<td><p>German Federal Institute for Drugs and Medical Devices</p></td>
+</tr>
+<tr class="row-even"><td><p>CE</p></td>
+<td><p>Communauté Européenne</p></td>
+</tr>
+<tr class="row-odd"><td><p>CER</p></td>
+<td><p>Clinical Evaluation Report</p></td>
+</tr>
+<tr class="row-even"><td><p>CI</p></td>
+<td><p>Confidence interval</p></td>
+</tr>
+<tr class="row-odd"><td><p>DHF</p></td>
+<td><p>Design History File</p></td>
+</tr>
+<tr class="row-even"><td><p>DMR</p></td>
+<td><p>Device Master Record</p></td>
+</tr>
+<tr class="row-odd"><td><p>EUDAMED</p></td>
+<td><p>European Database for MEdical Devices</p></td>
+</tr>
+<tr class="row-even"><td><p>FDA</p></td>
+<td><p>Food and Drug Administration (US)</p></td>
+</tr>
+<tr class="row-odd"><td><p>IFU</p></td>
+<td><p>Instruction for Use</p></td>
+</tr>
+<tr class="row-even"><td><p>LoE</p></td>
+<td><p>Level of Evidence</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAUDE</p></td>
+<td><p>Manufacturer and User Facility Device Experience</p></td>
+</tr>
+<tr class="row-even"><td><p>MEDDEV</p></td>
+<td><p>Guideline for Clinical Evaluation of Medical Devices</p></td>
+</tr>
+<tr class="row-odd"><td><p>MDD</p></td>
+<td><p>Medical Device Directive, European Directive 93/42/EEC</p></td>
+</tr>
+<tr class="row-even"><td><p>MDR</p></td>
+<td><p>Medical Device Directive, 2017/745</p></td>
+</tr>
+<tr class="row-odd"><td><p>PMS</p></td>
+<td><p>Post Market Surveillance</p></td>
+</tr>
+<tr class="row-even"><td><p>PMCF</p></td>
+<td><p>Post MArket clinical Follow Up</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rev</p></td>
+<td><p>Revision</p></td>
+</tr>
+<tr class="row-even"><td><p>SOP</p></td>
+<td><p>Standard Operation Procedure</p></td>
+</tr>
+<tr class="row-odd"><td><p>T</p></td>
+<td><p>Tendency</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>Comparability</p></td>
+</tr>
+<tr class="row-odd"><td><p>WHO</p></td>
+<td><p>World Health Organization</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id1">
+<h2>2. Product<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Name: <em>&lt;product name&gt;</em></p></li>
+<li><p>Version: <em>&lt;product version&gt;</em></p></li>
+<li><p>Basic UDI-DI: <em>&lt;insert UDI-DI, if/when available&gt;</em></p></li>
+<li><p>UMDNS-Code:</p></li>
+<li><p>GMDN-Code:</p></li>
+</ul>
+<p>The classification is based on the following criteria:</p>
+<blockquote>
+<div><p>Select one of these two, based on whether you’re going for MDD or MDR compliance.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Annex IX of the European Directive 93/42/EEC (MDD): <em>&lt;if applicable&gt;</em></p></li>
+<li><p>According to the EU Regulation 2017/745 (MDR) Annex VIII Rules: <em>&lt;if applicable&gt;</em>.</p></li>
+</ul>
+</section>
+<section id="relevant-regulatory-references">
+<h2>3. Relevant Regulatory References<a class="headerlink" href="#relevant-regulatory-references" title="Permalink to this headline">#</a></h2>
+<p>Other relevant regulatory documents:</p>
+<ul class="simple">
+<li><p>SOP Clinical Evaluation</p></li>
+<li><p>Clinical Evaluation Plan</p></li>
+<li><p>Instructions for Use (IFU)</p></li>
+</ul>
+<p>This clinical evaluation report serves as evidence of conformance with certain General Safety and Performance
+Requirements pursuant to EU Regulation 2017/745 (MDR), Annex I.</p>
+<p>Specifically, the following requirements were evaluated as part of this report:</p>
+<ul class="simple">
+<li><p>Chapter 1 (General Requirements), para. 1 and 8</p></li>
+<li><p>Chapter 2.8 (Software Devices), para. 17.2</p></li>
+</ul>
+</section>
+<section id="scope-of-the-clinical-evaluation">
+<h2>4. Scope of the Clinical Evaluation<a class="headerlink" href="#scope-of-the-clinical-evaluation" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Note: This section is copy-pasted from the Clinical Evaluation Plan.</p>
+</div></blockquote>
+<blockquote>
+<div><p>The following section can be part of the Clinical Evaluation Plan or pasted here with reference to the
+respective chapters. Remember that you can update the Clinical Evaluation Plan during your evaluation
+(e.g., your search criteria are not sufficient).</p>
+<p>The approach according to the MEDDEV 2.7/1 rev. 4 includes five logical procedural stages in order to
+evaluate the performance and safety data of the medical device:</p>
+<ul class="simple">
+<li><p>Step 0 (“Scope”)</p></li>
+<li><p>Step 1 (“Identification”)</p></li>
+<li><p>Step 2 (“Appraisal”)</p></li>
+<li><p>Step 3 (“Analysis”)</p></li>
+<li><p>Step 4 (“Report”)</p></li>
+</ul>
+</div></blockquote>
+<p>During the working process, these five steps are iterative and influence each other. The report shows the
+steps in a sequential way. In the present report (step 4), the steps 0 through 3 are corresponding to the
+following chapters:</p>
+<blockquote>
+<div><p>List sections of the Clinical Evaluation Report here which cover the steps above.</p>
+</div></blockquote>
+</section>
+<section id="device">
+<h2>5. Device<a class="headerlink" href="#device" title="Permalink to this headline">#</a></h2>
+<section id="device-description">
+<h3>5.1 Device Description<a class="headerlink" href="#device-description" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Copy-paste your Device Description (which includes the Intended Use) here. If it’s not done yet, remember to
+do it later :)</p>
+</div></blockquote>
+<blockquote>
+<div><p>Also, reference your Essential Requirements Document here.</p>
+</div></blockquote>
+</section>
+<section id="clinical-benefits-outcome-parameters">
+<h3>5.2 Clinical Benefits, Outcome Parameters<a class="headerlink" href="#clinical-benefits-outcome-parameters" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Medical device claims are statements from accompanying documents, marketing material, your website,
+etc. that include information about the performance and safety of the medical device (information by the
+manufacturer). The clinical evaluation is done in order to determine whether those claims are confirmed by
+sufficient clinical evidence.</p>
+<p>So, if your website claims that your device cures back pain in 50% of patients after 14 days, here’s the
+place to list that claim and show explain how you’ll prove it.</p>
+</div></blockquote>
+<p>Claims that have not been stated so far (e.g., in the IFU) are described below and sorted according to their
+meaning for performance and safety. In this clinical evaluation, it was determined that the claims are
+sufficiently supported by clinical data.</p>
+<p>Performance-related product claims:</p>
+<ul class="simple">
+<li><p>Claim 1</p></li>
+<li><p>Claim 2</p></li>
+</ul>
+</section>
+<section id="clinical-safety-methods-for-analysis">
+<h3>5.3 Clinical Safety, Methods for Analysis<a class="headerlink" href="#clinical-safety-methods-for-analysis" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Describe your safety parameters, i.e., which things should your product fulfil so that you consider it safe?
+And your methods, i.e., how will you prove that your product fulfils those safety parameters? A method could
+be a literature search for past studies, but you could additionally do a Post-Market Clinical Follow-Up to
+double-check whether that’s actually true for your device.</p>
+</div></blockquote>
+<p>Safety-related product claims:</p>
+<ul class="simple">
+<li><p>Claim 1</p></li>
+<li><p>Claim 2</p></li>
+</ul>
+</section>
+<section id="acceptability-of-benefit-risk-ratio">
+<h3>5.4 Acceptability of Benefit-Risk-Ratio<a class="headerlink" href="#acceptability-of-benefit-risk-ratio" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>After you’ve defined your benefits and safety parameters, which combination of those is acceptable to you?
+In the case of most software devices (and apps), you’ll probably have subtle benefits (e.g., better disease
+management, early detection of relapses) while low safety concerns (e.g., disease progression unlikely, not
+killing anyone).</p>
+</div></blockquote>
+</section>
+</section>
+<section id="clinical-background-current-knowledge-state-of-the-art">
+<h2>6. Clinical Background, Current Knowledge, State of the Art<a class="headerlink" href="#clinical-background-current-knowledge-state-of-the-art" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>This chapter focus on literature  and guidelines that describe the current state of the art and
+other topics. It is similar to the literature / introduction chapter of papers.</p>
+<p>It makes sense to differentiate between “context” and “pivotal” data:</p>
+<ul class="simple">
+<li><p>Context data describes the state of the art (commonly the introduction / literature part of papers)</p></li>
+<li><p>Pivotal data is used for the appraisal, i.e., that’s the data describing the actual study and
+outcome(s). In the best case, the pivotal data is about the actual device you’re claiming equivalence to.</p></li>
+</ul>
+</div></blockquote>
+<section id="clinical-background-current-knowledge">
+<h3>6.1 Clinical Background &amp; Current Knowledge<a class="headerlink" href="#clinical-background-current-knowledge" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Describe the clinical context of the disease you’re treating: How are patients currently treated? Which
+symptoms do they have, which diagnostic modalities are being used to establish a diagnosis, which treatment
+options exist? What are the benefits and drawbacks of current treatment options?</p>
+</div></blockquote>
+</section>
+<section id="state-of-the-art-incl-alternative-treatments">
+<h3>6.2 State of the Art incl. Alternative Treatments<a class="headerlink" href="#state-of-the-art-incl-alternative-treatments" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Given the current treatment options, what is the preferred, “state of the art” treatment? What are its
+benefits and drawbacks? Are there recent scientific achievements (studies, new technologies, software) which
+may be promising to improve this state-of-the-art treatment? Also, what are alternative treatments?</p>
+</div></blockquote>
+</section>
+</section>
+<section id="type-of-evaluation">
+<h2>7. Type of Evaluation<a class="headerlink" href="#type-of-evaluation" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Note: This section is copy-pasted from the Clinical Evaluation Plan.</p>
+</div></blockquote>
+</section>
+<section id="literature-search">
+<h2>8. Literature Search<a class="headerlink" href="#literature-search" title="Permalink to this headline">#</a></h2>
+<section id="literature-search-methods">
+<h3>8.1 Literature Search Methods<a class="headerlink" href="#literature-search-methods" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Copy-paste from Clinical Evaluation Plan.</p>
+</div></blockquote>
+</section>
+<section id="literature-appraisal-criteria">
+<h3>8.2 Literature Appraisal Criteria<a class="headerlink" href="#literature-appraisal-criteria" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Copy-paste from Clinical Evaluation Plan.</p>
+</div></blockquote>
+<blockquote>
+<div><p>You can describe it as a flow chart, e.g.:</p>
+<ol class="simple">
+<li><p>Initial search with all publications from the relevant databases.
+2.1 Potentially relevant papers (from the first skimming of article titles / abstracts)
+2.2 Irrelevant papers</p></li>
+<li><p>Potentially relevant papers found in irrelevant papers
+4.1 Relevant paper used for context
+4.2 Relevant paper used for a single appraisal (pivotal data)</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="literature-search-protocol">
+<h3>8.3 Literature Search Protocol<a class="headerlink" href="#literature-search-protocol" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>A table which lists your actual literature search results. For each entry, you should decide whether it’s
+acceptable (based on your appraisal criteria) or not. I pre-wrote some tables to give you an idea of the
+structure below. You could separate the tables based on the database where you did the search (PubMed,
+Google Scholar).</p>
+<p>It could make sense to put this in a separate document (rather: a spreadsheet).</p>
+<p>Here are some bullet points from the guidance:</p>
+<ul class="simple">
+<li><p>Literature search protocol provided</p></li>
+<li><p>Literature search reports provided</p></li>
+<li><p>Full list of retrieved articles provided</p></li>
+<li><p>Full list of excluded articles provided, with reasons for exclusion Full text copies of relevant documents
+available</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="database-search-overview">
+<h3>8.4 Database Search Overview<a class="headerlink" href="#database-search-overview" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Database</p></th>
+<th class="head"><p>Search term</p></th>
+<th class="head"><p># Hits</p></th>
+<th class="head"><p># Evaluated Abstracts</p></th>
+<th class="head"><p># Potential Relevant Publications</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="database-pubmed">
+<h3>8.5 Database: PubMed<a class="headerlink" href="#database-pubmed" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Author</p></th>
+<th class="head"><p>Year</p></th>
+<th class="head"><p>Summary</p></th>
+<th class="head"><p>Relevant? Why?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><em>e.g., similar design, similar features</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="database-google-scholar">
+<h3>8.6 Database: Google Scholar<a class="headerlink" href="#database-google-scholar" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Author</p></th>
+<th class="head"><p>Year</p></th>
+<th class="head"><p>Summary</p></th>
+<th class="head"><p>Relevant? Why?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="database-cochrane">
+<h3>8.7 Database: Cochrane<a class="headerlink" href="#database-cochrane" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Author</p></th>
+<th class="head"><p>Year</p></th>
+<th class="head"><p>Summary</p></th>
+<th class="head"><p>Relevant? Why?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="literature-search-report">
+<h3>9.8 Literature Search Report<a class="headerlink" href="#literature-search-report" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Briefly summarize how many studies you reviewed, how many you deemed acceptable and why you didn’t include
+the unacceptable ones (probably because they didn’t conform to the appraisal criteria).</p>
+</div></blockquote>
+<blockquote>
+<div><p>Describe a gap analysis which information could not be found during your search e.g., specific
+functionalities of your device, limited number of clinical data in publications.</p>
+</div></blockquote>
+</section>
+<section id="evaluation-of-study-quality">
+<h3>8.10 Evaluation of study Quality<a class="headerlink" href="#evaluation-of-study-quality" title="Permalink to this headline">#</a></h3>
+<section id="level-of-evidence-loe">
+<h4>8.10.1  Level of Evidence (LoE)<a class="headerlink" href="#level-of-evidence-loe" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Take a sufficient classification to evaluate the quality of your study. You can use the LoE from MDCG 2020-6
+or from the American Heart Association.</p>
+</div></blockquote>
+</section>
+<section id="tendency-t">
+<h4>8.10.2 Tendency (T)<a class="headerlink" href="#tendency-t" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>The MEDDEV 2.7/1 rev. 4 requires that literature is used that confirms as well as questions the suitability
+of the evaluated medical device.</p>
+<ul class="simple">
+<li><p>Positive: + (Confirms clinical suitability)</p></li>
+<li><p>Negative: - (Does not confirm clinical suitability)</p></li>
+<li><p>Indifferent: i (No statement to the clinical suitability possible)</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="comparability-c">
+<h3>8.10.3 Comparability (C)<a class="headerlink" href="#comparability-c" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>For the consideration of the relevance of literature data for the clinical evaluation it is necessary to make
+a statement about the comparability to the medical device to be evaluated. This statement about the
+comparability is made according to the described criteria from chapter “Equivalence” above.</p>
+</div></blockquote>
+</section>
+<section id="single-appraisal-of-searched-clinical-studies">
+<h3>8.10.4  Single Appraisal of Searched Clinical Studies<a class="headerlink" href="#single-appraisal-of-searched-clinical-studies" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>This chapter is highly important for medical device evaluation. Here you take all the publications from
+the literature search and evaluate them to prove equivalence with your device and prove the respective
+product claims. The latter can also be proven by other activities (e.g., PMS, equivalent device, usability
+testing, result of adverse events etc.).</p>
+</div></blockquote>
+</section>
+<section id="literature-data-on-the-performance-of-the-medical-device">
+<h3>8.10.5 Literature Data on the Performance of the Medical Device<a class="headerlink" href="#literature-data-on-the-performance-of-the-medical-device" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Focus here on equivalent devices that support your performance claims.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Do the paper description in the same way e.g.:</p>
+<ul class="simple">
+<li><p>First, describe the study with its main characteristics regarding the quality and relevance are made.
+(Study design, patient number, mean age inclusion and exclusion criteria, used product, endpoint,
+results of performance, conclusion of the author).</p></li>
+<li><p>Complications, side-effects, adverse events.</p></li>
+<li><p>A consideration of the study according to the criteria. (LoE, T, C)</p></li>
+</ul>
+</div></blockquote>
+<p>In the following, the selected literature references, which were categorized as “relevant” (appraisal), are
+evaluated. This was done according to the following scheme:</p>
+<section id="literature-data-about-the-safety-of-the-medical-device">
+<h4>8.10.6 Literature Data about the Safety of the Medical Device<a class="headerlink" href="#literature-data-about-the-safety-of-the-medical-device" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Focus here on equivalent devices that support your Safety claims. So you do not need to describe the LoE
+since potential risks can also arise from case studies (which might have a low LoE).</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="clinical-data">
+<h2>9. Clinical Data<a class="headerlink" href="#clinical-data" title="Permalink to this headline">#</a></h2>
+<section id="clinical-data-from-literature">
+<h3>9.1 Clinical Data From Literature<a class="headerlink" href="#clinical-data-from-literature" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>List all the clinical data you got from studies which matched your appraisal criteria.</p>
+</div></blockquote>
+</section>
+<section id="clinical-data-from-clinical-study-databases">
+<h3>9.2 Clinical Data from Clinical Study Databases<a class="headerlink" href="#clinical-data-from-clinical-study-databases" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>List all the clinical data you got from studies (clinical <a class="reference external" href="http://trials.gov">trials.gov</a>, ANCTR, DRKS, WHO etc.).</p>
+</div></blockquote>
+</section>
+<section id="clinical-data-from-adverse-event-databases">
+<h3>9.3 Clinical Data From Adverse Event Databases<a class="headerlink" href="#clinical-data-from-adverse-event-databases" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>List all the clinical data you got from studies which matched your appraisal criteria (BfArM, MAUDE, FDA
+Medical Device Recall, EUDAMED (when applicable)).</p>
+</div></blockquote>
+</section>
+<section id="summary-and-appraisal-of-clinical-data">
+<h3>9.4 Summary and Appraisal of Clinical Data<a class="headerlink" href="#summary-and-appraisal-of-clinical-data" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Summarize all the clinical data from above :)</p>
+</div></blockquote>
+</section>
+<section id="analysis-of-the-clinical-data">
+<h3>9.5 Analysis of the Clinical Data<a class="headerlink" href="#analysis-of-the-clinical-data" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Analyze the clinical data with a focus on whether your targets of clinical benefits and safety were
+fulfilled.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="equivalence">
+<h2>10. Equivalence<a class="headerlink" href="#equivalence" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>NOTE: first of all, under the European MDR, equivalence data is not as significant anymore as it used to be
+under the MDD. That’s because the MDR now actually requires you to have access to the clinical data that you
+are referencing to support your own device’s safety and performance. Access to the data of competitor
+devices is usually rather tricky though. That’s why we’re using equivalence in our template only as a
+another indicator on the side.</p>
+<p>It’s important though to understand why you’re conducting this equivalent device comparison: you want to
+show that another device is very safe and has a reliable performance. You then refer to those datapoints
+and, after demonstrating that your device is equivalent to the other, argue that those datapoints also
+support your device profile. That means:</p>
+<ul class="simple">
+<li><p>Make sure to include search terms for the equivalent device(s), such as the brand name, in your literature
+search (para. 8)</p></li>
+<li><p>Make sure to include search terms for the equivalent device(s), such as the brand name, in your literature
+search (para. 9)</p></li>
+</ul>
+<p>You don’t really analyze the resulting information in the above paragraphs, but draw your main conclusion
+from this below in para. 10.2.4.</p>
+</div></blockquote>
+<section id="equivalent-device">
+<h3>10.1 Equivalent Device<a class="headerlink" href="#equivalent-device" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Describe the equivalent device you’re comparing yourself to, mainly its Intended Use.</p>
+</div></blockquote>
+</section>
+<section id="demonstration-of-equivalence-technical-biological-clinical">
+<h3>10.2 Demonstration of Equivalence (Technical, Biological, Clinical)<a class="headerlink" href="#demonstration-of-equivalence-technical-biological-clinical" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Here you have to demonstrate that your device is equivalent to the Equivalent Device. You accomplish that by
+creating a table in which you list certain characteristics, and describe those characteristics both for the
+Equivalent Device and for your device. The idea is that your device is mostly the same in most
+characteristics.</p>
+</div></blockquote>
+<blockquote>
+<div><p>The tables are split into general stuff (first table), then Clinical, Technical and Biological equivalence
+as per the guidance documents. I pre-filled some of the table rows for you as they should be universal,
+e.g., Intended Use, Medical Indication(s) and Programming Language. But definitely feel free to add
+additional rows which are useful for comparing your device to the equivalent one. Maybe you’re using
+recurrent neural networks and the equivalent device is, too? Then add that.</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Equivalent Device</p></th>
+<th class="head"><p>This Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Intended Use</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Medical Indication(s)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Device Classification</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Principle of Operation</p></td>
+<td><p>Stand-alone Software</p></td>
+<td><p>Stand-alone Software</p></td>
+</tr>
+</tbody>
+</table>
+<p>According to standard methodology, the level of similarity or equivalence of a comparable medical device to
+the evaluated medical device is divided into the three categories “clinical”, “technical” and “biological”.</p>
+<p>Within each category there are four steps for the evaluation of the equivalence level:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Equivalence Level</p></th>
+<th class="head"><p>Score</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Very Equivalent</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nearly Equivalent</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>In some aspects similar</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>In some aspects similar</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>After a score has been assigned to all three categories (clinical, technical, biological), those scores are
+summed up. The total equivalence is determined based on the sum of those values:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sum</p></th>
+<th class="head"><p>Equivalence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8-9</p></td>
+<td><p>Very Equivalent</p></td>
+</tr>
+<tr class="row-odd"><td><p>6-7</p></td>
+<td><p>Nearly Equivalent</p></td>
+</tr>
+<tr class="row-even"><td><p>3-5</p></td>
+<td><p>In some aspects similar</p></td>
+</tr>
+<tr class="row-odd"><td><p>0-2</p></td>
+<td><p>Very different</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>For software devices, adjust the score correspondingly. For example, you could say:
+“As the biological category typically does not apply for software devices, the total equivalence is
+determined based on the sum of those values as follows” and use an adjusted score: 6 // 5 // 3-4 // 0-2.</p>
+</div></blockquote>
+<section id="clinical-equivalence">
+<h4>Clinical Equivalence<a class="headerlink" href="#clinical-equivalence" title="Permalink to this headline">#</a></h4>
+<p>The device is considered clinically equivalent if it is:</p>
+<ul class="simple">
+<li><p>Used for the same clinical condition</p></li>
+<li><p>Used for the same intended use</p></li>
+<li><p>Used at the same site in the body</p></li>
+<li><p>Used in a similar population</p></li>
+<li><p>Not foreseen to deliver significantly different performances</p></li>
+<li><p>Similar performances such as the expected clinical effect, the specific intended purpose, the duration of
+use, etc.</p></li>
+</ul>
+</section>
+<section id="technical-equivalence">
+<h4>Technical Equivalence<a class="headerlink" href="#technical-equivalence" title="Permalink to this headline">#</a></h4>
+<p>The device is considered technically equivalent if it:</p>
+<ul class="simple">
+<li><p>Is of a similar design</p></li>
+<li><p>Is used under the same conditions of use</p></li>
+<li><p>Has a similar specifications and properties</p></li>
+<li><p>Has a similar intensity of energy, tensile strength, viscosity, surface characteristics, wavelength</p></li>
+<li><p>Has a similar surface texture, porosity, particle size, nanotechnology, specific mass, atomic inclusions</p></li>
+<li><p>Uses a similar deployment methods</p></li>
+<li><p>Has similar principles of operation and critical performance requirements</p></li>
+</ul>
+</section>
+<section id="biological-equivalence">
+<h4>Biological Equivalence<a class="headerlink" href="#biological-equivalence" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>For stand-alone software:</p>
+</div></blockquote>
+<p>Not applicable. The device doesn’t come in contact with human tissue or body fluids.</p>
+<blockquote>
+<div><p>For medical devices which are a part of a hardware medical device:</p>
+<p>Note: Medical device monitors are also medical devices according to 60601-1.</p>
+</div></blockquote>
+<p>The device is considered biologically equivalent if it:</p>
+<ul class="simple">
+<li><p>Is similar or has similar effecting materials which are in contact with body tissue and fluids</p></li>
+</ul>
+</section>
+<section id="optional-effectiveness-equivalence">
+<h4>Optional: Effectiveness Equivalence<a class="headerlink" href="#optional-effectiveness-equivalence" title="Permalink to this headline">#</a></h4>
+<p>The device is considered to have equivalent effectiveness, if it:</p>
+<ul class="simple">
+<li><p>Has similar Sensitivity, Specificity, Accuracy, NNP, PPV, etc.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>10.2.1 Clinical Equivalence<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Note: The MDR doesn’t explicitly state that the device needs to be used for the same medical indication,
+gender and duration of use. But it should be used for the same clinical condition or purpose including
+similar severity and stage of the disease.</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Equivalent Device</p></th>
+<th class="head"><p>This Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clinical Condition</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Disease Stage</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Site in Body</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Population: Age, Anatomy, Physiology</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Clinical Effect</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Duration of Use</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Significant Performance Difference</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clinical Equivalence Score: &lt;enter number between 0 and 3&gt;</strong></p>
+</section>
+<section id="id3">
+<h4>10.2.2 Technical Equivalence<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Equivalent Device</p></th>
+<th class="head"><p>This Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Software Algorithm</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Programming Language</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Graphical User Interface (GUI)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Web-based Application</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Inputs</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Outputs</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>The following table can be added if it is a hardware-related Medical Device:</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Equivalent Device</p></th>
+<th class="head"><p>This Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Design</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimension</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Operating Condition</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Physical Characteristics (e.g., weight)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Data transmission</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Equivalence Score: &lt;enter number between 0 and 3&gt;</strong></p>
+</section>
+<section id="id4">
+<h4>10.2.3 Biological Equivalence<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>For stand-alone software:</p>
+</div></blockquote>
+<p>Not applicable. The device doesn’t come in contact with human tissue or body fluids.</p>
+<blockquote>
+<div><p>For medical devices which are a part of a hardware medical device:</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Equivalent Device</p></th>
+<th class="head"><p>This Device</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Material/ Radiation in Contact With Body (User/ Patient)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Biological Equivalence Score: &lt;enter number between 0 and 3&gt;</strong></p>
+</section>
+<section id="conclusion">
+<h4>10.2.4 Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Describe your conclusion based on the sum of the numbers values that you gave for each aspect of your
+equivalence evaluation.</p>
+<p>It would be also good to describe, on a high level, the outcome of your evaluation from the following
+processes:</p>
+<ul class="simple">
+<li><p>Risk Management</p></li>
+<li><p>Biocompatibility investigation (if applicable)</p></li>
+<li><p>Performance Testing</p></li>
+<li><p>Usability Testing (formative / summative evaluation)</p></li>
+<li><p>Post-Market Surveillance/ Post-Market Clinical Follow-up</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Total Equivalence Score: &lt;enter number between 0 and 9&gt;</strong></p>
+</section>
+</section>
+</section>
+<section id="post-market-activities">
+<h2>11. Post-Market Activities<a class="headerlink" href="#post-market-activities" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>This chapter is used to summarize your PMS/ PMCF activities. During the clinical evaluation you evaluate
+the information of your safety and performance claims as well as general requirements on safety &amp;
+performance. If you can not cover certain aspects you might need to add them to your PMS/ PMCF - Plan.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Summarize your post-market activities. You can copy-paste a lot of those here. At the minimum, you’ll have a
+Post-Market Surveillance Plan and Report. If this is your initial certification, your report may be empty as
+you haven’t brought your device to market yet.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Additionally, you may have a Post-Market Clinical Follow-Up (PMCF) Plan and Report which essentially has the
+content of “we’ll be tracking some data to make sure that our claims of clinical benefits and safety are
+actually true”.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Here’s what the guidance states about it:
+Describe how the manufacturer will verify the presumption that there would be no clinically significant
+difference in the safety and clinical performance of the device under evaluation compared with the
+equivalent device by post market surveillance or post market clinical follow-up?</p>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
+<li><p>PMS Plan</p></li>
+<li><p>PMS Report</p></li>
+<li><p>PMCF Plan</p></li>
+<li><p>PMCF Report</p></li>
+<li><p>PSUR (if relevant)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="conclusions">
+<h2>12. Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Your conclusion is whether the clinical data shows that your goals (benefit/ performance and safety) are
+fulfilled. Reference your claims you stated before.</p>
+</div></blockquote>
+</section>
+<section id="date-of-the-next-clinical-evaluation">
+<h2>13. Date of the Next Clinical Evaluation<a class="headerlink" href="#date-of-the-next-clinical-evaluation" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>When will you be doing the next clinical evaluation and updating this report?</p>
+</div></blockquote>
+</section>
+<section id="dates-and-signatures">
+<h2>14. Dates and Signatures<a class="headerlink" href="#dates-and-signatures" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Date and sign the report. If your document management system supports it, you can digitally sign by typing
+e.g., your initials in the “Signature” field. Otherwise, you can still sign it the old-school way (print it
+and sign the sheet of paper, ugh).</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Activity</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Creation</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Review</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Approval</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qualification-of-the-responsible-evaluators">
+<h2>15. Qualification of the Responsible Evaluators<a class="headerlink" href="#qualification-of-the-responsible-evaluators" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Attach CVs of the people who were involved in writing the Clinical Evaluation. They must fulfil some
+criteria (it’s complicated), so I’ll just copy-paste MEDDEV 2.7.1 rev. 4 here:</p>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
+<li><p>The manufacturer defines requirements for the evaluators that are in line with the nature of the device
+under evaluation and its clinical performance and risks.</p></li>
+<li><p>The manufacturer should be able to justify the choice of the evaluators through reference to their
+qualifications and documented experience, and present a declaration of interest for each evaluator.</p></li>
+</ul>
+<p>As a general principle, the evaluators should possess knowledge of the following:</p>
+<ul class="simple">
+<li><p>research methodology (including clinical investigation design and biostatistics); MEDDEV 2.7/1 revision 4
+page 14 of 65</p></li>
+<li><p>information management (e.g., scientific background or librarianship qualification; experience with relevant
+databases such as Embase and Medline);</p></li>
+<li><p>regulatory requirements; and</p></li>
+<li><p>medical writing (e.g., post-graduate experience in a relevant science or in medicine; training and
+experience in medical writing, systematic review and clinical data appraisal).</p></li>
+</ul>
+<p>With respect to the particular device under evaluation, the evaluators should in addition have knowledge of:</p>
+<ul class="simple">
+<li><p>the device technology and its application;</p></li>
+<li><p>diagnosis and management of the conditions intended to be diagnosed or managed by the device, knowledge of
+medical alternatives, treatment standards and technology (e.g., specialist clinical expertise in the
+relevant medical speciality).</p></li>
+</ul>
+<p>The evaluators should have at least the following training and experience in the relevant field:</p>
+<ul class="simple">
+<li><p>a degree from higher education in the respective field and 5 years of documented professional experience;
+or</p></li>
+<li><p>10 years of documented professional experience if a degree is not a prerequisite for a given task.</p></li>
+</ul>
+<p>There may be circumstances where the level of evaluator expertise may be less or different; this should be
+documented and duly justified.</p>
+</div></blockquote>
+</section>
+<section id="references">
+<h2>16. References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Papers and other references which you cite go here.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clinical-evaluation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="clinical-evaluation-plan.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Clinical Evaluation Plan</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../data-protection/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Protection</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Radiotherapy AI Pty Ltd<br/>
+  
+      &copy; Copyright 2021 - 2022.<br/>
+    <div class="extra_footer">
+      <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+    <img
+      alt="Creative Commons Licence" style="border-width:0"
+      src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+  </a><br />
+
+  This work is licensed under the <a
+    rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+  Attribution 4.0 International License
+  </a>
+  <br />
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

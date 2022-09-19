@@ -1,0 +1,1574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Document and Record Control &#8212; Radiotherapy AI</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Document List QMS" href="document-list-dlqms.html" />
+    <link rel="prev" title="List of CAPAs" href="../capa/list-capa.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Radiotherapy AI’s QMS and TechDoc
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../0-intended-use/index.html">
+   Intended Use
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   Quality Management System
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../0-quality-manual-policy-objectives.html">
+     Quality Manual, Policy and Objectives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13485-mapping.html">
+     ISO 13485:2016 Mapping of Requirements to Documents
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sop-feedback-management.html">
+     Feedback Management and Customer Complaints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sop-internal-audit.html">
+     Internal Audit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sop-product-certification-and-registration.html">
+     Product Certification and Registration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sop-update-of-regulations.html">
+     Update of Regulations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../capa/0-sop.html">
+     Corrective and Preventive Action
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../capa/list-capa.html">
+       List of CAPAs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="current reference internal" href="#">
+     Document and Record Control
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="document-list-dlqms.html">
+       Document List QMS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../human-resources/0-sop.html">
+     Human Resources Administration
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../human-resources/list-of-medical-device-consultants.html">
+       List of Medical Device Consultants
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../human-resources/list-of-training-documentation.html">
+       List of Training Documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../human-resources/tmpl-training-record.html">
+       Training Record
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../management-review/0-sop.html">
+     Management Review
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../management-review/management-review-report.html">
+       Management Review Report
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../post-market-surveillance/0-sop.html">
+     Post-Market Surveillance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../post-market-surveillance/periodic-safety-update-report.html">
+       Periodic Safety Update Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../post-market-surveillance/post-market-clinical-follow-up-plan.html">
+       Post-Market Clinical Follow-Up Plan (PMCFP)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../post-market-surveillance/post-market-clinical-follow-up-report.html">
+       Post-Market Clinical Follow-Up Report (PMCFR)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../post-market-surveillance/post-market-surveillance-plan.html">
+       Post-Market Surveillance Plan
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../purchasing/0-sop.html">
+     Purchasing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../purchasing/list-of-qualified-suppliers.html">
+       List of Qualified Suppliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../purchasing/supplier-checklist.html">
+       Supplier Checklist
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../software-validation/0-sop.html">
+     Software Validation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../software-validation/software-list.html">
+       Software List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../software-validation/software-validation-form.html">
+       &lt;Software Title&gt; - Software Validation Form
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../vigilance/0-sop.html">
+     Vigilance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../vigilance/tmpl-field-safety-notice.html">
+       Field Safety Notice Template
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../vigilance/tmpl-incident-assessment-form.html">
+       Incident Assessment Form
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../2-techdoc/index.html">
+   Technical Documentation File
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../2-techdoc/document-roadmap.html">
+     Document Roadmap TechDoc
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../2-techdoc/list-of-known-anomalies.html">
+     List of Known Anomalies
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../2-techdoc/14971/index.html">
+     14971
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/14971/risk-acceptance-matrix.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/14971/risk-management-plan.html">
+       Risk Management Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/14971/risk-management-report.html">
+       Risk Management Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/14971/risk-table-fmea/index.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Table
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../2-techdoc/62304/index.html">
+     62304
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/62304-mapping.html">
+       IEC 62304:2006 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/algorithm-validation-report.html">
+       AI Algorithm Validation Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/bug-fixes-documentation-list.html">
+       Bug Fixes Documentation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/change-evaluation-list.html">
+       Change Evaluation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/checklist-software-release.html">
+       Checklist: Software Release
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/checklist-software-requirements-review.html">
+       Checklist: Software Requirements Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/checklist-user-needs-review.html">
+       Checklist User Needs Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/list-of-medical-devices.html">
+       List of Medical Devices
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/software-architecture-checklist.html">
+       Software Architecture Checklist
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/software-architecture-description.html">
+       1. Regulatory References
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/software-development-maintenance-plan.html">
+       Software Development and Maintenance Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/software-requirements-list.html">
+       Software Requirements List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/software-system-test-plan.html">
+       Software System Test Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/sop-change-management.html">
+       SOP Change Management
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/sop-deployment.html">
+       Deployment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/sop-integrated-software-development.html">
+       SOP Integrated Software Development
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/sop-software-problem-resolution.html">
+       SOP Software Problem Resolution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/soup-list.html">
+       SOUP List (Software of Unknown Provenance)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62304/user-needs-list.html">
+       User Needs List
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../2-techdoc/62366/index.html">
+     62366
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62366/62366-mapping.html">
+       IEC 62366-1:2015 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62366/list-of-hazard-related-use-scenarios.html">
+       List of Hazard-Related Use Scenarios
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62366/usability-evaluation-plan.html">
+       Usability Evaluation Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62366/usability-evaluation-protocol.html">
+       Usability Evaluation Protocol
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../2-techdoc/62366/usability-evaluation-report.html">
+       Usability Evaluation Report
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../3-general/index.html">
+   General Regulatory Requirements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/checklist-mdr.html">
+     Checklist: MDR General Safety and Performance Requirements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/declaration-of-conformity-mdd-class-i.html">
+     EC Declaration of Conformity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/essential-requirements-mdd.html">
+     Essential Requirements MDD (93/42/EEC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/instructions-for-use.html">
+     User Manual [enter Product Name]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/mdd-classification-document.html">
+     MDD Classification Document
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../3-general/mdr-classification-document.html">
+     MDR Classification Document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../clinical-evaluation/0-sop-clinical-evaluation.html">
+   Clinical Evaluation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../clinical-evaluation/clinical-evaluation-plan.html">
+     Clinical Evaluation Plan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../clinical-evaluation/clinical-evaluation-report.html">
+     Clinical Evaluation Report
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../data-protection/index.html">
+   Data Protection
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-protection/data-protection-statement-website.html">
+     Website Data Protection Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-protection/employee-data-protection-and-confidentiality-agreement.html">
+     Data Protection and Confidentiality Agreement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-protection/list-of-data-processing-activities.html">
+     List of Data Processing Activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-protection/technical-and-organizational-measures.html">
+     &lt;Product Name&gt; - Technical and Organizational Measures
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2F1-qms/document-and-record-control/0-sop.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/1-qms/document-and-record-control/0-sop.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#document-and-record-labeling">
+     Document and Record Labeling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retention-periods">
+     Retention Periods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-periods">
+     Review Periods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qms-document-list">
+     QMS Document List
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-of-documents">
+     Handling of Documents
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creation-of-documents">
+       1. Creation of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#documents-ready-for-review">
+       2. Documents Ready for Review
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#review-of-documents">
+       3. Review of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#release-of-documents">
+       4. Release of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changes-to-documents">
+       5. Changes to Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#archiving-of-documents">
+       6. Archiving of Documents
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-of-records">
+     Handling of Records
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creation-of-records">
+       1. Creation of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#review-and-release-of-records">
+       2. Review and Release of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#storage-of-records">
+       3. Storage of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changes-to-records">
+       4. Changes to Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#archiving-of-records">
+       5. Archiving of Records
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Document and Record Control</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-considerations">
+   General Considerations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#document-and-record-labeling">
+     Document and Record Labeling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retention-periods">
+     Retention Periods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-periods">
+     Review Periods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qms-document-list">
+     QMS Document List
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-steps">
+   Process Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-of-documents">
+     Handling of Documents
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creation-of-documents">
+       1. Creation of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#documents-ready-for-review">
+       2. Documents Ready for Review
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#review-of-documents">
+       3. Review of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#release-of-documents">
+       4. Release of Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changes-to-documents">
+       5. Changes to Documents
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#archiving-of-documents">
+       6. Archiving of Documents
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-of-records">
+     Handling of Records
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creation-of-records">
+       1. Creation of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#review-and-release-of-records">
+       2. Review and Release of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#storage-of-records">
+       3. Storage of Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changes-to-records">
+       4. Changes to Records
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#archiving-of-records">
+       5. Archiving of Records
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <!--
+This work is licensed under the Creative Commons Attribution 4.0 International
+License:
+
+    <http://creativecommons.org/licenses/by/4.0/>
+
+Templates copyright OpenRegulatory. Originals available at:
+
+    <https://openregulatory.com/templates/>
+
+General content copyright Radiotherapy AI.
+-->
+<section class="tex2jax_ignore mathjax_ignore" id="document-and-record-control">
+<h1>Document and Record Control<a class="headerlink" href="#document-and-record-control" title="Permalink to this headline">#</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ISO 13485:2016 Section</p></th>
+<th class="head"><p>Document Section</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4.2.4</p></td>
+<td><p>(All)</p></td>
+</tr>
+<tr class="row-odd"><td><p>4.2.5</p></td>
+<td><p>(All)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>This SOP describes how documents and records are handled. The goal is to
+understand how documents are typically structured and in what states they can
+be as they move from draft to release. It’s similarly important to always have
+the most recent document available at the specified location while ensuring
+that changes to documents can be traced.</p>
+</section>
+<section id="general-considerations">
+<h2>General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">#</a></h2>
+<p><strong>Documents</strong> are expected to change over time, whereas <strong>records</strong> are created
+once and not altered significantly afterwards.</p>
+<p>All documents are written in English.</p>
+<section id="document-and-record-labeling">
+<h3>Document and Record Labeling<a class="headerlink" href="#document-and-record-labeling" title="Permalink to this headline">#</a></h3>
+<p>Documents are nested and named according to this schema:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[systems</span> <span class="pre">and/or</span> <span class="pre">processes]/[template]/[type]-[name]</span></code></p>
+<p>The choice of nesting given by <code class="docutils literal notranslate"><span class="pre">[systems</span> <span class="pre">and/or</span> <span class="pre">processes]</span></code> is dependent on
+whether or not there are multiple documents associated with a given system and
+process. For example, this document which is a part quality management system,
+and is the document that defines the document and record control process could
+be either nested under the <code class="docutils literal notranslate"><span class="pre">qms</span></code> or nested under <code class="docutils literal notranslate"><span class="pre">qms/document-record-control</span></code>.
+If there are multiple documents or records associated with
+<code class="docutils literal notranslate"><span class="pre">document-record-control</span></code> then the latter option is preferable. If there is
+just this document, then a standalone directory is unnecessary.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[template]</span></code> is an optional nesting. For a given form template, the records
+associated with that template are nested accordingly.</p>
+<p>Document <code class="docutils literal notranslate"><span class="pre">[type]</span></code> is only sometimes relevant and refers to the cases where the
+document is either a template with the abbreviation of <code class="docutils literal notranslate"><span class="pre">tmpl</span></code> or if the
+document is a standard operating procedure (abbreviation of <code class="docutils literal notranslate"><span class="pre">sop</span></code>).</p>
+<p>Some documents are closely tied to a range of attachments and figures. In this
+case the document itself is a directory that contains the raw plain text as
+well as any of the required attachments.</p>
+<p>The document drafting, review, approval and release are managed with the <code class="docutils literal notranslate"><span class="pre">git</span></code>
+version control system and the online <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> interface. This is in-line with
+the same process undergone to review the company’s regulated software.</p>
+<p>A draft document exists within a separate <code class="docutils literal notranslate"><span class="pre">git</span></code> branch. Once it undergoes
+review and approval it is able to be merged into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch which is
+displayed online at <a class="reference external" href="https://docs.radiotherapy.ai">https://docs.radiotherapy.ai</a>. Whenever a new product
+release is undergone an offline copy of the user documentation is provided with
+the product at release.</p>
+<p>Archived documents are deleted from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, but are accessible by
+browsing the <code class="docutils literal notranslate"><span class="pre">git</span></code> version history.</p>
+</section>
+<section id="retention-periods">
+<h3>Retention Periods<a class="headerlink" href="#retention-periods" title="Permalink to this headline">#</a></h3>
+<p>QMS documents and records shall be stored for at least 10 years after their
+archival date.</p>
+<p>Technical Documentation shall be stored for at least 10 years after the
+lifecycle of the respective device has ended.</p>
+</section>
+<section id="review-periods">
+<h3>Review Periods<a class="headerlink" href="#review-periods" title="Permalink to this headline">#</a></h3>
+<p>We review our QMS documents typically once per year to ensure they remain up to
+date.</p>
+<p>Our core and safety processes as defined in the quality management manual must
+be reviewed at minimum once per year.</p>
+<p>All other processes and associated documents can be reviewed every three years
+once they have been reviewed before without any findings.</p>
+<p>In case of audit findings or related corrective action, it is up to the
+discretion of the QMO to apply shorter review periods (e.g. 6 months).</p>
+</section>
+<section id="qms-document-list">
+<h3>QMS Document List<a class="headerlink" href="#qms-document-list" title="Permalink to this headline">#</a></h3>
+<p>We keep an overview list of all QMS documents, including document type, release
+date, next review date and respective process owners.</p>
+</section>
+</section>
+<section id="process-steps">
+<h2>Process Steps<a class="headerlink" href="#process-steps" title="Permalink to this headline">#</a></h2>
+<section id="handling-of-documents">
+<h3>Handling of Documents<a class="headerlink" href="#handling-of-documents" title="Permalink to this headline">#</a></h3>
+<section id="creation-of-documents">
+<h4>1. Creation of Documents<a class="headerlink" href="#creation-of-documents" title="Permalink to this headline">#</a></h4>
+<p>All documents are saved in the Quality Management System (QMS) which is housed
+within the git repository at <a class="reference external" href="https://github.com/RadiotherapyAI/RadiotherapyAI">https://github.com/RadiotherapyAI/RadiotherapyAI</a>.
+These documents are viewable at <a class="reference external" href="https://docs.radiotherapy.ai">https://docs.radiotherapy.ai</a>.</p>
+<p>New draft documents can be created by anyone within a separate
+<code class="docutils literal notranslate"><span class="pre">git</span></code> branch. Naming and location of documents follows the general
+considerations of this SOP (see above). Standard Operating Procedures (SOP)
+should specify a process owner responsible to typically update, review and
+release all associated documents.</p>
+<p>This creation activity undergone is then committed and pushed to the online git
+repository.</p>
+<p>Generally documents are created following the templates provided by Open
+Regulatory at <a class="reference external" href="https://github.com/openregulatory/templates">https://github.com/openregulatory/templates</a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any contributor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Content</p></td>
+<td><p>New Document (draft)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="documents-ready-for-review">
+<h4>2. Documents Ready for Review<a class="headerlink" href="#documents-ready-for-review" title="Permalink to this headline">#</a></h4>
+<p>Once a document is ready for review, its author opens a pull request within
+GitHub and the author selects the appropriate reviewers and approvers within
+the GitHub interface.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any contributor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (draft)</p></td>
+<td><p>Document (under review)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="review-of-documents">
+<h4>3. Review of Documents<a class="headerlink" href="#review-of-documents" title="Permalink to this headline">#</a></h4>
+<p>The respective reviewer(s) and approver(s) review the document. If changes are
+required, they can create comments, suggest changes, or directly add their own
+changes either utilising the GitHub interface or a local <code class="docutils literal notranslate"><span class="pre">git</span></code> install. If they
+approve of the changes then they leave their approval within the GitHub
+interface.</p>
+<p>In some cases, especially when the document was retrieved from provided
+regulatory templates and the processes defined by the new documents are not yet
+in place within the company, it can be appropriate to approve the inclusion of
+the document and keep a record of the need to undergo follow-up change and
+review of the documents in question. This is particularly helpful in the
+scenario of initially creating a whole new set of documents based on regulatory
+templates. An appropriate record in this case would be a GitHub issue with a
+checklist for each of the documents that need subsequent further refinement and
+review.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Process owner and/or designated reviewer(s) and approver(s)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (under review)</p></td>
+<td><p>Document (review successful)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="release-of-documents">
+<h4>4. Release of Documents<a class="headerlink" href="#release-of-documents" title="Permalink to this headline">#</a></h4>
+<p>The release of documents is undergone by merging a pull request into the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+branch. When a file has a process owner, that user is designated within the
+<code class="docutils literal notranslate"><span class="pre">CODEOWNERS</span></code> file. Any PR that involves a process owner’s file must include
+that process owner’s approval. This is enforced through <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>’s <code class="docutils literal notranslate"><span class="pre">main</span></code>
+branch protection setting of “Require review from Code Owners”.</p>
+<p>The QMO (and, if applicable, the Process Owner) decide if employee training is
+required as a result of a release. In general, training for minor
+changes/corrections is not necessary.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>QMO, Process Owner</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (review successful)</p></td>
+<td><p>Document (released)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="changes-to-documents">
+<h4>5. Changes to Documents<a class="headerlink" href="#changes-to-documents" title="Permalink to this headline">#</a></h4>
+<p>When changes need to be made to a document, any contributor with knowledge about
+the document and those changes can perform them. To achieve this a git branch
+is created where editing of the document is undergone for subsequent PR and
+review.</p>
+<p>After finishing the edit the process moves to the <strong>Document Ready for Review</strong>
+stage (step 2), following the same steps as above.</p>
+<p>A QMS change can trigger a substantial change. Before release, it shall be
+checked whether it may impact the organization’s process landscape and hence,
+overall organizational conformity with regulatory requirements. The QMO is
+responsible to evaluate such potentially major changes as part of the Change
+Evaluation List (reference change management process).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>QMO (change management), any contributor (document changes)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (released)</p></td>
+<td><p>Modified document within Pull Request</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="archiving-of-documents">
+<h4>6. Archiving of Documents<a class="headerlink" href="#archiving-of-documents" title="Permalink to this headline">#</a></h4>
+<p>Documents get archived if they become obsolete or a newer released version
+becomes available. For that, a PR is created where the document itself is
+deleted from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. This PR follows the same process as above for
+an edit. Given the Process Owner is designated as owning that file through the
+<code class="docutils literal notranslate"><span class="pre">CODEOWNERS</span></code> file, their review will be required before its deletion.</p>
+<p>Due to all files being stored within the <code class="docutils literal notranslate"><span class="pre">git</span></code> version control system, although
+it is deleted within the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, it is still accessible through the
+<code class="docutils literal notranslate"><span class="pre">git</span></code> history. We observe retention periods as outlined in this SOP.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any contributor (initiation), Process Owner (approval)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Document (released)</p></td>
+<td><p>Document (archived)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="handling-of-records">
+<h3>Handling of Records<a class="headerlink" href="#handling-of-records" title="Permalink to this headline">#</a></h3>
+<section id="creation-of-records">
+<h4>1. Creation of Records<a class="headerlink" href="#creation-of-records" title="Permalink to this headline">#</a></h4>
+<p>We create records as required by our processes. If available, we use templates
+and checklists for the creation of records. Naming conventions as outlined for
+documents do not apply. Records should include an author name and the date of
+creation.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any contributor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Content, Template Document (if applicable)</p></td>
+<td><p>New Record</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="review-and-release-of-records">
+<h4>2. Review and Release of Records<a class="headerlink" href="#review-and-release-of-records" title="Permalink to this headline">#</a></h4>
+<p>Unless specified differently in a template or SOP, records do not typically
+require a review and release process.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Designated reviewer(s) and approver(s)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Record (under review)</p></td>
+<td><p>Record (review successful)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="storage-of-records">
+<h4>3. Storage of Records<a class="headerlink" href="#storage-of-records" title="Permalink to this headline">#</a></h4>
+<p>Records are not necessarily stored in our QMS folder. They also may reside in
+other applications as specified per respective processes. This is where records
+are typically stored:</p>
+<ul class="simple">
+<li><p><em>GitHub (Issues, Pull Requests)</em></p></li>
+</ul>
+</section>
+<section id="changes-to-records">
+<h4>4. Changes to Records<a class="headerlink" href="#changes-to-records" title="Permalink to this headline">#</a></h4>
+<p>Records are not significantly altered after creation / release. Where
+significant changes are required, we rather create a new record and archive the
+old one. Non-substantial changes (e.g. spelling mistakes) are considered
+corrections only, assessed and added on a case-by-case basis.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Any contributor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Record (released)</p></td>
+<td><p>Record (updated)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="archiving-of-records">
+<h4>5. Archiving of Records<a class="headerlink" href="#archiving-of-records" title="Permalink to this headline">#</a></h4>
+<p>Records are archived if they become obsolete or a new released version becomes
+available. For that, the process owner moves the records to a respective
+archiving location. We observe retention periods as outlined in this SOP.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Participants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Process Owner</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Record (released)</p></td>
+<td><p>Record (archived)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1-qms/document-and-record-control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../capa/list-capa.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">List of CAPAs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="document-list-dlqms.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Document List QMS</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Radiotherapy AI Pty Ltd<br/>
+  
+      &copy; Copyright 2021 - 2022.<br/>
+    <div class="extra_footer">
+      <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+    <img
+      alt="Creative Commons Licence" style="border-width:0"
+      src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+  </a><br />
+
+  This work is licensed under the <a
+    rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+  Attribution 4.0 International License
+  </a>
+  <br />
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

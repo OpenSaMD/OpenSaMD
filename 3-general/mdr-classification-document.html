@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MDR Classification Document &#8212; Radiotherapy AI</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clinical Evaluation" href="../clinical-evaluation/0-sop-clinical-evaluation.html" />
+    <link rel="prev" title="MDD Classification Document" href="mdd-classification-document.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Radiotherapy AI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Radiotherapy AI’s QMS and TechDoc
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../0-intended-use/index.html">
+   Intended Use
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../1-qms/index.html">
+   Quality Management System
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/0-quality-manual-policy-objectives.html">
+     Quality Manual, Policy and Objectives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/13485-mapping.html">
+     ISO 13485:2016 Mapping of Requirements to Documents
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-feedback-management.html">
+     Feedback Management and Customer Complaints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-internal-audit.html">
+     Internal Audit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-product-certification-and-registration.html">
+     Product Certification and Registration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-qms/sop-update-of-regulations.html">
+     Update of Regulations
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/capa/0-sop.html">
+     Corrective and Preventive Action
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/capa/list-capa.html">
+       List of CAPAs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/document-and-record-control/0-sop.html">
+     Document and Record Control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/document-and-record-control/document-list-dlqms.html">
+       Document List QMS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/human-resources/0-sop.html">
+     Human Resources Administration
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/list-of-medical-device-consultants.html">
+       List of Medical Device Consultants
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/list-of-training-documentation.html">
+       List of Training Documentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/human-resources/tmpl-training-record.html">
+       Training Record
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/management-review/0-sop.html">
+     Management Review
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/management-review/management-review-report.html">
+       Management Review Report
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/post-market-surveillance/0-sop.html">
+     Post-Market Surveillance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/periodic-safety-update-report.html">
+       Periodic Safety Update Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-clinical-follow-up-plan.html">
+       Post-Market Clinical Follow-Up Plan (PMCFP)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-clinical-follow-up-report.html">
+       Post-Market Clinical Follow-Up Report (PMCFR)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/post-market-surveillance/post-market-surveillance-plan.html">
+       Post-Market Surveillance Plan
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/purchasing/0-sop.html">
+     Purchasing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/purchasing/list-of-qualified-suppliers.html">
+       List of Qualified Suppliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/purchasing/supplier-checklist.html">
+       Supplier Checklist
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/software-validation/0-sop.html">
+     Software Validation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/software-validation/software-list.html">
+       Software List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/software-validation/software-validation-form.html">
+       &lt;Software Title&gt; - Software Validation Form
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../1-qms/vigilance/0-sop.html">
+     Vigilance
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/vigilance/tmpl-field-safety-notice.html">
+       Field Safety Notice Template
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../1-qms/vigilance/tmpl-incident-assessment-form.html">
+       Incident Assessment Form
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../2-techdoc/index.html">
+   Technical Documentation File
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2-techdoc/document-roadmap.html">
+     Document Roadmap TechDoc
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2-techdoc/list-of-known-anomalies.html">
+     List of Known Anomalies
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/14971/index.html">
+     14971
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-acceptance-matrix.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Acceptance Matrix
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-management-plan.html">
+       Risk Management Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-management-report.html">
+       Risk Management Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/14971/risk-table-fmea/index.html">
+       Failure Mode and Effects Analysis (FMEA): Risk Table
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/62304/index.html">
+     62304
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/62304-mapping.html">
+       IEC 62304:2006 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/algorithm-validation-report.html">
+       AI Algorithm Validation Report
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/bug-fixes-documentation-list.html">
+       Bug Fixes Documentation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/change-evaluation-list.html">
+       Change Evaluation List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-software-release.html">
+       Checklist: Software Release
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-software-requirements-review.html">
+       Checklist: Software Requirements Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/checklist-user-needs-review.html">
+       Checklist User Needs Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/list-of-medical-devices.html">
+       List of Medical Devices
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-architecture-checklist.html">
+       Software Architecture Checklist
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-architecture-description.html">
+       1. Regulatory References
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-development-maintenance-plan.html">
+       Software Development and Maintenance Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-requirements-list.html">
+       Software Requirements List
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/software-system-test-plan.html">
+       Software System Test Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-change-management.html">
+       SOP Change Management
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-deployment.html">
+       Deployment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-integrated-software-development.html">
+       SOP Integrated Software Development
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/sop-software-problem-resolution.html">
+       SOP Software Problem Resolution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/soup-list.html">
+       SOUP List (Software of Unknown Provenance)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62304/user-needs-list.html">
+       User Needs List
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../2-techdoc/62366/index.html">
+     62366
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/62366-mapping.html">
+       IEC 62366-1:2015 Mapping of Requirements to Documents
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/list-of-hazard-related-use-scenarios.html">
+       List of Hazard-Related Use Scenarios
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-plan.html">
+       Usability Evaluation Plan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-protocol.html">
+       Usability Evaluation Protocol
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../2-techdoc/62366/usability-evaluation-report.html">
+       Usability Evaluation Report
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   General Regulatory Requirements
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="checklist-mdr.html">
+     Checklist: MDR General Safety and Performance Requirements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="declaration-of-conformity-mdd-class-i.html">
+     EC Declaration of Conformity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="essential-requirements-mdd.html">
+     Essential Requirements MDD (93/42/EEC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="instructions-for-use.html">
+     User Manual [enter Product Name]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mdd-classification-document.html">
+     MDD Classification Document
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     MDR Classification Document
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../clinical-evaluation/0-sop-clinical-evaluation.html">
+   Clinical Evaluation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../clinical-evaluation/clinical-evaluation-plan.html">
+     Clinical Evaluation Plan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../clinical-evaluation/clinical-evaluation-report.html">
+     Clinical Evaluation Report
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data-protection/index.html">
+   Data Protection
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/data-protection-statement-website.html">
+     Website Data Protection Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/employee-data-protection-and-confidentiality-agreement.html">
+     Data Protection and Confidentiality Agreement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/list-of-data-processing-activities.html">
+     List of Data Processing Activities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-protection/technical-and-organizational-measures.html">
+     &lt;Product Name&gt; - Technical and Organizational Measures
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/RadiotherapyAI/regulatory/issues/new?title=Issue%20on%20page%20%2F3-general/mdr-classification-document.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/3-general/mdr-classification-document.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapping-of-requirements">
+   Mapping of Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-1-applicable-definitions">
+   Chapter 1: Applicable Definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-2-implementing-rules">
+   Chapter 2: Implementing Rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-3-classification-rules">
+   Chapter 3: Classification Rules
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>MDR Classification Document</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapping-of-requirements">
+   Mapping of Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-1-applicable-definitions">
+   Chapter 1: Applicable Definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-2-implementing-rules">
+   Chapter 2: Implementing Rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-3-classification-rules">
+   Chapter 3: Classification Rules
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mdr-classification-document">
+<h1>MDR Classification Document<a class="headerlink" href="#mdr-classification-document" title="Permalink to this headline">#</a></h1>
+<section id="mapping-of-requirements">
+<h2>Mapping of Requirements<a class="headerlink" href="#mapping-of-requirements" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>NOTE: this template only serves for MDR purposes. Before May 2021, use Annex IX MDD instead of Annex VIII
+MDR.</p>
+</div></blockquote>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Medical Device Regulation (MDR)</p></th>
+<th class="head"><p>Document Section</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Annex VIII</p></td>
+<td><p>(All)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Product:</p></th>
+<th class="head"><p>(enter content)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Version:</p></td>
+<td><p>(enter content)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Classification:</p></td>
+<td><p>(enter content)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rule:</p></td>
+<td><p>(enter content)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chapter-1-applicable-definitions">
+<h2>Chapter 1: Applicable Definitions<a class="headerlink" href="#chapter-1-applicable-definitions" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>You will need to carefully check and fill out all rows below. Some rows are pre-filled for applicability
+under the assumption of a stand-alone software medical device. However, this is quite an essential document
+and you’re better off checking twice.</p>
+</div></blockquote>
+<p><strong>1. Duration of Use</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Transient</p></td>
+<td><p>Normally intended for continuous use for less than 60 minutes.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Short term</p></td>
+<td><p>Normally intended for continuous use for not more than 30 days.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Long term</p></td>
+<td><p>Normally intended for continuous use for more than 30 days.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Invasive and Active Devices</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Definition</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>2.1 Body orifice</strong> means any natural opening in the body, as well as the external surface of the eyeball, or any permanent artificial opening, such as a stoma.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.2 Surgically invasive device</strong> means:<br>(a) an invasive device which penetrates inside the body through the surface of the body, including through mucous membranes of body orifices with the aid or in the context of a surgical operation; and<br>(b) a device which produces penetration other than through a body orifice.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2.3 Reusable surgical instrument</strong> means an instrument intended for surgical use in cutting, drilling, sawing, scratching, scraping, clamping, retracting, clipping or similar procedures, without a connection to an active device and which is intended by the manufacturer to be reused after appropriate procedures such as cleaning, disinfection and sterilization have been carried out.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.4 Active therapeutic device</strong> means any active device used, whether alone or in combination with other devices, to<br>support, modify, replace or restore biological functions or structures with a view to treatment or alleviation of an<br>illness, injury or disability.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2.5 Active device intended for diagnosis and monitoring</strong> means any active device used, whether alone or in combination with other devices, to supply information for detecting, diagnosing, monitoring or treating physio logical conditions, states of health, illnesses or congenital deformities.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.6 Central circulatory system</strong> means the following blood vessels:<br>arteriae pulmonales, aorta ascendens, arcus aortae, aorta descendens to the bifurcatio aortae, arteriae coronariae, arteria carotis communis, arteria carotis externa, arteria carotis interna, arteriae cerebrales, truncus brachiocephalicus, venae cordis, venae pulmonales, vena cava superior and vena cava inferior.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2.7 Central nervous system</strong> means the brain, meninges and spinal cord.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.8 Injured skin or mucous membrane</strong> means an area of skin or a mucous membrane presenting a pathological<br>change or change following disease or a wound.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chapter-2-implementing-rules">
+<h2>Chapter 2: Implementing Rules<a class="headerlink" href="#chapter-2-implementing-rules" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rules</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>3.1</strong> Application of the classification rules shall be governed by the intended purpose of the devices.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3.2</strong> If the device in question is intended to be used in combination with another device, the classification rules shall apply separately to each of the devices. Accessories for a medical device and for a product listed in Annex XVI MDR shall be classified in their own right separately from the device with which they are used.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3.3</strong> Software, which drives a device or influences the use of a device, shall fall within the same class as the device.<br>If the software is independent of any other device, it shall be classified in its own right.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3.4</strong> If the device is not intended to be used solely or principally in a specific part of the body, it shall be considered and classified on the basis of the most critical specified use.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3.5</strong> If several rules, or if, within the same rule, several sub-rules, apply to the same device based on the device’s intended purpose, the strictest rule and sub-rule resulting in the higher classification shall apply.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3.6</strong> In calculating the duration referred to in Section 1, continuous use shall mean:<br>(a) the entire duration of use of the same device without regard to temporary interruption of use during a procedure or temporary removal for purposes such as cleaning or disinfection of the device. Whether the interruption of use or the removal is temporary shall be established in relation to the duration of the use prior to and after the period when the use is interrupted or the device removed; and<br>(b) the accumulated use of a device that is intended by the manufacturer to be replaced immediately with another of the same type.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3.7</strong> A device is considered to allow direct diagnosis when it provides the diagnosis of the disease or condition in question by itself or when it provides decisive information for the diagnosis.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chapter-3-classification-rules">
+<h2>Chapter 3: Classification Rules<a class="headerlink" href="#chapter-3-classification-rules" title="Permalink to this headline">#</a></h2>
+<p><strong>4.) Non-Invasive Devices</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rules</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em><strong>Rule 1</strong></em><br>All non-invasive devices are classified as class I, unless one of the rules set out hereinafter applies.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 2</strong></em><br>All non-invasive devices intended for channelling or storing blood, body liquids, cells or tissues, liquids or gases for the purpose of eventual infusion, administration or introduction into the body are classified as class IIa:<br>— if they may be connected to a class IIa, class IIb or class III active device; or<br>— if they are intended for use for channelling or storing blood or other body liquids or for storing organs, parts<br>of organs or body cells and tissues, except for blood bags; blood bags are classified as class IIb.<br>In all other cases, such devices are classified as class I.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 3</strong></em><br>All non-invasive devices intended for modifying the biological or chemical composition of human tissues or cells, blood, other body liquids or other liquids intended for implantation or administration into the body are classified as class IIb, unless the treatment for which the device is used consists of filtration, centrifugation or exchanges of gas, heat, in which case they are classified as class IIa.<br><br>All non-invasive devices consisting of a substance or a mixture of substances intended to be used in vitro in direct<br>contact with human cells, tissues or organs taken from the human body or used in vitro with human embryos<br>before their implantation or administration into the body are classified as class III.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 4</strong></em><br>All non-invasive devices which come into contact with injured skin or mucous membrane are classified as:<br>— class I if they are intended to be used as a mechanical barrier, for compression or for absorption of exudates;<br>— class IIb if they are intended to be used principally for injuries to skin which have breached the dermis or<br>mucous membrane and can only heal by secondary intent;<br>— class IIa if they are principally intended to manage the micro-environment of injured skin or mucous membrane; and<br>— class IIa in all other cases.<br><br>This rule applies also to the invasive devices that come into contact with injured mucous membrane.</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.) Invasive Devices</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rules</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em><strong>Rule 5</strong></em><br>All invasive devices with respect to body orifices, other than surgically invasive devices, which are not intended for connection to an active device or which are intended for connection to a class I active device are classified as:<br>— class I if they are intended for transient use;<br>— class IIa if they are intended for short-term use, except if they are used in the oral cavity as far as the pharynx, in an ear canal up to the ear drum or in the nasal cavity, in which case they are classified as class I; and<br>— class IIb if they are intended for long-term use, except if they are used in the oral cavity as far as the pharynx, in an ear canal up to the ear drum or in the nasal cavity and are not liable to be absorbed by the mucous membrane, in which case they are classified as class IIa.<br><br>All invasive devices with respect to body orifices, other than surgically invasive devices, intended for connection<br>to a class IIa, class IIb or class III active device, are classified as class IIa.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 6</strong></em><br>All surgically invasive devices intended for transient use are classified as class IIa unless they:<br>— are intended specifically to control, diagnose, monitor or correct a defect of the heart or of the central circulatory system through direct contact with those parts of the body, in which case they are classified as class III;<br>— are reusable surgical instruments, in which case they are classified as class I;<br>— are intended specifically for use in direct contact with the heart or central circulatory system or the central nervous system, in which case they are classified as class III;<br>— are intended to supply energy in the form of ionising radiation in which case they are classified as class IIb;<br>— have a biological effect or are wholly or mainly absorbed in which case they are classified as class IIb; or<br>— are intended to administer medicinal products by means of a delivery system, if such administration of a medicinal product is done in a manner that is potentially hazardous taking account of the mode of application, in which case they are classified as class IIb.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 7</strong></em><br>All surgically invasive devices intended for short-term use are classified as class IIa unless they:<br>— are intended specifically to control, diagnose, monitor or correct a defect of the heart or of the central circulatory system through direct contact with those parts of the body, in which case they are classified as class III;<br>— are intended specifically for use in direct contact with the heart or central circulatory system or the central nervous system, in which case they are classified as class III;<br>— are intended to supply energy in the form of ionizing radiation in which case they are classified as class IIb;<br>— have a biological effect or are wholly or mainly absorbed in which case they are classified as class III;<br>— are intended to undergo chemical change in the body in which case they are classified as class IIb, except if the devices are placed in the teeth; or<br>— are intended to administer medicines, in which case they are classified as class IIb.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 8</strong></em><br>All implantable devices and long-term surgically invasive devices are classified as class IIb unless they:<br>— are intended to be placed in the teeth, in which case they are classified as class IIa;<br>— are intended to be used in direct contact with the heart, the central circulatory system or the central nervous system, in which case they are classified as class III;<br>— have a biological effect or are wholly or mainly absorbed, in which case they are classified as class III;<br>— are intended to undergo chemical change in the body in which case they are classified as class III, except if the devices are placed in the teeth;<br>— are intended to administer medicinal products, in which case they are classified as class III;<br>— are active implantable devices or their accessories, in which cases they are classified as class III;<br>— are breast implants or surgical meshes, in which cases they are classified as class III;<br>— are total or partial joint replacements, in which case they are classified as class III, with the exception of ancillary components such as screws, wedges, plates and instruments; or<br>— are spinal disc replacement implants or are implantable devices that come into contact with the spinal column, in which case they are classified as class III with the exception of components such as screws, wedges, plates and instruments.</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>6.) Active Devices</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rules</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em><strong>Rule 9</strong></em><br>All active therapeutic devices intended to administer or exchange energy are classified as class IIa unless their characteristics are such that they may administer energy to or exchange energy with the human body in a potentially hazardous way, taking account of the nature, the density and site of application of the energy, in which case they are classified as class IIb.<br><br>All active devices intended to control or monitor the performance of active therapeutic class IIb devices, or intended directly to influence the performance of such devices are classified as class IIb.<br><br>All active devices intended to emit ionizing radiation for therapeutic purposes, including devices which control or monitor such devices, or which directly influence their performance, are classified as class IIb.<br><br>All active devices that are intended for controlling, monitoring or directly influencing the performance of active implantable devices are classified as class III.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 10</strong></em><br>Active devices intended for diagnosis and monitoring are classified as class IIa:<br>— if they are intended to supply energy which will be absorbed by the human body, except for devices intended to illuminate the patient’s body, in the visible spectrum, in which case they are classified as class I;<br>— if they are intended to image in vivo distribution of radiopharmaceuticals; or<br>— if they are intended to allow direct diagnosis or monitoring of vital physiological processes, unless they are specifically intended for monitoring of vital physiological parameters and the nature of variations of those parameters is such that it could result in immediate danger to the patient, for instance variations in cardiac performance, respiration, activity of the central nervous system, or they are intended for diagnosis in clinical situations where the patient is in immediate danger, in which cases they are classified as class IIb.<br><br>Active devices intended to emit ionizing radiation and intended for diagnostic or therapeutic radiology, including interventional radiology devices and devices which control or monitor such devices, or which directly influence their performance, are classified as class IIb.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 11</strong></em><br>Software intended to provide information which is used to take decisions with diagnosis or therapeutic purposes is classified as class IIa, except if such decisions have an impact that may cause:<br>— death or an irreversible deterioration of a person’s state of health, in which case it is in class III; or<br>— a serious deterioration of a person’s state of health or a surgical intervention, in which case it is classified as class IIb.<br><br>Software intended to monitor physiological processes is classified as class IIa, except if it is intended for monitoring of vital physiological parameters, where the nature of variations of those parameters is such that it could result in immediate danger to the patient, in which case it is classified as class IIb. All other software is classified as class I.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 12</strong></em><br>All active devices intended to administer and/or remove medicinal products, body liquids or other substances to or from the body are classified as class IIa, unless this is done in a manner that is potentially hazardous, taking account of the nature of the substances involved, of the part of the body concerned and of the mode of application in which case they are classified as class IIb.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 13</strong></em><br>All other active devices are classified as class I.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>7.) Special Rules</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rules</p></th>
+<th class="head"><p>Applicable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em><strong>Rule 14</strong></em><br>All devices incorporating, as an integral part, a substance which, if used separately, can be considered to be a medicinal product, as defined in point 2 of Article 1 of Directive 2001/83/EC, including a medicinal product derived from human blood or human plasma, as defined in point 10 of Article 1 of that Directive, and that has an action ancillary to that of the devices, are classified as class III.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 15</strong></em><br>All devices used for contraception or prevention of the transmission of sexually transmitted diseases are classified as class IIb, unless they are implantable or long term invasive devices, in which case they are classified as class III.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 16</strong></em><br>All devices intended specifically to be used for disinfecting, cleaning, rinsing or, where appropriate, hydrating contact lenses are classified as class IIb.<br><br>All devices intended specifically to be used for disinfecting or sterilising medical devices are classified as class IIa, unless they are disinfecting solutions or washer-disinfectors intended specifically to be used for disinfecting invasive devices, as the end point of processing, in which case they are classified as class IIb.<br><br>This rule does not apply to devices that are intended to clean devices other than contact lenses by means of physical action only.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 17</strong></em><br>Devices specifically intended for recording of diagnostic images generated by X-ray radiation are classified as class IIa.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 18</strong></em><br>All devices manufactured utilizing tissues or cells of human or animal origin, or their derivatives, which are non-viable or rendered non-viable, are classified as class III, unless such devices are manufactured utilizing tissues or cells of animal origin, or their derivatives, which are non-viable or rendered non-viable and are devices intended to come into contact with intact skin only.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 19</strong></em><br>All devices incorporating or consisting of nanomaterial are classified as:<br>— class III if they present a high or medium potential for internal exposure;<br>— class IIb if they present a low potential for internal exposure; and<br>— class IIa if they present a negligible potential for internal exposure.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 20</strong></em><br>All invasive devices with respect to body orifices, other than surgically invasive devices, which are intended to administer medicinal products by inhalation are classified as class IIa, unless their mode of action has an essential impact on the efficacy and safety of the administered medicinal product or they are intended to treat life-threatening conditions, in which case they are classified as class IIb.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><em><strong>Rule 21</strong></em><br>Devices that are composed of substances or of combinations of substances that are intended to be introduced into the human body via a body orifice or applied to the skin and that are absorbed by or locally dispersed in the human body are classified as:<br>— class III if they, or their products of metabolism, are systemically absorbed by the human body in order to achieve the intended purpose;<br>— class III if they achieve their intended purpose in the stomach or lower gastrointestinal tract and they, or their products of metabolism, are systemically absorbed by the human body;<br>— class IIa if they are applied to the skin or if they are applied in the nasal or oral cavity as far as the pharynx, and achieve their intended purpose on those cavities; and<br>— class IIb in all other cases.</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><em><strong>Rule 22</strong></em><br>Active therapeutic devices with an integrated or incorporated diagnostic function which significantly determines the patient management by the device, such as closed loop systems or automated external defibrillators, are classified as class III.</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./3-general"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="mdd-classification-document.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MDD Classification Document</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../clinical-evaluation/0-sop-clinical-evaluation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Clinical Evaluation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Radiotherapy AI Pty Ltd<br/>
+  
+      &copy; Copyright 2021 - 2022.<br/>
+    <div class="extra_footer">
+      <p>
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+    <img
+      alt="Creative Commons Licence" style="border-width:0"
+      src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+  </a><br />
+
+  This work is licensed under the <a
+    rel="license"
+    href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+  Attribution 4.0 International License
+  </a>
+  <br />
+  Templates copyright OpenRegulatory (<a rel="license" href="https://openregulatory.com/templates/">originals</a>).
+  General content copyright Radiotherapy AI.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
