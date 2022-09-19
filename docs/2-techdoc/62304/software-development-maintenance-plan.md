@@ -66,6 +66,9 @@ Please see the relevant processes for the following activities:
 
 ### 2.2 Software
 
+<!-- Describe your device's software safety class according to IEC 62304 and your
+reasoning behind the classification. -->
+
 While the software system can contribute to hazardous situations, none of those
 result in unacceptable risk after consideration of risk control measures
 external to the software system. Therefore, the software system is classified
@@ -82,11 +85,15 @@ as software safety class A. The (external) risk control measures include:
 
 #### Programming Languages
 
+<!-- > List the languages you’ll be using, including compiler and language versions. -->
+
 | System                          | Name   | Version |
 | ------------------------------- | ------ | ------- |
 | Local DICOM server and ML model | Python | 3.9     |
 
 #### Development Software
+
+<!-- > List software used to support development, e.g., IDEs. -->
 
 | Name   | Version |
 | ------ | ------- |
@@ -94,9 +101,14 @@ as software safety class A. The (external) risk control measures include:
 
 ### 2.3 System Requirement / Target Runtime
 
+<!-- > List your target runtime(s). -->
+
 | System                          | Name    | Version |
 | ------------------------------- | ------- | ------- |
 | Local DICOM server and ML model | CPython | 3.9     |
+
+<!-- > Specify system requirements, e.g., the minimum specifications of the server /
+> compute instance you'll be running your software on -->
 
 Minimum system requirements:
 
@@ -110,10 +122,19 @@ Additional recommended system requirements:
 
 ## 3 Design Phases
 
+<!-- > The 13485 requires you to specify "Design Phases". Here are some suggestions
+> which you could use. -->
+
 The design phases and the corresponding review and verification requirements
 are detailed within [](../released/sop-integrated-software-development.md).
 
 ## 4 Avoiding Common Software Defects Based on Selected Programming Technology
+
+<!-- > Discuss how your selected programming technology may introduce risks and how
+> you plan to avoid them. With modern, dynamically-typed languages, an obvious
+> risk is that you encounter runtime exceptions. So you could argue that your
+> test coverage is great and compensates for that. You could also link to your
+> risk analysis here if you analyse those risks further. -->
 
 Python is a dynamically typed language, however, modern Python enables strict
 type checking using Microsoft's PyRight and PyLance tools. These type checkers
@@ -121,6 +142,19 @@ are activated and run on strict mode. These are activated within the
 development environment and within the continuous integration suite.
 
 ## 5 Configuration Management and Version Control
+
+<!-- > Describe which version control software you're using (probably git, like all
+> human beings on this planet right now, except enterprise developers). Also
+> describe your branching model, i.e., how your developers create branches
+> during development, how you name them and how you merge them (pull requests?
+> merge commits? squash before?). Your code review will be described in the
+> next section.
+>
+> Importantly, describe which things (code, build files, etc.) are put in
+> version control. Describe how you name versions and how you tag them. Your
+> goal should be that you can retrieve an old version and build it. Why?
+> Something with a newer version may go wrong (harm patients) and you may need
+> to roll back. -->
 
 `git` is used as version control software. All source code and build files are
 committed to version control
@@ -143,9 +177,16 @@ which results in a version of format MAJOR.MINOR.PATCH, e.g. 1.0.0.
 
 ## 6 Documentation Activities
 
+<!-- > Describe your policy on what should be documented while you develop software.
+> Maybe you want to require your developers to document all methods which are
+> private. Maybe you want to keep an up-to-date software architecture diagram
+> in the repository, etc. -->
+
 All public functions will be documented through doc strings or comments.
 
 ## 7 Verification Activities
+
+<!-- > Describe verification activities, e.g. code review. -->
 
 For each commit there is a pre-commit check which verifies that:
 
@@ -166,6 +207,10 @@ All PRs are to undergo code review before merging.
 
 ## 8 Software System Test Activities
 
+<!-- > Describe software system test activities. This could be continuous
+> integration which is triggered by opening a pull request (e.g. Travis CI,
+> Circle CI). Describe what is tested and how that automated system works. -->
+
 For every pull request the following automated GitHub actions based system
 tests are undergone:
 
@@ -173,7 +218,15 @@ tests are undergone:
 - Python linting with pylint
 - Python pyright type checker
 
-## 9 Maintenance Activities
+## 9 Validation Activities
+
+Validation is carried out as formative and summative usability evaluation as
+described in the software development process. A usability evaluation file
+(plan, protocol and report) will be prepared.
+
+## 10 Maintenance Activities
+
+<!-- > Describe how often you check SOUP issue trackers and how you document them. -->
 
 SOUP issue trackers are checked at least once every 6 months. The verification
 date is updated in the SOUP list accordingly.
