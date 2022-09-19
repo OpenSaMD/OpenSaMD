@@ -78,6 +78,7 @@
       "nojekyll",
       "nptyping",
       "pcolormesh",
+      "pseudonymisation",
       "pylint",
       "pyplot",
       "pyright",

@@ -20,6 +20,12 @@
 - Version: {{device_version}}
 - Basic UDI-DI: N/A
 
+## Intended Use
+
+<!-- > Describe the core medical functionality of your device and how it treats,
+> diagnoses or alleviates a disease. Keep it high-level so that this
+> description is true for as long as possible even when the device is updated. -->
+
 ## Intended Medical Indication
 
 Utilised as clinical decision support software within the radiotherapy
@@ -27,9 +33,10 @@ treatment workflow. Provides anatomical contours utilised by health
 practitioners to create a radiotherapy treatment plan to assist in cancer
 treatment or other radiotherapy treatments.
 
-<!-- > Describe the condition(s) and/or disease(s) to be screened, monitored, treated, diagnosed, or prevented by
-> your software. Importantly, also list exclusion criteria: Maybe patients with a certain diagnosis should not
-> be using your device. -->
+<!-- > Describe the condition(s) and/or disease(s) to be screened, monitored,
+> treated, diagnosed, or prevented by your software. Importantly, also list
+> exclusion criteria: Maybe patients with a certain diagnosis should not be
+> using your device. -->
 
 ### Used in cases where there is already a clinically implemented contouring protocol
 
@@ -90,15 +97,26 @@ models in radiotherapy see the following article:
 > [Overview of artificial intelligence-based applications in radiotherapy: Recommendations for implementation and quality assurance.](https://doi.org/10.1016/j.radonc.2020.09.008)
 > Radiotherapy and Oncology.
 
+## Contraindications
+
+<!-- > List anything that you want to explicitly exclude from your intended use. -->
+
 ## Patient Population
+
+<!-- > Describe the patient population your software is intended to be used on. Note
+> that this may overlap with the user profile (section below), but not
+> necessarily. Your software could be used by physicians to diagnose diseases
+> in patients, so in that case, they don't overlap. Some ideas for
+> characteristics to describe: Age group, weight range, health, condition(s). -->
 
 The patient population is to be limited to where the model itself has undergone
 validation. See section [](case-validation) for further details.
 
 ## User Profile
 
-<!-- > Describe the typical user of the software. Some ideas could be: Qualifications, prior training (for your
-> software), technical proficiency, time spent using the software. -->
+<!-- > Describe the typical user of the software. Some ideas could be:
+> Qualifications, prior training (for your software), technical proficiency,
+> time spent using the software. -->
 
 ### Used by those with appropriate training and knowledge
 
@@ -145,11 +163,13 @@ exempt is met:
 
 ## Use Environment Including Software/Hardware
 
-<!-- > Describe the typical use environment. What sort of devices is this running on? Does the software only run on
-> one device or on multiple devices? Is it loud and chaotic like in an emergency ward? How's the lighting?
+<!-- > Describe the typical use environment. What sort of devices is this running
+> on? Does the software only run on one device or on multiple devices? Is it
+> loud and chaotic like in an emergency ward? How's the lighting?
 >
-> Also, add other software or hardware which is required by your device. Most commonly, apps require users to
-> have a smartphone with a compatible operating system (iOS / Android). -->
+> Also, add other software or hardware which is required by your device. Most
+> commonly, apps require users to have a smartphone with a compatible operating
+> system (iOS / Android). -->
 
 The DICOM server software is installed on a local Windows OS with version >=
 `10`. The results from the software are forwarded through to the treatment
@@ -183,9 +203,10 @@ specific servers.
 
 ## Operating Principle
 
-<!-- > It's kind of a stretch to describe the "operating principle" of software. I guess this makes more sense for
-> hardware devices. In any case, I'd just generally state what sort of input goes in and what output comes
-> out, e.g. you could be processing images and returning diagnoses. -->
+<!-- > It's kind of a stretch to describe the "operating principle" of software. I
+> guess this makes more sense for hardware devices. In any case, I'd just
+> generally state what sort of input goes in and what output comes out, e.g.
+> you could be processing images and returning diagnoses. -->
 
 ### To be utilised within the framework of standard DICOM input and output
 
@@ -247,3 +268,10 @@ configurable alerts and warnings can provide the appropriate notification.
 
 The device is stand-alone software. It receives input from the user and outputs
 information. It doesn't come in contact with tissue or bodily fluids.
+
+## Variants / Accessories
+
+<!-- > Describe variants and/or accessories of/to this device, if applicable. For
+> typical stand-alone software of startups, this shouldn't be applicable. -->
+
+This is stand-alone software and is not applicable.
