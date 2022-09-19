@@ -39,9 +39,14 @@ Documents are nested and named according to this schema:
 
 `[systems and/or processes]/[template]/[type]-[name]`
 
-Where `[systems and/or processes]` can be nested for example, this document
-which is a part quality management system, and is the document that defines the
-document and record control process is nested under `qms/document-and-record-control`.
+The choice of nesting given by `[systems and/or processes]` is dependent on
+whether or not there are multiple documents associated with a given system and
+process. For example, this document which is a part quality management system,
+and is the document that defines the document and record control process could
+be either nested under the `qms` or nested under `qms/document-record-control`.
+If there are multiple documents or records associated with
+`document-record-control` then the latter option is preferable. If there is
+just this document, then a standalone directory is unnecessary.
 
 `[template]` is an optional nesting. For a given form template, the records
 associated with that template are nested accordingly.
