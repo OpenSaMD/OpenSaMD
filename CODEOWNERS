@@ -1,6 +1,6 @@
 # The following users have been given permission by the Process Owner to update
 # the protected release directory
-src/documents/released @SimonBiggs
+docs @SimonBiggs
 
 
 # The Quality Management Officer and Process Owner have permissions to edit the
