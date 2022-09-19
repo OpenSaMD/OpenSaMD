@@ -94,7 +94,7 @@ change:
 
 The evaluation is documented as part of the Change Evaluation List and results in a decision on whether the change is implemented and whether the Notified Body needs to be involved if the change is significant. These two decisions are documented in the change request ticket.
 
-If required, a Notified Body shall be informed before the implementation of changes. 
+If required, a Notified Body shall be informed before the implementation of changes.
 Multiple proposed changes can be batched and discussed in one session.
 
 | Participants                 |
