@@ -178,7 +178,7 @@ changes/corrections is not necessary.
 
 #### 5. Changes to Documents
 
-When changes need to be made to a document, any employee with knowledge about
+When changes need to be made to a document, any contributor with knowledge about
 the document and those changes can perform them. To achieve this a git branch
 is created where editing of the document is undergone for subsequent PR and
 review.
