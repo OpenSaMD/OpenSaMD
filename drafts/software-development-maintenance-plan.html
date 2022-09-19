@@ -813,17 +813,9 @@ reviewers before being utilised for treatment.</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Cloud container instances</p></td>
+<tr class="row-even"><td><p>Local DICOM server and ML model</p></td>
 <td><p>Python</p></td>
 <td><p>3.9</p></td>
-</tr>
-<tr class="row-odd"><td><p>Local DICOM and app server</p></td>
-<td><p>Python</p></td>
-<td><p>3.9</p></td>
-</tr>
-<tr class="row-even"><td><p>Local frontend dashboard</p></td>
-<td><p>TypeScript</p></td>
-<td><p>4.3</p></td>
 </tr>
 </tbody>
 </table>
@@ -854,48 +846,21 @@ reviewers before being utilised for treatment.</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Cloud container instances</p></td>
+<tr class="row-even"><td><p>Local DICOM server and ML model</p></td>
 <td><p>CPython</p></td>
 <td><p>3.9</p></td>
-</tr>
-<tr class="row-odd"><td><p>Local DICOM and app server</p></td>
-<td><p>CPython</p></td>
-<td><p>3.9</p></td>
-</tr>
-<tr class="row-even"><td><p>Local frontend dashboard</p></td>
-<td><p>Electron</p></td>
-<td><p>15.0</p></td>
 </tr>
 </tbody>
 </table>
-<p>Minimum system requirements for local systems:</p>
+<p>Minimum system requirements:</p>
 <ul class="simple">
-<li><p>Consumer grade single-core CPU</p></li>
-<li><p>2 GB of RAM</p></li>
-<li><p>1 MBit/s up and downlink</p></li>
-<li><p>20GB SSD storage</p></li>
+<li><p>Consumer grade CPU</p></li>
+<li><p>4 GB of RAM</p></li>
+<li><p>100 GB SSD storage</p></li>
 </ul>
-<p>Minimum system requirements for <code class="docutils literal notranslate"><span class="pre">convert</span></code> cloud container:</p>
+<p>Additional recommended system requirements:</p>
 <ul class="simple">
-<li><p>Server-grade single-core CPU</p></li>
-<li><p>10 GB of RAM</p></li>
-<li><p>1 GBit/s up and downlink</p></li>
-<li><p>20GB SSD storage</p></li>
-</ul>
-<p>Minimum system requirements for <code class="docutils literal notranslate"><span class="pre">predict</span></code> cloud container:</p>
-<ul class="simple">
-<li><p>Server-grade single-core CPU</p></li>
-<li><p>NVIDIA GPU with 16 GB of VRAM</p></li>
-<li><p>12 GB of RAM</p></li>
-<li><p>1 GBit/s up and downlink</p></li>
-<li><p>20GB SSD storage</p></li>
-</ul>
-<p>Minimum system requirements for <code class="docutils literal notranslate"><span class="pre">api</span></code> cloud container:</p>
-<ul class="simple">
-<li><p>Server-grade single-core CPU</p></li>
-<li><p>512 MiB of RAM</p></li>
-<li><p>1 GBit/s up and downlink</p></li>
-<li><p>20GB SSD storage</p></li>
+<li><p>A CUDA enabled NVIDIA GPU</p></li>
 </ul>
 </section>
 </section>
@@ -906,18 +871,14 @@ are detailed within <a class="reference internal" href="../released/sop-integrat
 </section>
 <section id="avoiding-common-software-defects-based-on-selected-programming-technology">
 <h2>4 Avoiding Common Software Defects Based on Selected Programming Technology<a class="headerlink" href="#avoiding-common-software-defects-based-on-selected-programming-technology" title="Permalink to this headline">#</a></h2>
-<!-- TODO: Do after risk analysis is complete -->
-<blockquote>
-<div><p>Discuss how your selected programming technology may introduce risks and how
-you plan to avoid them. With modern, dynamically-typed languages, an obvious
-risk is that you encounter runtime exceptions. So you could argue that your
-test coverage is great and compensates for that. You could also link to your
-risk analysis here if you analyse those risks further.</p>
-</div></blockquote>
+<p>Python is a dynamically typed language, however, modern Python enables strict
+type checking using Microsoft’s PyRight and PyLance tools. These type checkers
+are activated and run on strict mode. These are activated within the
+development environment and within the continuous integration suite.</p>
 </section>
 <section id="configuration-management-and-version-control">
 <h2>5 Configuration Management and Version Control<a class="headerlink" href="#configuration-management-and-version-control" title="Permalink to this headline">#</a></h2>
-<p>git is used as version control software. All source code and build files are
+<p><code class="docutils literal notranslate"><span class="pre">git</span></code> is used as version control software. All source code and build files are
 committed to version control</p>
 <p>When implementing software requirements, developers create a new branch
 starting at <code class="docutils literal notranslate"><span class="pre">main</span></code>. During development, developers may create intermediate
@@ -939,27 +900,25 @@ which results in a version of format MAJOR.MINOR.PATCH, e.g. 1.0.0.</p>
 <h2>7 Verification Activities<a class="headerlink" href="#verification-activities" title="Permalink to this headline">#</a></h2>
 <p>For each commit there is a pre-commit check which verifies that:</p>
 <ul class="simple">
-<li><p>All code ad-hears to the black style guide</p></li>
+<li><p>All code adheres to the black style guide</p></li>
 <li><p>Imports are appropriately organised</p></li>
 <li><p>Jupyter notebook outputs are not committed</p></li>
 <li><p>TOML files are valid</p></li>
 </ul>
 <p>For each pull request, there are automated checks within GitHub actions which
-check the items described within <strong>8 Software System Test Activities</strong>.</p>
+check the items described within <a class="reference internal" href="#software-tests"><span class="std std-ref">8 Software System Test Activities</span></a>.</p>
 <p>Either manual testing is undergone or new automated tests are written to verify
 that the current code changes fulfil the software requirements.</p>
-<p>Should the team be a size larger than 1 then all PRs are to undergo code review
-before merging.</p>
+<p>All PRs are to undergo code review before merging.</p>
 </section>
 <section id="software-system-test-activities">
-<h2>8 Software System Test Activities<a class="headerlink" href="#software-system-test-activities" title="Permalink to this headline">#</a></h2>
+<span id="software-tests"></span><h2>8 Software System Test Activities<a class="headerlink" href="#software-system-test-activities" title="Permalink to this headline">#</a></h2>
 <p>For every pull request the following automated GitHub actions based system
 tests are undergone:</p>
 <ul class="simple">
-<li><p>Python and Typescript unit and integration testing suites</p></li>
-<li><p>Python and Typescript linting</p></li>
-<li><p>Typescript type checker</p></li>
-<li><p>Python mypy type checker</p></li>
+<li><p>Python unit and integration testing suites with pytest</p></li>
+<li><p>Python linting with pylint</p></li>
+<li><p>Python pyright type checker</p></li>
 </ul>
 </section>
 <section id="maintenance-activities">
