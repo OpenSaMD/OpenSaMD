@@ -1,4 +1,4 @@
-# SOP Vigilance
+# Vigilance
 
 | ISO 13485:2016 Section | Document Section |
 |------------------------|------------------|

@@ -1,4 +1,6 @@
-### (Enter Company Name)
+# Field Safety Notice Template
+
+## {{device_manufacturer}}
 
 ### Field Safety Notice for (Enter Product Name and Version Number)
 

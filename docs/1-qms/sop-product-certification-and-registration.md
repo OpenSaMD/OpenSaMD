@@ -1,3 +1,5 @@
+# Product Certification and Registration
+
 | Regulatory Requirement                                                                                                                    | Document Section |
 |-------------------------------------------------------------------------------------------------------------------------------------------|------------------|
 | MDR Annex I (General Safety and Performance Requirements) and Annex IV (EU Declaration of Conformity)                                     | All              |

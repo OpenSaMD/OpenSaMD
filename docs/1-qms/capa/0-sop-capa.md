@@ -1,4 +1,4 @@
-# SOP Corrective and Preventive Action (CAPA)
+# Corrective and Preventive Action
 
 | ISO 13485:2016 Section | Document Section |
 |------------------------|------------------|

@@ -11,7 +11,7 @@ Templates copyright OpenRegulatory. Originals available at:
 General content copyright Radiotherapy AI.
 -->
 
-# SOP Document and Record Control
+# Document and Record Control
 
 | ISO 13485:2016 Section | Document Section |
 | ---------------------- | ---------------- |

@@ -1,3 +1,5 @@
+# Update of Regulations
+
 | Regulatory Requirement                  | Document Section |
 |-----------------------------------------|------------------|
 | ISO 13485:2016 Sections 5.6.2 and 7.3.3 | All              |
@@ -38,7 +40,7 @@ on the market or as specified by the List of Applicable Regulations.
 ### 2. Actions Based on Applicable Regulation
 
 If a new or revised applicable regulation is brought to their attention, the QMO updates the List of
-Applicable Regulations. Where necessary, updates to medical devices are implemented according to the change management process. Where updates to the organization’s quality management system processes are necessary, the QMO implements those directly or delegates implementation to the respective process owners.
+Applicable Regulations. Where necessary, updates to medical devices are implemented according to the change management process. Where updates to the organization's quality management system processes are necessary, the QMO implements those directly or delegates implementation to the respective process owners.
 
 The QMO communicates new or revised regulation to relevant members of the organization (e.g. process owners or
 product managers). Management is informed of new or revised regulation at least annually as part of the Management Review.

@@ -1,4 +1,4 @@
-# SOP Purchasing
+# Purchasing
 
 | ISO 13485:2016 Section | Document Section |
 |------------------------|------------------|

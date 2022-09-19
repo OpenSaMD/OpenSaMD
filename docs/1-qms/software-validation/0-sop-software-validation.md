@@ -1,4 +1,4 @@
-# SOP Software Validation
+# Software Validation
 
 ## Summary
 
@@ -18,7 +18,7 @@ validation before use.
  * Employee notifies QMO of the new system and provides the minimum information required for preliminary
    assessment, such as intended use description and preliminary risk estimation.
  * QMO documents the intended use and determines whether the system is relevant for the QMS or the
-   organization’s medical devices as part of the computerized system validation form.
+   organization's medical devices as part of the computerized system validation form.
  * If quality-relevant: continue to fill out the computerized system validation form (assessing criticality
    and risks).
  * If not quality-relevant: document the system in the list of computerized systems and release the software

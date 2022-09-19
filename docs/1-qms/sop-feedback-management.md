@@ -1,4 +1,4 @@
-# SOP Feedback Management and Customer Complaints
+# Feedback Management and Customer Complaints
 
 | ISO 13485:2016 Section | Document Section |
 |------------------------|------------------|
