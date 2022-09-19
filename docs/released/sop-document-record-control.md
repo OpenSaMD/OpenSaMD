@@ -158,11 +158,11 @@ interface.
 
 #### 4. Release of Documents
 
-The release of documents is undergone by merging a pull request. When a file
-has a process owner, that user is designated within the `CODEOWNERS` file. Any
-PR that involves a process owner's file must include that process owner's
-approval. This is enforced through `GitHub`'s branch protection setting of
-"Require review from Code Owners".
+The release of documents is undergone by merging a pull request into the `main`
+branch. When a file has a process owner, that user is designated within the
+`CODEOWNERS` file. Any PR that involves a process owner's file must include
+that process owner's approval. This is enforced through `GitHub`'s `main`
+branch protection setting of "Require review from Code Owners".
 
 The QMO (and, if applicable, the Process Owner) decide if employee training is
 required as a result of a release. In general, training for minor
