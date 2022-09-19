@@ -174,7 +174,7 @@ Required qualification for this role:
 | SOP                                                        | Process Category |
 | ---------------------------------------------------------- | ---------------- |
 | [](./capa/0-sop)                                           | Core             |
-| [](./document-record-control/0-sop)                        | Core             |
+| [](./document-and-record-control/0-sop)                    | Core             |
 | [](../2-techdoc/62304/sop-integrated-software-development) | Core             |
 | [](./post-market-surveillance/0-sop)                       | Support          |
 | [](./software-validation/0-sop)                            | Support          |
@@ -187,5 +187,5 @@ Required qualification for this role:
 | [](../2-techdoc/62304/sop-deployment)                      |                  |
 | [](./sop-feedback-management)                              |                  |
 | [](./vigilance/0-sop)                                      |                  |
-| [](.sop-internal-audit)                                    |                  |
+| [](./sop-internal-audit)                                   |                  |
 | [](../2-techdoc/62304/sop-software-problem-resolution)     |                  |

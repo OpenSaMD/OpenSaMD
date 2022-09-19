@@ -126,7 +126,7 @@ Additional recommended system requirements:
 > which you could use. -->
 
 The design phases and the corresponding review and verification requirements
-are detailed within [](../released/sop-integrated-software-development.md).
+are detailed within [](./sop-integrated-software-development).
 
 ## 4 Avoiding Common Software Defects Based on Selected Programming Technology
 
