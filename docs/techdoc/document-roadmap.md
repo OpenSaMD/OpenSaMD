@@ -5,7 +5,7 @@ document, a responsible person is assigned as the author. Go through the list ph
 the order of documents within a phase, but I recommend to finalize documents from one phase before moving on
 to the next.
 
-### PHASE 1: Planning & Feasability
+## PHASE 1: Planning & Feasability
 
 | Document                                        | Author                        | Comment                                                                                                                                                                            |
 |-------------------------------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -17,7 +17,7 @@ to the next.
 | Risk Management Plan and Risk Acceptance Matrix | Risk Manager                  | Specifies the methods for assessing risks to be used for the product at hand. Defines probability and severity categories and acceptable ranges.                                   |
 | Clinical Evaluation Plan                        | Clinician / Scientific Person | Specifying the methodology that shall be used to assess the clinical benefits and risks of the product.                                                                            |
 
-### PHASE 2: Specification
+## PHASE 2: Specification
 
 | Document                             | Author                               | Comment                                                                                                    |
 |--------------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -30,7 +30,7 @@ to the next.
 | Software Test Plan                   | Software Developer                   | Defining tests for every Software Requirement and mapping them to each other.                              |
 | Usability Test Plan                  | Product Manager / Usability Engineer | Specifying the methodologies to be used to conduct the Usability Test.                                     |
 
-### PHASE 3: Development
+## PHASE 3: Development
 
 | Document              | Author             | Comment                                                                                                         |
 |-----------------------|--------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ creation. These documents should actually be created in advance, but due to the 
 development, it will not be possible to plan everything before the actual work begins. Therefore, it makes
 sense to create them in parallel with the programming.
 
-### PHASE 4: Verification and Validation
+## PHASE 4: Verification and Validation
 
 | Document                   | Author                               | Comment                                                                                                                                                                           |
 |----------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -55,7 +55,7 @@ sense to create them in parallel with the programming.
 | Clinical Evaluation Report | Clinician / Scientific Person        | Analysing scientific data to prove the products safety and efficacy.                                                                                                              |
 | Risk Management Report     | Risk Manager                         | Summary of the Risk Management Activities                                                                                                                                         |
 
-### PHASE 5: Product Release
+## PHASE 5: Product Release
 
 | Document                   | Author                                | Comment                                                                                                                                                             |
 |----------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|

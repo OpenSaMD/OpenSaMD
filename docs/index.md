@@ -48,14 +48,5 @@ Radiotherapy AI's software. Instead, the results from Radiotherapy AI's
 software is provided to your centre's treatment planning system for the health
 practitioner's subsequent refinement.
 
-A digram outlining the dataflow pipeline is provided within
-{numref}`Figure %s <pipeline>`:
-
-```{figure} img/deployment-diagram.png
-:name: pipeline
-
-Outline of the data transmitted between the different systems in the pipeline.
-```
-
 The contouring algorithm that is applied to the CT scans is based off of
 historical treatment contouring data.
