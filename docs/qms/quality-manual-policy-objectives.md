@@ -64,11 +64,24 @@ being stand-alone software:
 
 ### Quality Policy
 
+<!-- > Describe what your company is about, specifically, its mission and things
+> which are important for it. Maybe you're developing software for patients
+> with a certain disease and your goal is to improve their lives. -->
+
 {{device_manufacturer}} aims to make AI assisted radiotherapy cancer treatments
 accessible to all. With the goals to reduce treatment errors while improving
 overall treatment efficacy and efficiency.
 
 ### Quality Objectives
+
+<!-- > Whatever policy you outlined above, now you need to make it measurable by
+> defining objectives which can be tracked. Those objectives should not (only)
+> refer to the quality of your devices but the quality of your QMS and the
+> overall work of your organization. > Typical examples are: hiring excellence
+> in staff, providing best-of-class device performance, high standards of
+> customer satisfaction, etc. In a next step (see short-term goals), those are
+> narrowed down to concrete measures like for example the monthly number of
+> user complaints. -->
 
 When tracking the quality of the AI autocontouring software its
 results are compared to health practitioner ground truth contours. These
@@ -78,7 +91,20 @@ comparisons are undergone utilising the following metrics:
 - Surface and Volumetric Dice
 - Four point health practitioner approval scale
 
+### Short-Term Goals
+
+<!-- > How does your team track its goals? Your auditors want to see how your
+> quality objectives translate into your daily work. You should formulate
+> strategic goals for your company that are somewhat related to your quality
+> goals and which are tracked at least on an annual basis. Do you already have
+> a goal-oriented system in place to track your team's work? Even better: align
+> business and quality goals and describe your system here. -->
+
 ## 3. Roles
+
+<!-- > Describe the roles of the people in your company. Typically this is done by
+> drawing an organigram (you could use draw.io for that). Or, you just use a
+> table like below. -->
 
 | Role(s)                               | People           |
 | ------------------------------------- | ---------------- |
@@ -139,6 +165,11 @@ Required qualification for this role:
   management and regulatory affairs
 
 ## 4. Processes
+
+<!-- > List all your SOPs here. This list is currently incomplete as many SOPs are
+> company-specific. You will have to complete it yourself - good luck! -->
+
+<!-- TODO: Automate this -->
 
 | SOP                                                        | Process Category |
 | ---------------------------------------------------------- | ---------------- |
