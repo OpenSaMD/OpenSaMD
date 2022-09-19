@@ -58,6 +58,7 @@
     "cSpell.words": [
       "allclose",
       "astype",
+      "autocontouring",
       "bibfiles",
       "bibtex",
       "blackbox",
@@ -68,6 +69,7 @@
       "dtype",
       "fmea",
       "Generis",
+      "Hausdorff",
       "ipykernel",
       "ipython",
       "isort",

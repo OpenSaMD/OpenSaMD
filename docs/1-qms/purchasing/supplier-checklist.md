@@ -1,6 +1,6 @@
 # Supplier Checklist
 
-#### Scope / Purpose
+## Scope / Purpose
 
 This checklist is completed every time an initial supplier evaluation is carried out or if a blocked supplier
 is evaluated again for approval.

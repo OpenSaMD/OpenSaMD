@@ -77,11 +77,11 @@ Results of Summative Usability Evaluation are summarized in the Usability Evalua
 
 ## 5.2 Planning (Setting)
 
-#### Participants
+### Participants
 
-#### Setting
+### Setting
 
-#### Methods and Analysis
+### Methods and Analysis
 
 > Describe whether it's done in person or remotely and how you will document the results (have a protocol at
 > the minimum), optionally also record the sessions.

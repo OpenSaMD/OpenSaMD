@@ -19,7 +19,7 @@ entries:
     entries:
     - file: 1-qms/human-resources/list-of-medical-device-consultants
     - file: 1-qms/human-resources/list-of-training-documentation
-    - file: 1-qms/human-resources/training-record
+    - file: 1-qms/human-resources/tmpl-training-record
   - file: 1-qms/management-review/0-sop-management-review
     entries:
     - file: 1-qms/management-review/management-review-report
