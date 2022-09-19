@@ -3,12 +3,14 @@ name = "radiotherapyai"
 version = "0.1.0"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
-license = "Apache-2.0"
+license = "AGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.12"
 shapely = "*"
 numpy = "*"
+scikit-image = "*"
+scipy = "*"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
@@ -18,6 +20,9 @@ pyright = "*"
 pylint = "*"
 pytest-pylint = "*"
 pre-commit = "*"
+ipykernel = "*"
+matplotlib = "*"
+mypy = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:app"
