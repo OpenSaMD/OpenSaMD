@@ -8,7 +8,9 @@ Original work by OpenRegulatory available at
 <https://github.com/openregulatory/templates>
 -->
 
-# 1. Regulatory References
+# Software Architecture Description
+
+## 1. Regulatory References
 
 **Regulatory references:**
 
@@ -21,17 +23,7 @@ IEC 62304, para. 5.3.1 and 5.3.2 [class B, C]
 - Design input / software requirements
 - (...)
 
-<!--
-Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
-Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
-This work is licensed under the Creative Commons Attribution 4.0 International
-License. <http://creativecommons.org/licenses/by/4.0/>.
-
-Original work by OpenRegulatory available at
-<https://github.com/openregulatory/templates>
--->
-
-# 2. Software Systems
+## 2. Software Systems
 
 In compliance with DIN EN 62304, we subdivide our software on three levels: software systems, software
 components and software units.
@@ -41,7 +33,7 @@ components and software units.
 >
 > NOTE: Ideally, you would add an illustrating diagram to the Annex and reference it here.
 
-## 4.1. Frontend
+### 4.1. Frontend
 
 > Enter description, for example:
 >
@@ -51,7 +43,7 @@ components and software units.
 > - Deployment
 > - User groups
 
-## 4.2. Backend
+### 4.2. Backend
 
 > Enter description, for example:
 >
@@ -61,7 +53,7 @@ components and software units.
 > - Deployment (e.g. Docker container)
 > - User group
 
-## 4.3. Algorithm
+### 4.3. Algorithm
 
 > Enter description, for example:
 >
@@ -71,63 +63,34 @@ components and software units.
 > - Deployment (e.g. Docker container)
 > - User group
 
-<!--
-Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
-Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
-This work is licensed under the Creative Commons Attribution 4.0 International
-License. <http://creativecommons.org/licenses/by/4.0/>.
-
-Original work by OpenRegulatory available at
-<https://github.com/openregulatory/templates>
--->
-
-# 6. Software Units
+## 6. Software Units
 
 > Describe your internal software units. The IEC 62304 defines those as a “software item [any identifiable
+>
 > > part of a program, i.e. source code, object code, control code, control data, etc.] that cannot be
-> subdivided into other items”. For example:
+> > subdivided into other items”. For example:
 >
 > - Wearable device poller (regularly checks whether wearable device has new data and downloads it)
 > - Notification service (sends messages to Apple / Google for push notifications of mobile apps)
 > - (...)
 
-<!--
-Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
-Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
-This work is licensed under the Creative Commons Attribution 4.0 International
-License. <http://creativecommons.org/licenses/by/4.0/>.
-
-Original work by OpenRegulatory available at
-<https://github.com/openregulatory/templates>
--->
-
-# 7. Database
+## 7. Database
 
 > Describe your databases. For example:
 >
 > - Relational database: Postgres v14
 
-<!--
-Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
-Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
-This work is licensed under the Creative Commons Attribution 4.0 International
-License. <http://creativecommons.org/licenses/by/4.0/>.
+## 8. IT Security
 
-Original work by OpenRegulatory available at
-<https://github.com/openregulatory/templates>
--->
-
-# 8. IT Security
-
-## 8.1. Encryption of data
+### 8.1. Encryption of data
 
 \<enter content\>
 
-### 8.1.1. Data at rest
+#### 8.1.1. Data at rest
 
 \<enter content\>
 
-### 8.1.2. Data in transit
+#### 8.1.2. Data in transit
 
 > Example content:
 >
