@@ -18,13 +18,33 @@
 Currently only utilised to build the docs
 """
 
-from . import _docs
+import click
+
+from ._cli import docs as _docs
+from ._cli import propagate as _propagate
 
 
-def app():
+@click.group()
+def cli():
     """The function called by the CLI commands `rtai` and `radiotherapyai`"""
+
+
+@cli.command()
+def docs():
+    """Build the Radiotherapy AI regulatory documentation"""
+
     _docs.build()
 
 
+@cli.command()
+def propagate():
+    """Propagate various dependent items throughout the repository
+
+    For example, version numbers.
+    """
+
+    _propagate.run()
+
+
 if __name__ == "__main__":
-    app()
+    cli()
