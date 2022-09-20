@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Clinical Evaluation
 
 | Regulatory Requirement | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | MDD Annex I and X      | All              |
 | MDR Annex XIV          | All              |
 | MEDDEV 2.7/1, rev. 4   | All              |
@@ -34,21 +44,20 @@ of contact to provide all relevant information to the partner.
 > clinical evaluation should be subject to supplier evaluation.
 
 |              |                                                                                                                                                                                  |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Participants | Medical Team                                                                                                                                                                     |
 | Input        | Initial release: decision on new device, preliminary product specifications (intended use, risk assessment, available preclinical data, information on equivalent devices, etc.) |
 | Output       | Initial release: completed Clinical Evaluation Plan                                                                                                                              |
 
-
 ### 1.2 Clinical Evaluation Report
 
 Relevant data is collected and analyzed as part of writing the Clinical Evaluation Report to evaluate the
-device’s clinical performance.  At minimum, the clinical evaluation must take account of:
+device’s clinical performance. At minimum, the clinical evaluation must take account of:
 
-* Intended use (incl. user and patient population, use environment, device features)
-* Data to support equivalence with other devices (if applicable)
-* Discussion of state of the art technology
-* Discussion of the selected categories of clinical data, the quality of clinical data and its sufficiency to
+- Intended use (incl. user and patient population, use environment, device features)
+- Data to support equivalence with other devices (if applicable)
+- Discussion of state of the art technology
+- Discussion of the selected categories of clinical data, the quality of clinical data and its sufficiency to
   support an overall balanced risk-benefit ratio of the device and compliance with the General Safety
   Performance Requirements (MDR) / Essential Requirements (MDD).
 
@@ -61,7 +70,7 @@ updates to the risk management file.
 > product conformity and approval.
 
 |              |                                                                         |
-|--------------|-------------------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------------------- |
 | Participants | Medical Team                                                            |
 | Input        | Product specifications                                                  |
 | Output       | Completed Clinical Evaluation Report<br>If necessary: updated risk file |
@@ -75,10 +84,10 @@ serves as input to regularly update the clinical evaluation.
 The Medical team is responsible to compile and implement a Post-Marketing Clinical Follow-Up Plan, including
 at minimum:
 
-* Methodology for data collection and justification for selected methods
-* Consideration of new data related to the risk management file, the claims discussed in the Clinical
+- Methodology for data collection and justification for selected methods
+- Consideration of new data related to the risk management file, the claims discussed in the Clinical
   Evaluation Report or applicable regulations
-* Specification of the PMCFP period (no longer than one year), including a time plan for PMCF activities and
+- Specification of the PMCFP period (no longer than one year), including a time plan for PMCF activities and
   the next update of the clinical evaluation
 
 The CAPA process must be initiated if new information collected as part of the PMCF activities indicates that
@@ -86,8 +95,8 @@ a balanced risk-benefit ratio and the safety of the device is in question.
 
 All PMCF activities conducted per PMCF period are documented in a Post-Market Clinical Follow-Up Report.
 
-|              |                                                                                                                              |
-|--------------|------------------------------------------------------------------------------------------------------------------------------|
-| Participants | Medical team                                                                                                                 |
-| Input        | Clinical Evaluation Report New clinical data during the marketing phase                                                          |
+|              |                                                                                                                               |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Participants | Medical team                                                                                                                  |
+| Input        | Clinical Evaluation Report New clinical data during the marketing phase                                                       |
 | Output       | Completed Post-Market Clinical Follow-Up Plan and Report<br>If necessary: PMCF measures (e.g., CAPA, updated risk file, etc.) |

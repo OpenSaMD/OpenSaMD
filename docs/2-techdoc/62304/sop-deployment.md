@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Deployment
 
 ## 1. General Information
@@ -16,17 +26,17 @@ way.
 
 **Regulatory references:**
 
-* ISO 13485:2016 Chapter 7.5
+- ISO 13485:2016 Chapter 7.5
 
 **Relevant other documentation:**
 
-* Integration Evaluation Checklist (IECL)
-* Integration Validation Checklist (IVCL)
-* Software Requirement Specifications
-* List of Medical Devices (PROD)
-* User Training Strategy
-* Template User Training Record
-* User Consent Form (if applicable)
+- Integration Evaluation Checklist (IECL)
+- Integration Validation Checklist (IVCL)
+- Software Requirement Specifications
+- List of Medical Devices (PROD)
+- User Training Strategy
+- Template User Training Record
+- User Consent Form (if applicable)
 
 ### 1.1. Integration Specifications
 
@@ -47,10 +57,10 @@ The operations team ensures that only released device versions are deployed to t
 environment. Deployment of device versions is documented as part of the medical device list. This file must
 contain at minimum:
 
-* Use description (e.g. clinical use, test, etc.)
-* Device description (e.g. device version, UDI, release date, identification number of the NB acc. to CE
+- Use description (e.g. clinical use, test, etc.)
+- Device description (e.g. device version, UDI, release date, identification number of the NB acc. to CE
   certificate)
-* Company and contact data to a responsible person, deployment location
+- Company and contact data to a responsible person, deployment location
 
 ### 1.4. Project Management Tool
 
@@ -64,13 +74,13 @@ Optional:
 
 > Possible contents of this process step:
 >
-> * Following the draft of an offer / contract with a customer, the sales team reaches out to the technical
+> - Following the draft of an offer / contract with a customer, the sales team reaches out to the technical
 >   operations team to evaluate if technical requirements are met.
-> * In coordination with competent staff on the customer’s side, the technical operations team gathers
+> - In coordination with competent staff on the customer’s side, the technical operations team gathers
 >   relevant information to fill out the integration evaluation checklist.
-> * If evaluation output does not allow for integration, the Operations team assesses other integration
+> - If evaluation output does not allow for integration, the Operations team assesses other integration
 >   possibilities or recommends to not further pursue the customer contract.
-> * The operations team communicates the result of the evaluation to the sales team.
+> - The operations team communicates the result of the evaluation to the sales team.
 
 (...)
 
@@ -78,16 +88,16 @@ Optional:
 
 > Possible contents of this process step:
 >
-> * Following integration evaluation and the conclusion of a new customer contract, the operations team is
+> - Following integration evaluation and the conclusion of a new customer contract, the operations team is
 >   responsible to coordinate overall integration efforts.
-> * The operations team communicates to the customer (technical department) appropriate technical information
+> - The operations team communicates to the customer (technical department) appropriate technical information
 >   and guidance for the integration.
-> * If integration problems occur, the operations team is responsible to (a) amend the integration evaluation
+> - If integration problems occur, the operations team is responsible to (a) amend the integration evaluation
 >   checklist in order to prevent similar problems with future customers. (b) initiate the change management
 >   process in case the medical device itself needs to be changed.
-> * Successful integration is validated by filling out the integration validation checklist. The operations
+> - Successful integration is validated by filling out the integration validation checklist. The operations
 >   team obtains written confirmation of the customer setup after integration.
-> * The operations team informs the sales team once integration is complete. It documents the deployment date,
+> - The operations team informs the sales team once integration is complete. It documents the deployment date,
 >   deployed version of the device and customer information as part of the medical device list.
 
 (...)
@@ -104,11 +114,11 @@ Optional:
 
 > Possible contents of this process step:
 >
-> * The operations team is responsible to activate users accounts according to the customer contract.
-> * No user account is activated without / before
->   * Specification in the customer contract (e.g. number of seats?)
->   * Full completion of previous process steps (e.g. algorithm test)
->   * Optional to add here: user consent according to GDPR?
+> - The operations team is responsible to activate users accounts according to the customer contract.
+> - No user account is activated without / before
+>   - Specification in the customer contract (e.g. number of seats?)
+>   - Full completion of previous process steps (e.g. algorithm test)
+>   - Optional to add here: user consent according to GDPR?
 
 (...)
 
@@ -116,11 +126,11 @@ Optional:
 
 > Possible contents of this process step:
 >
-> * The operations team is responsible to provide users with the instructions for use / user manual. If not
+> - The operations team is responsible to provide users with the instructions for use / user manual. If not
 >   part of the device, provision via email is sufficient.
-> * The operations team conducts user training as defined in the user training strategy and documents every
+> - The operations team conducts user training as defined in the user training strategy and documents every
 >   training in the template for user training records.
-> * The operations team informs the sales and regulatory team about successfully completed training.
+> - The operations team informs the sales and regulatory team about successfully completed training.
 
 (...)
 
@@ -133,11 +143,11 @@ organization’s medical devices and services, it proceeds as outlined in the SO
 
 > Possible contents of this process step:
 >
-> * In case of a version update, the operations team verifies if the integration requirements change due to
+> - In case of a version update, the operations team verifies if the integration requirements change due to
 >   the update and, if necessary, implements changes accordingly.
-> * The operations team coordinates updates with the customer prior to deployment and, if applicable, notifies
+> - The operations team coordinates updates with the customer prior to deployment and, if applicable, notifies
 >   the customer of potential product downtime according to the timeframe stated in customer contracts.
-> * After deployment, the latest deployed version is documented in the medical device list.
+> - After deployment, the latest deployed version is documented in the medical device list.
 
 (...)
 
@@ -145,10 +155,10 @@ organization’s medical devices and services, it proceeds as outlined in the SO
 
 > Possible contents of this process step:
 >
-> * The sales team notifies the operations team in case of a terminated contract. Thereafter, the operations
+> - The sales team notifies the operations team in case of a terminated contract. Thereafter, the operations
 >   team is responsible for deactivating respective user accounts.
-> * The medical device list is updated accordingly.
-> * If required, the operations team is responsible to support the customer with necessary data migration and
+> - The medical device list is updated accordingly.
+> - If required, the operations team is responsible to support the customer with necessary data migration and
 >   archives data related to the respective customer according to GDPR requirements (reference privacy policy
 >   or similar here).
 

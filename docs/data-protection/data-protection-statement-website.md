@@ -1,15 +1,25 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
+# Website Data Protection Statement
+
 > Disclaimer: this privacy statement refers to websites in the following context:
 >
-> * Your website does not typically require visitors to enter personal data in order to user its services.
-> * No particular "legitimate interests" (section 10)
-> * No automated decision-making (section 14)
-> * Particular website features: newsletter incl. tracking (if, for example, your website uses Google
+> - Your website does not typically require visitors to enter personal data in order to user its services.
+> - No particular "legitimate interests" (section 10)
+> - No automated decision-making (section 14)
+> - Particular website features: newsletter incl. tracking (if, for example, your website uses Google
 >   Analytics, you should consider a separate sub-section for this)
 >
 > It's painful - but you will have to go through the entire text and adjust it to your own company website
 > where necessary. We hope this template still hopes you with a general structure.
-
-# Website Data Protection Statement
 
 For Data Subjects Pursuant to Articles 13 and 14 of the EU General Data Protection Regulation
 
@@ -40,44 +50,44 @@ partners. To ensure this, we would like to first explain the terminology used.
 
 In this data protection declaration, we use, inter alia, the following terms:
 
-* **a) Personal data** Personal data means any information relating to an identified or identifiable natural
+- **a) Personal data** Personal data means any information relating to an identified or identifiable natural
   person ("data subject"). An identifiable natural person is one who can be identified, directly or
   indirectly, in particular by reference to an identifier such as a name, an identification number, location
   data, an online identifier or to one or more factors specific to the physical, physiological, genetic,
   mental, economic, cultural or social identity of that natural person.
-* **b) Data subject** Data subject is any identified or identifiable natural person, whose personal data is
+- **b) Data subject** Data subject is any identified or identifiable natural person, whose personal data is
   processed by the controller responsible for the processing.
-* **c) Processing** Processing is any operation or set of operations which is performed on personal data or on
+- **c) Processing** Processing is any operation or set of operations which is performed on personal data or on
   sets of personal data, whether or not by automated means, such as collection, recording, organisation,
   structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission,
   dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
-* **d) Restriction of processing** Restriction of processing is the marking of stored personal data with the
+- **d) Restriction of processing** Restriction of processing is the marking of stored personal data with the
   aim of limiting their processing in the future.
-* e) Profiling Profiling means any form of automated processing of personal data consisting of the use of
+- e) Profiling Profiling means any form of automated processing of personal data consisting of the use of
   personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or
   predict aspects concerning that natural person's performance at work, economic situation, health, personal
   preferences, interests, reliability, behavior, location or movements.
-* **f) Pseudonymization** Pseudonymization is the processing of personal data in such a manner that the
+- **f) Pseudonymization** Pseudonymization is the processing of personal data in such a manner that the
   personal data can no longer be attributed to a specific data subject without the use of additional
   information, provided that such additional information is kept separately and is subject to technical and
   organizational measures to ensure that the personal data are not attributed to an identified or identifiable
   natural person.
-* **g) Controller or controller responsible for the processing** Controller or controller responsible for the
+- **g) Controller or controller responsible for the processing** Controller or controller responsible for the
   processing is the natural or legal person, public authority, agency or other body which, alone or jointly
   with others, determines the purposes and means of the processing of personal data; where the purposes and
   means of such processing are determined by Union or Member State law, the controller or the specific
   criteria for its nomination may be provided for by Union or Member State law.
-* **h) Processor** Processor is a natural or legal person, public authority, agency or other body which
+- **h) Processor** Processor is a natural or legal person, public authority, agency or other body which
   processes personal data on behalf of the controller.
-* **i) Recipient** Recipient is a natural or legal person, public authority, agency or another body, to which
+- **i) Recipient** Recipient is a natural or legal person, public authority, agency or another body, to which
   the personal data are disclosed, whether a third party or not. However, public authorities which may receive
   personal data in the framework of a particular inquiry in accordance with Union or Member State law shall
   not be regarded as recipients; the processing of those data by those public authorities shall be in
   compliance with the applicable data protection rules according to the purposes of the processing.
-* **j) Third party** Third party is a natural or legal person, public authority, agency or body other than the
+- **j) Third party** Third party is a natural or legal person, public authority, agency or body other than the
   data subject, controller, processor and persons who, under the direct authority of the controller or
   processor, are authorized to process personal data.
-* **k) Consent** Consent of the data subject is any freely given, specific, informed and unambiguous
+- **k) Consent** Consent of the data subject is any freely given, specific, informed and unambiguous
   indication of the wishes by which he or she, by a statement or by a clear affirmative action, signifies
   agreement to the processing of personal data relating to him or her.
 
@@ -164,57 +174,57 @@ expires, the personal data are routinely blocked or erased in accordance with le
 
 ## 7. Rights of the data subject
 
-* **a) Right of confirmation (Art. 15 GDPR)** Each data subject shall have the right granted by the European
+- **a) Right of confirmation (Art. 15 GDPR)** Each data subject shall have the right granted by the European
   legislator to obtain from the controller the confirmation as to whether or not personal data concerning him
   or her are being processed. If a data subject wishes to avail himself of this right of confirmation, he or
   she may, at any time, contact any employee of the controller.
-* **b) Right of access (Art. 15 GDPR)** Each data subject shall have the right granted by the European
+- **b) Right of access (Art. 15 GDPR)** Each data subject shall have the right granted by the European
   legislator to obtain from the controller free information about his or her personal data stored at any time
   and a copy of this information. Furthermore, the European directives and regulations grant the data subject
   access to the following information:
-  * the purposes of the processing;
-  * the categories of personal data concerned;
-  * the recipients or categories of recipients to whom the personal data have been or will be disclosed, in
+  - the purposes of the processing;
+  - the categories of personal data concerned;
+  - the recipients or categories of recipients to whom the personal data have been or will be disclosed, in
     particular recipients in third countries or international organisations;
-  * where possible, the envisaged period for which the personal data will be stored, or, if not possible, the
+  - where possible, the envisaged period for which the personal data will be stored, or, if not possible, the
     criteria used to determine that period;
-  * the existence of the right to request from the controller rectification or erasure of personal data, or
+  - the existence of the right to request from the controller rectification or erasure of personal data, or
     restriction of processing of personal data concerning the data subject, or to object to such processing;
-  * the existence of the right to lodge a complaint with a supervisory authority;
-  * where the personal data are not collected from the data subject, any available information as to their
+  - the existence of the right to lodge a complaint with a supervisory authority;
+  - where the personal data are not collected from the data subject, any available information as to their
     source;
-  * the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) of
+  - the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) of
     the GDPR and, at least in those cases, meaningful information about the logic involved, as well as the
     significance and envisaged consequences of such processing for the data subject.
-* Furthermore, the data subject shall have a right to obtain information as to whether personal data are
+- Furthermore, the data subject shall have a right to obtain information as to whether personal data are
   transferred to a third country or to an international organisation. Where this is the case, the data subject
   shall have the right to be informed of the appropriate safeguards relating to the transfer. If a data
   subject wishes to avail himself of this right of access, he or she may, at any time, contact any employee of
   the controller.
-* **c) Right to rectification (Art. 16 GDPR)** Each data subject shall have the right granted by the European
+- **c) Right to rectification (Art. 16 GDPR)** Each data subject shall have the right granted by the European
   legislator to obtain from the controller without undue delay the rectification of inaccurate personal data
   concerning him or her. Taking into account the purposes of the processing, the data subject shall have the
   right to have incomplete personal data completed, including by means of providing a supplementary
   statement. If a data subject wishes to exercise this right to rectification, he or she may, at any time,
   contact any employee of the controller.
-* **d) Right to erasure (Right to be forgotten, Art. 17 GDPR)** Each data subject shall have the right granted
+- **d) Right to erasure (Right to be forgotten, Art. 17 GDPR)** Each data subject shall have the right granted
   by the European legislator to obtain from the controller the erasure of personal data concerning him or her
   without undue delay, and the controller shall have the obligation to erase personal data without undue delay
   where one of the following grounds applies, as long as the processing is not necessary:
-    * The personal data are no longer necessary in relation to the purposes for which they were collected or
-      otherwise processed.
-    * The data subject withdraws consent to which the processing is based according to point (a) of Article
-      6(1) of the GDPR, or point (a) of Article 9(2) of the GDPR, and where there is no other legal ground for
-      the processing.
-    * The data subject objects to the processing pursuant to Article 21(1) of the GDPR and there are no
-      overriding legitimate grounds for the processing, or the data subject objects to the processing pursuant
-      to Article 21(2) of the GDPR.
-    * The personal data have been unlawfully processed.
-    * The personal data must be erased for compliance with a legal obligation in Union or Member State law to
-      which the controller is subject.
-    * The personal data have been collected in relation to the offer of information society services referred
-      to in Article 8(1) of the GDPR.
-* If one of the aforementioned reasons applies, and a data subject wishes to request the erasure of personal
+  - The personal data are no longer necessary in relation to the purposes for which they were collected or
+    otherwise processed.
+  - The data subject withdraws consent to which the processing is based according to point (a) of Article
+    6(1) of the GDPR, or point (a) of Article 9(2) of the GDPR, and where there is no other legal ground for
+    the processing.
+  - The data subject objects to the processing pursuant to Article 21(1) of the GDPR and there are no
+    overriding legitimate grounds for the processing, or the data subject objects to the processing pursuant
+    to Article 21(2) of the GDPR.
+  - The personal data have been unlawfully processed.
+  - The personal data must be erased for compliance with a legal obligation in Union or Member State law to
+    which the controller is subject.
+  - The personal data have been collected in relation to the offer of information society services referred
+    to in Article 8(1) of the GDPR.
+- If one of the aforementioned reasons applies, and a data subject wishes to request the erasure of personal
   data stored by \<enter company name\>, he or she may, at any time, contact any employee of the
   controller. An employee of \<enter company name\> shall promptly ensure that the erasure request is complied
   with immediately. Where the controller has made personal data public and is obliged pursuant to Article
@@ -223,21 +233,21 @@ expires, the personal data are routinely blocked or erased in accordance with le
   processing the personal data that the data subject has requested erasure by such controllers of any links
   to, or copy or replication of, those personal data, as far as processing is not required. An employees of
   \<enter company name\> will arrange the necessary measures in individual cases.
-* **e) Right of restriction of processing (Art. 18 GDPR)** Each data subject shall have the right granted by
+- **e) Right of restriction of processing (Art. 18 GDPR)** Each data subject shall have the right granted by
   the European legislator to obtain from the controller restriction of processing where one of the following
   applies:
-  * The accuracy of the personal data is contested by the data subject, for a period enabling the controller
+  - The accuracy of the personal data is contested by the data subject, for a period enabling the controller
     to verify the accuracy of the personal data.
-  * The processing is unlawful and the data subject opposes the erasure of the personal data and requests
+  - The processing is unlawful and the data subject opposes the erasure of the personal data and requests
     instead the restriction of their use instead.
-  * The controller no longer needs the personal data for the purposes of the processing, but they are required
+  - The controller no longer needs the personal data for the purposes of the processing, but they are required
     by the data subject for the establishment, exercise or defence of legal claims.
-  * The data subject has objected to processing pursuant to Article 21(1) of the GDPR pending the verification
+  - The data subject has objected to processing pursuant to Article 21(1) of the GDPR pending the verification
     whether the legitimate grounds of the controller override those of the data subject.
-* If one of the aforementioned conditions is met, and a data subject wishes to request the restriction of the
+- If one of the aforementioned conditions is met, and a data subject wishes to request the restriction of the
   processing of personal data stored by us, he or she may at any time contact any employee of the
   controller. The employee of \<enter company name\> will arrange the restriction of the processing.
-* **f) Right to data portability (Art. 20 GDPR)** Each data subject shall have the right granted by the
+- **f) Right to data portability (Art. 20 GDPR)** Each data subject shall have the right granted by the
   European legislator, to receive the personal data concerning him or her, which was provided to a controller,
   in a structured, commonly used and machine-readable format. He or she shall have the right to transmit those
   data to another controller without hindrance from the controller to which the personal data have been
@@ -250,7 +260,7 @@ expires, the personal data are routinely blocked or erased in accordance with le
   controller to another, where technically feasible and when doing so does not adversely affect the rights and
   freedoms of others. In order to assert the right to data portability, the data subject may at any time
   contact any employee of \<enter company name\>.
-* **g) Right to object (Art. 21 GDPR)** Each data subject shall have the right granted by the European
+- **g) Right to object (Art. 21 GDPR)** Each data subject shall have the right granted by the European
   legislator to object, on grounds relating to his or her particular situation, at any time, to processing of
   personal data concerning him or her, which is based on point (e) or (f) of Article 6(1) of the GDPR. This
   also applies to profiling based on these provisions. \<enter company name\> shall no longer process the
@@ -268,7 +278,7 @@ expires, the personal data are routinely blocked or erased in accordance with le
   addition, the data subject is free in the context of the use of information society services, and
   notwithstanding Directive 2002/58/EC, to use his or her right to object by automated means using technical
   specifications.
-* **h) Automated individual decision-making, including profiling** Each data subject shall have the right
+- **h) Automated individual decision-making, including profiling** Each data subject shall have the right
   granted by the European legislator not to be subject to a decision based solely on automated processing,
   including profiling, which produces legal effects concerning him or her, or similarly significantly affects
   him or her, as long as the decision (1) is not is necessary for entering into, or the performance of, a
@@ -282,7 +292,7 @@ expires, the personal data are routinely blocked or erased in accordance with le
   express his or her point of view and contest the decision. If the data subject wishes to exercise the rights
   concerning automated individual decision-making, he or she may, at any time, contact any employee of \<enter
   company name\>.
-* **i) Right to withdraw data protection consent** Each data subject shall have the right granted by the
+- **i) Right to withdraw data protection consent** Each data subject shall have the right granted by the
   European legislator to withdraw his or her consent to processing of his or her personal data at any time. If
   the data subject wishes to exercise the right to withdraw the consent, he or she may, at any time, contact
   any employee of \<enter company name\>.
@@ -301,8 +311,8 @@ case, in particular, if an applicant submits corresponding application documents
 web form on the website to the controller. If the data controller concludes an employment contract with an
 applicant, the submitted data will be stored for the purpose of processing the employment relationship in
 compliance with legal requirements. If no employment contract is concluded with the applicant by the
-controller, the *application documents shall be automatically erased six months after notification of the
-refusal decision*, provided that no other legitimate interests of the controller are opposed to the
+controller, the _application documents shall be automatically erased six months after notification of the
+refusal decision_, provided that no other legitimate interests of the controller are opposed to the
 erasure. Other legitimate interest in this relation is, e.g. a burden of proof in a procedure under the
 General Equal Treatment Act (AGG).
 

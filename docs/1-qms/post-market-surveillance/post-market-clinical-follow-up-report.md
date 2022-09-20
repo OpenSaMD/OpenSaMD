@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Post-Market Clinical Follow-Up Report (PMCFR)
 
 This template is used to document the results of all post-market-clinical-follow-up activities conducted for
@@ -6,7 +16,7 @@ the medical device.
 ## Product
 
 | Product Name        | Version   |
-|---------------------|-----------|
+| ------------------- | --------- |
 | (your product name) | (version) |
 
 ## Context
@@ -19,13 +29,13 @@ The post-market clinical follow-up report (PMCFR) is compiled at the end of a su
 specified in the post-market clinical follow-up plan (PMCFP) and serves as input for the next update of the
 clinical evaluation. Following Annex XIV MDR, the PMCF is conducted with the aim of:
 
-* confirming the safety and performance of the device throughout its product life cycle,
-* identifying previously unknown side-effects and monitoring the identified side-effects and
+- confirming the safety and performance of the device throughout its product life cycle,
+- identifying previously unknown side-effects and monitoring the identified side-effects and
   contraindications,
-* identifying and analyzing emergent risks on the basis of factual evidence,
-* ensuring the continued acceptability of the benefit-risk ratio referred to in sections 1 and 9 of annex I
+- identifying and analyzing emergent risks on the basis of factual evidence,
+- ensuring the continued acceptability of the benefit-risk ratio referred to in sections 1 and 9 of annex I
   MDR, and
-* identifying possible systematic misuse or off-label use of the device, with a view to verifying that the
+- identifying possible systematic misuse or off-label use of the device, with a view to verifying that the
   intended purpose is correct.
 
 ## PMCF Objectives
@@ -53,7 +63,7 @@ clinical evaluation. Following Annex XIV MDR, the PMCF is conducted with the aim
 > and severity of existing risks. Outline any risk mitigation measures that should be taken or revised.
 
 | Risk | Measures | Responsible Role | Due DAte |
-|------|----------|------------------|----------|
+| ---- | -------- | ---------------- | -------- |
 |      |          |                  |          |
 |      |          |                  |          |
 

@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Management Review Report
 
 > NOTE #1: This template is supposed to give you an idea of the structure. Don't use MS word - this is thought
@@ -14,7 +24,7 @@
 > product safety. List a summary of measures derived from the review.
 
 |                              |           |
-|------------------------------|-----------|
+| ---------------------------- | --------- |
 | Date of Review               | XYZ (...) |
 | Participants<br>(Name, Role) | XYZ (...) |
 | Signature                    | XYZ (...) |
@@ -25,7 +35,7 @@
 > previous Management Reviews for comparison.
 
 | SOP                                     | Key Performance Indicator                        | Review Input                 | Management Assessment                              | Improvement Measures | Evaluation of Previous Measures |
-|-----------------------------------------|--------------------------------------------------|------------------------------|----------------------------------------------------|----------------------|---------------------------------|
+| --------------------------------------- | ------------------------------------------------ | ---------------------------- | -------------------------------------------------- | -------------------- | ------------------------------- |
 | Corrective and Preventive Action (CAPA) | Quick decision of action plan (goal: max. 1week) | Last year: 3 days on average | Process is followed and complies with requirements | None                 | N/A                             |
 | Change Management                       |                                                  |                              |                                                    |                      |                                 |
 | Document and Record Control             |                                                  |                              |                                                    |                      |                                 |

@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # 1. Regulatory References
 
 **Regulatory references:**
@@ -6,10 +16,20 @@ IEC 62304, para. 5.3.1 and 5.3.2 [class B, C]
 
 **Relevant other documentation:**
 
-* SOP Software Development
-* User needs / stakeholder requirements
-* Design input / software requirements
-* (...)
+- SOP Software Development
+- User needs / stakeholder requirements
+- Design input / software requirements
+- (...)
+
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
 
 # 2. Software Systems
 
@@ -25,47 +45,77 @@ components and software units.
 
 > Enter description, for example:
 >
-> * Function: user interface display
-> * Software safety classification and rationale
-> * Runtime
-> * Deployment
-> * User groups
+> - Function: user interface display
+> - Software safety classification and rationale
+> - Runtime
+> - Deployment
+> - User groups
 
 ## 4.2. Backend
 
 > Enter description, for example:
 >
-> * Function: managing patient data and medical images.
-> * Software safety classification and rationale
-> * Runtime (e.g. JVM)
-> * Deployment (e.g. Docker container)
-> * User group
+> - Function: managing patient data and medical images.
+> - Software safety classification and rationale
+> - Runtime (e.g. JVM)
+> - Deployment (e.g. Docker container)
+> - User group
 
 ## 4.3. Algorithm
 
 > Enter description, for example:
 >
-> * Function: taking medical images as input and output a prediction.
-> * Software safety classification and rationale
-> * Runtime (e.g. JVM)
-> * Deployment (e.g. Docker container)
-> * User group
+> - Function: taking medical images as input and output a prediction.
+> - Software safety classification and rationale
+> - Runtime (e.g. JVM)
+> - Deployment (e.g. Docker container)
+> - User group
+
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
 
 # 6. Software Units
 
 > Describe your internal software units. The IEC 62304 defines those as a “software item [any identifiable
-> part of a program, i.e. source code, object code, control code, control data, etc.] that cannot be
+> > part of a program, i.e. source code, object code, control code, control data, etc.] that cannot be
 > subdivided into other items”. For example:
 >
-> * Wearable device poller (regularly checks whether wearable device has new data and downloads it)
-> * Notification service (sends messages to Apple / Google for push notifications of mobile apps)
-> * (...)
+> - Wearable device poller (regularly checks whether wearable device has new data and downloads it)
+> - Notification service (sends messages to Apple / Google for push notifications of mobile apps)
+> - (...)
+
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
 
 # 7. Database
 
 > Describe your databases. For example:
 >
-> * Relational database: Postgres v14
+> - Relational database: Postgres v14
+
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
 
 # 8. IT Security
 
@@ -81,7 +131,7 @@ components and software units.
 
 > Example content:
 >
-> * Data in transit is encrypted with state-of-the-art encryption, e.g. SSL, TLS.
-> * Additionally, we create a Virtual Private Network (VPC) which prevents the Compute Instances from being
+> - Data in transit is encrypted with state-of-the-art encryption, e.g. SSL, TLS.
+> - Additionally, we create a Virtual Private Network (VPC) which prevents the Compute Instances from being
 >   exposed to the public internet. The algorithm and the database are therefore not publicly reachable; they
 >   are only reachable by the backend.

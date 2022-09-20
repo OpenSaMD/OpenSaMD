@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Post-Market Clinical Follow-Up Plan (PMCFP)
 
 This document is used to plan all post-market clinical follow-up activities for the medical device.
@@ -5,26 +15,27 @@ This document is used to plan all post-market clinical follow-up activities for 
 ## Product
 
 | Product Name        | Version   |
-|---------------------|-----------|
+| ------------------- | --------- |
 | (your product name) | (version) |
 
 ## Context
 
 > For your orientation, here is guidance documents that may further help you to fill out the template:
-> * MEDDEV Guidance 2.7/1 Rev. 4 on Clinical Evaluation
-> * MEDDEV Guidance 2.12/2 Rev. 2 on Post-Market Clinical Follow-Up
+>
+> - MEDDEV Guidance 2.7/1 Rev. 4 on Clinical Evaluation
+> - MEDDEV Guidance 2.12/2 Rev. 2 on Post-Market Clinical Follow-Up
 
 The post-market clinical follow-up plan is compiled along with concluding the clinical evaluation and is based
 on the clinical evaluation report. Following Annex XIV MDR, it specifies the methods used to collect and
 evaluate clinical data with the aim of:
 
-* confirming the safety and performance of the device throughout its product life cycle,
-* identifying previously unknown side-effects and monitoring the identified side-effects and
+- confirming the safety and performance of the device throughout its product life cycle,
+- identifying previously unknown side-effects and monitoring the identified side-effects and
   contraindications,
-* identifying and analyzing emergent risks on the basis of factual evidence,
-* ensuring the continued acceptability of the benefit-risk ratio referred to in sections 1 and 9 of annex I
+- identifying and analyzing emergent risks on the basis of factual evidence,
+- ensuring the continued acceptability of the benefit-risk ratio referred to in sections 1 and 9 of annex I
   MDR, and
-* identifying possible systematic misuse or off-label use of the device, with a view to verifying that the
+- identifying possible systematic misuse or off-label use of the device, with a view to verifying that the
   intended purpose is correct.
 
 ## Product Post-Market Clinical Follow-Up
@@ -37,7 +48,7 @@ The clinical evaluation report outlined the following risk-benefit-profile for t
 > figurative medical device.
 
 | Risk ID | Residual Risk                       | Benefit ID | Product Benefit                                                            |
-|---------|-------------------------------------|------------|----------------------------------------------------------------------------|
+| ------- | ----------------------------------- | ---------- | -------------------------------------------------------------------------- |
 | #R1     | Inaccurate blood oxygen measurement | #B1        | Increased quality of life through higher awareness for healthy lifestyle   |
 | #R2     | (...)                               | #B2        | Higher likelihood of detecting chronic diseases linked to low blood oxygen |
 |         |                                     |            |                                                                            |
@@ -51,12 +62,12 @@ The clinical evaluation report outlined the following risk-benefit-profile for t
 > of your aims would be to measure a higher sensitivity / specificity of physicians that use your device. The
 > clinical data you collect will support your claimed product benefits at the end of the PMCF interval.
 
-| Risk / Benefit                                                             | PMCF Objective                  |   | ID  |
-|----------------------------------------------------------------------------|---------------------------------|---|-----|
-| Inaccurate blood oxygen measurement                                        | False-high blood oxygen values  |   | #R1 |
-| Inaccurate blood oxygen measurement                                        | False-low blood oxygen values   |   | #R2 |
-| Higher likelihood of detecting chronic diseases linked to low blood oxygen | Higher detection of sleep apnea |   | #B2 |
-|                                                                            |                                 |   |     |
+| Risk / Benefit                                                             | PMCF Objective                  |     | ID  |
+| -------------------------------------------------------------------------- | ------------------------------- | --- | --- |
+| Inaccurate blood oxygen measurement                                        | False-high blood oxygen values  |     | #R1 |
+| Inaccurate blood oxygen measurement                                        | False-low blood oxygen values   |     | #R2 |
+| Higher likelihood of detecting chronic diseases linked to low blood oxygen | Higher detection of sleep apnea |     | #B2 |
+|                                                                            |                                 |     |     |
 
 ### PMCF Activities
 
@@ -73,6 +84,6 @@ The clinical evaluation report outlined the following risk-benefit-profile for t
 ### PMCF Schedule
 
 | PMCF Activity  | ID              | Responsible Role | Due Date |
-|----------------|-----------------|------------------|----------|
+| -------------- | --------------- | ---------------- | -------- |
 | Clinical trial | #R1, B#2, (...) | CMO              | (...)    |
 |                |                 |                  |          |

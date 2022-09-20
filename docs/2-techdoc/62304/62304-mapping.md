@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # IEC 62304:2006 Mapping of Requirements to Documents
 
 This table maps all requirements of the IEC 62304:2006 (by section) to the relevant documents (here:
@@ -8,11 +18,11 @@ OpenRegulatory templates).
 > them.
 
 | Classes   | Section | Title                                                                  | Fulfilled in Document                                                                          | Comment                                           |
-|-----------|---------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| --------- | ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | (General) | 4.1     | Quality management system                                              | Quality Management Manual                                                                      |                                                   |
 |           | 4.2     | Risk management                                                        | SOP Integrated Software Development                                                            |                                                   |
 |           | 4.3     | Software Safety Classification                                         | Risk Management Report                                                                         |                                                   |
-|           | 4.4     | Legacy Software                                                        | (Not applicable)                                                                               | *Not applicable unless you have legacy software.* |
+|           | 4.4     | Legacy Software                                                        | (Not applicable)                                                                               | _Not applicable unless you have legacy software._ |
 | A, B, C   | 5.1.1   | Software development plan                                              | Software Development and Maintenance Plan                                                      |                                                   |
 | A, B, C   | 5.1.2   | Keep software development plan update                                  | SOP Integrated Software Development                                                            |                                                   |
 | A, B, C   | 5.1.3   | Software development plan reference to system design and development   | Software Development and Maintenance Plan                                                      |                                                   |
@@ -65,7 +75,7 @@ OpenRegulatory templates).
 | B, C      | 5.8.6   | Ensure activities and tasks are complete                               | SOP Integrated Software Development; Checklist Software Release                                |                                                   |
 | A, B, C   | 5.8.7   | Archive software                                                       | SOP Integrated Software Development; (Tagged commit in git)                                    |                                                   |
 | A, B, C   | 5.8.8   | Assure reliable delivery of released software                          | SOP Integrated Software Development                                                            |                                                   |
-| A, B, C   | 6.1     | Establish a software maintenance plan                                    | Software Development and Maintenance Plan                                                      |                                                   |
+| A, B, C   | 6.1     | Establish a software maintenance plan                                  | Software Development and Maintenance Plan                                                      |                                                   |
 | A, B, C   | 6.2.1.1 | Monitor feedback                                                       |                                                                                                |                                                   |
 | A, B, C   | 6.2.1.2 | Document and evaluate feedback                                         |                                                                                                |                                                   |
 | A, B, C   | 6.2.1.3 | Evaluate problem report's affects on safety                            | SOP Problem Resolution                                                                         |                                                   |
@@ -87,7 +97,7 @@ OpenRegulatory templates).
 | A, B, C   | 7.4.1   | Analyse changes to medical device software with respect to safety      | SOP Change Management                                                                          |                                                   |
 | B, C      | 7.4.2   | Analyse impact of software changes on existing risk control measures   | SOP Change Management                                                                          |                                                   |
 | B, C      | 7.4.3   | Perform risk management activities based on analyses                   | SOP Change Management                                                                          |                                                   |
-| A, B, C   | 8.1.1   | Establish means to identify configuration items                         | Software Development and Maintenance Plan                                                      |                                                   |
+| A, B, C   | 8.1.1   | Establish means to identify configuration items                        | Software Development and Maintenance Plan                                                      |                                                   |
 | A, B, C   | 8.1.2   | Identify SOUP                                                          | SOP Integrated Software Development                                                            |                                                   |
 | A, B, C   | 8.1.3   | Identify system configuration documentation                            | SOP Integrated Software Development                                                            |                                                   |
 | A, B, C   | 8.2.1   | Approve change requests                                                | SOP Change Management                                                                          |                                                   |

@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Essential Requirements MDD (93/42/EEC)
 
 > This document goes through all essential requirements as listed in Annex I of the MDD. Please don't get
@@ -18,21 +28,21 @@
 > their intended use constitute acceptable risks when weighed against the benefits to the patient and are
 > compatible with a high level of protection of health and safety.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), Clinical Evaluation
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), Clinical Evaluation
 
 > This shall include reducing, as far as possible, the risk of use error due to the ergonomic features of the
 > device and the environment in which the device is intended to be used (design for patient safety)
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62366-1:2015 (Usability Evaluation
-   Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62366-1:2015 (Usability Evaluation
+  Report)
 
 > and consideration of the technical knowledge, experience, education and training and where applicable the
 > medical and physical conditions of intended users (design for lay, professional, disabled or other users).
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** IEC 62366-1:2015 (Usability Evaluation Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** IEC 62366-1:2015 (Usability Evaluation Report)
 
 ## 2
 
@@ -42,13 +52,13 @@
 > In selecting the most appropriate solutions, the manufacturer must apply the following principles in the
 > following order:
 >
->  * Eliminate or reduce risks as far as possible (inherently safe design and construction),
->  * Where appropriate take adequate protection measures including alarms if necessary, in relation to risks
->    that cannot be eliminated,
->  * Inform users of the residual risks due to any shortcomings of the protection measures adopted.
+> - Eliminate or reduce risks as far as possible (inherently safe design and construction),
+> - Where appropriate take adequate protection measures including alarms if necessary, in relation to risks
+>   that cannot be eliminated,
+> - Inform users of the residual risks due to any shortcomings of the protection measures adopted.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
 
 ## 3
 
@@ -56,8 +66,8 @@
 > packaged in such a way that they are suitable for one or more of the functions referred to in Article 1 (2)
 > (a), as specified by the manufacturer.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** IEC 62304:2006 (Software Verification), Clinical Evaluation
+- **Applicable:** Yes
+- **Evidence of Conformity:** IEC 62304:2006 (Software Verification), Clinical Evaluation
 
 ## 4
 
@@ -66,9 +76,9 @@
 > persons are compromised during the lifetime of the device as indicated by the manufacturer, when the device
 > is subjected to the stresses which can occur during normal conditions of use.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62304:2006 (Software Verification
-   & Validation)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62304:2006 (Software Verification
+  & Validation)
 
 ## 5
 
@@ -76,31 +86,31 @@
 > performances during their intended use will not be adversely affected during transport and storage taking
 > account of the instructions and information provided by the manufacturer.
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 6
 
 > Any undesirable side-effect must constitute an acceptable risk when weighed against the performances
 > intended.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
 
 ## 6a
 
 > Demonstration of conformity with the essential requirements must include a clinical evaluation in accordance
 > with Annex X.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** Clinical Evaluation
+- **Applicable:** Yes
+- **Evidence of Conformity:** Clinical Evaluation
 
 ## 7: Chemical, physical and biological properties
 
-* **Applicable:** No
+- **Applicable:** No
 
 ## 8: Infection and microbial contamination
 
-* **Applicable:** No
+- **Applicable:** No
 
 ## 9.1
 
@@ -108,24 +118,24 @@
 > including the connection system must be safe and must not impair the specified performances of the
 > devices. Any restrictions on use must be indicated on the label or in the instructions for use.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report)
 
 ## 9.2
 
 > Devices must be designed and manufactured in such a way as to remove or minimize as far as possible:
 >
->  * The risk of injury, in connection with their physical features, including the volume/pressure ratio,
->    dimensional and where appro- priate ergonomic features,
->  * The risks connected with reasonably foreseeable environmental conditions, such as magnetic fields, external
->    electrical influences, electrostatic discharge, pressure, temperature or variations in pressure and
->    acceleration,
->  * The risks of reciprocal interference with other devices normally used in the investigations or for the
->    treatment given,
->  * The risks arising where maintenance or calibration are not possible (as with implants), from ageing of
->    materials used or loss of accuracy of any measuring or control mechanism.
+> - The risk of injury, in connection with their physical features, including the volume/pressure ratio,
+>   dimensional and where appro- priate ergonomic features,
+> - The risks connected with reasonably foreseeable environmental conditions, such as magnetic fields, external
+>   electrical influences, electrostatic discharge, pressure, temperature or variations in pressure and
+>   acceleration,
+> - The risks of reciprocal interference with other devices normally used in the investigations or for the
+>   treatment given,
+> - The risks arising where maintenance or calibration are not possible (as with implants), from ageing of
+>   materials used or loss of accuracy of any measuring or control mechanism.
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 9.3
 
@@ -133,15 +143,15 @@
 > normal use and in a single fault condition. Particular attention must be paid to devices whose intended use
 > includes exposure to flammable substances or to substances which could cause combustion.
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 10: Devices with a measuring function
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 11: Protection against radiation
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 12.1
 
@@ -150,7 +160,7 @@
 > condition (in the system) appropriate means should be adopted to eliminate or reduce as far as possible
 > consequent risks.
 
- * **Applicable:** Yes
+- **Applicable:** Yes
 
 ## 12.1a
 
@@ -158,13 +168,13 @@
 > validated according to the state of the art taking into account the principles of development lifecycle,
 > risk management, validation and verification.
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62304:2006 (SOP Software
-   Development, Software Verification & Validation), IEC 62366-1:2015 (Usability Evaluation Report)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019 (Risk Management Report), IEC 62304:2006 (SOP Software
+  Development, Software Verification & Validation), IEC 62366-1:2015 (Usability Evaluation Report)
 
 ## 12.2 - 12.3
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 12.4
 
@@ -172,13 +182,13 @@
 > alarm systems to alert the user of situations which could lead to death or severe deterioration of the
 > patient's state of health.
 
- * **Applicable:** No (no monitoring)
+- **Applicable:** No (no monitoring)
 
 ## 12.5 - 12.8
 
- * **Applicable:** No
+- **Applicable:** No
 
 ## 13 Information supplied by the manufacturer
 
- * **Applicable:** Yes
- * **Evidence of Conformity:** ISO 14971:2019, IEC 62366-1:2015 (Labelling, Instructions for Use)
+- **Applicable:** Yes
+- **Evidence of Conformity:** ISO 14971:2019, IEC 62366-1:2015 (Labelling, Instructions for Use)

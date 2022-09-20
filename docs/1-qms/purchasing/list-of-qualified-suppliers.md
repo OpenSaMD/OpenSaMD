@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # List of Qualified Suppliers
 
 > NOTE: The purpose of this template is to give an idea of the structure. You are much better off not using a
@@ -5,7 +15,7 @@
 > this template is reversed due to formatting reasons.
 
 | Supplier Documentation            | Supplier #1                 | Supplier #2                 | (...) |
-|-----------------------------------|-----------------------------|-----------------------------|-------|
+| --------------------------------- | --------------------------- | --------------------------- | ----- |
 | Supplier Name:                    | ABC Medical Content GmbH    | XYZ Medical Content GmbH    |       |
 | Purchase Description:             | Writing Clinical Evaluation | Writing Clinical Evaluation |       |
 | Supplier Status:                  | Approved                    | Blocked                     |       |

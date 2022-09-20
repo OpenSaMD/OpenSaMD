@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # AI Algorithm Validation Report
 
 <!-- > DISCLAIMER:
@@ -25,7 +35,7 @@ This document describes the specification of our machine learning (algorithm) mo
 **Regulatory references:**
 
 | ISO 13485:2016 Section   | Document Section |
-|--------------------------|------------------|
+| ------------------------ | ---------------- |
 | 6.2; 7.3.2               | 2.1              |
 | 7.3.7                    | 2.3; 3.1; 3.2    |
 | 4.2.3; 5.2; 7.2.1; 7.3.3 | 2.4              |
@@ -33,34 +43,34 @@ This document describes the specification of our machine learning (algorithm) mo
 | 7.3.2; 7.3.6; 7.3.7      | 5                |
 
 | ISO 14971:2019 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 4.3                    | 2.1              |
 | 5.2                    | 2.4              |
 
 | ISO 82304:2016 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 6.1                    | 2.1              |
 
 | ISO 62366-1:2015 Section | Document Section |
-|--------------------------|------------------|
+| ------------------------ | ---------------- |
 | 5.1; 5.2                 | 2.4              |
 
 | ISO 62304:2006 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 5.3; 8.1.2             | 2.2              |
 | 5.2                    | 2.4              |
 
 | ISO/IEC 24028:2020 Section | Document Section |
-|----------------------------|------------------|
+| -------------------------- | ---------------- |
 | 9.8.1; 10.5                | 3.1; 3.2         |
 | 9.8.2.1                    | 3.2              |
 | 9.8.2.2                    | 4                |
 
 **Relevant other documentation:**
 
-* SOP Software Development
-* Software Development and Maintenance Plan
-* SOUP List
+- SOP Software Development
+- Software Development and Maintenance Plan
+- SOUP List
 
 ## 2. Development Resources
 
@@ -69,19 +79,19 @@ For more context information, refer to the device’s software development and m
 ### 2.1. Developer Team
 
 | Name  | Role  | Qualification |
-|-------|-------|---------------|
+| ----- | ----- | ------------- |
 | (...) | (...) | (...)         |
 
 ### 2.2. SOUP / Frameworks
 
 | Name    | Version |
-|---------|---------|
+| ------- | ------- |
 | PyTorch | (...)   |
 
 ### 2.3. Data
 
 | Count | Description                                           |
-|-------|-------------------------------------------------------|
+| ----- | ----------------------------------------------------- |
 |       | \<e.g. annotated heart rate dataset from a wearable\> |
 
 ### 2.4. Development Planning
