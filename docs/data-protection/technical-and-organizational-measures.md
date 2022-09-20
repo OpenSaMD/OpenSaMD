@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # \<Product Name\> - Technical and Organizational Measures
 
 ## 1. General Considerations
@@ -32,8 +42,8 @@ operating procedures (e.g. DPR-SOP) and templates.
 \<enter company name\> operates based on office premises that are not freely accessible. They are locked when
 employees are away. The company implemented the following measures:
 
-* Locked building
-* Locked office
+- Locked building
+- Locked office
 
 \<enter company name\> does not maintain servers or server rooms. (...)
 
@@ -55,14 +65,14 @@ The company has implemented the following measures for access to software system
 > Describe your access restrictions. Those are measures not only to prevent unauthorized people from entering
 > your offices, but also to prevent unauthorized (electronic) access. Some example measures:
 >
-> * For every employee, a personally assigned user is set up with a password bound to strict requirements (at
+> - For every employee, a personally assigned user is set up with a password bound to strict requirements (at
 >   least 14 characters long with special characters).
-> * Passwords must be unique and may not be used for other accounts. Passwords must be changed annually.
-> * Central authentication with username and password, incl. mandatory 2-factor authentication. Every user has
+> - Passwords must be unique and may not be used for other accounts. Passwords must be changed annually.
+> - Central authentication with username and password, incl. mandatory 2-factor authentication. Every user has
 >   to verify the account at least every 30 days.
-> * Access is monitored and logged, including unsuccessful login attempts.
-> * Access is automatically blocked by the system after XXX failed attempts.
-> * Only employees get access to the majority of files and systems and the extent of access can be determined
+> - Access is monitored and logged, including unsuccessful login attempts.
+> - Access is automatically blocked by the system after XXX failed attempts.
+> - Only employees get access to the majority of files and systems and the extent of access can be determined
 >   selectively.
 
 ### 3.3 Usage Control
@@ -73,13 +83,13 @@ The company has implemented following measures when working within software syst
 
 > What are your policies when working with your internal systems? Some typical examples:
 >
-> * The password rules for access control must also be followed for usage control.
-> * Role-based authorization, administrative user profiles are kept to a minimum.
-> * User-dependent authentication with username and password.
-> * The use of personal data is limited, so that only authorized individuals can use the personal data
+> - The password rules for access control must also be followed for usage control.
+> - Role-based authorization, administrative user profiles are kept to a minimum.
+> - User-dependent authentication with username and password.
+> - The use of personal data is limited, so that only authorized individuals can use the personal data
 >   necessary for their task (De Minimis Principle).
-> * Logging of usage and changes.
-> * Paperless work by principle and compliant destruction of paper documents with a shredder where applicable.
+> - Logging of usage and changes.
+> - Paperless work by principle and compliant destruction of paper documents with a shredder where applicable.
 
 ### 3.4 Pseudonymization
 
@@ -88,7 +98,7 @@ The company has implemented following measures when working within software syst
 > This is often an overshoot, but think of scenarios in which identifiable data is really not that
 > necessary. One common example:
 >
-> * Customer data is pseudonymized so far as the connection to the individual is not absolutely necessary for
+> - Customer data is pseudonymized so far as the connection to the individual is not absolutely necessary for
 >   the result.
 
 ### 3.5 Separation Control
@@ -97,7 +107,7 @@ The company has implemented following measures when working within software syst
 
 > This typically applies to companies managing large amounts of data from various customers:
 >
-> * Separation of data is ensured for customer data based on software system management, e.g. through data
+> - Separation of data is ensured for customer data based on software system management, e.g. through data
 >   storage in separate folders.
 
 ## 4. Integrity
@@ -111,36 +121,36 @@ devices must be encrypted if personal data is stored on them.
 
 > How do you keep data safe in transmission? Some example measures:
 >
-> * The use of single USB flash drives or related data carrier tools is not allowed. Information should only
+> - The use of single USB flash drives or related data carrier tools is not allowed. Information should only
 >   be printed out if absolutely needed. Printed copies must be shredded immediately as soon as they are no
 >   longer needed.
-> * Home office policies (e.g. connect to VPN)
+> - Home office policies (e.g. connect to VPN)
 
 ### 4.2 Input Control
 
 The company has implemented the following measures for its software systems:
 
-* Traceability of inputs, changes, and deletions by personalized users
-* Traceability in assigning, changing, and deleting user authorizations
+- Traceability of inputs, changes, and deletions by personalized users
+- Traceability in assigning, changing, and deleting user authorizations
 
 > This applies to most cloud working environments (e.g. Google Drive, MS Sharepoint, Confluence, JIRA
 > etc.). Any other measures to add in your context?
 
 ### 4.3 Availability and Reliability
 
-* Employees are provided equipment which is state-of-the-art. Example configuration: (...)
-* Personal data is processed on data processing systems that are subject to regular and documented patch
+- Employees are provided equipment which is state-of-the-art. Example configuration: (...)
+- Personal data is processed on data processing systems that are subject to regular and documented patch
   management. No systems may be linked on the network that are outside of the manufacturer’s maintenance
   cycles (e.g. no Win95, XP, etc). Automatic updates are activated on the computers.
-* Continuous availability of high-speed internet is ensured. (Cloud system services can be used with any
+- Continuous availability of high-speed internet is ensured. (Cloud system services can be used with any
   internet connection.)
-* Continuous availability of data is guaranteed by means of redundant storage media and backups of systems
+- Continuous availability of data is guaranteed by means of redundant storage media and backups of systems
   according to the latest technical standards.
 
 > Again, if you are using a large cloud provider, you can add more extensive policies and measures here, such
 > as for example:
 >
-> * Cloud provider data centers and server rooms are state of the art (temperature control, fire protection,
+> - Cloud provider data centers and server rooms are state of the art (temperature control, fire protection,
 >   water penetration, uninterrupted power supply (UPS) ensuring controlled shutdown without any loss of
 >   data).
 
@@ -152,28 +162,28 @@ The company has implemented the following measures for its software systems:
 
 > As before, think about your own organizational setup. How do you ensure safe development? Some examples:
 >
-> * Third party applications must be approved prior to use by (...) according to (...) to ensure compliance
+> - Third party applications must be approved prior to use by (...) according to (...) to ensure compliance
 >   with quality management and data privacy requirements.
-> * Development tools must only be downloaded from secure sources (e.g., the manufacturer’s servers).
-> * Where possible, single-sign-on authentication is used for third party applications to allow for a complete
+> - Development tools must only be downloaded from secure sources (e.g., the manufacturer’s servers).
+> - Where possible, single-sign-on authentication is used for third party applications to allow for a complete
 >   and compliant access administration within the organization.
-> * Less secure third-party applications are disabled by administrator default configurations.
+> - Less secure third-party applications are disabled by administrator default configurations.
 
 #### 4.4.2 Privacy-Friendly Settings
 
 (...)
 
-> * Product development must take into account giving users the option of entering only the information
+> - Product development must take into account giving users the option of entering only the information
 >   necessary for the purpose of processing. Input fields with additional, unnecessary information should be
 >   avoided or at least designed as non-mandatory.
-> * By default, privacy-friendly settings must be preselected.
+> - By default, privacy-friendly settings must be preselected.
 
 ### 4.6 Data Deletion
 
 The company implemented the following concept for automatic data deletion:
 
 | **Data category** | **Retention period**                                                                                         | **Responsible** |
-|-------------------|--------------------------------------------------------------------------------------------------------------|-----------------|
+| ----------------- | ------------------------------------------------------------------------------------------------------------ | --------------- |
 | User data         | \<This period typically should be specified as part of the informed user consent\>                           |                 |
 | Customer data     | - Customer data after termination of contracts<br>- Lead contact data after 10 years of paused communication |                 |
 | Employee data     | Until end of employment                                                                                      |                 |
@@ -184,14 +194,14 @@ The company implemented the following concept for automatic data deletion:
 
 The company has implemented the following measures:
 
-* Employees must encrypt their hard drives with state-of-the-art encryption, e.g. Apple FileVault 2 for mac OS
+- Employees must encrypt their hard drives with state-of-the-art encryption, e.g. Apple FileVault 2 for mac OS
   or equivalent software for other operating systems.
-* The email account provider applies a default virus, spam and phishing filter to detect malicious software
+- The email account provider applies a default virus, spam and phishing filter to detect malicious software
   and avert cyber attacks.
-* Employees are required to set up a completely closed firewall for their home office internet network.
-* Employees are obligated to clean their desk of any documents containing sensitive data, especially when
+- Employees are required to set up a completely closed firewall for their home office internet network.
+- Employees are obligated to clean their desk of any documents containing sensitive data, especially when
   accessible by others.
-* The default option for screen savers must be set at the shortest time period until activation. When
+- The default option for screen savers must be set at the shortest time period until activation. When
   temporarily leaving the workplace and hardware, employees should always lock their devices.
 
 ## 6. Procedure for Regular Review, Assessment and Evaluation
@@ -199,12 +209,12 @@ The company has implemented the following measures:
 Data protection and IT security within the company is reviewed regularly and, based on these assessments,
 continuously improved. Internal auditing may include data privacy requirements such as:
 
-* Obligation of employees to maintain data secrecy, training and education.
-* Regular auditing of data processing procedures.
-* Procedures in case of data breaches and the protection of data subjects’ rights
+- Obligation of employees to maintain data secrecy, training and education.
+- Regular auditing of data processing procedures.
+- Procedures in case of data breaches and the protection of data subjects’ rights
 
 The company has implemented the following internal measures:
 
-* Appointment of a data protection officer
-* Regular auditing of procedures
-* Regular review of technical advancements in accordance with Article 32 GDPR
+- Appointment of a data protection officer
+- Regular auditing of procedures
+- Regular review of technical advancements in accordance with Article 32 GDPR

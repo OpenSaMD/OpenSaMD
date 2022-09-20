@@ -1,8 +1,18 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
+# Data Protection and Confidentiality Agreement
+
 > Note that this template includes legal provisions for Germany by referencing the German Federal Data
 > Protection Act (BDSG). If your company is based anywhere else, you should customize the contents before
 > using the template.
-
-# Data Protection and Confidentiality Agreement
 
 As part of your employment, you may be instructed to process personal data or potentially personal data that
 has been entrusted to you in accordance with the data protection regulations. To that end, you are provided
@@ -17,7 +27,7 @@ company instructions. In addition to instructions from a supervisor, the followi
 instructions: documents of the company"s quality management system, other operational documentation, flow
 charts, company agreements or employee manuals.
 
-***
+---
 
 I, \<employee name\>
 
@@ -33,10 +43,10 @@ For instance, I am not allowed to use mobile data media, take printed copies hom
 passwords to third parties. Further instructions on what has to be observed in terms of data protection law
 can be found, inter alia, in:
 
-* The company"s technical and organizational measures
-* Company forms on employee obligations with regards to the handling of hardware
-* The company"s list of data processing activities
-* \<add anything else relevant here, e.g. authorization concept for software systems\>
+- The company"s technical and organizational measures
+- Company forms on employee obligations with regards to the handling of hardware
+- The company"s list of data processing activities
+- \<add anything else relevant here, e.g. authorization concept for software systems\>
 
 This non-disclosure and confidentiality obligation continues to apply even after my employment with \<enter
 company name\> has ended.
@@ -71,14 +81,14 @@ BDSG.
 
 ## Annex: Further information on data protection
 
-* **Processing** within the EU General Data Protection Regulation (DSGVO) means any process or series of
+- **Processing** within the EU General Data Protection Regulation (DSGVO) means any process or series of
   operations performed with or without the aid of automated processes in connection with personal data such as
   collection, organization, ordering, storage, adaptation, alteration, reading, querying, use, disclosure
   through transmission, dissemination or other form of provision, matching or linking, restriction, erasure or
   destruction. Any processing of personal data must be carried out according to a valid legal basis out of
   those recognized by art. 6 GDPR and only for the purpose they have been collected for.
 
-* **Personal data** within the meaning of the GDPR are all information relating to an identified or
+- **Personal data** within the meaning of the GDPR are all information relating to an identified or
   identifiable natural person; a natural person is considered as identifiable if it can be directly or
   indirectly identified, in particular by association with an identifier such as a name, an identification
   number, location data, an online identifier or one or more special features, the expression of the physical,

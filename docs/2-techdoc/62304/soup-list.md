@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # SOUP List (Software of Unknown Provenance)
 
 > The 62304 requires you to document your SOUP, which is short for Software of Unknown Provenance. In human
@@ -5,7 +15,7 @@
 > `requirements.txt` or `Gemfile`.
 
 | Classes | IEC 62304:2006 Section                          | Document Section |
-|---------|-------------------------------------------------|------------------|
+| ------- | ----------------------------------------------- | ---------------- |
 | B, C    | 5.3.3 (Functional and Performance Requirements) | 2                |
 | B, C    | 5.3.4 (Hardware and Software Requirements)      | 2                |
 | B, C    | 7.1.2 (Hazardous Situations)                    | 2                |
@@ -19,7 +29,7 @@
 > likely that your SOUP risk levels remain "low" or "medium".
 
 | Risk Level | Definition                                                 |
-|------------|------------------------------------------------------------|
+| ---------- | ---------------------------------------------------------- |
 | Low        | Malfunction in SOUP can't lead to patient harm.            |
 | Medium     | Malfunction in SOUP can lead to reversible patient harm.   |
 | High       | Malfunction in SOUP can lead to irreversible patient harm. |
@@ -42,6 +52,6 @@
 > your git repository, go for it! Just keep in mind that you need to be able to export it to send it to
 > auditors.
 
-| ID | Software System | Package Name | Programming Language | Version | Website                                          | Last verified at | Risk Level | Requirements               | Verification Reasoning                                                    |
-|----|-----------------|--------------|----------------------|---------|--------------------------------------------------|------------------|------------|----------------------------|---------------------------------------------------------------------------|
-| 1  | Mobile App      | react-native | JavaScript           | 0.61    | [Link](https://facebook.github.io/react-native/) | 23.10.2020       | Low        | * Runs JS on Android / iOS | Commonly used, maintained by a large organisation, sufficient test coverage |
+| ID  | Software System | Package Name | Programming Language | Version | Website                                          | Last verified at | Risk Level | Requirements                | Verification Reasoning                                                      |
+| --- | --------------- | ------------ | -------------------- | ------- | ------------------------------------------------ | ---------------- | ---------- | --------------------------- | --------------------------------------------------------------------------- |
+| 1   | Mobile App      | react-native | JavaScript           | 0.61    | [Link](https://facebook.github.io/react-native/) | 23.10.2020       | Low        | \* Runs JS on Android / iOS | Commonly used, maintained by a large organisation, sufficient test coverage |

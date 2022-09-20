@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Software Requirements List
 
 > This document is related to your product. You somehow need to associate it with it. The easiest way would be
@@ -7,7 +17,7 @@
 
 > This is a list of your software requirements. If you have multiple software systems (you probably have a
 > backend and a frontend), you can use the "Software System" column. The categories are the 62304 categories
-> from section 5.2.2. *Risk Control Measure?* is just a yes/no field. And the related risk IDs refer to the
+> from section 5.2.2. _Risk Control Measure?_ is just a yes/no field. And the related risk IDs refer to the
 > risk IDs from your risk table.
 
 > Of course, you could also use your own tool like Jira or GitHub issues. Just ensure that the content (i.e.,
@@ -16,16 +26,16 @@
 ## Mapping of Standard Requirements to Document Sections
 
 | Classes | IEC 62304:2006 Section | Document Section |
-|---------|------------------------|------------------|
+| ------- | ---------------------- | ---------------- |
 | A, B, C | 5.2.1, 5.2.2, 5.2.3    | 1                |
 
 | ISO 13485:2016 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 7.2.1                  | (All)            |
 | 7.3.3                  | (All)            |
 
 | IEC 62366-1:2015 Section | Title                                                                              | Document Section |
-|--------------------------|------------------------------------------------------------------------------------|------------------|
+| ------------------------ | ---------------------------------------------------------------------------------- | ---------------- |
 | 5.2                      | Identify User Interface characteristics related to Safety and potential Use Errors | 1                |
 | 5.6                      | Establish User Interface Specification                                             | 1                |
 
@@ -40,10 +50,10 @@
 > software requirements. Feel free to create a second table for user stories, or just cram them into this one
 > (good luck).
 
-| ID | Software System | Category       | Description                        | Risk Control Measure? | Related Risk IDs |
-|----|-----------------|----------------|------------------------------------|-----------------------|------------------|
-| 1  | App             | Functional     | On first launch, show introduction | No                    |                  |
-| 2  | App             | User Interface | Use user locale (language)         | No                    | 1 (Risk ID)      |
-| 3  | App             | Functional     | Average CPU usage < 2%             | No                    |                  |
-| 4  | Backend         | Security       | Store passwords as hashes          | Yes                   |                  |
-| 5  | Backend         | Interface      | Expose a REST API, handle JSON     | No                    |                  |
+| ID  | Software System | Category       | Description                        | Risk Control Measure? | Related Risk IDs |
+| --- | --------------- | -------------- | ---------------------------------- | --------------------- | ---------------- |
+| 1   | App             | Functional     | On first launch, show introduction | No                    |                  |
+| 2   | App             | User Interface | Use user locale (language)         | No                    | 1 (Risk ID)      |
+| 3   | App             | Functional     | Average CPU usage < 2%             | No                    |                  |
+| 4   | Backend         | Security       | Store passwords as hashes          | Yes                   |                  |
+| 5   | Backend         | Interface      | Expose a REST API, handle JSON     | No                    |                  |

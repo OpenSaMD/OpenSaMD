@@ -1,12 +1,21 @@
-| ISO 13485:2016 Section | Document Section |
-|------------------------|------------------|
-| 4.2.3                  | (All)            |
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
 
 # User Manual [enter Product Name]
 
+| ISO 13485:2016 Section | Document Section |
+| ---------------------- | ---------------- |
+| 4.2.3                  | (All)            |
+
 Version: [enter content]
 Date: [enter content]
-
 
 [Placeholder Company Address]
 Email: [enter content]
@@ -15,7 +24,7 @@ Website: [enter content]
 [Placeholder CE Sign]
 [Placeholder UDI]
 
-[enter Product Name]   is a class [enter content] medical device in accordance with 93/42/EEC (for MDD) // Regulation (EU) 2017/745 (for MDR).
+[enter Product Name] is a class [enter content] medical device in accordance with 93/42/EEC (for MDD) // Regulation (EU) 2017/745 (for MDR).
 UMDNS Code: [enter content]
 
 Symbols:
@@ -60,7 +69,6 @@ This symbol indicates supplementary information.
 > Describe the patient population your software is intended to be used on. Note that this may overlap with the user profile above, but not necessarily.
 > Your software could be used by physicians to diagnose diseases in patients, so in that case, they don’t overlap. Some ideas for characteristics to describe: Age group, weight range, health, condition(s).
 
-
 ### Characterization of Use Environment Including Software / Hardware
 
 > Describe the typical use environment. What sort of devices is this running on? Does the software only run on one device or on multiple devices? Is it loud and chaotic like in an emergency ward? How’s the lighting?
@@ -69,7 +77,6 @@ This symbol indicates supplementary information.
 ### Exclusions
 
 > This is an important section for your company liability: make clear the environment your device should NOT be used in, by whom should your device NOT be used?
-
 
 ## Safety Information
 
@@ -81,11 +88,9 @@ This symbol indicates supplementary information.
 
 > You can use this section to point out user information as required for risk mitigation measures. For example, specific information that must be checked for accuracy or completeness to operate the device.
 
-
 ## Language
 
 > Self-explanatory: what languages, what language settings are offered for your product?
-
 
 ## System Requirements
 
@@ -111,6 +116,6 @@ This symbol indicates supplementary information.
 
 Other aspects you may want to consider for the section as part of your instructions for use:
 
- * Using the software: walkthrough guide to explain functionalities including screenshots and links to helpful websites
- * Description of the algorithm for machine-learning based medical devices
- * Description of alternative devices or services
+- Using the software: walkthrough guide to explain functionalities including screenshots and links to helpful websites
+- Description of the algorithm for machine-learning based medical devices
+- Description of alternative devices or services

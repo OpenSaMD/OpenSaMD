@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Update of Regulations
 
 | Regulatory Requirement                  | Document Section |
-|-----------------------------------------|------------------|
+| --------------------------------------- | ---------------- |
 | ISO 13485:2016 Sections 5.6.2 and 7.3.3 | All              |
 
 ## Summary
@@ -21,18 +31,18 @@ Manager(s). Input may entail statutory laws, regulations and guidance documents.
 applicability of relevant regulations and documents his assessment in a List of Applicable Regulations.
 
 Relevant input channels may include, but are not limited to:
-* Newsletter of ISO / IEC
-* (For Germany) Beuth newsletter
-* FDA newsletter
-* EU website on harmonized norms
-* Consultancy newsletters (Johner, Open Regulatory, …)
 
+- Newsletter of ISO / IEC
+- (For Germany) Beuth newsletter
+- FDA newsletter
+- EU website on harmonized norms
+- Consultancy newsletters (Johner, Open Regulatory, …)
 
 Every relevant regulation is reviewed at least once per year, every time before a new medical device is placed
 on the market or as specified by the List of Applicable Regulations.
 
 |              |                                                                                           |
-|--------------|-------------------------------------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------------------------------------- |
 | Participants | QMO                                                                                       |
 | Input        | Medical device specification (technical documentation), Available regulatory requirements |
 | Output       | List of regulatory requirements                                                           |
@@ -47,7 +57,7 @@ product managers). Management is informed of new or revised regulation at least 
 As part of the relevant section of the Management Review Report, it is evaluated if updates to applicable regulations have been implemented effectively.
 
 |              |                                                                                                  |
-|--------------|--------------------------------------------------------------------------------------------------|
+| ------------ | ------------------------------------------------------------------------------------------------ |
 | Participants | QMO                                                                                              |
 | Input        | New or revised regulation                                                                        |
 | Output       | List of regulatory requirements (updated), Communication to relevant members of the organization |

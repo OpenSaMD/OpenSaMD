@@ -1,9 +1,19 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Usability Evaluation Protocol
 
 ## Mapping of Standard Requirements to Document Sections
 
 | IEC 62366-1:2015 Section | Title                                         | Document Section |
-|--------------------------|-----------------------------------------------|------------------|
+| ------------------------ | --------------------------------------------- | ---------------- |
 | 4.2                      | Usability Engineering File                    | (all)            |
 | 4.3                      | Tailoring of the Usability Engineering effort | (all)            |
 
@@ -34,9 +44,9 @@
 
 > As always, using a spreadsheet (e.g., Google Sheets) instead of a document is a very good idea here.
 
-| ID | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
-|----|-------------|-------------------------|--------------|---------------------|--------------|---------------------|
-|    |             |                         |              |                     |              |                     |
+| ID  | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
+| --- | ----------- | ----------------------- | ------------ | ------------------- | ------------ | ------------------- |
+|     |             |                         |              |                     |              |                     |
 
 ## 4. Protocols
 
@@ -45,12 +55,12 @@
 
 ### User 1 (Name, Age)
 
-| ID | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
-|----|-------------|-------------------------|--------------|---------------------|--------------|---------------------|
-|    |             |                         |              |                     |              |                     |
+| ID  | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
+| --- | ----------- | ----------------------- | ------------ | ------------------- | ------------ | ------------------- |
+|     |             |                         |              |                     |              |                     |
 
 ### User 2 (Name, Age)
 
-| ID | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
-|----|-------------|-------------------------|--------------|---------------------|--------------|---------------------|
-|    |             |                         |              |                     |              |                     |
+| ID  | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
+| --- | ----------- | ----------------------- | ------------ | ------------------- | ------------ | ------------------- |
+|     |             |                         |              |                     |              |                     |

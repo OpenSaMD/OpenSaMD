@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Post-Market Surveillance
 
 ## Summary
@@ -16,7 +26,7 @@ Surveillance Plan and Report are created and continuously updated.
 > that is both close to product development as well as clinical issues.
 
 | Responsibility  | Document Update Interval |
-|-----------------|--------------------------|
+| --------------- | ------------------------ |
 | Product Manager | Once per year            |
 
 > Please also note that according to the Transitional Provisions of Art. 120 MDR, you are required to comply
@@ -34,12 +44,12 @@ for a product.
 For medical devices of class IIa, post-market surveillance cycles may extend to no longer than two years. For medical devices of classes IIb and III, annual surveillance cycles apply. For devices of class IIa and higher, each surveillance cycle is concluded with the compilation of a periodic safety update report (see below). For class I devices, longer surveillance cycles may be defined.
 
 | Participants    |
-|-----------------|
+| --------------- |
 | QMO             |
 | Product Manager |
 
 | Input                  | Output                        |
-|------------------------|-------------------------------|
+| ---------------------- | ----------------------------- |
 | Device Description     | Post-Market Surveillance Plan |
 | Clinical Evaluation    |                               |
 | Risk Management Report |                               |
@@ -54,25 +64,25 @@ enter them into the report template.
 
 At minimum, the following information categories have to be taken into consideration:
 
- * **Clinical evaluations and PMCF activities:**: Input from Post-Market Clinical Follow-Up activities (see clinical evaluation process and template for the PMCF plan).
- * **New research and development in the market:** Information regarding similar medical devices and
-   technologies on the market.
- * **Input from recalls and reportable events:** Recalls, incidents and unintended side effects reported by
-   competitors, similar products and procedures or reported for other devices of our company (e.g. check BfArM
-   / FDA databases as further specified in the post-market surveillance plan; also see vigilance process).
- * **New or updated norms and standards, directives, regulation and other laws:** Verification if the list of
-   applicable regulations is up to date.
- * **SOUP:** Verification if SOUP list is up to date.
- * **Complaints directly reported by customers:** Information gathered through customer feedback and
-   complaints (see process for feedback management).
- * **Other feedback** collected or reported by sales or marketing staff, distributors, or other stakeholders.
+- **Clinical evaluations and PMCF activities:**: Input from Post-Market Clinical Follow-Up activities (see clinical evaluation process and template for the PMCF plan).
+- **New research and development in the market:** Information regarding similar medical devices and
+  technologies on the market.
+- **Input from recalls and reportable events:** Recalls, incidents and unintended side effects reported by
+  competitors, similar products and procedures or reported for other devices of our company (e.g. check BfArM
+  / FDA databases as further specified in the post-market surveillance plan; also see vigilance process).
+- **New or updated norms and standards, directives, regulation and other laws:** Verification if the list of
+  applicable regulations is up to date.
+- **SOUP:** Verification if SOUP list is up to date.
+- **Complaints directly reported by customers:** Information gathered through customer feedback and
+  complaints (see process for feedback management).
+- **Other feedback** collected or reported by sales or marketing staff, distributors, or other stakeholders.
 
 For each part of information, it is assessed whether it is applicable to the company's product. Additionally,
 the severity of impact on device safety and performance is rated on the following scale:
 
- * **Severe:** Serious injury or death
- * **Moderate:** Non-serious injury
- * **Marginal:** Everything else, less than moderate
+- **Severe:** Serious injury or death
+- **Moderate:** Non-serious injury
+- **Marginal:** Everything else, less than moderate
 
 Depending on the applicability, severity and observed trends of the new information, appropriate actions are
 initiated. The QMO and the Person Responsible for Regulatory Compliance (PRRC) must be consulted in this step, other roles (e.g. medical
@@ -80,20 +90,20 @@ staff) should be involved if needed.
 
 Actions may entail:
 
- * **Updating the product risk management file**, for example, by adding new risks according to our risk
-   management process, updating occurrence / severity assumptions made for risks we already documented or
-   updating risk mitigation measures in place).
- * **Initiating a CAPA**, for example, to update processes, training measures or resource allocation.
- * **Initiating the vigilance process** reporting serious incidents and FSCA to competent authorities.
- * **Design changes** to the product following the company’s change management and software development process.
+- **Updating the product risk management file**, for example, by adding new risks according to our risk
+  management process, updating occurrence / severity assumptions made for risks we already documented or
+  updating risk mitigation measures in place).
+- **Initiating a CAPA**, for example, to update processes, training measures or resource allocation.
+- **Initiating the vigilance process** reporting serious incidents and FSCA to competent authorities.
+- **Design changes** to the product following the company’s change management and software development process.
 
 | Participants    |
-|-----------------|
+| --------------- |
 | QMO             |
 | Product Manager |
 
 | Input                                | Output                |
-|--------------------------------------|-----------------------|
+| ------------------------------------ | --------------------- |
 | Post-Market Surveillance Plan        | Evaluated Information |
 | Post-Market Surveillance Information |                       |
 
@@ -102,17 +112,17 @@ Actions may entail:
 The Product Manager finalizes the Periodic Safety Update Report (PSUR), which is at least reviewed by the
 Person Responsible for Regulatory Compliance (PRRC). The report should contain at least the following information:
 
- * main findings of post-market surveillance activities throughout the surveillance interval
- * conclusion regarding implications for the risk management and clinical evaluation of the product, in
-   particular, the overall residual risk and benefit-risk determination
- * the sales volume of the device, e.g. amount of users and, where practicable, the usage frequency of the
-   device.
+- main findings of post-market surveillance activities throughout the surveillance interval
+- conclusion regarding implications for the risk management and clinical evaluation of the product, in
+  particular, the overall residual risk and benefit-risk determination
+- the sales volume of the device, e.g. amount of users and, where practicable, the usage frequency of the
+  device.
 
 | Participants    |
-|-----------------|
+| --------------- |
 | PRRC            |
 | Product Manager |
 
 | Input                               | Output                        |
-|-------------------------------------|-------------------------------|
+| ----------------------------------- | ----------------------------- |
 | Collected and evaluated information | Periodic Safety Update Report |

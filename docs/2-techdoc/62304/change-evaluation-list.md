@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Change Evaluation List
 
 | Regulation / Guidance                                             | Document Section |
-|-------------------------------------------------------------------|------------------|
+| ----------------------------------------------------------------- | ---------------- |
 | Medical Device Directive, Annex II<br>Section 3.4 and Section 4.4 | All              |
 | Medical Device Regulation, Annex IX<br>Chapter II Section 4.10    | All              |
 | MDCG Guidance Document 2020-03                                    | All              |
@@ -27,15 +37,15 @@ management process.
 
 **Please note:**
 
-* YES in the first two categories (intended use / essential requirements / GSPR) always leads to a significant
+- YES in the first two categories (intended use / essential requirements / GSPR) always leads to a significant
   change.
-* If the device is modified (a) to correct an error, for which there is a safety risk to the patient if the
+- If the device is modified (a) to correct an error, for which there is a safety risk to the patient if the
   error is not corrected or (b) as part of field safety corrective actions for an incident, the change is
   discussed with the Notified Body to determine the significance of the change. If no Notified Body was
   involved in the conformity assessment process of the device, the change is treated as a significant change.
 
 | Evaluation Categories                                                                                                                                                                                                                      |                                                                              |                                                                |       |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------|-------|
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------------- | ----- |
 | **Change Request ID**                                                                                                                                                                                                                      | #PCR01                                                                       | #PCR02                                                         | (...) |
 | **Change Request Description**                                                                                                                                                                                                             | Performance update of machine learning algorithm model                       | Additional integrability of device with new clinical IT-system |       |
 | **Overall Evaluation Outcome**                                                                                                                                                                                                             | **Not significant**                                                          | **Significant**                                                |       |
@@ -59,7 +69,7 @@ Please note: YES in the first two categories (essential requirements / GSPR) alw
 change.
 
 | Evaluation Categories                                                                                                                                                                                                                                                                                                        |                                    |                                                                        |       |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------|-------|
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------- | ----- |
 | **Change Request ID**                                                                                                                                                                                                                                                                                                        | #OCR1                              | #OCR2                                                                  | (...) |
 | **Change Request Description**                                                                                                                                                                                                                                                                                               | Change of Company Business Address | Adding a new compliance process to comply with anti-bribery provisions |       |
 | **Overall Evaluation Outcome**                                                                                                                                                                                                                                                                                               | **Significant**                    | **Not significant**                                                    |       |
@@ -72,24 +82,23 @@ change.
 
 > Based on the linked guidance documents, examples for non-significant changes are:
 >
-> * a software change that only introduces non-therapeutic and/or non-diagnostic features such as printing,
+> - a software change that only introduces non-therapeutic and/or non-diagnostic features such as printing,
 >   faxing, improved image clarity, reporting format or additional language support
-> * a software change that only modifies the appearance of the user interface with negligible risk of
+> - a software change that only modifies the appearance of the user interface with negligible risk of
 >   impacting the diagnosis or therapy delivered to the patient
-> * a software change only intended to correct an inadvertent logic error that does not pose a safety risk and
+> - a software change only intended to correct an inadvertent logic error that does not pose a safety risk and
 >   brings the system back into specification
-> * a software change that consists only of tightening of design specifications within specified tolerances
+> - a software change that consists only of tightening of design specifications within specified tolerances
 >   and where there is no creation of new features
-> * changes to labelling to include additional languages required in other regulatory jurisdictions
-> * minor changes to clarify the existing wording of warnings and precautions. However, in the case where
+> - changes to labelling to include additional languages required in other regulatory jurisdictions
+> - minor changes to clarify the existing wording of warnings and precautions. However, in the case where
 >   these changes add or remove a contraindication, or remove a warning or precaution, the Notified Body shall
 >   be involved.
 
-
 > Based on the linked guidance documents, examples for significant changes are:
 >
-> * an alteration in software that modifies an algorithm impacting the diagnosis or the therapy delivered
-> * introduction or removal of a new alarm function from the software such that a response to the new
+> - an alteration in software that modifies an algorithm impacting the diagnosis or the therapy delivered
+> - introduction or removal of a new alarm function from the software such that a response to the new
 >   configuration may change the treatment of the patient in comparison to the previous version of the
 >   software
-> * medical data is presented in a new format, new dimension or new measuring unit.
+> - medical data is presented in a new format, new dimension or new measuring unit.

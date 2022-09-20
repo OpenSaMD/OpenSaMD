@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Field Safety Notice Template
 
 ## {{device_manufacturer}}
@@ -24,9 +34,9 @@ the device.
 
 We would therefore like to provide you with the following information:
 
-* description of the problem and under which circumstances it may occur
-* recommended actions to avoid the problem or minimize its implications
-* actions planned by (company name) to resolve the problem
+- description of the problem and under which circumstances it may occur
+- recommended actions to avoid the problem or minimize its implications
+- actions planned by (company name) to resolve the problem
 
 If you need any further information or support concerning this, please reach out to our company
 representative: (Company Contact Details and Responsible Person)
@@ -49,12 +59,12 @@ Sincerely,
 
 **This document contains important information for the continued safe and proper use of your medical device.**
 
-*Please review the following information with all members of your staff who need to be aware of the contents
+_Please review the following information with all members of your staff who need to be aware of the contents
 of this communication. It is important to understand the implications of this communication. Please retain a
-copy with the Instructions for Use and confirm the receipt of this notice.*
+copy with the Instructions for Use and confirm the receipt of this notice._
 
 |                                    |                                                                     |
-|------------------------------------|---------------------------------------------------------------------|
+| ---------------------------------- | ------------------------------------------------------------------- |
 | Affected Product:                  |                                                                     |
 | Unique Device Identification:      |                                                                     |
 | Version:                           |                                                                     |
@@ -63,8 +73,6 @@ copy with the Instructions for Use and confirm the receipt of this notice.*
 | Recommended Actions:               |                                                                     |
 | Actions Planned by (company name): |                                                                     |
 | Further Information and Support:   | (Refer to a country contact including information on availability.) |
-
-
 
 <!-- Links -->
 
