@@ -26,14 +26,15 @@ from ._cli import propagate as _propagate
 
 @click.group()
 def cli():
-    """The function called by the CLI commands `rtai` and `radiotherapyai`"""
+    """The Radiotherapy AI command line interface"""
 
 
 @cli.command()
-def docs():
+@click.option("--clean/--no-clean", default=False)
+def docs(clean: bool):
     """Build the Radiotherapy AI regulatory documentation"""
 
-    _docs.build()
+    _docs.build(clean)
 
 
 @cli.command()

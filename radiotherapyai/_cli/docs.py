@@ -20,16 +20,21 @@ import pathlib
 import subprocess
 
 HERE = pathlib.Path(__file__)
-REPO_ROOT = HERE.parents[1]
+REPO_ROOT = HERE.parents[2]
 DOCS_DIR = REPO_ROOT / "docs"
 SRC_DIR = REPO_ROOT / "src"
 TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
 
 
-def build():
+def build(clean: bool):
     """Build the Jupyter Book documentation"""
 
     env = os.environ.copy()
+
+    if clean:
+        subprocess.check_call(
+            ["jupyter-book", "clean", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
+        )
 
     with open(DOCS_DIR / "_toc.yml", "w", encoding="utf8") as f:
         subprocess.check_call(

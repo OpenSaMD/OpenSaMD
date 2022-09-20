@@ -27,8 +27,8 @@ mypy = "*"
 pyoxidizer = "*"
 
 [tool.poetry.scripts]
-radiotherapyai = "radiotherapyai.__main__:app"
-rtai = "radiotherapyai.__main__:app"
+radiotherapyai = "radiotherapyai.__main__:cli"
+rtai = "radiotherapyai.__main__:cli"
 
 [tool.pyright]
 include = ["radiotherapyai"]
