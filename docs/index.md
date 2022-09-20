@@ -33,11 +33,11 @@ to you with the software itself.
 
 ### Overview
 
-Radiotherapy AI's contour recommendations product is deployed onsite as a DICOM
-server. It is designed to sit between your centre's CT scanner and your
+Radiotherapy AI's contour recommendations product is deployed on-site as a
+DICOM server. It is designed to sit between your centre's CT scanner and your
 treatment planning system.
 
-When patients undergo their simulation images are auto-sent through to
+When patients undergo their simulation, images are auto-sent through to
 Radiotherapy AI's DICOM server. The patient identifying information within the
 DICOM header is then encrypted with a client side encryption key, and then
 these patient scans are then securely submitted to Google Cloud infrastructure
