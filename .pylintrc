@@ -9,7 +9,7 @@ disable =
 
 [FORMAT]
 good-names =
-    i,j,k,x,y,a,b,dx,dy,x0,y0,p,t,ax,c,f
+    i,j,k,x,y,a,b,dx,dy,x0,y0,p,t,ax,c,f,ds,vr
 
 [DESIGN]
 max-locals = 16
