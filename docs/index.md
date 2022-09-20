@@ -31,28 +31,30 @@ to you with the software itself.
 - **Manufacturer's Address**: 17 Grampian Place Tatton NSW 2650 Australia
 - **Software as a Medical Device Identification**: {{device_name}} {{device_version}}
 
-### Overview
+### Difference to the open source version
 
-Radiotherapy AI's contour recommendations product is deployed onsite as a DICOM
-server. It is designed to sit between your centre's CT scanner and your
+This device corresponds to the software downloadable directly from
+<https://radiotherapy.ai/> (Regulated Medical Device). It does **not**
+correspond to the software downloadable from
+<https://github.com/RadiotherapyAI/RadiotherapyAI> (Open Source Unregulated
+Software).
+
+The Open Source Unregulated Software is provided in the hope that it might be
+useful but WITHOUT ANY WARRANTY. It is **not** intended for clinical use, and
+is instead intended for research use only.
+
+The Regulated Medical Device described by this documentation corresponds only
+to the product that is able to be downloaded from <https://radiotherapy.ai/>.
+This is the product that is intended to be able to be used for clinical use
+according to the intended purpose described within this documentation.
+
+### Workflow overview
+
+Radiotherapy AI's contour recommendations product is deployed on-site as a
+DICOM server. It is designed to sit between your centre's CT scanner and your
 treatment planning system.
 
-When patients undergo their simulation images are auto-sent through to
-Radiotherapy AI's DICOM server. The patient identifying information within the
-DICOM header is then encrypted with a client side encryption key, and then
-these patient scans are then securely submitted to Google Cloud infrastructure
-within Sydney to undergo contouring.
-
-These contours are converted into an RT-DICOM Structure Set file and are then
-sent back to the Radiotherapy AI DICOM server for subsequent forwarding through
-to the centre's treatment planning system for refinement by the clinical
-Radiation Oncologist or Radiation Therapist (the health practitioner) according
-to the site's contouring protocols.
-
-In practice, the health practitioner does not directly interact with
-Radiotherapy AI's software. Instead, the results from Radiotherapy AI's
-software is provided to your centre's treatment planning system for the health
-practitioner's subsequent refinement.
-
-The contouring algorithm that is applied to the CT scans is based off of
-historical treatment contouring data.
+When patients undergo their simulation, images are auto-sent through to
+Radiotherapy AI's DICOM and inference server, contours are auto-generated, and
+then the results are then automatically sent through to your treatment planning
+system.
