@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Purchasing
 
 | ISO 13485:2016 Section | Document Section |
-|------------------------|------------------|
+| ---------------------- | ---------------- |
 | 7.4                    | All              |
 
 ## Summary
@@ -30,17 +40,17 @@ evaluation status of every supplier.
 
 A supplier is classified as critical:
 
-* If the purchased goods or services could have a direct impact on the safety of the organization's medical
+- If the purchased goods or services could have a direct impact on the safety of the organization's medical
   devices; OR:
-* If the purchased goods or services could have a direct impact on the performance of the organization's
+- If the purchased goods or services could have a direct impact on the performance of the organization's
   medical devices; OR:
-* If the purchased goods or services could have a direct impact on the regulatory compliance of the
+- If the purchased goods or services could have a direct impact on the regulatory compliance of the
   organization's medical devices; OR:
-* If the organization is not able to manufacture its medical devices without the supplier's goods or services;
+- If the organization is not able to manufacture its medical devices without the supplier's goods or services;
   AND:
-* If there is no alternative and equivalent supplier for these goods or services.
+- If there is no alternative and equivalent supplier for these goods or services.
 
-If a supplier could have an *indirect impact* on the safety, performance or regulatory compliance of the
+If a supplier could have an _indirect impact_ on the safety, performance or regulatory compliance of the
 organization's medical devices, it is up to the QMO to determine the supplier's criticality on a case-by-case
 basis depending on their impact on product safety and performance.
 
@@ -52,7 +62,7 @@ performance or regulatory compliance of the organization's medical devices.
 Suppliers are evaluated according to the evaluation categories described below:
 
 |                              |                                                                                                                                                      |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Quality of Products/Services | Quality is assessed based on the number of identified nonconforming purchases and reported reclamations, also taking into account delivery.          |
 | Timeliness / Punctuality     | Timeliness is assessed based on the number of delayed purchases.                                                                                     |
 | Cooperation                  | Cooperation is assessed e.g. based on the availability for follow-up questions and responses to complaints.                                          |
@@ -61,20 +71,20 @@ Suppliers are evaluated according to the evaluation categories described below:
 Suppliers are evaluated along with these categories by assigning a score value to each category. Score values are
 as follows:
 
-* 0: unacceptable
-* 1: moderate
-* 2: good
-* 3: excellent
+- 0: unacceptable
+- 1: moderate
+- 2: good
+- 3: excellent
 
 In order to complete the evaluation, an average score is calculated from all categories. The quality value is
 weighted double.
 
 The overall score results in the following evaluation outcome:
 
-* Average score 2 - 3: supplier can be approved.
-* Average score 1 - 2: supplier can be approved, provided that surveillance measures are in place (see step
+- Average score 2 - 3: supplier can be approved.
+- Average score 1 - 2: supplier can be approved, provided that surveillance measures are in place (see step
   2.5 of this process).
-* Average score 0 - 1: supplier cannot be approved and is marked as blocked in the List of Qualified Suppliers.
+- Average score 0 - 1: supplier cannot be approved and is marked as blocked in the List of Qualified Suppliers.
 
 ## Process Steps
 
@@ -99,7 +109,7 @@ If the supplier is not mentioned in the List of Qualified Suppliers and not deem
 QMO first conducts an initial supplier evaluation.
 
 |              |                                                                                        |
-|--------------|----------------------------------------------------------------------------------------|
+| ------------ | -------------------------------------------------------------------------------------- |
 | Participants | Purchasing employee<br>QMO                                                             |
 | Input        | Preliminary regulatory assessment<br>List of Qualified Suppliers<br>Supplier Checklist |
 | Output       | Regulatory approval for purchase<br>or: need for initial supplier evaluation           |
@@ -121,7 +131,7 @@ blocked. In this case, the order cannot be placed and the employee looks for an 
 Blocked suppliers can be approved by repeating this process step and conducting a new supplier evaluation.
 
 |              |                                                                                             |
-|--------------|---------------------------------------------------------------------------------------------|
+| ------------ | ------------------------------------------------------------------------------------------- |
 | Participants | QMO                                                                                         |
 | Input        | Purchase need<br>List of Qualified Suppliers                                                |
 | Output       | Completed supplier evaluation<br>Updated List of Qualified Suppliers<br>Regulatory approval |
@@ -133,7 +143,7 @@ the purchasing costs against the organization's budget plan and approves or deni
 the employee places the order.
 
 |              |                                               |
-|--------------|-----------------------------------------------|
+| ------------ | --------------------------------------------- |
 | Participants | Purchasing employee<br>Supervisor             |
 | Input        | Documented regulatory approval                |
 | Output       | Documented budget approval<br>Order placement |
@@ -150,7 +160,7 @@ supplier and defective products are returned if applicable.
 Invoices and receipts are attached to expense records and archived accordingly.
 
 |              |                                                                                                                          |
-|--------------|--------------------------------------------------------------------------------------------------------------------------|
+| ------------ | ------------------------------------------------------------------------------------------------------------------------ |
 | Participants | Purchasing employee<br>QMO                                                                                               |
 | Input        | Received services or goods                                                                                               |
 | Output       | Archived reclamation records (if applicable)<br>Updated List of Qualified Suppliers (if necessary)<br>Invoices processed |
@@ -162,13 +172,13 @@ Invoices and receipts are attached to expense records and archived accordingly.
 
 The QMO can decide to undertake various surveillance measures such as:
 
-* **Supplier Certification**: a supplier can be requested to provide valid and ongoing certification as
+- **Supplier Certification**: a supplier can be requested to provide valid and ongoing certification as
   proof of its quality management system's efficacy. In this case, the QMO keeps a copy of the current
   supplier certificates with the organization's QM records. The validity of supplier certification is checked
   at least once per year as part of the annual supplier evaluation.
-* **Quality Assurance Agreement (QAA)**: a supplier can be requested to sign a QAA as a commitment to specific
+- **Quality Assurance Agreement (QAA)**: a supplier can be requested to sign a QAA as a commitment to specific
   quality assurance measures.
-* **Supplier Audits**: supplier audits and site visits can be requested where previous supplier documentation
+- **Supplier Audits**: supplier audits and site visits can be requested where previous supplier documentation
   (records, certification) did not establish sufficient objective evidence of a supplier's QM system efficacy
   and compliance. The QMO is responsible to conduct supplier audits. As part of conducting a supplier audit,
   an audit plan and audit report are created following the organization's process for Internal
@@ -187,7 +197,7 @@ standards. Opening a CAPA is always required in case of a decrease by one grade 
 criteria outlined in step 1.3.
 
 |              |                                     |
-|--------------|-------------------------------------|
+| ------------ | ----------------------------------- |
 | Participants | QMO                                 |
 | Input        | New supplier records                |
 | Output       | Updated List of Qualified Suppliers |
@@ -203,7 +213,7 @@ quality standards. Opening a CAPA is always required in case of a decrease by on
 evaluation criteria outlined in step 1.3.
 
 |              |                                                 |
-|--------------|-------------------------------------------------|
+| ------------ | ----------------------------------------------- |
 | Participants | QMO                                             |
 | Input        | Supplier records<br>List of Qualified Suppliers |
 | Output       | Updated List of Qualified Suppliers             |

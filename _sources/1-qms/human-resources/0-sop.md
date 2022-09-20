@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Human Resources Administration
 
 | Regulatory Requirement               | Document Section |
-|--------------------------------------|------------------|
+| ------------------------------------ | ---------------- |
 | ISO 13485:2016, sections 6.2 and 7.1 | All              |
 
 ## Summary
@@ -14,11 +24,11 @@ retains sufficient qualified and motivated staff.
 
 > NOTE: As your organization grows, the following updates to this process can be considered:
 >
-> * *Job descriptions* are formulated as part of a general template and respective records instead of sections
+> - _Job descriptions_ are formulated as part of a general template and respective records instead of sections
 >   in the quality manual.
-> * Team compositions and hierarchies are outlined as part of an *organizational chart* instead of a table
+> - Team compositions and hierarchies are outlined as part of an _organizational chart_ instead of a table
 >   section in the quality manual.
-> * Design of a *competency matrix* assigning to each role its required training.
+> - Design of a _competency matrix_ assigning to each role its required training.
 
 ## General Considerations
 
@@ -38,11 +48,11 @@ role that are outlined in the quality manual.
 The organization keeps certain records on every employee, which combined make up the employee’s HR File. These
 include:
 
-* Employee contract and contractual agreements
-* Health insurance documentation
-* Personal identification (e.g., passport scan)
-* Payroll documentation
-* Proof of qualifications (where relevant)
+- Employee contract and contractual agreements
+- Health insurance documentation
+- Personal identification (e.g., passport scan)
+- Payroll documentation
+- Proof of qualifications (where relevant)
 
 > NOTE: such files are subject to stricter data protection requirements and should be made available to
 > external parties (e.g., auditors, authorities) only upon request. You may want to add instructions on how the
@@ -51,14 +61,15 @@ include:
 ### 1.3 Training
 
 #### Training Provision and Documentation
+
 The general aim of the employee training is to ensure the necessary competence of employees to perform their tasks. At minimum, it must ensure that employees are aware of the relevance of their tasks and how they contribute to achieving the quality objectives of the organization (ISO 13485, para. 6.2).
 
 Training may take different forms as deemed most suitable by the instructing employee.
 Training methods may entail:
 
-* Internal or external workshop
-* Media and self-study material (e.g., videos, training documents)
-* Talks and interviews with coworkers or supervisors, supervised working
+- Internal or external workshop
+- Media and self-study material (e.g., videos, training documents)
+- Talks and interviews with coworkers or supervisors, supervised working
 
 The QMO should be involved anytime alternative training methods are chosen, in order to ensure appropriate
 training evaluation is guaranteed.
@@ -75,9 +86,9 @@ and should include at minimum: employee name, training method and content, date 
 Completed training is evaluated to ensure the effectiveness of training and that employees are qualified to
 perform their job. For effectiveness evaluation, different methods can be used:
 
-* Test / questionnaire
-* Monitoring job performance
-* External testing
+- Test / questionnaire
+- Monitoring job performance
+- External testing
 
 Where no evaluation is included in the training, effectiveness is typically confirmed by the supervisor after completion of training and also documented by the
 QMO as part of the organization's training documentation.
@@ -85,18 +96,17 @@ QMO as part of the organization's training documentation.
 > NOTE: some collaboration tools like Google Workspace allow you to set up questionnaires through which you
 > can test and document(!) your colleague’s self-study success quite easily.
 
-
 #### Role-Specific Training
 
 Training needs may arise from specific roles within the organization:
 
-*Person Responsible for Regulatory Compliance (PRRC)*
+_Person Responsible for Regulatory Compliance (PRRC)_
 
 Before assuming their role, the PRRC is instructed by the QMO on the tasks and responsibilities of this role
 according to Art. 15 of the Medical Device Regulation. Specifically, the QMO checks if the candidate’s
 qualification meets all the requirements.
 
-*Medical Device Consultants*
+_Medical Device Consultants_
 
 Employees speaking to a professional community or instructing on the handling of the organization’s medical
 devices may be subject to Chapter 6 and §83 of the German MPDG. They must receive training on their tasks and
@@ -108,10 +118,10 @@ the organization’s trained medical device consultants including the date of th
 
 > NOTE: depending on your current processes in place, feel free to add provisions for:
 >
-> * The recruitment of employees (for example: are you using software tools like BambooHR or Personio for the
+> - The recruitment of employees (for example: are you using software tools like BambooHR or Personio for the
 >   application process? How do you document hiring decisions? What kind of data protection requirements, like
 >   data deletion periods, must be met?)
-> * Onboarding checklists for HR staff / new employees (including, for example: onboarding meetings a new hire
+> - Onboarding checklists for HR staff / new employees (including, for example: onboarding meetings a new hire
 >   should complete with relevant coworkers, social insurance registration that HR managers must complete for
 >   new employees)
 
@@ -120,11 +130,11 @@ the organization’s trained medical device consultants including the date of th
 Upon a signed employment contract and before the start date for a new employment, the HR manager is
 responsible to perform administrative onboarding for the new employee, including:
 
-* Creating an HR file for the new employee (see section 1.2)
-* Health and social insurance documentation
-* Payroll administration
-* Ordering required hardware (e.g., laptop, company mobile phone)
-* Granting access rights to relevant software tools (e.g., company messenger, project management
+- Creating an HR file for the new employee (see section 1.2)
+- Health and social insurance documentation
+- Payroll administration
+- Ordering required hardware (e.g., laptop, company mobile phone)
+- Granting access rights to relevant software tools (e.g., company messenger, project management
   tools). Consider: no access should be granted before contractual agreements are signed!
 
 Upon the first day, the direct supervisor or team leader is responsible to ensure that the new employee
@@ -132,7 +142,7 @@ receives and completes initial training. QMO is responsible for determining requ
 training is documented as part of the list of training documentation. Initial training must be completed within the first week.
 
 |              |                                                             |
-|--------------|-------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------- |
 | Participants | New employee<br>HR Manager<br>Team Lead / Supervisor<br>QMO |
 | Input        | Signed employment contract                                  |
 | Output       | Completed onboarding process                                |
@@ -141,18 +151,17 @@ training is documented as part of the list of training documentation. Initial tr
 
 Besides initial onboarding, new training need may arise from one of the following:
 
-* Annual due date: the QMO may define annually recurring training.
-* Changes in job role: certain job roles require role-specific training (see 1.3).
-* Nonconformities: root cause analysis of CAPAs may reveal a lack of training.
-* Regulatory changes: based on updates to the QM system (e.g., new processes) or to applicable regulation, the
+- Annual due date: the QMO may define annually recurring training.
+- Changes in job role: certain job roles require role-specific training (see 1.3).
+- Nonconformities: root cause analysis of CAPAs may reveal a lack of training.
+- Regulatory changes: based on updates to the QM system (e.g., new processes) or to applicable regulation, the
   QMO may determine further training need.
 
 |              |                                           |
-|--------------|-------------------------------------------|
+| ------------ | ----------------------------------------- |
 | Participants | QMO<br>Employee<br>Team Lead / Supervisor |
 | Input        | Additional training need                  |
 | Output       | Updated training documentation            |
-
 
 ### 2.3 Employee Development
 
@@ -161,27 +170,27 @@ the employee’s personal development and also to identify additional training n
 development goals.
 
 |              |                                    |
-|--------------|------------------------------------|
+| ------------ | ---------------------------------- |
 | Participants | Employee<br>Team Lead / Supervisor |
 | Input        | Development interview due          |
-| Output       | Interview records (e.g., protocol)  |
+| Output       | Interview records (e.g., protocol) |
 
 ### 2.4 Offboarding of Employees
 
 Upon notification that an employment contract is terminated, the HR Manager is responsible to perform
 administrative offboarding. This includes:
 
-* Timely removal of access rights to software tools and company premise
-* Observing data deletion periods:
-  * Payroll data is deleted 10 years after termination of employment according to German law (§257 HGB).
-  * Administrative data (name, address, title, dates of employment) is deleted 3 years after termination of
+- Timely removal of access rights to software tools and company premise
+- Observing data deletion periods:
+  - Payroll data is deleted 10 years after termination of employment according to German law (§257 HGB).
+  - Administrative data (name, address, title, dates of employment) is deleted 3 years after termination of
     employment according to German law (§195 BGB).
-  * The employee’s business email account is suspended and deleted 60 days after termination of employment.
-  * All other personal data is deleted immediately after termination of employment.
-  * Where applicable, third-party processors are notified to also delete personal data.
+  - The employee’s business email account is suspended and deleted 60 days after termination of employment.
+  - All other personal data is deleted immediately after termination of employment.
+  - Where applicable, third-party processors are notified to also delete personal data.
 
 |              |                                                                 |
-|--------------|-----------------------------------------------------------------|
+| ------------ | --------------------------------------------------------------- |
 | Participants | HR Manager                                                      |
 | Input        | Termination of employment                                       |
 | Output       | Removal of access rights<br>Updated documentation: deleted data |

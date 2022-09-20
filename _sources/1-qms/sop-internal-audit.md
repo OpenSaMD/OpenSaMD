@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Internal Audit
 
 | Regulatory Requirement       | Document Section |
-|------------------------------|------------------|
+| ---------------------------- | ---------------- |
 | ISO 13485:2016 Section 8.2.4 | All              |
 
 ## Summary
@@ -20,12 +30,12 @@ by having participated in audits before.
 
 Auditors must adhere to the following guiding principles:
 
-* **Integrity:** all participants of an audit shall give honest presentations of their views and knowledge,
+- **Integrity:** all participants of an audit shall give honest presentations of their views and knowledge,
   observe confidentiality regarding sensitive information towards third parties and conduct audit work in a
   thorough manner.
-* **Objectivity**: auditors must act impartial, free of any favoritism and conflicts of interest regarding the
+- **Objectivity**: auditors must act impartial, free of any favoritism and conflicts of interest regarding the
   subject of their work.
-* **Verifiability:** auditors must collect evidence to support their assessments. Documentation must include
+- **Verifiability:** auditors must collect evidence to support their assessments. Documentation must include
   audit plans, audit criteria and detailed evidence of audit findings so that outcomes are reliable and
   comprehensible for later reference.
 
@@ -62,7 +72,7 @@ program that ensures:
    QMS system are audited more frequently.
 
 |              |                                       |
-|--------------|---------------------------------------|
+| ------------ | ------------------------------------- |
 | Participants | QMO                                   |
 | Input        | Previous findings, CAPAs, QMS changes |
 | Output       | (Updated) audit program               |
@@ -81,7 +91,7 @@ Audits are conducted by inspecting appropriate process records and by interviewi
 organization. The auditor documents collected evidence, observations and findings as part of an audit report.
 
 |              |                                                              |
-|--------------|--------------------------------------------------------------|
+| ------------ | ------------------------------------------------------------ |
 | Participants | Auditor, QMO                                                 |
 | Input        | Audit program Quality Management System, incl. records       |
 | Output       | Audit plan (before the audit) Audit report (after the audit) |
@@ -92,7 +102,7 @@ For all major nonconformities resulting from audit findings, a separate CAPA is 
 The QMO reports audit findings to the Management as part of the next Management Review.
 
 |              |                    |
-|--------------|--------------------|
+| ------------ | ------------------ |
 | Participants | QMO                |
 | Input        | Audit report       |
 | Output       | CAPA documentation |

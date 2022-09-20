@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Regulatory References &#8212; Radiotherapy AI</title>
+    <title>Software Architecture Description &#8212; Radiotherapy AI</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -441,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       1. Regulatory References
+       Software Architecture Description
       </a>
      </li>
      <li class="toctree-l3">
@@ -461,7 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="sop-change-management.html">
-       SOP Change Management
+       Change Management
       </a>
      </li>
      <li class="toctree-l3">
@@ -471,7 +471,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="sop-integrated-software-development.html">
-       SOP Integrated Software Development
+       Integrated Software Development
       </a>
      </li>
      <li class="toctree-l3">
@@ -803,59 +803,59 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regulatory-references">
    1. Regulatory References
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#software-systems">
    2. Software Systems
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#frontend">
      4.1. Frontend
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#backend">
      4.2. Backend
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithm">
      4.3. Algorithm
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#software-units">
    6. Software Units
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#database">
    7. Database
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#it-security">
    8. IT Security
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encryption-of-data">
      8.1. Encryption of data
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#data-at-rest">
        8.1.1. Data at rest
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#data-in-transit">
        8.1.2. Data in transit
       </a>
@@ -873,7 +873,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>1. Regulatory References</h1>
+                <h1>Software Architecture Description</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -883,59 +883,59 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regulatory-references">
    1. Regulatory References
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#software-systems">
    2. Software Systems
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#frontend">
      4.1. Frontend
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#backend">
      4.2. Backend
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithm">
      4.3. Algorithm
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#software-units">
    6. Software Units
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#database">
    7. Database
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#it-security">
    8. IT Security
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encryption-of-data">
      8.1. Encryption of data
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#data-at-rest">
        8.1.1. Data at rest
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#data-in-transit">
        8.1.2. Data in transit
       </a>
@@ -954,8 +954,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="regulatory-references">
-<h1>1. Regulatory References<a class="headerlink" href="#regulatory-references" title="Permalink to this headline">#</a></h1>
+  <!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+<section class="tex2jax_ignore mathjax_ignore" id="software-architecture-description">
+<h1>Software Architecture Description<a class="headerlink" href="#software-architecture-description" title="Permalink to this headline">#</a></h1>
+<section id="regulatory-references">
+<h2>1. Regulatory References<a class="headerlink" href="#regulatory-references" title="Permalink to this headline">#</a></h2>
 <p><strong>Regulatory references:</strong></p>
 <p>IEC 62304, para. 5.3.1 and 5.3.2 [class B, C]</p>
 <p><strong>Relevant other documentation:</strong></p>
@@ -966,8 +977,8 @@ title="Print to PDF"
 <li><p>(‚Ä¶)</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="software-systems">
-<h1>2. Software Systems<a class="headerlink" href="#software-systems" title="Permalink to this headline">#</a></h1>
+<section id="software-systems">
+<h2>2. Software Systems<a class="headerlink" href="#software-systems" title="Permalink to this headline">#</a></h2>
 <p>In compliance with DIN EN 62304, we subdivide our software on three levels: software systems, software
 components and software units.</p>
 <blockquote>
@@ -976,7 +987,7 @@ software items organized to accomplish a specific function or set of functions.‚
 <p>NOTE: Ideally, you would add an illustrating diagram to the Annex and reference it here.</p>
 </div></blockquote>
 <section id="frontend">
-<h2>4.1. Frontend<a class="headerlink" href="#frontend" title="Permalink to this headline">#</a></h2>
+<h3>4.1. Frontend<a class="headerlink" href="#frontend" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Enter description, for example:</p>
 <ul class="simple">
@@ -989,7 +1000,7 @@ software items organized to accomplish a specific function or set of functions.‚
 </div></blockquote>
 </section>
 <section id="backend">
-<h2>4.2. Backend<a class="headerlink" href="#backend" title="Permalink to this headline">#</a></h2>
+<h3>4.2. Backend<a class="headerlink" href="#backend" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Enter description, for example:</p>
 <ul class="simple">
@@ -1002,7 +1013,7 @@ software items organized to accomplish a specific function or set of functions.‚
 </div></blockquote>
 </section>
 <section id="algorithm">
-<h2>4.3. Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h2>
+<h3>4.3. Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Enter description, for example:</p>
 <ul class="simple">
@@ -1015,12 +1026,14 @@ software items organized to accomplish a specific function or set of functions.‚
 </div></blockquote>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="software-units">
-<h1>6. Software Units<a class="headerlink" href="#software-units" title="Permalink to this headline">#</a></h1>
+<section id="software-units">
+<h2>6. Software Units<a class="headerlink" href="#software-units" title="Permalink to this headline">#</a></h2>
 <blockquote>
-<div><p>Describe your internal software units. The IEC 62304 defines those as a ‚Äúsoftware item [any identifiable
-part of a program, i.e. source code, object code, control code, control data, etc.] that cannot be
+<div><p>Describe your internal software units. The IEC 62304 defines those as a ‚Äúsoftware item [any identifiable</p>
+<blockquote>
+<div><p>part of a program, i.e. source code, object code, control code, control data, etc.] that cannot be
 subdivided into other items‚Äù. For example:</p>
+</div></blockquote>
 <ul class="simple">
 <li><p>Wearable device poller (regularly checks whether wearable device has new data and downloads it)</p></li>
 <li><p>Notification service (sends messages to Apple / Google for push notifications of mobile apps)</p></li>
@@ -1028,8 +1041,8 @@ subdivided into other items‚Äù. For example:</p>
 </ul>
 </div></blockquote>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="database">
-<h1>7. Database<a class="headerlink" href="#database" title="Permalink to this headline">#</a></h1>
+<section id="database">
+<h2>7. Database<a class="headerlink" href="#database" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>Describe your databases. For example:</p>
 <ul class="simple">
@@ -1037,17 +1050,17 @@ subdivided into other items‚Äù. For example:</p>
 </ul>
 </div></blockquote>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="it-security">
-<h1>8. IT Security<a class="headerlink" href="#it-security" title="Permalink to this headline">#</a></h1>
+<section id="it-security">
+<h2>8. IT Security<a class="headerlink" href="#it-security" title="Permalink to this headline">#</a></h2>
 <section id="encryption-of-data">
-<h2>8.1. Encryption of data<a class="headerlink" href="#encryption-of-data" title="Permalink to this headline">#</a></h2>
+<h3>8.1. Encryption of data<a class="headerlink" href="#encryption-of-data" title="Permalink to this headline">#</a></h3>
 <p>&lt;enter content&gt;</p>
 <section id="data-at-rest">
-<h3>8.1.1. Data at rest<a class="headerlink" href="#data-at-rest" title="Permalink to this headline">#</a></h3>
+<h4>8.1.1. Data at rest<a class="headerlink" href="#data-at-rest" title="Permalink to this headline">#</a></h4>
 <p>&lt;enter content&gt;</p>
 </section>
 <section id="data-in-transit">
-<h3>8.1.2. Data in transit<a class="headerlink" href="#data-in-transit" title="Permalink to this headline">#</a></h3>
+<h4>8.1.2. Data in transit<a class="headerlink" href="#data-in-transit" title="Permalink to this headline">#</a></h4>
 <blockquote>
 <div><p>Example content:</p>
 <ul class="simple">
@@ -1057,6 +1070,7 @@ exposed to the public internet. The algorithm and the database are therefore not
 are only reachable by the backend.</p></li>
 </ul>
 </div></blockquote>
+</section>
 </section>
 </section>
 </section>

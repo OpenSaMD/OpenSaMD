@@ -1,7 +1,17 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Management Review
 
 | Regulatory Requirement     | Document Section |
-|----------------------------|------------------|
+| -------------------------- | ---------------- |
 | ISO 13485:2016 Section 5.6 | All              |
 
 ## Summary
@@ -18,34 +28,33 @@ regulatory requirements.
 The organization can use varying key performance indicators (KPIs) to measure processes. At minimum, the
 following data must be collected as input for the Management Review:
 
-* **Status of Measures of Previous Management Reviews**\
+- **Status of Measures of Previous Management Reviews**\
   Input: which measures have been implemented as planned.\
   Management shall evaluate the effectiveness and efficacy of previous measures.
-* **Audits Results**\
+- **Audits Results**\
   Input: findings and measures from internal audits, audits by authorities and Notified Bodies, supplier
   audits conducted by the organization.
-* **Status of Corrective and Preventive Actions (CAPA)**\
+- **Status of Corrective and Preventive Actions (CAPA)**\
   Input: summary of nonconformities found and respective actions taken.
-* **Status of Feedback Management and Complaint Handling**\
+- **Status of Feedback Management and Complaint Handling**\
   Input: summary of feedback and complaints received and actions taken in response.
-* **Status of Risk Management**\
+- **Status of Risk Management**\
   Input: summary of actions taken as part of risk management, e.g. risk mitigation, updates of the risk
   management report, results from post-market surveillance, etc.
-* **Status of Incident Reporting**\
+- **Status of Incident Reporting**\
   Input: potential incidents that were assessed, incidents that were reported, summary of coordination with
   supervisory authorities, actions taken as a result.
-* **Status of Applicable Regulation**\
+- **Status of Applicable Regulation**\
   Input: published and/or anticipated updates of relevant regulation, including expected implications for
   the QM system.
-* **Changes to the Quality Management System**\
+- **Changes to the Quality Management System**\
   Input: implemented and/or anticipated changes that impact the QM system (and which, ideally, are assessed
   as part of the Change Evaluation List - for instance, changes to the organizational structure,
   infrastructure, processes or customer requirements).
-* **Other Key Performance Indicators (KPIs)**\
+- **Other Key Performance Indicators (KPIs)**\
   While not every process of the QM system requires a KPI, most processes should be assigned an indicator
   that allows the assessment of process effectiveness, unless there is a valid explanation for why no KPI
   is reasonably applicable.
-
 
 ### 1.2. Management Review Output
 
@@ -77,11 +86,11 @@ At the beginning of every review period, Management together with the QMO define
 organization’s quality objectives as defined in the quality manual. The results of this process step are
 communicated to all relevant members of the organization (e.g. process owners).
 
-|              |                                      |
-|--------------|--------------------------------------|
-| Participants | Management, QMO                      |
-| Input        | Quality Policy, Quality Objectives   |
-| Output       | Strategic Goals, Process KPIs        |
+|              |                                    |
+| ------------ | ---------------------------------- |
+| Participants | Management, QMO                    |
+| Input        | Quality Policy, Quality Objectives |
+| Output       | Strategic Goals, Process KPIs      |
 
 ### 2.2 Data Collection and Analysis
 
@@ -94,7 +103,7 @@ investigation to identify nonconformities and to provide a preliminary assessmen
 and efficacy of the QM system.
 
 |              |                         |
-|--------------|-------------------------|
+| ------------ | ----------------------- |
 | Participants | QMO, Process Owners     |
 | Input        | KPI records             |
 | Output       | Completed data analysis |
@@ -110,7 +119,7 @@ Finally, the Management sets strategic goals and, where necessary, new or revise
 review period. This is communicated again to all relevant members of the organization.
 
 |              |                                                                                     |
-|--------------|-------------------------------------------------------------------------------------|
+| ------------ | ----------------------------------------------------------------------------------- |
 | Participants | Management, QMO                                                                     |
 | Input        | Completed data analysis                                                             |
 | Output       | Management Review Report, new or revised KPIs and strategic goals, planned measures |

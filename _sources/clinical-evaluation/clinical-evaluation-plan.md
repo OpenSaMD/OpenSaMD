@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Clinical Evaluation Plan
 
 The Clinical Evaluation Plan defines methods for creating and updating the Clinical Evaluation Report. This
@@ -10,29 +20,30 @@ literature search.
 > These are the guidance documents on Clinical Evaluation. If you're the person writing it, you should read
 > them:
 >
->  * MDCG 2020-1, 2020-5, 2020-6
->  * MDCG 2020-13: Quite helpful as it gives you an idea of the structure.
->  * MEDDEV 2.7.1 rev. 4. (mostly for MDD, but still a good starting point; especially the list of proposed
->    headings for a report at the end of the document).
+> - MDCG 2020-1, 2020-5, 2020-6
+> - MDCG 2020-13: Quite helpful as it gives you an idea of the structure.
+> - MEDDEV 2.7.1 rev. 4. (mostly for MDD, but still a good starting point; especially the list of proposed
+>   headings for a report at the end of the document).
 
 ## 1. Relevant Documents
 
- * SOP Clinical Evaluation
- * Clinical Evaluation Report
+- SOP Clinical Evaluation
+- Clinical Evaluation Report
 
 ## Product
 
- * Name: *\<product name\>*
- * Version: *\<product version\>*
- * Basic UDI-DI: *\<insert UDI-DI, if/when available\>*
+- Name: _\<product name\>_
+- Version: _\<product version\>_
+- Basic UDI-DI: _\<insert UDI-DI, if/when available\>_
 
 ## Responsibilities
 
 > Describe the roles of people who will be doing the Clinical Evaluation.
-> * Author
-> * Literature search
-> * Evaluation of complaints, customer feedback
-> * Review
+>
+> - Author
+> - Literature search
+> - Evaluation of complaints, customer feedback
+> - Review
 
 ## 2. Scope of the Clinical Evaluation
 
@@ -54,8 +65,8 @@ literature search.
 > materials (e. g. IFU, marketing material and other accompanying documents). These product claims will be
 > checked within the clinical evaluation and evidence are made. e.g.
 >
-> * diagnosis for better treatment decision (performance)
-> * xy % accuracy, xy % sensitivity, xy % specificity
+> - diagnosis for better treatment decision (performance)
+> - xy % accuracy, xy % sensitivity, xy % specificity
 
 ### 2.3 Clinical Safety, Methods for Analysis
 
@@ -90,25 +101,27 @@ literature search.
 > suppose).
 
 > I blindly copy-pasted some semi-helpful bullet points from guidance documents here:
-> * The adequacy of search terms: for example, it should be sufficiently broad to establish benchmarks,
+>
+> - The adequacy of search terms: for example, it should be sufficiently broad to establish benchmarks,
 >   determine the general state of the art, determine potential risk, adverse events, undesirable side-effects,
 >   etc.
-> * Note that a search which is restricted to the manufacturer’s own product or the name of their chosen
+> - Note that a search which is restricted to the manufacturer’s own product or the name of their chosen
 >   equivalent could miss important information and therefore is not acceptable.
-> * Databases used (to minimize bias multiple databases should be used).
-> * Acceptability of inclusion and exclusion criteria.
-> * Both favourable and unfavourable data are included.
-> * Strategies for avoiding duplication of data (for example, across different publications or between
+> - Databases used (to minimize bias multiple databases should be used).
+> - Acceptability of inclusion and exclusion criteria.
+> - Both favourable and unfavourable data are included.
+> - Strategies for avoiding duplication of data (for example, across different publications or between
 >   the manufacturer and published data).
-> * Literature search and review protocol (i.e. how did the manufacturer test this protocol to ensure
+> - Literature search and review protocol (i.e. how did the manufacturer test this protocol to ensure
 >   comprehensive identification of relevant data / demonstrate that all relevant data has been retrieved?).
-> * Any deviations from the manufacturer’s literature search protocol.
-> * Overall conclusions regarding the adequacy of search methods, the likelihood of having retrieved all relevant
+> - Any deviations from the manufacturer’s literature search protocol.
+> - Overall conclusions regarding the adequacy of search methods, the likelihood of having retrieved all relevant
 >   data, and methods used to avoid bias.
 
 > It makes sense to differentiate between "context" and "pivotal" data:
-> * Context data describes the state of the art (commonly the introduction / literature part of papers)
-> * Pivotal data is used for the appraisal, i.e. that's the data describing the actual study and
+>
+> - Context data describes the state of the art (commonly the introduction / literature part of papers)
+> - Pivotal data is used for the appraisal, i.e. that's the data describing the actual study and
 >   outcome(s). In the best case, the pivotal data is about the actual device you're claiming equivalence to.
 
 ### 4.2 Literature Appraisal Criteria
@@ -127,5 +140,6 @@ literature search.
 ### 4.3 Additional Databases
 
 > You can also check out additional databases for relevant data and mention how you search them:
-> * Clinical trials: clinicaltrail.gov, DRKS, WHO, ANZCTR
-> * Adverse events: EUDAMED (if it works), FDA MAUDE, FDA Medical Device Recalls
+>
+> - Clinical trials: clinicaltrail.gov, DRKS, WHO, ANZCTR
+> - Adverse events: EUDAMED (if it works), FDA MAUDE, FDA Medical Device Recalls

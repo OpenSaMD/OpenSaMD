@@ -1,3 +1,13 @@
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
 # Usability Evaluation Report
 
 The Usability Evaluation report describes the results of all (formative and summative) Usability Evaluations.
@@ -5,7 +15,7 @@ The Usability Evaluation report describes the results of all (formative and summ
 ## Mapping of Standard Requirements to Document Sections
 
 | IEC 62366-1:2015 Section | Title                                             | Document Section |
-|--------------------------|---------------------------------------------------|------------------|
+| ------------------------ | ------------------------------------------------- | ---------------- |
 | 4.1.3                    | Information for Safety as it relates to Usability | 5.4              |
 | 4.2                      | Usability Engineering File                        | (all)            |
 
@@ -15,8 +25,8 @@ Usability Engineering and Evaluation activities are defined in the **SOP Integra
 
 ## 2. Related Documents
 
- * List of Hazard-Related Use Scenarios
- * Usability Evaluation Report
+- List of Hazard-Related Use Scenarios
+- Usability Evaluation Report
 
 ## 3. Summary of Formative Evaluations
 
@@ -32,22 +42,22 @@ Usability Engineering and Evaluation activities are defined in the **SOP Integra
 
 > Copy-paste this table from the Usability Evaluation Protocol.
 
-| ID | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
-|----|-------------|-------------------------|--------------|---------------------|--------------|---------------------|
-|    |             |                         |              |                     |              |                     |
+| ID  | Description | App State / Environment | Instructions | Acceptance Criteria | Observations | Hazards encountered |
+| --- | ----------- | ----------------------- | ------------ | ------------------- | ------------ | ------------------- |
+|     |             |                         |              |                     |              |                     |
 
 ### 5.2 Pass / Fail Counts of Tests
 
 > Count the pass/fail results from the Usability Evaluation Protocol
 
 | Test ID | Description | Total Count | Pass Count | Fail Count |
-|---------|-------------|-------------|------------|------------|
+| ------- | ----------- | ----------- | ---------- | ---------- |
 |         |             |             |            |            |
 
 ### 5.3 Use Errors and Hazards
 
 | Test ID | Description | Use Error | Potential Hazard |
-|---------|-------------|-----------|------------------|
+| ------- | ----------- | --------- | ---------------- |
 |         |             |           |                  |
 
 ### 5.4 Information for Safety

@@ -1,7 +1,17 @@
-# SOP Change Management
+<!--
+Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+Copyright (C) 2021-2022 OpenRegulatory (OpenReg GmbH)
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. <http://creativecommons.org/licenses/by/4.0/>.
+
+Original work by OpenRegulatory available at
+<https://github.com/openregulatory/templates>
+-->
+
+# Change Management
 
 | Classes | IEC 62304:2006 Section | Document Section |
-|---------|------------------------|------------------|
+| ------- | ---------------------- | ---------------- |
 | A, B, C | 6.2.3                  | 2                |
 | A, B, C | 6.2.4                  | 2                |
 | A, B, C | 6.2.5                  | 2                |
@@ -26,18 +36,18 @@ This SOP describes how we evaluate and make changes to our software after it’s
 
 Feedback is either classified as a **bug fix** or a **regular change request**:
 
-* **Bug fixes:** By definition, bug fixes only constitute minor changes to the software code and complement
+- **Bug fixes:** By definition, bug fixes only constitute minor changes to the software code and complement
   existing device features instead of introducing new ones or removing existing ones. Bug fixes must
   not 1) Constitute significant changes to the medical device as defined by the criteria outlined in the
   change assessment list and 2) Introduce new risks or failure modes
-* **Regular Change Requests:** All other changes that are not classified as a bug fix.
+- **Regular Change Requests:** All other changes that are not classified as a bug fix.
 
 ### Guidance Documents
 
 The processing of changes is based on the following regulatory provisions and guidances:
 
-* **Medical Device Directive, Annex II Section 3.4 and Section 4.4**
-* **Medical Device Regulation, Annex IX Chapter II Section 4.10:** *"Changes to the approved device shall
+- **Medical Device Directive, Annex II Section 3.4 and Section 4.4**
+- **Medical Device Regulation, Annex IX Chapter II Section 4.10:** _"Changes to the approved device shall
   require approval from the notified body which issued the EU technical documentation assessment certificate
   where such changes could affect the safety and performance of the device or the conditions prescribed for
   use of the device. Where the manufacturer plans to introduce any of the above-mentioned changes it shall
@@ -46,11 +56,11 @@ The processing of changes is based on the following regulatory provisions and gu
   conformity assessment in accordance with Article 52 or whether they could be addressed by means of a
   supplement to the EU technical documentation assessment certificate. In the latter case, the notified body
   shall assess the changes, notify the manufacturer of its decision and, where the changes are approved,
-  provide it with a supplement to the EU technical documentation assessment certificate."*
-* **Medical Device Coordination Group (MDCG) Document 2020-03:** “Guidance on significant changes regarding
+  provide it with a supplement to the EU technical documentation assessment certificate."_
+- **Medical Device Coordination Group (MDCG) Document 2020-03:** “Guidance on significant changes regarding
   the transitional provision under Article 120 of the MDR with regard to devices covered by certificates
   according to MDD or AIMDD”
-* **EK-Med 3.9 B31** dated 11/2014 and **NBOG BPG 2014-3** dated 03/2014
+- **EK-Med 3.9 B31** dated 11/2014 and **NBOG BPG 2014-3** dated 03/2014
 
 ## Process Steps
 
@@ -58,10 +68,10 @@ The processing of changes is based on the following regulatory provisions and gu
 
 Changes proposals can originate from various sources, e.g.:
 
-* Internal design ideas
-* Market research
-* Customer feedback (see process for feedback management)
-* Post-Market Surveillance (see process for post-market surveillance)
+- Internal design ideas
+- Market research
+- Customer feedback (see process for feedback management)
+- Post-Market Surveillance (see process for post-market surveillance)
 
 They can originate from anywhere inside the company.
 
@@ -69,11 +79,11 @@ The Product Manager creates a change request ticket in the company’s project m
 description of the proposed change.
 
 | Participants                                 |
-|----------------------------------------------|
+| -------------------------------------------- |
 | Anyone in the company with a change proposal |
 
-| Input           | Output                                                   |
-|-----------------|----------------------------------------------------------|
+| Input           | Output                                             |
+| --------------- | -------------------------------------------------- |
 | Change proposal | Documented change request (ID per product version) |
 
 ### 2. Evaluation of Change
@@ -98,13 +108,13 @@ If required, a Notified Body shall be informed before the implementation of chan
 Multiple proposed changes can be batched and discussed in one session.
 
 | Participants                 |
-|------------------------------|
+| ---------------------------- |
 | Product Manager              |
 | Head of Software Development |
 | Regulatory Affairs Manager   |
 
 | Input          | Output                      |
-|----------------|-----------------------------|
+| -------------- | --------------------------- |
 | Change request | Completed change evaluation |
 
 ### 3. Implementation, Verification, Validation, Update of Documentation
