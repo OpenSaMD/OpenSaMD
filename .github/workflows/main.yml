@@ -103,9 +103,9 @@ jobs:
       - name: Build docs
         if: matrix.task == 'docs'
         run: |
-          [[ -d docs/_build/html ]]
+          [[ ! -d docs/_build/html ]]
           poetry run rtai docs
-          [[ ! -d docs/_build/html ]]  # Wrong way round to start
+          [[ -d docs/_build/html ]]
 
       - name: Add GitHub Pages config files
         if: github.event_name == 'push' && matrix.task == 'docs'
