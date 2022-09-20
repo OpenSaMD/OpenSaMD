@@ -15,7 +15,7 @@
 
 """Module for generating DICOM files from a dictionary format"""
 
-from typing import Any, Optional, Union, cast
+from typing import Any, Union, cast
 
 import numpy as np
 import pydicom
@@ -33,17 +33,17 @@ DicomItem = Union[
 
 
 def append_dict_to_dataset(
-    to_append: dict[str, DicomItem], ds: Optional[pydicom.Dataset] = None
+    ds: pydicom.Dataset,
+    to_append: dict[str, DicomItem],
 ):
     """Append a dictionary to a given pydicom Dataset
 
     Parameters
     ----------
+    ds : pydicom.Dataset
+        The pydicom Dataset for which to append the dictionary to.
     to_append : dict[str, DicomItem]
         A dictionary in the structure of a DICOM header.
-    ds : Optional[pydicom.Dataset], optional
-        The pydicom Dataset for which to append the dictionary to. If
-        left unset, a new Dataset is created.
 
     Returns
     -------
@@ -52,23 +52,49 @@ def append_dict_to_dataset(
 
     Examples
     --------
-    >>> ds = append_dict_to_dataset({
-    ...    "PatientName": "MacDonald^George",
-    ... })
+    >>> ds = pydicom.Dataset()
+    >>> append_dict_to_dataset(
+    ...     ds,
+    ...     {
+    ...         "PatientName": "MacDonald^George",
+    ...     },
+    ... )
+    (0010, 0010) Patient's Name                      PN: 'MacDonald^George'
+
     >>> ds.PatientName
     'MacDonald^George'
 
-    """
+    DICOM structure isn't checked or enforced, except that when creating
+    a sequence the VR must be SQ.
 
-    if ds is None:
-        ds = pydicom.Dataset()
+    >>> append_dict_to_dataset(  # doctest: +NORMALIZE_WHITESPACE
+    ...     ds,
+    ...     {
+    ...         "ContourSequence": [
+    ...             {
+    ...                 "PatientName": "Nee^Watchman",
+    ...             },
+    ...             {
+    ...                 "PatientName": "Lewis^Clive Staples",
+    ...             },
+    ...         ]
+    ...     },
+    ... )
+    (0010, 0010) Patient's Name                      PN: 'MacDonald^George'
+    (3006, 0040)  Contour Sequence  2 item(s) ----
+       (0010, 0010) Patient's Name                      PN: 'Nee^Watchman'
+       ---------
+       (0010, 0010) Patient's Name                      PN: 'Lewis^Clive Staples'
+       ---------
+
+    """
 
     for key, value in to_append.items():
         if key not in pydicom.datadict.keyword_dict.keys():
             raise ValueError(f"{key} is not within the DICOM dictionary.")
 
         if isinstance(value, dict):
-            setattr(ds, key, append_dict_to_dataset(value, pydicom.Dataset()))
+            setattr(ds, key, append_dict_to_dataset(pydicom.Dataset(), value))
 
         elif isinstance(value, list):
             if all(not isinstance(item, dict) for item in value):
@@ -88,7 +114,7 @@ def append_dict_to_dataset(
                 setattr(
                     ds,
                     key,
-                    [append_dict_to_dataset(item, pydicom.Dataset()) for item in value],
+                    [append_dict_to_dataset(pydicom.Dataset(), item) for item in value],
                 )
 
             else:

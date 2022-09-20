@@ -16,6 +16,7 @@ pydicom = "*"
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
 black = "*"
+blackdoc = "*"
 pytest = "*"
 pyright = "*"
 pylint = "*"
