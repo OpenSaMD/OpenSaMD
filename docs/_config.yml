@@ -57,4 +57,4 @@ parse:
     device_name: "Radiotherapy AI Contour Recommendations"
     device_version: "`v0.1.17`"
     device_manufacturer: "Radiotherapy AI"
-    python_version: "1.2.3"
+    python_version: "3.10.6"

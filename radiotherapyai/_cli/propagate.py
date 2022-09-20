@@ -15,6 +15,7 @@
 
 """Module for propagating dependent data throughout the repository"""
 
+import pathlib
 import re
 
 from ._paths import DOCS_DIR, REPO_ROOT
@@ -29,6 +30,7 @@ def _propagate_python_version():
     python_version = _get_python_version()
 
     _update_ci(python_version)
+    _update_docs_macros(python_version)
 
 
 def _get_python_version():
@@ -50,22 +52,35 @@ def _get_python_version():
 
 
 def _update_ci(python_version: str):
-    workflow_path = REPO_ROOT / ".github" / "workflows" / "main.yml"
+    _replace_key_in_yaml_file(
+        path=REPO_ROOT / ".github" / "workflows" / "main.yml",
+        key="python-version",
+        new_value=f'["{python_version}"]',
+    )
 
-    with open(workflow_path, "r", encoding="utf8") as f:
+
+def _update_docs_macros(python_version: str):
+    _replace_key_in_yaml_file(
+        path=DOCS_DIR / "_config.yml",
+        key="python_version",
+        new_value=f'"{python_version}"',
+    )
+
+
+def _replace_key_in_yaml_file(path: pathlib.Path, key: str, new_value: str):
+    with open(path, "r", encoding="utf8") as f:
         lines = f.readlines()
 
-    pattern = re.compile(r'(^ *python-version: )\["\d\.\d(?:\.\d)?"\]$')
-    new_line = None
+    pattern = re.compile(rf"(^ *){key}: .*$")
     for i, line in enumerate(lines):
         match = re.match(pattern, line)
         if match is None:
             continue
 
-        start = match.group(1)
-        new_line = f'{start}["{python_version}"]\n'
+        spaces = match.group(1)
+        new_line = f"{spaces}{key}: {new_value}\n"
 
         lines[i] = new_line
 
-    with open(workflow_path, "w", encoding="utf8") as f:
+    with open(path, "w", encoding="utf8") as f:
         f.writelines(lines)
