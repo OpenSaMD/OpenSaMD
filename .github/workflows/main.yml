@@ -103,7 +103,7 @@ jobs:
       - name: Build docs
         if: matrix.task == 'docs'
         run: |
-          poetry run rtai
+          poetry run rtai docs
 
       - name: Add GitHub Pages config files
         if: github.event_name == 'push' && matrix.task == 'docs'
