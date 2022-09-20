@@ -13,39 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""CLI entrance
+"""Repository paths utilised by the CLI module"""
 
-Currently only utilised to build the docs
-"""
+import pathlib
 
-import click
-
-from ._cli import docs as _docs
-from ._cli import propagate as _propagate
-
-
-@click.group()
-def cli():
-    """The Radiotherapy AI command line interface"""
-
-
-@cli.command()
-@click.option("--clean/--no-clean", default=False)
-def docs(clean: bool):
-    """Build the Radiotherapy AI regulatory documentation"""
-
-    _docs.build(clean)
-
-
-@cli.command()
-def propagate():
-    """Propagate various dependent items throughout the repository
-
-    For example, version numbers.
-    """
-
-    _propagate.run()
-
-
-if __name__ == "__main__":
-    cli()
+HERE = pathlib.Path(__file__)
+REPO_ROOT = HERE.parents[2]
+DOCS_DIR = REPO_ROOT / "docs"
+SRC_DIR = REPO_ROOT / "src"
+TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"

@@ -12,6 +12,7 @@ numpy = "*"
 scikit-image = "*"
 scipy = "*"
 pydicom = "*"
+click = "*"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
@@ -25,10 +26,11 @@ pre-commit = "*"
 ipykernel = "*"
 matplotlib = "*"
 mypy = "*"
+pyoxidizer = "*"
 
 [tool.poetry.scripts]
-radiotherapyai = "radiotherapyai.__main__:app"
-rtai = "radiotherapyai.__main__:app"
+radiotherapyai = "radiotherapyai.__main__:cli"
+rtai = "radiotherapyai.__main__:cli"
 
 [tool.pyright]
 include = ["radiotherapyai"]
