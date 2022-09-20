@@ -6,7 +6,17 @@ authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
 license = "AGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
+# Upper pinning here is being forced on us by scipy. We don't want to do this.
+# Ideally find a way to not upper pin if possible. See the following for more
+# details:
+# https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 python = ">=3.9,<3.12"
+
+# We keep all version constraints as broad as possible for the library release.
+# For the application release, all versions are pinned and tightly controlled.
+# But that is managed within the `poetry.lock` file, not here. See
+# https://iscinumpy.dev/post/app-vs-library/ and
+# https://iscinumpy.dev/post/bound-version-constraints/ for more info.
 shapely = "*"
 numpy = "*"
 scikit-image = "*"
