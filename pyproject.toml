@@ -11,6 +11,7 @@ shapely = "*"
 numpy = "*"
 scikit-image = "*"
 scipy = "*"
+click = "*"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
@@ -23,6 +24,7 @@ pre-commit = "*"
 ipykernel = "*"
 matplotlib = "*"
 mypy = "*"
+pyoxidizer = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:app"
