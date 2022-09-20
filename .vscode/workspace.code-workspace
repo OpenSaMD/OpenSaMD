@@ -81,6 +81,7 @@
       "pytest",
       "radiotherapyai",
       "rtai",
+      "ruamel",
       "savefig",
       "setuptools",
       "skimage",

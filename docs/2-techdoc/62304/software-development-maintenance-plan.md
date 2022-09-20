@@ -87,9 +87,9 @@ as software safety class A. The (external) risk control measures include:
 
 <!-- > List the languages you’ll be using, including compiler and language versions. -->
 
-| System                          | Name   | Version |
-| ------------------------------- | ------ | ------- |
-| Local DICOM server and ML model | Python | 3.9     |
+| System                          | Name   | Version            |
+| ------------------------------- | ------ | ------------------ |
+| Local DICOM server and ML model | Python | {{python_version}} |
 
 #### Development Software
 
@@ -103,9 +103,9 @@ as software safety class A. The (external) risk control measures include:
 
 <!-- > List your target runtime(s). -->
 
-| System                          | Name    | Version |
-| ------------------------------- | ------- | ------- |
-| Local DICOM server and ML model | CPython | 3.9     |
+| System                          | Name    | Version            |
+| ------------------------------- | ------- | ------------------ |
+| Local DICOM server and ML model | CPython | {{python_version}} |
 
 <!-- > Specify system requirements, e.g., the minimum specifications of the server /
 > compute instance you'll be running your software on -->
