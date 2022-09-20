@@ -55,7 +55,7 @@ def _update_ci(python_version: str):
     _replace_key_in_yaml_file(
         path=REPO_ROOT / ".github" / "workflows" / "main.yml",
         key="python-version",
-        new_value=f'["{python_version}"]',
+        new_value=f'"{python_version}"',
     )
 
 
