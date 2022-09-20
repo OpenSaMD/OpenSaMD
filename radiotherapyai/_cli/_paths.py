@@ -13,31 +13,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Building the documentation"""
+import pathlib
 
-import os
-import subprocess
-
-from ._paths import DOCS_DIR, REPO_ROOT
-
-
-def build(clean: bool):
-    """Build the Jupyter Book documentation"""
-
-    env = os.environ.copy()
-
-    if clean:
-        subprocess.check_call(
-            ["jupyter-book", "clean", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
-        )
-
-    with open(DOCS_DIR / "_toc.yml", "w", encoding="utf8") as f:
-        subprocess.check_call(
-            ["jupyter-book", "toc", "from-project", str(DOCS_DIR)],
-            cwd=REPO_ROOT,
-            env=env,
-            stdout=f,
-        )
-    subprocess.check_call(
-        ["jupyter-book", "build", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
-    )
+HERE = pathlib.Path(__file__)
+REPO_ROOT = HERE.parents[2]
+DOCS_DIR = REPO_ROOT / "docs"
+SRC_DIR = REPO_ROOT / "src"
+TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
