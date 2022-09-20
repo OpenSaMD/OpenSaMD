@@ -818,8 +818,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview">
-     Overview
+    <a class="reference internal nav-link" href="#difference-to-the-open-source-version">
+     Difference to the open source version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workflow-overview">
+     Workflow overview
     </a>
    </li>
   </ul>
@@ -859,8 +864,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview">
-     Overview
+    <a class="reference internal nav-link" href="#difference-to-the-open-source-version">
+     Difference to the open source version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workflow-overview">
+     Workflow overview
     </a>
    </li>
   </ul>
@@ -907,27 +917,30 @@ to you with the software itself.</p>
 <li><p><strong>Software as a Medical Device Identification</strong>: Radiotherapy AI Contour Recommendations <code class="docutils literal notranslate"><span class="pre">v0.1.17</span></code></p></li>
 </ul>
 </section>
-<section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h3>
-<p>Radiotherapy AI’s contour recommendations product is deployed onsite as a DICOM
-server. It is designed to sit between your centre’s CT scanner and your
+<section id="difference-to-the-open-source-version">
+<h3>Difference to the open source version<a class="headerlink" href="#difference-to-the-open-source-version" title="Permalink to this headline">#</a></h3>
+<p>This device corresponds to the software downloadable directly from
+<a class="reference external" href="https://radiotherapy.ai/">https://radiotherapy.ai/</a> (Regulated Medical Device). It does <strong>not</strong>
+correspond to the software downloadable from
+<a class="reference external" href="https://github.com/RadiotherapyAI/RadiotherapyAI">https://github.com/RadiotherapyAI/RadiotherapyAI</a> (Open Source Unregulated
+Software).</p>
+<p>The Open Source Unregulated Software is provided in the hope that it might be
+useful but WITHOUT ANY WARRANTY. It is <strong>not</strong> intended for clinical use, and
+is instead intended for research use only.</p>
+<p>The Regulated Medical Device described by this documentation corresponds only
+to the product that is able to be downloaded from <a class="reference external" href="https://radiotherapy.ai/">https://radiotherapy.ai/</a>.
+This is the product that is intended to be able to be used for clinical use
+according to the intended purpose described within this documentation.</p>
+</section>
+<section id="workflow-overview">
+<h3>Workflow overview<a class="headerlink" href="#workflow-overview" title="Permalink to this headline">#</a></h3>
+<p>Radiotherapy AI’s contour recommendations product is deployed on-site as a
+DICOM server. It is designed to sit between your centre’s CT scanner and your
 treatment planning system.</p>
-<p>When patients undergo their simulation images are auto-sent through to
-Radiotherapy AI’s DICOM server. The patient identifying information within the
-DICOM header is then encrypted with a client side encryption key, and then
-these patient scans are then securely submitted to Google Cloud infrastructure
-within Sydney to undergo contouring.</p>
-<p>These contours are converted into an RT-DICOM Structure Set file and are then
-sent back to the Radiotherapy AI DICOM server for subsequent forwarding through
-to the centre’s treatment planning system for refinement by the clinical
-Radiation Oncologist or Radiation Therapist (the health practitioner) according
-to the site’s contouring protocols.</p>
-<p>In practice, the health practitioner does not directly interact with
-Radiotherapy AI’s software. Instead, the results from Radiotherapy AI’s
-software is provided to your centre’s treatment planning system for the health
-practitioner’s subsequent refinement.</p>
-<p>The contouring algorithm that is applied to the CT scans is based off of
-historical treatment contouring data.</p>
+<p>When patients undergo their simulation, images are auto-sent through to
+Radiotherapy AI’s DICOM and inference server, contours are auto-generated, and
+then the results are then automatically sent through to your treatment planning
+system.</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">
