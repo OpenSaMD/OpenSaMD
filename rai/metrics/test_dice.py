@@ -46,7 +46,7 @@ def test_dice_from_dicom():
     a = ds_a.ROIContourSequence[0].ContourSequence
     b = ds_b.ROIContourSequence[0].ContourSequence
 
-    # TODO: Create a dice.from_dicom that returns a dice score per ROI
+    # TODO: Create a `dice.from_dicom()` that returns a dice score per ROI
     # structure. Then test that here instead.
     returned_dice = dice.from_contour_sequence(a, b)
 
