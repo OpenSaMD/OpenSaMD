@@ -13,32 +13,35 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""DICOM dataset typing"""
-
-# TODO: Autogenerate this and force it to conform to the DICOM standard
-# as detailed within:
-# https://github.com/innolitics/dicom-standard/tree/master/standard
-
-from typing import Literal
-
 import pydicom
 
-# pylint: disable = missing-class-docstring
+from .append import append_dict_to_dataset
+from .typing import TypedDataset
 
 
-class ContourImageSequenceItem(pydicom.Dataset):
-    ReferencedSOPInstanceUID: str
+def run():
+    """Dummy docstring"""
+    _type_hint_effects()
 
 
-class ContourSequenceItem(pydicom.Dataset):
-    ContourImageSequence: list[ContourImageSequenceItem]
-    ContourData: list[float]
-    ContourGeometricType: Literal["CLOSED_PLANAR"]
+def _type_hint_effects():
+    a = TypedDataset()
 
+    append_dict_to_dataset(
+        ds=a,
+        to_append={
+            "ROIContourSequence": [
+                {"ContourSequence": [{"ContourGeometricType": "CLOSED_PLANAR"}]}
+            ]
+        },
+    )
 
-class ROIContourSequenceItem(pydicom.Dataset):
-    ContourSequence: list[ContourSequenceItem]
+    # Editing the type
+    a.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "OPEN_PLANAR"
 
+    # Editing the type for standard pydicom object
+    b = pydicom.Dataset(a)
+    b.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "OPEN_PLANAR"
 
-class TypedDataset(pydicom.Dataset):
-    ROIContourSequence: list[ROIContourSequenceItem]
+    # Checking for equality
+    assert a == b

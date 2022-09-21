@@ -22,6 +22,7 @@ import click
 
 from ._cli import docs as _docs
 from ._cli import propagate as _propagate
+from .dicom import dummy as _dummy
 
 
 @click.group()
@@ -45,6 +46,11 @@ def propagate():
     """
 
     _propagate.run()
+
+
+@cli.command()
+def dummy():
+    _dummy.run()
 
 
 if __name__ == "__main__":
