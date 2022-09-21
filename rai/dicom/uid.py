@@ -15,6 +15,10 @@
 
 """DICOM UID constants and tools"""
 
+import re
+
+import pydicom.uid
+
 from rai._version import __version__
 
 # Many thanks to the Medical Connections for offering free
@@ -28,7 +32,9 @@ _RAI_INTERNAL_ROOT_UID = f"{_RAI_ROOT_UID}0."
 _RAI_CONTOURS_PRODUCT_ID = "1"
 
 RAI_CLIENT_ROOT_UID = f"{_RAI_ROOT_UID}1."
+RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
+
 RAI_CONTOURS_IMPLEMENTATION_CLASS_UID = (
     f"{_RAI_INTERNAL_ROOT_UID}{_RAI_CONTOURS_PRODUCT_ID}.{__version__}"
 )
-RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
+assert re.match(pydicom.uid.RE_VALID_UID, RAI_CONTOURS_IMPLEMENTATION_CLASS_UID)
