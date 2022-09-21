@@ -113,10 +113,13 @@ def _update_library_version_file(device_version: str):
 
     version_contents = textwrap.dedent(
         f"""\
-        {AUTOGEN_MESSAGE[0]}
-        {AUTOGEN_MESSAGE[1]}
-        version_info = {device_version_list}
-        __version__ = "{device_version}"
+            {AUTOGEN_MESSAGE[0]}
+            {AUTOGEN_MESSAGE[1]}
+
+            \"""Package version information\"""
+
+            version_info = {device_version_list}
+            __version__ = "{device_version}"
         """
     )
 
