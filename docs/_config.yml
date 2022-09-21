@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/RadiotherapyAI/regulatory
+  url: https://github.com/RadiotherapyAI/rai
   path_to_book: docs
   branch: main
 
@@ -54,7 +54,7 @@ html:
 
 parse:
   myst_substitutions:
-    device_name: "Radiotherapy AI Contour Recommendations"
-    device_version: "`v0.1.17`"
-    device_manufacturer: "Radiotherapy AI"
+    device_name: "RAIContours"
+    device_version: "`v0.1.0`"
+    device_manufacturer: "Radiotherapy AI Pty Ltd"
     python_version: "3.10.6"

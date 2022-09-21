@@ -12,5 +12,5 @@ The following command was run in order to run the notebooks within this
 directory with the poetry ipython kernel:
 
 ```
-poetry run python -m ipykernel install --user --name radiotherapyai
+poetry run python -m ipykernel install --user --name rai
 ```

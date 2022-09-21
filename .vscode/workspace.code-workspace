@@ -41,6 +41,7 @@
       "allclose",
       "astype",
       "autocontouring",
+      "AUTOGEN",
       "bibfiles",
       "bibtex",
       "blackbox",
@@ -68,6 +69,7 @@
       "linspace",
       "Lonchampt",
       "matplotlib",
+      "myst",
       "nbstripout",
       "ndarray",
       "ndarrays",
@@ -95,6 +97,7 @@
       "targetname",
       "techdoc",
       "tmpl",
+      "tomlkit",
       "venv",
       "virtualenvs",
       "waivable"

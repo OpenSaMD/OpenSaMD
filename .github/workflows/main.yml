@@ -104,7 +104,7 @@ jobs:
         if: matrix.task == 'docs'
         run: |
           [[ ! -d docs/_build/html ]]
-          poetry run rtai docs
+          poetry run rai docs
           [[ -d docs/_build/html ]]
 
       - name: Add GitHub Pages config files
