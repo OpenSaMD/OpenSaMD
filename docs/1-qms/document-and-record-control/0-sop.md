@@ -103,7 +103,7 @@ date, next review date and respective process owners.
 #### 1. Creation of Documents
 
 All documents are saved in the Quality Management System (QMS) which is housed
-within the git repository at <https://github.com/RadiotherapyAI/RadiotherapyAI>.
+within the git repository at <https://github.com/RadiotherapyAI/rai>.
 These documents are viewable at <https://docs.radiotherapy.ai>.
 
 New draft documents can be created by anyone within a separate

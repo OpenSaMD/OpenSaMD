@@ -19,7 +19,7 @@ repos:
     hooks:
       - id: isort
         additional_dependencies: ["toml"]
-        files: ^radiotherapyai/.*\.py$
+        files: ^rai/.*\.py$
   - repo: https://github.com/ambv/black
     rev: 22.3.0
     hooks:

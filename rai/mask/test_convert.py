@@ -22,7 +22,7 @@ from typing import TypedDict
 import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
 
-from radiotherapyai.metrics import dice
+from rai.metrics import dice
 
 from .convert import Contours, Grid, contours_to_mask, mask_to_contours
 

@@ -1,4 +1,0 @@
-# Since updating matplotlib can have small pixel effects on png files, ignore
-# any changes to figures from running the tests. Remove this ignore if the test
-# figures need to be explicitly updated.
-*.png
