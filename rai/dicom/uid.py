@@ -15,18 +15,26 @@
 
 """DICOM UID constants and tools"""
 
+import re
+
+import pydicom.uid
+
 from rai._version import __version__
 
 # Many thanks to the Medical Connections for offering free
 # valid UIDs (http://www.medicalconnections.co.uk/FreeUID.html)
 # Their service was used to obtain the following root UID for
 # Radiotherapy AI:
-RAI_ROOT_UID = "1.2.826.0.1.3680043.10.756."
+_RAI_ROOT_UID_PREFIX = "1.2.826.0.1.3680043.10.756."
 
-RAI_INTERNAL_ROOT_UID = f"{RAI_ROOT_UID}0."
-RAI_CLIENT_ROOT_UID = f"{RAI_ROOT_UID}1."
+_RAI_INTERNAL_ROOT_UID_PREFIX = f"{_RAI_ROOT_UID_PREFIX}0."
 
-PRODUCT_ID = "000000"
+_RAI_CONTOURS_PRODUCT_ID = "1"
 
-RAI_IMPLEMENTATION_CLASS_UID = f"{RAI_INTERNAL_ROOT_UID}{PRODUCT_ID}.{__version__}"
+RAI_CLIENT_ROOT_UID_PREFIX = f"{_RAI_ROOT_UID_PREFIX}1."
 RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
+
+RAI_CONTOURS_IMPLEMENTATION_CLASS_UID = (
+    f"{_RAI_INTERNAL_ROOT_UID_PREFIX}{_RAI_CONTOURS_PRODUCT_ID}.{__version__}"
+)
+assert re.match(pydicom.uid.RE_VALID_UID, RAI_CONTOURS_IMPLEMENTATION_CLASS_UID)
