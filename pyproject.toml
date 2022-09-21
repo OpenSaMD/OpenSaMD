@@ -37,6 +37,7 @@ ipykernel = "*"
 matplotlib = "*"
 mypy = "*"
 pyoxidizer = "*"
+tomlkit = "*"
 
 [tool.poetry.scripts]
 radiotherapyai = "radiotherapyai.__main__:cli"
