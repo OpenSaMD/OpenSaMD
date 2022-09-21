@@ -57,7 +57,21 @@ def from_contour_sequence(a: list[ContourSequenceItem], b: list[ContourSequenceI
     intersection_area = 0
     total_area = 0
     for image_uid in all_image_uids:
-        pass
+        shapley_a = _contours_xy_to_shapely(image_uids_to_contours_a[image_uid])
+        shapely_b = _contours_xy_to_shapely(image_uids_to_contours_b[image_uid])
+
+        intersection_area += shapley_a.intersection(shapely_b).area
+        total_area += shapley_a.area + shapely_b.area
+
+    return 2 * intersection_area / total_area
+
+
+def _contours_xy_to_shapely(contours: ContoursXY):
+    geom = shapely.geometry.Polygon()
+    for xy_coords in contours:
+        geom = geom.union(shapely.geometry.Polygon(xy_coords))
+
+    return geom
 
 
 def _get_image_uid_to_contours_map(
@@ -147,12 +161,12 @@ def from_contours(a: ContoursYX, b: ContoursYX):
         The Dice score
     """
     return from_shapely(
-        a=_contours_to_shapely(a),
-        b=_contours_to_shapely(b),
+        a=_contours_yx_to_shapely(a),
+        b=_contours_yx_to_shapely(b),
     )
 
 
-def _contours_to_shapely(contours: ContoursYX):
+def _contours_yx_to_shapely(contours: ContoursYX):
     geom = shapely.geometry.Polygon()
     for yx_coords in contours:
         xy_coords = np.flip(  # pyright: ignore [reportUnknownMemberType]
