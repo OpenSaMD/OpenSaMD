@@ -16,8 +16,9 @@ out to <clinical-trials@radiotherapy.ai>.
 
 Create an AI Software as a Medical Device that saves lives built entirely from
 open source software. Being a part of making it easier for researchers to
-translate from "bench-top to bedside", building regulated tools that go on to
-save more lives than any one of us alone could ever hope to achieve.
+translate from "bench-top to bedside", helping anyone to build regulated tools
+that go on to save more lives than any one of us alone could ever hope to
+achieve.
 
 ## Installation
 
