@@ -25,9 +25,7 @@ from rai.dicom import append, uid
 
 from . import dice
 
-_ContourXY = list[tuple[float, float]]
-_ContoursOnSlice = list[_ContourXY]
-_ComparisonSlices = list[tuple[_ContoursOnSlice, _ContoursOnSlice]]
+_ComparisonSlices = list[tuple[dice.ContoursXY, dice.ContoursXY]]
 
 
 def test_dice_from_dicom():
@@ -44,7 +42,7 @@ def test_dice_from_dicom():
 
     a, b = _create_slice_aligned_dicom_files(slices)
 
-    returned_dice = dice.from_dicom(a, b)
+    returned_dice = dice.from_contour_sequence(a, b)
 
 
 def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
@@ -98,7 +96,7 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
 def _append_contour_sequence_item(
     contour_sequence: list[append.DicomItem],
     reference_sop_instance_uid: str,
-    contour: _ContourXY,
+    contour: dice.ContourXY,
     z_value: float,
 ):
     contour_sequence.append(
@@ -114,7 +112,7 @@ def _append_contour_sequence_item(
     )
 
 
-def _contour_to_dicom_format(contour: _ContourXY, z_value: float):
+def _contour_to_dicom_format(contour: dice.ContourXY, z_value: float):
     dicom_format_contour: list[float] = []
     for x, y in contour:
         dicom_format_contour.extend([x, y, z_value])

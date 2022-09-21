@@ -15,15 +15,21 @@
 
 """Determining the Dice metric"""
 
+import collections
+
 import numpy as np
-import pydicom
 import shapely.geometry
 import shapely.geometry.base
 from numpy.typing import NDArray
 
+from rai.dicom.typing import ContourSequenceItem
 
-def from_dicom(a: pydicom.Dataset, b: pydicom.Dataset):
-    """Determine the Dice metric between two RT Structure DICOM objects.
+ContourXY = list[tuple[float, float]]
+ContoursXY = list[ContourXY]
+
+
+def from_contour_sequence(a: list[ContourSequenceItem], b: list[ContourSequenceItem]):
+    """Determine the Dice metric between two DICOM Contour Sequences.
 
     The Dice score is an overlap metric where a value of 1 indicates
     100% overlap, and a value of 0 indicates 0% overlap.
@@ -33,15 +39,61 @@ def from_dicom(a: pydicom.Dataset, b: pydicom.Dataset):
 
     Parameters
     ----------
-    a : pydicom.Dataset
-    b : pydicom.Dataset
+    a : pydicom.Sequence
+    b : pydicom.Sequence
 
     Returns
     -------
     float
         The Dice score
     """
-    pass
+    image_uids_to_contours_a = _get_image_uid_to_contours_map(a)
+    image_uids_to_contours_b = _get_image_uid_to_contours_map(b)
+
+    all_image_uids = set(image_uids_to_contours_a.keys()).union(
+        image_uids_to_contours_b.keys()
+    )
+
+    intersection_area = 0
+    total_area = 0
+    for image_uid in all_image_uids:
+        pass
+
+
+def _get_image_uid_to_contours_map(
+    contour_sequence: list[ContourSequenceItem],
+):
+    image_uid_to_contours_map: dict[str, ContoursXY] = collections.defaultdict(list)
+
+    for item in contour_sequence:
+        contour_image_sequence = item.ContourImageSequence
+
+        assert len(contour_image_sequence) == 0
+        contour_image_sequence_item = contour_image_sequence[0]
+
+        referenced_image_uid = contour_image_sequence_item.ReferencedSOPInstanceUID
+
+        image_uid_to_contours_map[referenced_image_uid].append(
+            _convert_dicom_contours(item.ContourData)
+        )
+
+    return image_uid_to_contours_map
+
+
+def _convert_dicom_contours(contour_data: list[float]):
+    x = contour_data[0::3]
+    y = contour_data[1::3]
+    z = contour_data[2::3]
+
+    assert len(x) == len(y)
+    assert len(x) == len(z)
+
+    # Co-planar
+    assert len(set(z)) == 1
+
+    contours = list(zip(x, y))
+
+    return contours
 
 
 def from_shapely(
@@ -69,7 +121,13 @@ def from_shapely(
     return 2 * a.intersection(b).area / (a.area + b.area)
 
 
-def from_contours(a: list[NDArray[np.float64]], b: list[NDArray[np.float64]]):
+# TODO: Conform to either ContoursYX or ContoursXY internally within
+# rai. Don't swap between using both within the function APIs.
+ContourYX = NDArray[np.float64]
+ContoursYX = list[ContourYX]
+
+
+def from_contours(a: ContoursYX, b: ContoursYX):
     """Determine the Dice metric from two coordinate lists.
 
     The Dice score is an overlap metric where a value of 1 indicates
@@ -94,7 +152,7 @@ def from_contours(a: list[NDArray[np.float64]], b: list[NDArray[np.float64]]):
     )
 
 
-def _contours_to_shapely(contours: list[NDArray[np.float64]]):
+def _contours_to_shapely(contours: ContoursYX):
     geom = shapely.geometry.Polygon()
     for yx_coords in contours:
         xy_coords = np.flip(  # pyright: ignore [reportUnknownMemberType]
