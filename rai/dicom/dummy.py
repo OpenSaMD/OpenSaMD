@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from copy import deepcopy
+
 import pydicom
 
 from .append import append_dict_to_dataset
@@ -40,8 +42,13 @@ def _type_hint_effects():
     a.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "OPEN_PLANAR"
 
     # Editing the type for standard pydicom object
-    b = pydicom.Dataset(a)
+    b = pydicom.Dataset(deepcopy(a))
     b.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "OPEN_PLANAR"
 
     # Checking for equality
     assert a == b
+
+    # Without implementing the type checking, any valid CS value can be
+    # assigned to this variable without warning
+    b.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "ANYTHING_GOES"
+    assert a != b
