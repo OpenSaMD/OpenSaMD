@@ -52,3 +52,5 @@ def _type_hint_effects():
     # assigned to this variable without warning
     b.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "ANYTHING_GOES"
     assert a != b
+
+    print("Everything ran, no errors!")
