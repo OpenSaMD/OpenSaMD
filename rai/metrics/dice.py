@@ -82,10 +82,12 @@ def _get_image_uid_to_contours_map(
     for item in contour_sequence:
         contour_image_sequence = item.ContourImageSequence
 
-        assert len(contour_image_sequence) == 0
+        assert len(contour_image_sequence) == 1
         contour_image_sequence_item = contour_image_sequence[0]
 
         referenced_image_uid = contour_image_sequence_item.ReferencedSOPInstanceUID
+
+        assert item.ContourGeometricType == "CLOSED_PLANAR"
 
         image_uid_to_contours_map[referenced_image_uid].append(
             _convert_dicom_contours(item.ContourData)

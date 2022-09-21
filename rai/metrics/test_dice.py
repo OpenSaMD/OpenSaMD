@@ -18,10 +18,10 @@
 from typing import TypedDict
 
 import numpy as np
-import pydicom
 import shapely.geometry
 
 from rai.dicom import append, uid
+from rai.dicom.typing import TypedDataset
 
 from . import dice
 
@@ -40,9 +40,16 @@ def test_dice_from_dicom():
         ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
     ]
 
-    a, b = _create_slice_aligned_dicom_files(slices)
+    ds_a, ds_b = _create_slice_aligned_dicom_files(slices)
 
+    a = ds_a.ROIContourSequence[0].ContourSequence
+    b = ds_b.ROIContourSequence[0].ContourSequence
+
+    # TODO: Create a dice.from_dicom that returns a dice score per ROI
+    # structure. Then test that here instead.
     returned_dice = dice.from_contour_sequence(a, b)
+
+    assert returned_dice == 2 * 0.5 * 0.5 / (0.5 * 0.5 + 1 * 3)
 
 
 def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
@@ -78,8 +85,8 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
                 z_value=i,
             )
 
-    a = pydicom.Dataset()
-    b = pydicom.Dataset()
+    a = TypedDataset()
+    b = TypedDataset()
 
     append.append_dict_to_dataset(
         ds=a,
