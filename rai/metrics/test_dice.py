@@ -18,9 +18,54 @@
 from typing import TypedDict
 
 import numpy as np
+import pydicom
 import shapely.geometry
 
+from rai.dicom import append
+
 from . import dice
+
+_ContoursOnSlice = list[list[tuple[float, float]]]
+_ComparisonSlices = list[tuple[_ContoursOnSlice, _ContoursOnSlice]]
+
+
+def test_dice_from_dicom():
+    """Test the comparison of two DICOM files with the Dice metric"""
+
+    slices: _ComparisonSlices = [
+        ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
+        (
+            [[(0, 0), (0, 1), (1, 1), (1, 0)]],
+            [[(0, 0), (0, 0.5), (0.5, 0.5), (0.5, 0)]],
+        ),
+        ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
+    ]
+
+    a = pydicom.Dataset()
+    append.append_dict_to_dataset(
+        ds=a,
+        to_append={
+            "ROIContourSequence": [
+                {
+                    "ContourSequence": [
+                        {
+                            "ContourImageSequence": [
+                                {
+                                    "ReferencedSOPInstanceUID": "",
+                                }
+                            ],
+                            "ContourData": [],
+                            "ContourGeometricType": "CLOSED_PLANAR",
+                        }
+                    ]
+                }
+            ]
+        },
+    )
+
+
+def _create_slice_aligned_dicom_files():
+    pass
 
 
 def test_dice_from_polygons():
@@ -30,7 +75,7 @@ def test_dice_from_polygons():
     The expected Dice is 2 * intersection_area / sum_of_areas
     """
 
-    cases: list[_TestCase] = [
+    cases: list[_PolygonTestCase] = [
         {
             "label": "Two unit squares with 50% overlap",
             "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
@@ -76,7 +121,7 @@ def test_dice_from_polygons():
         assert np.abs(returned_dice - case["expected_dice"]) < 0.00001, case["label"]
 
 
-class _TestCase(TypedDict):
+class _PolygonTestCase(TypedDict):
     label: str
     a: list[tuple[float, float]]
     b: list[tuple[float, float]]

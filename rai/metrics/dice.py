@@ -16,9 +16,32 @@
 """Determining the Dice metric"""
 
 import numpy as np
+import pydicom
 import shapely.geometry
 import shapely.geometry.base
 from numpy.typing import NDArray
+
+
+def from_dicom(a: pydicom.Dataset, b: pydicom.Dataset):
+    """Determine the Dice metric between two RT Structure DICOM objects.
+
+    The Dice score is an overlap metric where a value of 1 indicates
+    100% overlap, and a value of 0 indicates 0% overlap.
+
+    Further explanation of the Dice is available at:
+    <https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient>
+
+    Parameters
+    ----------
+    a : pydicom.Dataset
+    b : pydicom.Dataset
+
+    Returns
+    -------
+    float
+        The Dice score
+    """
+    pass
 
 
 def from_shapely(

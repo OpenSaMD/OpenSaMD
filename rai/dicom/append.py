@@ -29,6 +29,7 @@ DicomItem = Union[
     list[str],
     list[int],
     NDArray[Any],
+    str,
 ]
 
 
