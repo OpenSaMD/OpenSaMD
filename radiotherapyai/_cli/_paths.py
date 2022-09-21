@@ -20,5 +20,4 @@ import pathlib
 HERE = pathlib.Path(__file__)
 REPO_ROOT = HERE.parents[2]
 DOCS_DIR = REPO_ROOT / "docs"
-SRC_DIR = REPO_ROOT / "src"
-TABLE_OF_CONTENTS_PATH = DOCS_DIR / "_toc.yml"
+LIBRARY_DIR = REPO_ROOT / "radiotherapyai"
