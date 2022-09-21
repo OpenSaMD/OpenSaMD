@@ -33,11 +33,15 @@ def test_dice_from_dicom():
 
     # TODO: Create more test cases.
     slices: _ComparisonSlices = [
+        # Unit square with no overlap on first slice
         ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
+        # A Unit square for one, and a 0.5 x 0.5 square for the other,
+        # with an expected 1/4 overlap.
         (
             [[(0, 0), (0, 1), (1, 1), (1, 0)]],
             [[(0, 0), (0, 0.5), (0.5, 0.5), (0.5, 0)]],
         ),
+        # Unit square with no overlap on last slice
         ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
     ]
 
