@@ -18,6 +18,7 @@
 from typing import TypedDict
 
 import numpy as np
+import pydicom.uid
 import shapely.geometry
 
 from rai.dicom import append, uid
@@ -72,7 +73,9 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
     contour_sequence_b: list[append.DicomItem] = []
 
     for i, (contours_on_a, contours_on_b) in enumerate(slices):
-        reference_sop_instance_uid = uid.generate_uid()
+        reference_sop_instance_uid = pydicom.uid.generate_uid(
+            prefix=uid.RAI_CLIENT_ROOT_UID
+        )
 
         for contour in contours_on_a:
             _append_contour_sequence_item(

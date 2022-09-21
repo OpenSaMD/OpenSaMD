@@ -21,12 +21,12 @@ from rai._version import __version__
 # valid UIDs (http://www.medicalconnections.co.uk/FreeUID.html)
 # Their service was used to obtain the following root UID for
 # Radiotherapy AI:
-RAI_ROOT_UID = "1.2.826.0.1.3680043.10.756."
+_RAI_ROOT_UID = "1.2.826.0.1.3680043.10.756."
 
-RAI_INTERNAL_ROOT_UID = f"{RAI_ROOT_UID}0."
-RAI_CLIENT_ROOT_UID = f"{RAI_ROOT_UID}1."
+_RAI_INTERNAL_ROOT_UID = f"{_RAI_ROOT_UID}0."
 
-PRODUCT_ID = "000000"
+_PRODUCT_ID = "000000"
 
-RAI_IMPLEMENTATION_CLASS_UID = f"{RAI_INTERNAL_ROOT_UID}{PRODUCT_ID}.{__version__}"
+RAI_CLIENT_ROOT_UID = f"{_RAI_ROOT_UID}1."
+RAI_IMPLEMENTATION_CLASS_UID = f"{_RAI_INTERNAL_ROOT_UID}{_PRODUCT_ID}.{__version__}"
 RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
