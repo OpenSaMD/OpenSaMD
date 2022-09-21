@@ -1,31 +1,50 @@
-# Radiotherapy AI's public regulatory documentation
+# `rai`, RadiotherapyAI's non-clinical open source autocontouring library
 
-To see the web-rendered version of this regulatory documentation go to
-https://docs.radiotherapy.ai.
+This Open Source Unregulated Software is provided in the hope that it might be
+useful but WITHOUT ANY WARRANTY. It is **not** intended for clinical use, and
+is instead intended for research use only.
 
-## Disclaimer
+If you are looking for the Regulated Medical Device, `RAIContours`, that is
+based upon the source code within this repository, when it has completed its
+regulatory approval, it will be available for download directly from
+<https://radiotherapy.ai/>. Prior to regulatory approval, you may be able to
+utilise `RAIContours` under a clinical trial notification or equivalent. If you
+are interested in undergoing a clinical trial with `RAIContours` please reach
+out to <clinical-trials@radiotherapy.ai>.
 
-This is a work in progress. Right now I am just learning the ropes while
-putting all of my warts up here for all to see. There will be mistakes. If you
-find them please let me know. Also, if you want to help out, please get in
-touch. My email address is simon.biggs@radiotherapy.ai.
+## Goal
 
-## Why create this out in the open?
+Create an AI Software as a Medical Device that saves lives built entirely from
+open source software. Being a part of making it easier for researchers to
+translate from "bench-top to bedside", helping anyone to build regulated tools
+that go on to save more lives than any one of us alone could ever hope to
+achieve.
 
-Creating a regulated Software as a Medical Device (SaMD) is hard. I personally
-learn best through examples. There are some great examples available online
-about how go about the regulatory requirements for a SaMD such as:
+## Installation
 
-- https://openregulatory.com/blueprint-certifying-medical-software/
-- https://github.com/innolitics/rdm
-- https://www.tidepool.org/regulatory
+The aim is for you to be able to install this open source research library by
+running:
 
-However, I could not find an example GitHub repo that provides the end-to-end
-documentation for a real SaMD including its associated Quality Management
-System and Technical Documentation. I couldn't find a nice example that would
-allow me to copy and follow.
+```
+pip install rai
+```
 
-Let's all stop re-inventing the wheel when it comes to SaMD regulation. Let's
-undergo our Medical Device regulation out in the open so that at the end of the
-day the regulatory process is easier to understand, easier to fulfil, and
-hopefully we can more effectively make better products that help our patients.
+However, currently the name is occupied by an abandoned project. I am in the
+process of requesting a PyPI name transfer.
+
+## The regulatory documentation
+
+All of the regulatory documentation is available under a creative commons
+license and is built upon
+[the amazing templates](https://openregulatory.com/templates/)
+provided by [OpenRegulatory](https://openregulatory.com/).
+
+The source code for the regulatory documentation is available within the
+[docs directory](./docs). The online rendering of the documentation is viewable
+at <https://docs.radiotherapy.ai>
+
+The regulatory task is currently a work in progress. Right now I am just
+learning the regulatory ropes while putting all of my warts up here for all to
+see. There will be mistakes. If you find them please let me know. Also, if you
+want to help out, please get in touch. My email address is
+simon.biggs@radiotherapy.ai.
