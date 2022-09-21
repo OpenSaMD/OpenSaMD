@@ -50,7 +50,13 @@ def _type_hint_effects():
 
     # Without implementing the type checking, any valid CS value can be
     # assigned to this variable without warning
-    b.ROIContourSequence[0].ContourSequence[0].ContourGeometricType = "ANYTHING_GOES"
+    b.ROIContourSequence[0].ContourSequence[
+        0
+    ].ContourGeometricType = "ANYTHING_GOES_BECAUSE_THE_TYPE_ON_PYDICOM_IS_ANY"
     assert a != b
+
+    a.ROIContourSequence[0].ContourSequence[
+        0
+    ].ContourGeometricType = "PYRIGHT_WONT_LIKE_THIS"
 
     print("Everything ran, no errors!")
