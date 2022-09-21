@@ -74,7 +74,7 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
 
     for i, (contours_on_a, contours_on_b) in enumerate(slices):
         reference_sop_instance_uid = pydicom.uid.generate_uid(
-            prefix=uid.RAI_CLIENT_ROOT_UID
+            prefix=uid.RAI_CLIENT_ROOT_UID_PREFIX
         )
 
         for contour in contours_on_a:
