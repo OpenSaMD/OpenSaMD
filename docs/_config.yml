@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/RadiotherapyAI/regulatory
+  url: https://github.com/RadiotherapyAI/RadiotherapyAI
   path_to_book: docs
   branch: main
 

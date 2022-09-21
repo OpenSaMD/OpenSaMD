@@ -20,4 +20,4 @@ import pathlib
 HERE = pathlib.Path(__file__)
 REPO_ROOT = HERE.parents[2]
 DOCS_DIR = REPO_ROOT / "docs"
-LIBRARY_DIR = REPO_ROOT / "radiotherapyai"
+LIBRARY_DIR = REPO_ROOT / "rai"

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "radiotherapyai"
+name = "rai"
 version = "0.1.0"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
@@ -40,11 +40,10 @@ pyoxidizer = "*"
 tomlkit = "*"
 
 [tool.poetry.scripts]
-radiotherapyai = "radiotherapyai.__main__:cli"
-rtai = "radiotherapyai.__main__:cli"
+rai = "rai.__main__:cli"
 
 [tool.pyright]
-include = ["radiotherapyai"]
+include = ["rai"]
 exclude = [
     "**/node_modules",
     "**/__pycache__",
