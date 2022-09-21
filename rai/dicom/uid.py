@@ -15,12 +15,6 @@
 
 """DICOM UID constants and tools"""
 
-import re
-import secrets
-from typing import Optional, Union
-
-import pydicom.uid
-
 from rai._version import __version__
 
 # Many thanks to the Medical Connections for offering free
@@ -36,26 +30,3 @@ PRODUCT_ID = "000000"
 
 RAI_IMPLEMENTATION_CLASS_UID = f"{RAI_INTERNAL_ROOT_UID}{PRODUCT_ID}.{__version__}"
 RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
-
-MAX_UID_LENGTH = 64
-AVAILABLE_UID_DIGITS = MAX_UID_LENGTH - len(RAI_CLIENT_ROOT_UID)
-
-# Built with inspiration from:
-# https://github.com/pydicom/pydicom/blob/699c9f0a8/pydicom/uid.py#L382-L451
-def generate_uid(postfix: Optional[Union[int, str]] = None):
-    """Generate an RAI DICOM UID"""
-
-    if postfix is None:
-        postfix_bytes = secrets.token_bytes(AVAILABLE_UID_DIGITS // 2)
-        postfix = int.from_bytes(postfix_bytes, "big", signed=False)
-
-    postfix = str(postfix)
-
-    if len(postfix) > AVAILABLE_UID_DIGITS:
-        postfix = postfix[:AVAILABLE_UID_DIGITS]
-
-    uid = f"{RAI_CLIENT_ROOT_UID}{postfix}"
-    assert len(uid) <= MAX_UID_LENGTH
-    assert re.match(pydicom.uid.RE_VALID_UID, uid)
-
-    return uid
