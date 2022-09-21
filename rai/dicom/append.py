@@ -24,7 +24,7 @@ from numpy.typing import NDArray
 
 DicomItem = Union[
     dict[str, "DicomItem"],
-    list[dict[str, "DicomItem"]],
+    list["DicomItem"],
     list[float],
     list[str],
     list[int],

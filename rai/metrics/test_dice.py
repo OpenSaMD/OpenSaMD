@@ -21,11 +21,12 @@ import numpy as np
 import pydicom
 import shapely.geometry
 
-from rai.dicom import append
+from rai.dicom import append, uid
 
 from . import dice
 
-_ContoursOnSlice = list[list[tuple[float, float]]]
+_ContourXY = list[tuple[float, float]]
+_ContoursOnSlice = list[_ContourXY]
 _ComparisonSlices = list[tuple[_ContoursOnSlice, _ContoursOnSlice]]
 
 
@@ -41,31 +42,84 @@ def test_dice_from_dicom():
         ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
     ]
 
+    a, b = _create_slice_aligned_dicom_files(slices)
+
+    returned_dice = dice.from_dicom(a, b)
+
+
+def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
+    """Test utility for aligned contour comparisons.
+
+    Take a list of aligned slice contour coordinates and create two
+    DICOM files where the aligned slices have the same
+    ReferencedSOPInstanceUID, and therefore the aligned slices within
+    the provided list are also aligned between the corresponding DICOM
+    pairs.
+
+    """
+
+    contour_sequence_a: list[append.DicomItem] = []
+    contour_sequence_b: list[append.DicomItem] = []
+
+    for i, (contours_on_a, contours_on_b) in enumerate(slices):
+        reference_sop_instance_uid = uid.generate_uid()
+
+        for contour in contours_on_a:
+            _append_contour_sequence_item(
+                contour_sequence=contour_sequence_a,
+                reference_sop_instance_uid=reference_sop_instance_uid,
+                contour=contour,
+                z_value=i,
+            )
+
+        for contour in contours_on_b:
+            _append_contour_sequence_item(
+                contour_sequence=contour_sequence_b,
+                reference_sop_instance_uid=reference_sop_instance_uid,
+                contour=contour,
+                z_value=i,
+            )
+
     a = pydicom.Dataset()
+    b = pydicom.Dataset()
+
     append.append_dict_to_dataset(
         ds=a,
-        to_append={
-            "ROIContourSequence": [
+        to_append={"ROIContourSequence": [{"ContourSequence": contour_sequence_a}]},
+    )
+    append.append_dict_to_dataset(
+        ds=b,
+        to_append={"ROIContourSequence": [{"ContourSequence": contour_sequence_b}]},
+    )
+
+    return a, b
+
+
+def _append_contour_sequence_item(
+    contour_sequence: list[append.DicomItem],
+    reference_sop_instance_uid: str,
+    contour: _ContourXY,
+    z_value: float,
+):
+    contour_sequence.append(
+        {
+            "ContourImageSequence": [
                 {
-                    "ContourSequence": [
-                        {
-                            "ContourImageSequence": [
-                                {
-                                    "ReferencedSOPInstanceUID": "",
-                                }
-                            ],
-                            "ContourData": [],
-                            "ContourGeometricType": "CLOSED_PLANAR",
-                        }
-                    ]
+                    "ReferencedSOPInstanceUID": reference_sop_instance_uid,
                 }
-            ]
-        },
+            ],
+            "ContourData": _contour_to_dicom_format(contour, z_value=z_value),
+            "ContourGeometricType": "CLOSED_PLANAR",
+        }
     )
 
 
-def _create_slice_aligned_dicom_files():
-    pass
+def _contour_to_dicom_format(contour: _ContourXY, z_value: float):
+    dicom_format_contour: list[float] = []
+    for x, y in contour:
+        dicom_format_contour.extend([x, y, z_value])
+
+    return dicom_format_contour
 
 
 def test_dice_from_polygons():
