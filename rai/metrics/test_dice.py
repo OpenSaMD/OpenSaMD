@@ -31,6 +31,7 @@ _ComparisonSlices = list[tuple[dice.ContoursXY, dice.ContoursXY]]
 def test_dice_from_dicom():
     """Test the comparison of two DICOM files with the Dice metric"""
 
+    # TODO: Create more test cases.
     slices: _ComparisonSlices = [
         ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
         (
