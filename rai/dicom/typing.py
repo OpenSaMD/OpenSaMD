@@ -33,7 +33,9 @@ class ContourImageSequenceItem(pydicom.Dataset):
 class ContourSequenceItem(pydicom.Dataset):
     ContourImageSequence: list[ContourImageSequenceItem]
     ContourData: list[float]
-    ContourGeometricType: Literal["CLOSED_PLANAR"]
+    ContourGeometricType: Literal[
+        "CLOSED_PLANAR", "POINT", "OPEN_PLANAR", "OPEN_NONPLANAR"
+    ]
 
 
 class ROIContourSequenceItem(pydicom.Dataset):
