@@ -22,15 +22,11 @@ achieve.
 
 ## Installation
 
-The aim is for you to be able to install this open source research library by
-running:
+This open source research library is able to be installed by running:
 
 ```
 pip install rai
 ```
-
-However, currently the name is occupied by an abandoned project. I am in the
-process of requesting a PyPI name transfer.
 
 ## The regulatory documentation
 
