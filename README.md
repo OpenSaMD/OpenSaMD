@@ -22,7 +22,7 @@ achieve.
 
 ## Installation
 
-This open source research library is abel to be installed by running:
+This open source research library is able to be installed by running:
 
 ```
 pip install rai
