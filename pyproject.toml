@@ -23,7 +23,8 @@ classifiers = [
 # Ideally find a way to not upper pin if possible. See the following for more
 # details:
 # https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
-python = ">=3.9,<3.12"
+# TODO: Create a release CLI that temporarily removes these bounds prior to release.
+python = ">=3.9,<3.11"
 
 # We keep all version constraints as broad as possible for the library release.
 # For the application release, all versions are pinned and tightly controlled.
@@ -36,6 +37,13 @@ scikit-image = "*"
 scipy = "*"
 pydicom = "*"
 click = "*"
+
+tensorflow = { version = "*", markers = "sys_platform != \"win32\"" }
+tensorflow-cpu = { version = "*", markers = "sys_platform == \"win32\"" }
+tensorflow-directml-plugin = { version = "*", markers = "sys_platform == \"win32\"" }
+
+# TODO: Installing tensorflow-cpu with poetry doesn't automatically install
+# tensorflow-intel. Need to get to the bottom of this.
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
