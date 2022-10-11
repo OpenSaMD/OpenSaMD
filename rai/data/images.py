@@ -14,26 +14,108 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+import pathlib
+
 import numpy as np
 import pydicom
+import skimage.measure
 from raicontours import cfg
 
+from rai.dicom import sorting as _dicom_sorting
 
-def get_model_input_image(ds: pydicom.Dataset):
-    original = ds.pixel_array * ds.RescaleSlope + ds.RescaleIntercept
-    rescaled = (
-        cfg["pixel_value_factor"]
-        * (original - cfg["rescale_intercept"])
-        / cfg["rescale_slope"]
+
+def paths_to_reduced_image_stack(paths: list[pathlib.Path]):
+    x_grid, y_grid, image_stack = _paths_to_image_stack_hfs(paths=paths)
+
+    initial_reduce_block_size = cfg["reduce_block_sizes"][0]
+
+    reduced = skimage.measure.block_reduce(
+        image_stack, block_size=initial_reduce_block_size, func=np.mean
     )
+
+    return reduced
+
+
+def _paths_to_image_stack_hfs(paths: list[pathlib.Path]):
+    sorted_paths = sorted(paths, key=_sorting_key)
+
+    image_stack = []
+
+    x_grid = None
+    y_grid = None
+
+    for path in sorted_paths:
+        ds = pydicom.read_file(path)
+        (
+            loaded_x_grid,
+            loaded_y_grid,
+            model_input_image,
+        ) = _get_model_dicom_grid_and_rescaled_image(ds=ds)
+        x_grid, y_grid = _validate_grid(x_grid, y_grid, loaded_x_grid, loaded_y_grid)
+
+        image_stack.append(model_input_image[None, ...])
+
+    image_stack = np.concatenate(image_stack, axis=0)
+    x_grid_hfs, y_grid_hfs, image_stack_hfs = _convert_array_to_or_from_hfs_with_grids(
+        x_grid, y_grid, image_stack
+    )
+
+    return x_grid_hfs, y_grid_hfs, image_stack_hfs
+
+
+def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):
+    if x_grid_reference is None:
+        x_grid_reference = x_grid
+
+    if y_grid_reference is None:
+        y_grid_reference = y_grid
+
+    if np.any(x_grid != x_grid_reference) or np.any(y_grid != y_grid_reference):
+        raise ValueError("Inconsistent x and y grid values")
+
+    return x_grid_reference, y_grid_reference
+
+
+def _sorting_key(path: pathlib.Path):
+    header = pydicom.read_file(path, force=True, stop_before_pixels=True)
+
+    return -_dicom_sorting.slice_position(header)
+
+
+def _get_model_dicom_grid_and_rescaled_image(ds: pydicom.Dataset):
+    original = ds.pixel_array * ds.RescaleSlope + ds.RescaleIntercept
+    rescaled = (original - cfg["rescale_intercept"]) / cfg["rescale_slope"]
 
     x_grid, y_grid = _get_grid(ds)
 
-    model_input_image = _convert_array_to_or_from_hfs_with_grids(
-        x_grid, y_grid, rescaled
-    ).astype("float32")
+    return x_grid, y_grid, rescaled
 
-    return x_grid, y_grid, model_input_image
+
+def _convert_array_to_or_from_hfs_with_grids(x_grid, y_grid, array):
+    """Flips the input and output along the axis where x_grid or y_grid
+    is not currently always increasing.
+    """
+    dx = np.diff(x_grid)
+    dy = np.diff(y_grid)
+
+    flip = slice(-1, None, -1)
+
+    if np.any(dx < 0):
+        # Axes order b?, z, y, x
+        array = array[..., :, flip]
+        x_grid = x_grid[flip]
+        dx = np.diff(x_grid)
+
+    assert np.all(dx >= 0)
+
+    if np.any(dy < 0):
+        array = array[..., flip, :]
+        y_grid = y_grid[flip]
+        dy = np.diff(y_grid)
+
+    assert np.all(dy >= 0)
+
+    return x_grid, y_grid, array
 
 
 def _get_grid(image_ds: pydicom.Dataset):
@@ -47,49 +129,6 @@ def _get_grid(image_ds: pydicom.Dataset):
     assert len(y_grid) == rows
 
     return x_grid, y_grid
-
-
-def _convert_array_to_or_from_hfs_with_grids(x_grid, y_grid, array):
-    """Flips the input and output along the axis where x_grid or y_grid
-    is not currently always increasing.
-
-    Note
-    ----
-    Throughout the codebase x_grid and y_grid always correspond to
-    the patient coordinates that are exported from the original dicom
-    image slice. Right before the data is passed through to the model
-    the input and output arrays are adjusted so that the image is
-    presented as if the patient was in HFS orientation. This is so that
-    ant is always at the top of the image, post at the bottom,
-    patient left at the right of the image and patient right at the
-    left of the image.
-
-    Before any inference occurs the input image needs to be flipped into
-    HFS orientation, and then the final mask produced needs to be
-    flipped back to match.
-
-    """
-    dx = np.diff(x_grid)
-    dy = np.diff(y_grid)
-
-    flip = slice(-1, None, -1)
-
-    if np.any(dx < 0):
-        # Axes order z, y, x, c
-        array = array[:, :, flip, :]
-        dx = np.diff(x_grid[flip])
-
-    assert np.all(dx >= 0)
-
-    if np.any(dy < 0):
-        array = array[:, flip, :, :]
-        dy = np.diff(y_grid[flip])
-
-    assert np.all(dy >= 0)
-
-    array_hfs: np.ndarray = array
-
-    return array_hfs
 
 
 def _get_image_transformation_parameters(image_ds: pydicom.Dataset):
