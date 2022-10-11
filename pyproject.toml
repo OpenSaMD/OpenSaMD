@@ -39,6 +39,7 @@ scikit-image = "*"
 scipy = "*"
 pydicom = "*"
 click = "*"
+numba = "*"
 
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
