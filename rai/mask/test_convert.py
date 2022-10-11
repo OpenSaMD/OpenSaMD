@@ -23,8 +23,9 @@ import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, repo
 import numpy as np
 
 from rai.metrics import dice
+from rai.typing.contours import ContoursXY, Grid
 
-from .convert import Contours, Grid, contours_to_mask, mask_to_contours
+from .convert import contours_to_mask, mask_to_contours
 
 HERE = pathlib.Path(__file__).parent
 FIGURE_DIR = HERE / "test_figures"
@@ -107,12 +108,16 @@ class _TestCase(TypedDict):
     title: str
     x_grid: Grid
     y_grid: Grid
-    contours: Contours
+    contours: ContoursXY
     dice_lower_bound: float
 
 
 def _run_round_trip_test(
-    title: str, x_grid: Grid, y_grid: Grid, contours: Contours, dice_lower_bound: float
+    title: str,
+    x_grid: Grid,
+    y_grid: Grid,
+    contours: ContoursXY,
+    dice_lower_bound: float,
 ):
     mask = contours_to_mask(x_grid, y_grid, contours)
     round_trip_contours = mask_to_contours(x_grid, y_grid, mask)

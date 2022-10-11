@@ -17,15 +17,11 @@
 
 import collections
 
-import numpy as np
 import shapely.geometry
 import shapely.geometry.base
-from numpy.typing import NDArray
 
-from rai.dicom.typing import ContourSequenceItem
-
-ContourXY = list[tuple[float, float]]
-ContoursXY = list[ContourXY]
+from rai.typing.contours import ContoursXY
+from rai.typing.dicom import ContourSequenceItem
 
 
 def from_contour_sequence(a: list[ContourSequenceItem], b: list[ContourSequenceItem]):
@@ -137,13 +133,7 @@ def from_shapely(
     return 2 * a.intersection(b).area / (a.area + b.area)
 
 
-# TODO: Conform to either ContoursYX or ContoursXY internally within
-# rai. Don't swap between using both within the function APIs.
-ContourYX = NDArray[np.float64]
-ContoursYX = list[ContourYX]
-
-
-def from_contours(a: ContoursYX, b: ContoursYX):
+def from_contours(a: ContoursXY, b: ContoursXY):
     """Determine the Dice metric from two coordinate lists.
 
     The Dice score is an overlap metric where a value of 1 indicates
@@ -168,12 +158,9 @@ def from_contours(a: ContoursYX, b: ContoursYX):
     )
 
 
-def _contours_yx_to_shapely(contours: ContoursYX):
+def _contours_yx_to_shapely(contours: ContoursXY):
     geom = shapely.geometry.Polygon()
-    for yx_coords in contours:
-        xy_coords = np.flip(  # pyright: ignore [reportUnknownMemberType]
-            yx_coords, axis=1
-        )
+    for xy_coords in contours:
         geom = geom.union(shapely.geometry.Polygon(xy_coords))
 
     return geom

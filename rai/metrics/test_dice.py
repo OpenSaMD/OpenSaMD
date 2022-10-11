@@ -22,31 +22,36 @@ import pydicom.uid
 import shapely.geometry
 
 from rai.dicom import append, uid
-from rai.dicom.typing import TypedDataset
+from rai.typing.contours import ContoursBySlice, ContourXY
+from rai.typing.dicom import TypedDataset
 
 from . import dice
-
-_ComparisonSlices = list[tuple[dice.ContoursXY, dice.ContoursXY]]
 
 
 def test_dice_from_dicom():
     """Test the comparison of two DICOM files with the Dice metric"""
 
     # TODO: Create more test cases.
-    slices: _ComparisonSlices = [
-        # Unit square with no overlap on first slice
-        ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
-        # A Unit square for one, and a 0.5 x 0.5 square for the other,
-        # with an expected 1/4 overlap.
-        (
-            [[(0, 0), (0, 1), (1, 1), (1, 0)]],
-            [[(0, 0), (0, 0.5), (0.5, 0.5), (0.5, 0)]],
-        ),
-        # Unit square with no overlap on last slice
-        ([[(0, 0), (0, 1), (1, 1), (1, 0)]], []),
+
+    # Three slices with a unit square
+    contours_by_slice_a: ContoursBySlice = [
+        [[(0, 0), (0, 1), (1, 1), (1, 0)]],
+        [[(0, 0), (0, 1), (1, 1), (1, 0)]],
+        [[(0, 0), (0, 1), (1, 1), (1, 0)]],
     ]
 
-    ds_a, ds_b = _create_slice_aligned_dicom_files(slices)
+    contours_by_slice_b: ContoursBySlice = [
+        # No overlap on first slice
+        [],
+        # A 0.5 x 0.5 square with an expected 1/4 overlap.
+        [[(0, 0), (0, 0.5), (0.5, 0.5), (0.5, 0)]],
+        # No overlap on last slice
+        [],
+    ]
+
+    ds_a, ds_b = _create_slice_aligned_dicom_files(
+        contours_by_slice_a, contours_by_slice_b
+    )
 
     a = ds_a.ROIContourSequence[0].ContourSequence
     b = ds_b.ROIContourSequence[0].ContourSequence
@@ -58,7 +63,9 @@ def test_dice_from_dicom():
     assert returned_dice == 2 * 0.5 * 0.5 / (0.5 * 0.5 + 1 * 3)
 
 
-def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
+def _create_slice_aligned_dicom_files(
+    slices_a: ContoursBySlice, slices_b: ContoursBySlice
+):
     """Test utility for aligned contour comparisons.
 
     Take a list of aligned slice contour coordinates and create two
@@ -72,7 +79,7 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
     contour_sequence_a: list[append.DicomItem] = []
     contour_sequence_b: list[append.DicomItem] = []
 
-    for i, (contours_on_a, contours_on_b) in enumerate(slices):
+    for i, (contours_on_a, contours_on_b) in enumerate(zip(slices_a, slices_b)):
         reference_sop_instance_uid = pydicom.uid.generate_uid(
             prefix=uid.RAI_CLIENT_ROOT_UID_PREFIX
         )
@@ -111,7 +118,7 @@ def _create_slice_aligned_dicom_files(slices: _ComparisonSlices):
 def _append_contour_sequence_item(
     contour_sequence: list[append.DicomItem],
     reference_sop_instance_uid: str,
-    contour: dice.ContourXY,
+    contour: ContourXY,
     z_value: float,
 ):
     contour_sequence.append(
@@ -127,7 +134,7 @@ def _append_contour_sequence_item(
     )
 
 
-def _contour_to_dicom_format(contour: dice.ContourXY, z_value: float):
+def _contour_to_dicom_format(contour: ContourXY, z_value: float):
     dicom_format_contour: list[float] = []
     for x, y in contour:
         dicom_format_contour.extend([x, y, z_value])

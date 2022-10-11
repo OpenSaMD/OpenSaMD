@@ -18,14 +18,11 @@
 import numpy as np
 import skimage.draw
 import skimage.measure
-from numpy.typing import NDArray
 
-Contours = list[NDArray[np.float64]]
-Grid = NDArray[np.float64]
-Mask = NDArray[np.uint8]
+from rai.typing.contours import ContoursXY, ContourXY, Grid, Mask
 
 
-def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
+def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> ContoursXY:
     """Converts a uint8 anti-aliased mask into a series of contours.
 
     This is a wrapper around `skimage.measure.find_contours` with the
@@ -49,10 +46,9 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
 
     Returns
     -------
-    contours : list of (n,2)-ndarrays in row column (y x) order
-        Each contour is an ndarray of shape (n, 2), consisting of n
-        (row, column aka y, x) coordinates along the contour. This is
-        inline with the return value of `skimage.measure.find_contours`.
+    contours : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
 
     """
 
@@ -70,18 +66,20 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
     x0, dx = _grid_to_transform(x_grid)
     y0, dy = _grid_to_transform(y_grid)
 
-    contours: list[NDArray[np.float64]] = []
+    contours: ContoursXY = []
     for yx_coords in contours_coords_image_frame:
         yx_coords[:, 1] = yx_coords[:, 1] * dx + x0
         yx_coords[:, 0] = yx_coords[:, 0] * dy + y0
 
-        contours.append(yx_coords)
+        xy_coords: ContourXY = [(x, y) for y, x in yx_coords]
+
+        contours.append(xy_coords)
 
     return contours
 
 
 def contours_to_mask(
-    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int = 16
+    x_grid: Grid, y_grid: Grid, contours: ContoursXY, expansion: int = 16
 ) -> Mask:
     """Creates a uint8 anti-aliased mask from a list of contours.
 
@@ -91,9 +89,9 @@ def contours_to_mask(
         The x-coordinates of the resulting mask
     y_grid : NDArray[np.float64]
         The y-coordinates of the resulting mask
-    contours : list of (n,2)-ndarrays in row column (y x) order
-        A list of contours where each contour is an ndarray of shape
-        (n, 2)
+    contours : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
     expansion : int, optional
         The amount to expand the mask by prior to averaging down. The
         default value results in 16 x 16 = 256 possible values for each
@@ -126,7 +124,7 @@ def contours_to_mask(
 
 
 def _contours_to_expanded_mask(
-    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int
+    x_grid: Grid, y_grid: Grid, contours: ContoursXY, expansion: int
 ):
     expanded_mask_size = (len(y_grid) * expansion, len(x_grid) * expansion)
 
@@ -135,9 +133,11 @@ def _contours_to_expanded_mask(
 
     expanded_mask = np.zeros(expanded_mask_size)
 
-    for yx_coords in contours:
-        y = yx_coords[:, 0]
-        x = yx_coords[:, 1]
+    for xy_coords in contours:
+        xy_coords_array = np.array(xy_coords)
+
+        y = xy_coords_array[:, 1]
+        x = xy_coords_array[:, 0]
 
         i = ((y - y0) / dy) * expansion + (expansion - 1) * 0.5
         j = ((x - x0) / dx) * expansion + (expansion - 1) * 0.5
