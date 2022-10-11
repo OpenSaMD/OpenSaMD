@@ -2443,6 +2443,37 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "tensorflow-intel"
+version = "2.10.0"
+description = "TensorFlow is an open source machine learning framework for everyone."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+absl-py = ">=1.0.0"
+astunparse = ">=1.6.0"
+flatbuffers = ">=2.0"
+gast = ">=0.2.1,<=0.4.0"
+google-pasta = ">=0.1.1"
+grpcio = ">=1.24.3,<2.0"
+h5py = ">=2.9.0"
+keras = ">=2.10.0,<2.11"
+keras-preprocessing = ">=1.1.1"
+libclang = ">=13.0.0"
+numpy = ">=1.20"
+opt-einsum = ">=2.3.2"
+packaging = "*"
+protobuf = ">=3.9.2,<3.20"
+six = ">=1.12.0"
+tensorboard = ">=2.10,<2.11"
+tensorflow-estimator = ">=2.10.0,<2.11"
+tensorflow-io-gcs-filesystem = ">=0.23.1"
+termcolor = ">=1.1.0"
+typing-extensions = ">=3.6.6"
+wrapt = ">=1.11.0"
+
+[[package]]
 name = "tensorflow-io-gcs-filesystem"
 version = "0.27.0"
 description = "TensorFlow IO"
@@ -2682,7 +2713,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.11"
-content-hash = "8d2dd7435440916569ee735277730b86c46fc44f428c29f361da2a8c6bd7b934"
+content-hash = "2faa3bd7dee7f37d579b5ea5f6c8acac92042ea21ac4dbacc21ad607e79585bd"
 
 [metadata.files]
 absl-py = [
@@ -4422,6 +4453,12 @@ tensorflow-directml-plugin = [
 ]
 tensorflow-estimator = [
     {file = "tensorflow_estimator-2.10.0-py2.py3-none-any.whl", hash = "sha256:f324ea17cd57f16e33bf188711d5077e6b2e5f5a12c328d6e01a07b23888edcd"},
+]
+tensorflow-intel = [
+    {file = "tensorflow_intel-2.10.0-cp310-cp310-win_amd64.whl", hash = "sha256:76b5ccc2cbd96020499d45316b694e4e38d162b1dccd7668eaa612a1be6b1da1"},
+    {file = "tensorflow_intel-2.10.0-cp37-cp37m-win_amd64.whl", hash = "sha256:e6096b3a84bbc57eab88cc39ad7d6148e400a0da6a448f94d5e84c8cdbb521b5"},
+    {file = "tensorflow_intel-2.10.0-cp38-cp38-win_amd64.whl", hash = "sha256:6606c1c010e1f20bc1ab6fe111efa64fa77683fda76e54847ab03496adb75334"},
+    {file = "tensorflow_intel-2.10.0-cp39-cp39-win_amd64.whl", hash = "sha256:5da2996853c1aec544a37c7f14cf3480dcc96effa1ed9fcbba4a979ad9e3439f"},
 ]
 tensorflow-io-gcs-filesystem = [
     {file = "tensorflow_io_gcs_filesystem-0.27.0-cp310-cp310-macosx_10_14_x86_64.whl", hash = "sha256:babca2a12755badd1517043f9d633823533fbd7b463d7d36e9e6179b246731dc"},

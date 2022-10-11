@@ -40,12 +40,9 @@ scipy = "*"
 pydicom = "*"
 click = "*"
 
-tensorflow = { version = "*", markers = "sys_platform != \"win32\"" }
-tensorflow-cpu = { version = "*", markers = "sys_platform == \"win32\"" }
-tensorflow-directml-plugin = { version = "*", markers = "sys_platform == \"win32\"" }
-
-# TODO: Installing tensorflow-cpu with poetry doesn't automatically install
-# tensorflow-intel. Need to get to the bottom of this.
+tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
+tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
+tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Windows\"" }
 
 # Pin while the model is likely to change significantly from one version to the
 # next
