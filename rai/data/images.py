@@ -18,34 +18,15 @@ import pathlib
 
 import numpy as np
 import pydicom
-import skimage.measure
 from raicontours import cfg
 
 from rai.dicom import sorting as _dicom_sorting
 
 
-def paths_to_reduced_image_stack(paths: list[pathlib.Path]):
-    """Load a reduced image stack designed for initial model input"""
-    x_grid, y_grid, image_stack = _paths_to_image_stack_hfs(paths=paths)
-
-    initial_reduce_block_size = cfg["reduce_block_sizes"][0]
-
-    reduced_image_stack = skimage.measure.block_reduce(
-        image_stack, block_size=initial_reduce_block_size, func=np.mean
-    )
-    reduced_x_grid = skimage.measure.block_reduce(
-        x_grid, block_size=initial_reduce_block_size[2], func=np.mean
-    )
-    reduced_y_grid = skimage.measure.block_reduce(
-        y_grid, block_size=initial_reduce_block_size[1], func=np.mean
-    )
-
-    return reduced_x_grid, reduced_y_grid, reduced_image_stack
-
-
-def _paths_to_image_stack_hfs(paths: list[pathlib.Path]):
+def paths_to_image_stack_hfs(paths: list[pathlib.Path]):
     sorted_paths = sorted(paths, key=_sorting_key)
 
+    image_uids: list[str] = []
     image_stack = []
 
     x_grid = None
@@ -61,13 +42,14 @@ def _paths_to_image_stack_hfs(paths: list[pathlib.Path]):
         x_grid, y_grid = _validate_grid(x_grid, y_grid, loaded_x_grid, loaded_y_grid)
 
         image_stack.append(model_input_image[None, ...])
+        image_uids.append(ds.SOPInstanceUID)
 
     image_stack = np.concatenate(image_stack, axis=0)
     x_grid_hfs, y_grid_hfs, image_stack_hfs = _convert_array_to_or_from_hfs_with_grids(
         x_grid, y_grid, image_stack
     )
 
-    return x_grid_hfs, y_grid_hfs, image_stack_hfs
+    return x_grid_hfs, y_grid_hfs, image_stack_hfs, image_uids
 
 
 def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):

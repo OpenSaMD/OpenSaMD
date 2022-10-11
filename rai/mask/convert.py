@@ -19,7 +19,34 @@ import numpy as np
 import skimage.draw
 import skimage.measure
 
+from rai.dicom import structures as _dicom_structures
 from rai.typing.contours import ContoursXY, ContourXY, Grid, Mask
+from rai.typing.dicom import ContourSequenceItem
+
+
+def contour_sequence_to_masks(
+    x_grid: Grid,
+    y_grid: Grid,
+    sorted_image_uids: list[str],
+    contour_sequence: list[ContourSequenceItem],
+    expansion: int = 16,
+) -> Mask:
+    image_uid_to_contours_map = _dicom_structures.get_image_uid_to_contours_map(
+        contour_sequence=contour_sequence,
+    )
+
+    mask_stack: list[Mask] = []
+
+    for image_uid in sorted_image_uids:
+        contours = image_uid_to_contours_map[image_uid]
+        mask = contours_to_mask(
+            x_grid=x_grid, y_grid=y_grid, contours=contours, expansion=expansion
+        )
+        mask_stack.append(mask[None, ...])
+
+    concatenated_mask_stack = np.concatenate(mask_stack, axis=0)
+
+    return concatenated_mask_stack
 
 
 def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> ContoursXY:
