@@ -19,9 +19,7 @@ from . import _create
 
 
 def load_model():
-    # TODO: Save structure names within raicontours (TG approach)
-    # TODO: Get structure count from raicontours
-    model = _create.create_model(num_structures=4)
+    model = _create.create_model()
     model.load_weights(raicontours.model_path)
 
     return model

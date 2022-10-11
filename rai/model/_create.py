@@ -14,18 +14,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import tensorflow as tf
-
-PATCH_DIMENSIONS = (64, 64, 64)
-ENCODING_FILTER_COUNTS = [32, 64, 128, 256]
-DECODING_FILTER_COUNTS = [128, 64, 32, 16]
+from raicontours import cfg
 
 
-def create_model(num_structures: int):
+def create_model():
     """Create autosegmentation tensorflow model"""
-    image_input: tf.Tensor = tf.keras.layers.Input(shape=PATCH_DIMENSIONS)
+    image_input: tf.Tensor = tf.keras.layers.Input(shape=cfg["patch_dimensions"])
 
     x: tf.Tensor = image_input[..., None]
-    x = _core(x=x, num_structures=num_structures)
+    x = _core(x=x)
 
     mask_output = tf.cast(tf.round(x * 255), dtype=tf.uint8)
 
@@ -34,11 +31,11 @@ def create_model(num_structures: int):
     return model
 
 
-def _core(x: tf.Tensor, num_structures: int):
+def _core(x: tf.Tensor):
     skips: list[tf.Tensor] = []
 
-    for i, filters in enumerate(ENCODING_FILTER_COUNTS):
-        is_last_step = i >= len(ENCODING_FILTER_COUNTS) - 1
+    for i, filters in enumerate(cfg["encoding_filter_counts"]):
+        is_last_step = i >= len(cfg["encoding_filter_counts"]) - 1
 
         x, skip = _encode(x=x, filters=filters, pool=not is_last_step)
 
@@ -47,10 +44,12 @@ def _core(x: tf.Tensor, num_structures: int):
 
     skips.reverse()
 
-    for filters, skip in zip(DECODING_FILTER_COUNTS, skips):
+    for filters, skip in zip(cfg["decoding_filter_counts"], skips):
         x = _decode(x=x, skip=skip, filters=filters)
 
-    x = tf.keras.layers.Conv3D(filters=num_structures, kernel_size=1, padding="same")(x)
+    x = tf.keras.layers.Conv3D(
+        filters=len(cfg["structures"]), kernel_size=1, padding="same"
+    )(x)
     x = tf.keras.layers.Activation("sigmoid")(x)
 
     return x
