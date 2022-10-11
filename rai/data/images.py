@@ -150,14 +150,22 @@ def _get_image_transformation_parameters(image_ds: pydicom.Dataset):
         orientation[5],
     )
 
-    if not np.allclose(orientations_that_should_be_zero, (0, 0, 0, 0)):
+    orientations_that_should_be_unit_magnitude = (
+        orientation[0],
+        orientation[4],
+    )
+
+    zero_pass = np.allclose(orientations_that_should_be_zero, (0, 0, 0, 0))
+    unit_pass = np.allclose(np.abs(orientations_that_should_be_unit_magnitude), (1, 1))
+
+    if not zero_pass or not unit_pass:
         raise ValueError(
             "Unsupported orientation, required one of HFS, HFP, FFS, or FFP. "
             f"The ImageOrientationPatient was {orientation}."
         )
 
     dx = spacing[0] * orientation[0]
-    dy = spacing[1] * orientation[1]
+    dy = spacing[1] * orientation[4]
 
     x0, y0, _z0 = position
 
