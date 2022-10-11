@@ -23,7 +23,9 @@ classifiers = [
 # Ideally find a way to not upper pin if possible. See the following for more
 # details:
 # https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
-# TODO: Create a release CLI that temporarily removes these bounds prior to release.
+
+# TODO: Create a release CLI that temporarily removes these bounds prior to
+# release.
 python = ">=3.9,<3.11"
 
 # We keep all version constraints as broad as possible for the library release.
@@ -44,6 +46,11 @@ tensorflow-directml-plugin = { version = "*", markers = "sys_platform == \"win32
 
 # TODO: Installing tensorflow-cpu with poetry doesn't automatically install
 # tensorflow-intel. Need to get to the bottom of this.
+
+# Pin while the model is likely to change significantly from one version to the
+# next
+raicontours = "0.2.0"
+
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
