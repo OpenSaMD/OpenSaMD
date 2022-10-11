@@ -144,8 +144,12 @@ def from_contours(a: ContoursXY, b: ContoursXY):
 
     Parameters
     ----------
-    a : list of (n,2)-ndarrays in row column (y x) order
-    b : list of (n,2)-ndarrays in row column (y x) order
+    a : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
+    b : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
 
     Returns
     -------
