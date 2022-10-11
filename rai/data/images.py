@@ -25,15 +25,22 @@ from rai.dicom import sorting as _dicom_sorting
 
 
 def paths_to_reduced_image_stack(paths: list[pathlib.Path]):
+    """Load a reduced image stack designed for initial model input"""
     x_grid, y_grid, image_stack = _paths_to_image_stack_hfs(paths=paths)
 
     initial_reduce_block_size = cfg["reduce_block_sizes"][0]
 
-    reduced = skimage.measure.block_reduce(
+    reduced_image_stack = skimage.measure.block_reduce(
         image_stack, block_size=initial_reduce_block_size, func=np.mean
     )
+    reduced_x_grid = skimage.measure.block_reduce(
+        x_grid, block_size=initial_reduce_block_size[2], func=np.mean
+    )
+    reduced_y_grid = skimage.measure.block_reduce(
+        y_grid, block_size=initial_reduce_block_size[1], func=np.mean
+    )
 
-    return reduced
+    return reduced_x_grid, reduced_y_grid, reduced_image_stack
 
 
 def _paths_to_image_stack_hfs(paths: list[pathlib.Path]):
