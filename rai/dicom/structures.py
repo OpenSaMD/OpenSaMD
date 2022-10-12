@@ -15,7 +15,7 @@
 
 import collections
 
-from rai.typing.contours import ContoursXY
+from rai.typing.contours import ContoursBySlice, ContoursXY
 from rai.typing.dicom import ContourSequenceItem
 
 
@@ -39,6 +39,23 @@ def get_image_uid_to_contours_map(
         )
 
     return image_uid_to_contours_map
+
+
+def contour_sequence_to_contours_by_slice(
+    sorted_image_uids: list[str],
+    contour_sequence: list[ContourSequenceItem],
+) -> ContoursBySlice:
+    image_uid_to_contours_map = get_image_uid_to_contours_map(
+        contour_sequence=contour_sequence
+    )
+
+    contours_by_slice: ContoursBySlice = []
+
+    for image_uid in sorted_image_uids:
+        contours = image_uid_to_contours_map[image_uid]
+        contours_by_slice.append(contours)
+
+    return contours_by_slice
 
 
 def _convert_dicom_contours(contour_data: list[float]):

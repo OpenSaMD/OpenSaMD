@@ -59,6 +59,8 @@ def from_contour_sequence(a: list[ContourSequenceItem], b: list[ContourSequenceI
 
 
 def from_contours_by_slice(a: ContoursBySlice, b: ContoursBySlice):
+    assert len(a) == len(b)
+
     intersection_area = 0
     total_area = 0
     for contours_a, contours_b in zip(a, b):
