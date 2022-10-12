@@ -29,7 +29,7 @@ from . import main as _inference
 
 
 def test_inference():
-    image_paths, structure_path = _data_download.example_head_and_neck()
+    image_paths, structure_path = _data_download.hnscc_example()
 
     x_grid, y_grid, image_stack, image_uids = _images_data.paths_to_image_stack_hfs(
         image_paths

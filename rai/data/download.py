@@ -21,11 +21,8 @@ from typing import Union
 from rai._paths import RAI_DATA
 
 
-def example_head_and_neck(
-    data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC-01-0201"
-):
+def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
     data_dir = pathlib.Path(data_dir)
-    data_dir.mkdir(exist_ok=True, parents=True)
 
     repo_url = "https://github.com/RadiotherapyAI/data-tcia-hnscc-part-3"
     commit_hash = "9a78da8ff52d60bed629b55f1076338005732480"
@@ -33,15 +30,18 @@ def example_head_and_neck(
 
     download_url_root = f"{repo_url}/raw/{commit_hash}/{study_path}"
 
-    structure_url = f"{download_url_root}/1.000000-91247/1-1.dcm"
-    structure_path = data_dir / "1-1.dcm"
+    resolved_study_path = data_dir / study_path.replace("%20", "/")
 
-    image_filenames = [f"1-{item:03d}.dcm" for item in range(1, 177)]
+    relative_structure_path = "1.000000-91247/1-1.dcm"
+    structure_url = f"{download_url_root}/{relative_structure_path}"
+    structure_path = resolved_study_path / relative_structure_path
 
-    image_urls = [
-        f"{download_url_root}/2.000000-47027/{filename}" for filename in image_filenames
+    relative_image_paths = [
+        f"2.000000-47027/1-{item:03d}.dcm" for item in range(1, 177)
     ]
-    image_paths = [data_dir / filename for filename in image_filenames]
+
+    image_urls = [f"{download_url_root}/{path}" for path in relative_image_paths]
+    image_paths = [resolved_study_path / path for path in relative_image_paths]
 
     urls_to_download = [structure_url] + image_urls
     paths_to_save_to = [structure_path] + image_paths
@@ -51,6 +51,8 @@ def example_head_and_neck(
     for url, path in zip(urls_to_download, paths_to_save_to):
         if path.exists():
             continue
+
+        path.parent.mkdir(exist_ok=True, parents=True)
 
         p = multiprocessing.Process(
             target=urllib.request.urlretrieve, kwargs={"url": url, "filename": path}
