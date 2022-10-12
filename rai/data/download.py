@@ -15,6 +15,7 @@
 
 import multiprocessing
 import pathlib
+import urllib.parse
 import urllib.request
 from typing import Union
 
@@ -30,7 +31,7 @@ def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
 
     download_url_root = f"{repo_url}/raw/{commit_hash}/{study_path}"
 
-    resolved_study_path = data_dir / study_path.replace("%20", "/")
+    resolved_study_path = data_dir / urllib.parse.unquote(study_path)
 
     relative_structure_path = "1.000000-91247/1-1.dcm"
     structure_url = f"{download_url_root}/{relative_structure_path}"
