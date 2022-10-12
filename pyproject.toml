@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rai"
-version = "0.1.3"
+version = "0.2.0-dev0"
 readme = "README.md"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
@@ -47,7 +47,7 @@ tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Wi
 
 # Pin while the model is likely to change significantly from one version to the
 # next
-raicontours = "0.2.0"
+raicontours = "0.3.0"
 
 # Not needed after Python 3.7 support is dropped
 PyWavelets = "<1.4.0"
