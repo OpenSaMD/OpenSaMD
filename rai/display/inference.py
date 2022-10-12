@@ -13,14 +13,22 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import itertools
 
+import matplotlib.cm
 import matplotlib.pyplot as plt
 import numpy as np
 
 
 def plot_model_result(
-    x_grid, y_grid, image_stack, contours_by_structure, colours, labels
+    x_grid, y_grid, image_stack, contours_by_structure, labels, line_prop
 ):
+    colour_iterator = _get_colours()
+    colours = {
+        structure_name: next(colour_iterator)
+        for structure_name in contours_by_structure
+    }
+
     vmin = 0.2
     vmax = 0.4
 
@@ -63,6 +71,7 @@ def plot_model_result(
                 ax.plot(
                     contour_array[:, 0],
                     contour_array[:, 1],
+                    line_prop[structure_name],
                     label=labels[structure_name],
                     c=colours[structure_name],
                 )
@@ -91,3 +100,22 @@ def plot_model_result(
     for ax in axs:
         ax.set_ylim(ylim)
         ax.set_xlim(xlim)
+
+
+def _get_colours():
+    cmaps_to_pull_from = ["tab10", "Set3", "Set1", "Set2"]
+    loaded_colours = []
+    for cmap in cmaps_to_pull_from:
+        loaded_colours += matplotlib.cm.get_cmap(cmap).colors
+
+    colours = np.array(loaded_colours)
+
+    greys_ref = np.logical_and(
+        np.abs(colours[:, 0] - colours[:, 1]) < 0.2,
+        np.abs(colours[:, 0] - colours[:, 2]) < 0.2,
+        np.abs(colours[:, 1] - colours[:, 2]) < 0.2,
+    )
+    colours: np.ndarray = colours[np.invert(greys_ref)]
+    colours: list[tuple[float, float, float]] = [tuple(item) for item in colours]
+
+    return itertools.cycle(colours)
