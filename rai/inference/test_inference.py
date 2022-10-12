@@ -18,6 +18,7 @@ import pydicom
 
 from raicontours import TG263
 
+from rai.contours import merge as _merge_contours
 from rai.data import download as _data_download
 from rai.data import images as _images_data
 from rai.dicom import structures as _dicom_structures
@@ -42,7 +43,7 @@ def test_inference():
         image_stack=image_stack, grid=(z, y, x)
     )
 
-    contours_by_structure_pd = _mask_convert.masks_to_contours_by_structure(
+    pd_contours_by_structure_tg263 = _mask_convert.masks_to_contours_by_structure(
         x_grid, y_grid, masks_pd
     )
 
@@ -50,49 +51,25 @@ def test_inference():
 
     structure_ds = pydicom.read_file(structure_path)
 
-    name_to_number_map = {
-        item.ROIName: item.ROINumber for item in structure_ds.StructureSetROISequence
-    }
-
-    name_map = {
+    merge_map = {
         "Eyes": [TG263.Eye_L, TG263.Eye_R],
         "L Optic Nerve": [TG263.OpticNrv_L],
         "R Optic Nerve": [TG263.OpticNrv_R],
     }
 
-    number_to_contour_sequence_map = {
-        item.ReferencedROINumber: item.ContourSequence
-        for item in structure_ds.ROIContourSequence
-    }
+    gt_contours_by_structure_hnscc = _dicom_structures.dicom_to_contours_by_structure(
+        ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
+    )
 
-    structure_name_to_contour_sequence_map = {
-        structure_name: number_to_contour_sequence_map[
-            name_to_number_map[structure_name]
-        ]
-        for structure_name in name_map
-    }
+    pd_contours_by_structure_hnscc = _merge_contours.merge_contours_by_structure(
+        pd_contours_by_structure_tg263, merge_map
+    )
 
-    contours_by_structure_gt = {}
     dice = {}
-
-    for hnscc_name, tg263_names in name_map.items():
-        contours_by_slice_gt = _dicom_structures.contour_sequence_to_contours_by_slice(
-            image_uids,
-            structure_name_to_contour_sequence_map[hnscc_name],
-        )
-        contours_by_structure_gt[hnscc_name] = contours_by_slice_gt
-
-        contours_by_slice_pd = []
-        for z_index, _ in enumerate(image_uids):
-
-            contours_for_this_slice = []
-            for tg263_name in tg263_names:
-                contours_for_this_slice += contours_by_structure_pd[tg263_name][z_index]
-
-            contours_by_slice_pd.append(contours_for_this_slice)
-
+    for hnscc_name in merge_map:
         dice[hnscc_name] = _dice_metric.from_contours_by_slice(
-            contours_by_slice_gt, contours_by_slice_pd
+            gt_contours_by_structure_hnscc[hnscc_name],
+            pd_contours_by_structure_hnscc[hnscc_name],
         )
 
     assert dice["Eyes"] > 0.88
