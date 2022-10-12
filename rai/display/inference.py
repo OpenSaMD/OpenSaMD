@@ -23,7 +23,12 @@ import numpy as np
 from raicontours import TG263
 
 
-def plot_model_result(x_grid, y_grid, image_stack, contours_by_structure, merge_map):
+def plot_model_result(
+    x_grid, y_grid, image_stack, contours_by_structure, merge_map=None
+):
+    if merge_map is None:
+        merge_map = {i: [key] for i, key in enumerate(contours_by_structure)}
+
     colour_iterator = _get_colours()
 
     colours = {}
