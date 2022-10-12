@@ -18,7 +18,7 @@
 import os
 import subprocess
 
-from ._paths import DOCS_DIR, REPO_ROOT
+from rai._paths import DOCS_DIR, REPO_ROOT
 
 
 def build(clean: bool):

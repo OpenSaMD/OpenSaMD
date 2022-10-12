@@ -13,16 +13,4 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import functools
-
-import raicontours
-
-from . import _create
-
-
-@functools.cache
-def load_model():
-    model = _create.create_model()
-    model.load_weights(raicontours.model_path)
-
-    return model
+Points = list[tuple[int, int, int]]

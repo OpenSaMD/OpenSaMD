@@ -21,3 +21,6 @@ HERE = pathlib.Path(__file__)
 REPO_ROOT = HERE.parents[2]
 DOCS_DIR = REPO_ROOT / "docs"
 LIBRARY_DIR = REPO_ROOT / "rai"
+
+RAI_HOME_DIR = pathlib.Path.home() / ".rai"
+RAI_DATA = RAI_HOME_DIR / "data"

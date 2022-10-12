@@ -23,7 +23,7 @@ from typing import Literal, cast
 import black
 import tomlkit
 
-from ._paths import DOCS_DIR, LIBRARY_DIR, REPO_ROOT
+from rai._paths import DOCS_DIR, LIBRARY_DIR, REPO_ROOT
 
 PyProjectContents = dict[
     Literal["tool"], dict[Literal["poetry"], dict[Literal["version"], str]]

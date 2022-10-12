@@ -15,22 +15,24 @@
 
 import numpy as np
 import tensorflow as tf
+from numpy.typing import NDArray
 from raicontours import cfg
 
+from rai.typing.inference import Points
 from rai.vendor.stackoverflow import slicing_without_array_copy
 
 from . import _points
 
 
-def create_batch(image_stack, points):
+def create_batch(image_stack: NDArray[np.float32], points: Points):
     patch_dimensions = cfg["patch_dimensions"]
 
-    image_stack_batched = []
+    collected_batched_image_stacks: list[NDArray[np.float32]] = []
     for point in points:
         shape = image_stack.shape
 
-        slices = []
-        fancy_slices = []
+        slices: list[slice] = []
+        fancy_slices: list[NDArray[np.int64]] = []
 
         for i in range(3):
             a_slice, _, a_fancy_slice = _points.point_to_indices(
@@ -55,9 +57,11 @@ def create_batch(image_stack, points):
                     indices=fancy_slices[i], axis=i
                 )
 
-        image_stack_batched.append(image_stack_with_slicing[None, ...])
+        collected_batched_image_stacks.append(image_stack_with_slicing[None, ...])
 
-    image_stack_batched = np.concatenate(image_stack_batched, axis=0)
+    image_stack_batched: NDArray[np.float32] = np.concatenate(
+        collected_batched_image_stacks, axis=0
+    )
 
     return image_stack_batched
 
