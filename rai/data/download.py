@@ -98,7 +98,7 @@ def _github_images_and_structure_download(
 def _multiprocess_download(
     urls_to_download: List[str], paths_to_save_to: List[pathlib.Path]
 ):
-    processes: list[multiprocessing.Process] = []
+    processes: List[multiprocessing.Process] = []
 
     for url, path in zip(urls_to_download, paths_to_save_to):
         # TODO: Utilise stored hashes to verify

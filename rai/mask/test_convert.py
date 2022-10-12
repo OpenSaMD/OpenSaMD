@@ -17,10 +17,11 @@
 """Testing the mask conversion to and from contour lines"""
 
 import pathlib
-from typing import TypedDict
+from typing import List
 
 import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
+from typing_extensions import TypedDict
 
 from rai.metrics import dice
 from rai.typing.contours import ContoursXY, Grid
@@ -34,7 +35,7 @@ FIGURE_DIR = HERE / "test_figures"
 def test_conversion_round_trip():
     """Test a round trip of contours -> mask -> contours"""
 
-    cases: list[_TestCase] = []
+    cases: List[_TestCase] = []
 
     cases.append(
         {

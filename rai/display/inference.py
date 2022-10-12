@@ -14,20 +14,40 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import itertools
+from typing import List, Tuple
 
 import matplotlib.cm
 import matplotlib.pyplot as plt
 import numpy as np
 
+from raicontours import TG263
 
-def plot_model_result(
-    x_grid, y_grid, image_stack, contours_by_structure, labels, line_prop
-):
+
+def plot_model_result(x_grid, y_grid, image_stack, contours_by_structure, merge_map):
     colour_iterator = _get_colours()
-    colours = {
-        structure_name: next(colour_iterator)
-        for structure_name in contours_by_structure
-    }
+
+    colours = {}
+    line_prop = {}
+    alpha = {}
+    labels = {}
+    for dicom_name, tg263_names in merge_map.items():
+        colour = next(colour_iterator)
+
+        for name in [dicom_name] + tg263_names:
+            colours[name] = colour
+
+        line_prop[dicom_name] = "--"
+        alpha[dicom_name] = 0.7
+
+        collected_name = "DICOM"
+        for name in tg263_names:
+            line_prop[name] = "-"
+            alpha[name] = 1
+            labels[name] = f"RAi {name.value}"
+
+            collected_name = f"{collected_name} {name.value}"
+
+        labels[dicom_name] = collected_name
 
     vmin = 0.2
     vmax = 0.4
@@ -74,6 +94,7 @@ def plot_model_result(
                     line_prop[structure_name],
                     label=labels[structure_name],
                     c=colours[structure_name],
+                    alpha=alpha[structure_name],
                 )
 
                 xlim[1] = np.max([np.max(contour_array[:, 0]), xlim[1]])
@@ -111,11 +132,11 @@ def _get_colours():
     colours = np.array(loaded_colours)
 
     greys_ref = np.logical_and(
-        np.abs(colours[:, 0] - colours[:, 1]) < 0.2,
-        np.abs(colours[:, 0] - colours[:, 2]) < 0.2,
-        np.abs(colours[:, 1] - colours[:, 2]) < 0.2,
+        np.abs(colours[:, 0] - colours[:, 1]) < 0.1,
+        np.abs(colours[:, 0] - colours[:, 2]) < 0.1,
+        np.abs(colours[:, 1] - colours[:, 2]) < 0.1,
     )
     colours: np.ndarray = colours[np.invert(greys_ref)]
-    colours: list[tuple[float, float, float]] = [tuple(item) for item in colours]
+    colours: List[Tuple[float, float, float]] = [tuple(item) for item in colours]
 
     return itertools.cycle(colours)

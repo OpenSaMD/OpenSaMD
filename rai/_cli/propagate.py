@@ -18,7 +18,7 @@
 import pathlib
 import re
 import textwrap
-from typing import cast
+from typing import Dict, cast
 
 import black
 import tomlkit
@@ -26,8 +26,8 @@ from typing_extensions import Literal
 
 from rai._paths import DOCS_DIR, LIBRARY_DIR, REPO_ROOT
 
-PyProjectContents = dict[
-    Literal["tool"], dict[Literal["poetry"], dict[Literal["version"], str]]
+PyProjectContents = Dict[
+    Literal["tool"], Dict[Literal["poetry"], Dict[Literal["version"], str]]
 ]
 
 AUTOGEN_MESSAGE = [

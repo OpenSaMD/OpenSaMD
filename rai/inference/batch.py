@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import List
+
 import numpy as np
 import tensorflow as tf
 from numpy.typing import NDArray
@@ -28,12 +30,12 @@ from . import _points
 def create_batch(image_stack: NDArray[np.float32], points: Points):
     patch_dimensions = cfg["patch_dimensions"]
 
-    collected_batched_image_stacks: list[NDArray[np.float32]] = []
+    collected_batched_image_stacks: List[NDArray[np.float32]] = []
     for point in points:
         shape = image_stack.shape
 
-        slices: list[slice] = []
-        fancy_slices: list[NDArray[np.int64]] = []
+        slices: List[slice] = []
+        fancy_slices: List[NDArray[np.int64]] = []
 
         for i in range(3):
             a_slice, _, a_fancy_slice = _points.point_to_indices(

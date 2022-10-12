@@ -29,14 +29,14 @@ from . import main as _inference
 
 
 def test_inference():
-    image_paths, structure_path = _data_download.hnscc_example()
+    image_paths, structure_path = _data_download.deepmind_example()
 
     x_grid, y_grid, image_stack, image_uids = _images_data.paths_to_image_stack_hfs(
         image_paths
     )
 
     z = [35, 45, 55]
-    y = [155, 175, 195, 215]
+    y = [140, 155, 175, 195, 215, 230]
     x = [210, 230, 250, 270, 290, 310]
 
     masks_pd = _inference.inference_over_jittered_grid(
@@ -52,50 +52,41 @@ def test_inference():
     structure_ds = pydicom.read_file(structure_path)
 
     merge_map = {
-        "Eyes": [TG263.Eye_L, TG263.Eye_R],
-        "L Optic Nerve": [TG263.OpticNrv_L],
-        "R Optic Nerve": [TG263.OpticNrv_R],
+        "Orbit-Lt": [TG263.Eye_L],
+        "Orbit-Rt": [TG263.Eye_R],
+        "Lacrimal-Lt": [TG263.Glnd_Lacrimal_L],
+        "Lacrimal-Rt": [TG263.Glnd_Lacrimal_R],
+        "Lens-Lt": [TG263.Lens_L],
+        "Lens-Rt": [TG263.Lens_R],
+        "Optic-Nerve-Lt": [TG263.OpticNrv_L],
+        "Optic-Nerve-Rt": [TG263.OpticNrv_R],
     }
 
-    gt_contours_by_structure_hnscc = _dicom_structures.dicom_to_contours_by_structure(
-        ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
+    gt_contours_by_structure_dicom_names = (
+        _dicom_structures.dicom_to_contours_by_structure(
+            ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
+        )
     )
 
-    pd_contours_by_structure_hnscc = _merge_contours.merge_contours_by_structure(
+    pd_contours_by_structure_dicom_names = _merge_contours.merge_contours_by_structure(
         pd_contours_by_structure_tg263, merge_map
     )
 
     dice = {}
-    for hnscc_name in merge_map:
-        dice[hnscc_name] = _dice_metric.from_contours_by_slice(
-            gt_contours_by_structure_hnscc[hnscc_name],
-            pd_contours_by_structure_hnscc[hnscc_name],
+    for name in merge_map:
+        dice[name] = _dice_metric.from_contours_by_slice(
+            gt_contours_by_structure_dicom_names[name],
+            pd_contours_by_structure_dicom_names[name],
         )
 
-    assert dice["Eyes"] > 0.88
+    assert dice["Orbit-Lt"] > 0.89
+    assert dice["Orbit-Rt"] > 0.89
 
-    # Reference contours here are not ideal
-    assert dice["L Optic Nerve"] > 0.50
-    assert dice["R Optic Nerve"] > 0.50
+    assert dice["Lacrimal-Lt"] > 0.50
+    assert dice["Lacrimal-Rt"] > 0.70
 
-    #
+    assert dice["Lens-Lt"] > 0.50
+    assert dice["Lens-Rt"] > 0.50
 
-    colours = {
-        TG263.Eye_L: "C0",
-        TG263.Eye_R: "C1",
-        TG263.OpticNrv_L: "C2",
-        TG263.OpticNrv_R: "C3",
-        "Eyes": "C4",
-        "L Optic Nerve": "C5",
-        "R Optic Nerve": "C6",
-    }
-
-    labels = {
-        TG263.Eye_L: "RAi Eye_L",
-        TG263.Eye_R: "RAi Eye_R",
-        TG263.OpticNrv_L: "RAi OpticNrv_L",
-        TG263.OpticNrv_R: "RAi OpticNrv_R",
-        "Eyes": "HNSCC Eyes",
-        "L Optic Nerve": "HNSCC OpticNrv_L",
-        "R Optic Nerve": "HNSCC OpticNrv_R",
-    }
+    assert dice["Optic-Nerve-Lt"] > 0.60
+    assert dice["Optic-Nerve-Rt"] > 0.60

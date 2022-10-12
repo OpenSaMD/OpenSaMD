@@ -16,6 +16,7 @@
 
 import functools
 import logging
+from typing import List
 
 import numpy as np
 import scipy.special
@@ -26,7 +27,7 @@ from raicontours import cfg
 
 @functools.lru_cache(None)
 def create_inference_weighting():
-    profiles: list[NDArray[np.float32]] = []
+    profiles: List[NDArray[np.float32]] = []
 
     for length in cfg["patch_dimensions"]:
         profile_function = _create_profile_function(

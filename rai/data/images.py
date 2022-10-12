@@ -16,6 +16,7 @@
 from __future__ import annotations
 
 import pathlib
+from typing import List
 
 import numpy as np
 import pydicom
@@ -25,10 +26,10 @@ from raicontours import cfg
 from rai.dicom import sorting as _dicom_sorting
 
 
-def paths_to_image_stack_hfs(paths: list[pathlib.Path]):
+def paths_to_image_stack_hfs(paths: List[pathlib.Path]):
     sorted_paths = sorted(paths, key=_sorting_key)
 
-    image_uids: list[str] = []
+    image_uids: List[str] = []
     image_stack = []
 
     x_grid = None

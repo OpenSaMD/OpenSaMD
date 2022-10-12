@@ -15,11 +15,12 @@
 
 """Testing the Dice metric calculations"""
 
-from typing import TypedDict
+from typing import List, Tuple
 
 import numpy as np
 import pydicom.uid
 import shapely.geometry
+from typing_extensions import TypedDict
 
 from rai.dicom import append, uid
 from rai.typing.contours import ContoursBySlice, ContourXY
@@ -76,8 +77,8 @@ def _create_slice_aligned_dicom_files(
 
     """
 
-    contour_sequence_a: list[append.DicomItem] = []
-    contour_sequence_b: list[append.DicomItem] = []
+    contour_sequence_a: List[append.DicomItem] = []
+    contour_sequence_b: List[append.DicomItem] = []
 
     for i, (contours_on_a, contours_on_b) in enumerate(zip(slices_a, slices_b)):
         reference_sop_instance_uid = pydicom.uid.generate_uid(
@@ -116,7 +117,7 @@ def _create_slice_aligned_dicom_files(
 
 
 def _append_contour_sequence_item(
-    contour_sequence: list[append.DicomItem],
+    contour_sequence: List[append.DicomItem],
     reference_sop_instance_uid: str,
     contour: ContourXY,
     z_value: float,
@@ -135,7 +136,7 @@ def _append_contour_sequence_item(
 
 
 def _contour_to_dicom_format(contour: ContourXY, z_value: float):
-    dicom_format_contour: list[float] = []
+    dicom_format_contour: List[float] = []
     for x, y in contour:
         dicom_format_contour.extend([x, y, z_value])
 
@@ -149,7 +150,7 @@ def test_dice_from_polygons():
     The expected Dice is 2 * intersection_area / sum_of_areas
     """
 
-    cases: list[_PolygonTestCase] = [
+    cases: List[_PolygonTestCase] = [
         {
             "label": "Two unit squares with 50% overlap",
             "a": [(0, 0), (0, 1), (1, 1), (1, 0)],
@@ -197,6 +198,6 @@ def test_dice_from_polygons():
 
 class _PolygonTestCase(TypedDict):
     label: str
-    a: list[tuple[float, float]]
-    b: list[tuple[float, float]]
+    a: List[Tuple[float, float]]
+    b: List[Tuple[float, float]]
     expected_dice: float

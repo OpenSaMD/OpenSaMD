@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import List
+
 import tensorflow as tf
 
 from raicontours import cfg
@@ -33,7 +35,7 @@ def create_model():
 
 
 def _core(x: tf.Tensor):
-    skips: list[tf.Tensor] = []
+    skips: List[tf.Tensor] = []
 
     for i, filters in enumerate(cfg["encoding_filter_counts"]):
         is_last_step = i >= len(cfg["encoding_filter_counts"]) - 1
