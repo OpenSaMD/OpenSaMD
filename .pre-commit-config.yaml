@@ -14,12 +14,15 @@ repos:
       - id: check-toml
       - id: check-added-large-files
         args: ["--maxkb", "500"]
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.1.4
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
     hooks:
       - id: isort
         additional_dependencies: ["toml"]
-        files: ^rai/.*\.py$
+        types: [python]
+      - id: isort
+        additional_dependencies: ["toml"]
+        types: [pyi]
   - repo: https://github.com/ambv/black
     rev: 22.3.0
     hooks:

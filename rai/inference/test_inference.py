@@ -13,11 +13,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import itertools
-
 import numpy as np
 import pydicom
-from raicontours import TG263, cfg
+
+from raicontours import TG263
 
 from rai.data import download as _data_download
 from rai.data import images as _images_data
@@ -34,6 +33,21 @@ def test_inference():
     x_grid, y_grid, image_stack, image_uids = _images_data.paths_to_image_stack_hfs(
         image_paths
     )
+
+    z = [35, 45, 55]
+    y = [155, 175, 195, 215]
+    x = [210, 230, 250, 270, 290, 310]
+
+    masks_pd = _inference.inference_over_jittered_grid(
+        image_stack=image_stack, grid=(z, y, x)
+    )
+
+    contours_by_structure_pd = _mask_convert.masks_to_contours_by_structure(
+        x_grid, y_grid, masks_pd
+    )
+
+    #
+
     structure_ds = pydicom.read_file(structure_path)
 
     name_to_number_map = {
@@ -57,34 +71,6 @@ def test_inference():
         ]
         for structure_name in name_map
     }
-
-    z = [35, 45, 55]
-    y = [155, 175, 195, 215]
-    x = [210, 230, 250, 270, 290, 310]
-
-    points = []
-    for point in itertools.product(z, y, x):
-        point = np.random.randint(-1, 2, size=3) + point
-        points.append(tuple(point.tolist()))
-
-    masks_pd = _inference.run_inference(image_stack=image_stack, points=points)
-
-    #
-
-    contours_by_structure_pd = {}
-
-    for structure_index, structure_name in enumerate(cfg["structures"]):
-        this_structure_pd = masks_pd[..., structure_index]
-
-        contours_by_slice_pd = []
-        for z_index in range(image_stack.shape[0]):
-            this_slice_pd = this_structure_pd[z_index, ...]
-            contours_pd = _mask_convert.mask_to_contours(x_grid, y_grid, this_slice_pd)
-            contours_by_slice_pd.append(contours_pd)
-
-        contours_by_structure_pd[structure_name] = contours_by_slice_pd
-
-    #
 
     contours_by_structure_gt = {}
     dice = {}

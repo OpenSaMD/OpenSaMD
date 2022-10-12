@@ -68,6 +68,7 @@
       "ipykernel",
       "ipython",
       "isort",
+      "jittered",
       "keras",
       "labeled",
       "linspace",

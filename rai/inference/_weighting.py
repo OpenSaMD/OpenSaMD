@@ -20,6 +20,7 @@ import logging
 import numpy as np
 import scipy.special
 from numpy.typing import NDArray
+
 from raicontours import cfg
 
 

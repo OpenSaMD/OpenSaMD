@@ -16,6 +16,7 @@
 import numba
 import numpy as np
 from numpy.typing import NDArray
+
 from raicontours import cfg
 
 from . import _points, _weighting

@@ -18,19 +18,49 @@
 import numpy as np
 import skimage.draw
 import skimage.measure
+from numpy.typing import NDArray
+
+from raicontours import TG263, cfg
 
 from rai.dicom import structures as _dicom_structures
-from rai.typing.contours import ContoursXY, ContourXY, Grid, Mask
+from rai.typing.contours import (
+    AllStructuresMaskStack,
+    ContoursBySlice,
+    ContoursXY,
+    ContourXY,
+    Grid,
+    Mask,
+    MaskStack,
+)
 from rai.typing.dicom import ContourSequenceItem
 
 
-def contour_sequence_to_masks(
+def masks_to_contours_by_structure(
+    x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
+):
+    contours_by_structure: dict[TG263, ContoursBySlice] = {}
+
+    for structure_index, structure_name in enumerate(cfg["structures"]):
+        this_structure = masks[..., structure_index]
+
+        contours_by_slice: ContoursBySlice = []
+        for z_index in range(this_structure.shape[0]):
+            this_slice = this_structure[z_index, ...]
+            contours = mask_to_contours(x_grid, y_grid, this_slice)
+            contours_by_slice.append(contours)
+
+        contours_by_structure[structure_name] = contours_by_slice
+
+    return contours_by_structure
+
+
+def contour_sequence_to_mask_stack(
     x_grid: Grid,
     y_grid: Grid,
     sorted_image_uids: list[str],
     contour_sequence: list[ContourSequenceItem],
     expansion: int = 16,
-) -> Mask:
+) -> MaskStack:
     image_uid_to_contours_map = _dicom_structures.get_image_uid_to_contours_map(
         contour_sequence=contour_sequence,
     )

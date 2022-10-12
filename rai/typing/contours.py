@@ -19,6 +19,11 @@ from numpy.typing import NDArray
 Grid = NDArray[np.float64]
 Mask = NDArray[np.uint8]
 
+# TODO: Differentiate these with NDArray shape parameters when that's
+# available
+MaskStack = Mask
+AllStructuresMaskStack = MaskStack
+
 ContourXY = list[tuple[float, float]]
 ContoursXY = list[ContourXY]
 

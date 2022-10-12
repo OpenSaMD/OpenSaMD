@@ -50,6 +50,7 @@ def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
     processes: list[multiprocessing.Process] = []
 
     for url, path in zip(urls_to_download, paths_to_save_to):
+        # TODO: Utilise stored hashes to verify
         if path.exists():
             continue
 

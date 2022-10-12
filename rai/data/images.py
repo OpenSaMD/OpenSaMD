@@ -18,6 +18,7 @@ import pathlib
 
 import numpy as np
 import pydicom
+
 from raicontours import cfg
 
 from rai.dicom import sorting as _dicom_sorting

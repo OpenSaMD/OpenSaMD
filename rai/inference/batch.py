@@ -16,6 +16,7 @@
 import numpy as np
 import tensorflow as tf
 from numpy.typing import NDArray
+
 from raicontours import cfg
 
 from rai.typing.inference import Points
