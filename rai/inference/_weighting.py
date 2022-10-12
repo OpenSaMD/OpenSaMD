@@ -24,7 +24,7 @@ from numpy.typing import NDArray
 from raicontours import cfg
 
 
-@functools.cache
+@functools.lru_cache(None)
 def create_inference_weighting():
     profiles: list[NDArray[np.float32]] = []
 

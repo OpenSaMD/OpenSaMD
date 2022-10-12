@@ -14,6 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import itertools
+from typing import List, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
@@ -43,7 +44,7 @@ def run_inference(image_stack: NDArray[np.float32], points: Points):
 
 
 def inference_over_jittered_grid(
-    image_stack, grid: tuple[list[int], list[int], list[int]]
+    image_stack, grid: Tuple[List[int], List[int], List[int]]
 ):
     points = []
     for point in itertools.product(*grid):
@@ -64,7 +65,10 @@ def inference_over_jittered_grid(
 
         if min_point >= min_where_mask[i] or max_point <= max_where_mask[i]:
             raise ValueError(
-                "Masks were found outside of the centre points in the provided grid"
+                "Masks were found outside of the centre points in the "
+                f"provided grid.\nAxis: {i} | "
+                f"Point range: {[min_point, max_point]} | "
+                f"Found mask range: {[min_where_mask[i], max_where_mask[i]]}"
             )
 
     return masks_pd

@@ -15,6 +15,8 @@
 
 """Mask conversion to and from contour lines"""
 
+from typing import Dict, List, Tuple
+
 import numpy as np
 import skimage.draw
 import skimage.measure
@@ -38,7 +40,7 @@ from rai.typing.dicom import ContourSequenceItem
 def masks_to_contours_by_structure(
     x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
 ):
-    contours_by_structure: dict[TG263, ContoursBySlice] = {}
+    contours_by_structure: Dict[TG263, ContoursBySlice] = {}
 
     for structure_index, structure_name in enumerate(cfg["structures"]):
         this_structure = masks[..., structure_index]
@@ -57,15 +59,15 @@ def masks_to_contours_by_structure(
 def contour_sequence_to_mask_stack(
     x_grid: Grid,
     y_grid: Grid,
-    sorted_image_uids: list[str],
-    contour_sequence: list[ContourSequenceItem],
+    sorted_image_uids: List[str],
+    contour_sequence: List[ContourSequenceItem],
     expansion: int = 16,
 ) -> MaskStack:
     image_uid_to_contours_map = _dicom_structures.get_image_uid_to_contours_map(
         contour_sequence=contour_sequence,
     )
 
-    mask_stack: list[Mask] = []
+    mask_stack: List[Mask] = []
 
     for image_uid in sorted_image_uids:
         contours = image_uid_to_contours_map[image_uid]
@@ -211,7 +213,7 @@ def _contours_to_expanded_mask(
     return expanded_mask
 
 
-def _grid_to_transform(grid: Grid) -> tuple[float, float]:
+def _grid_to_transform(grid: Grid) -> Tuple[float, float]:
     x0 = grid[0]
     all_dx = np.diff(grid)  # pyright: ignore [reportUnknownMemberType]
     dx = all_dx[0]

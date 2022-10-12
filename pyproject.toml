@@ -26,7 +26,7 @@ classifiers = [
 
 # TODO: Create a release CLI that temporarily removes these bounds prior to
 # release.
-python = ">=3.9,<3.11"
+python = ">=3.7,<3.11"
 
 # We keep all version constraints as broad as possible for the library release.
 # For the application release, all versions are pinned and tightly controlled.
@@ -49,6 +49,8 @@ tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Wi
 # next
 raicontours = "0.2.0"
 
+# Not needed after Python 3.7 support is dropped
+PyWavelets = "<1.4.0"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"

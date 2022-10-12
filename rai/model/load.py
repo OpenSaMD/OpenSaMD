@@ -20,7 +20,7 @@ import raicontours
 from . import _create
 
 
-@functools.cache
+@functools.lru_cache(None)
 def load_model():
     model = _create.create_model()
     model.load_weights(raicontours.model_path)

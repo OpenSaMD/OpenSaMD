@@ -18,10 +18,11 @@
 import pathlib
 import re
 import textwrap
-from typing import Literal, cast
+from typing import cast
 
 import black
 import tomlkit
+from typing_extensions import Literal
 
 from rai._paths import DOCS_DIR, LIBRARY_DIR, REPO_ROOT
 

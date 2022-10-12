@@ -14,15 +14,16 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import collections
+from typing import Dict, List
 
 from rai.typing.contours import ContoursBySlice, ContoursXY
 from rai.typing.dicom import ContourSequenceItem
 
 
 def get_image_uid_to_contours_map(
-    contour_sequence: list[ContourSequenceItem],
+    contour_sequence: List[ContourSequenceItem],
 ):
-    image_uid_to_contours_map: dict[str, ContoursXY] = collections.defaultdict(list)
+    image_uid_to_contours_map: Dict[str, ContoursXY] = collections.defaultdict(list)
 
     for item in contour_sequence:
         contour_image_sequence = item.ContourImageSequence
@@ -75,8 +76,8 @@ def dicom_to_contours_by_structure(ds, image_uids, structure_names=None):
 
 
 def contour_sequence_to_contours_by_slice(
-    sorted_image_uids: list[str],
-    contour_sequence: list[ContourSequenceItem],
+    sorted_image_uids: List[str],
+    contour_sequence: List[ContourSequenceItem],
 ) -> ContoursBySlice:
     image_uid_to_contours_map = get_image_uid_to_contours_map(
         contour_sequence=contour_sequence
@@ -91,7 +92,7 @@ def contour_sequence_to_contours_by_slice(
     return contours_by_slice
 
 
-def _convert_dicom_contours(contour_data: list[float]):
+def _convert_dicom_contours(contour_data: List[float]):
     x = contour_data[0::3]
     y = contour_data[1::3]
     z = contour_data[2::3]

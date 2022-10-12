@@ -15,6 +15,9 @@
 
 """Determining the Dice metric"""
 
+
+from typing import Dict, List, Tuple
+
 import shapely.geometry
 import shapely.geometry.base
 
@@ -23,7 +26,7 @@ from rai.typing.contours import ContoursBySlice, ContoursXY
 from rai.typing.dicom import ContourSequenceItem
 
 
-def from_contour_sequence(a: list[ContourSequenceItem], b: list[ContourSequenceItem]):
+def from_contour_sequence(a: List[ContourSequenceItem], b: List[ContourSequenceItem]):
     """Determine the Dice metric between two DICOM Contour Sequences.
 
     The Dice score is an overlap metric where a value of 1 indicates

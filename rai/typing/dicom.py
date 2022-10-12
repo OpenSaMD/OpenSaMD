@@ -19,9 +19,10 @@
 # as detailed within:
 # https://github.com/innolitics/dicom-standard/tree/master/standard
 
-from typing import Literal
+from typing import List
 
 import pydicom
+from typing_extensions import Literal
 
 # pylint: disable = missing-class-docstring
 
@@ -31,16 +32,16 @@ class ContourImageSequenceItem(pydicom.Dataset):
 
 
 class ContourSequenceItem(pydicom.Dataset):
-    ContourImageSequence: list[ContourImageSequenceItem]
-    ContourData: list[float]
+    ContourImageSequence: List[ContourImageSequenceItem]
+    ContourData: List[float]
     ContourGeometricType: Literal[
         "CLOSED_PLANAR", "POINT", "OPEN_PLANAR", "OPEN_NONPLANAR"
     ]
 
 
 class ROIContourSequenceItem(pydicom.Dataset):
-    ContourSequence: list[ContourSequenceItem]
+    ContourSequence: List[ContourSequenceItem]
 
 
 class TypedDataset(pydicom.Dataset):
-    ROIContourSequence: list[ROIContourSequenceItem]
+    ROIContourSequence: List[ROIContourSequenceItem]
