@@ -20,10 +20,8 @@ import matplotlib.cm
 import matplotlib.pyplot as plt
 import numpy as np
 
-from raicontours import TG263
 
-
-def plot_model_result(
+def plot_contours_by_structure(
     x_grid, y_grid, image_stack, contours_by_structure, merge_map=None
 ):
     if merge_map is None:

@@ -13,16 +13,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import functools
-
 import raicontours
+
+Config = raicontours.Config
 
 from . import _create
 
 
-@functools.lru_cache(None)
-def load_model():
-    model = _create.create_model()
-    model.load_weights(raicontours.model_path)
+def load_model(cfg: Config):
+    model = _create.create_model(cfg)
+    model.load_weights(cfg["model_path"])
 
     return model

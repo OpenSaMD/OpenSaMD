@@ -17,24 +17,22 @@ import itertools
 from typing import List, Tuple
 
 import numpy as np
+import tensorflow as tf
 from numpy.typing import NDArray
 
-from raicontours import cfg
-
-from rai.model import load as _load_model
 from rai.typing.inference import Points
 
 from . import batch as _batch
 from . import merge as _merge
 
 
-def run_inference(image_stack: NDArray[np.float32], points: Points):
-    model = _load_model.load_model()
-
+def run_inference(
+    model: tf.keras.Model, image_stack: NDArray[np.float32], points: Points
+):
     model_input = _batch.create_batch(image_stack, points)
     model_output = model.predict(model_input)
 
-    num_structures = len(cfg["structures"])
+    num_structures = model.output_shape[-1]
 
     merged = np.zeros(shape=image_stack.shape + (num_structures,), dtype=np.uint8)
     counts = np.zeros(shape=image_stack.shape + (1,), dtype=np.float32)
@@ -44,14 +42,14 @@ def run_inference(image_stack: NDArray[np.float32], points: Points):
 
 
 def inference_over_jittered_grid(
-    image_stack, grid: Tuple[List[int], List[int], List[int]]
+    model: tf.keras.Model, image_stack, grid: Tuple[List[int], List[int], List[int]]
 ):
     points = []
     for point in itertools.product(*grid):
         point = np.random.randint(-1, 2, size=3) + point
         points.append(tuple(point.tolist()))
 
-    masks_pd = run_inference(image_stack=image_stack, points=points)
+    masks_pd = run_inference(model=model, image_stack=image_stack, points=points)
 
     where_mask = np.where(masks_pd > 127.5)
     min_where_mask = np.min(where_mask, axis=1)

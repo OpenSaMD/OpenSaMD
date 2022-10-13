@@ -17,15 +17,15 @@ from typing import List
 
 import tensorflow as tf
 
-from raicontours import cfg
+from raicontours import Config
 
 
-def create_model():
+def create_model(cfg: Config):
     """Create autosegmentation tensorflow model"""
     image_input: tf.Tensor = tf.keras.layers.Input(shape=cfg["patch_dimensions"])
 
     x: tf.Tensor = image_input[..., None]
-    x = _core(x=x)
+    x = _core(cfg=cfg, x=x)
 
     mask_output = tf.cast(tf.round(x * 255), dtype=tf.uint8)
 
@@ -34,7 +34,7 @@ def create_model():
     return model
 
 
-def _core(x: tf.Tensor):
+def _core(cfg: Config, x: tf.Tensor):
     skips: List[tf.Tensor] = []
 
     for i, filters in enumerate(cfg["encoding_filter_counts"]):
