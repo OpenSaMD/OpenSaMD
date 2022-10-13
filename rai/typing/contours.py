@@ -13,10 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from typing import List, Tuple
+from typing import Dict, List, Tuple, Union
 
 import numpy as np
 from numpy.typing import NDArray
+
+from raicontours import TG263
 
 Grid = NDArray[np.float64]
 Mask = NDArray[np.uint8]
@@ -30,3 +32,6 @@ ContourXY = List[Tuple[float, float]]
 ContoursXY = List[ContourXY]
 
 ContoursBySlice = List[ContoursXY]
+
+StructureName = Union[str, TG263]
+ContoursByStructure = Dict[StructureName, ContoursBySlice]

@@ -28,6 +28,7 @@ from rai.dicom import structures as _dicom_structures
 from rai.typing.contours import (
     AllStructuresMaskStack,
     ContoursBySlice,
+    ContoursByStructure,
     ContoursXY,
     ContourXY,
     Grid,
@@ -40,7 +41,7 @@ from rai.typing.dicom import ContourSequenceItem
 def masks_to_contours_by_structure(
     x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
 ):
-    contours_by_structure: Dict[TG263, ContoursBySlice] = {}
+    contours_by_structure: ContoursByStructure = {}
 
     for structure_index, structure_name in enumerate(cfg["structures"]):
         this_structure = masks[..., structure_index]

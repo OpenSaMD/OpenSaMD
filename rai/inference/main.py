@@ -42,7 +42,9 @@ def run_inference(
 
 
 def inference_over_jittered_grid(
-    model: tf.keras.Model, image_stack, grid: Tuple[List[int], List[int], List[int]]
+    model: tf.keras.Model,
+    image_stack: NDArray[np.float32],
+    grid: Tuple[List[int], List[int], List[int]],
 ):
     points = []
     for point in itertools.product(*grid):

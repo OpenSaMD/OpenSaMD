@@ -14,9 +14,13 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import collections
-from typing import Dict, List
+from typing import Dict, List, Optional, Union
 
-from rai.typing.contours import ContoursBySlice, ContoursXY
+import pydicom
+
+from raicontours import TG263
+
+from rai.typing.contours import ContoursBySlice, ContoursByStructure, ContoursXY
 from rai.typing.dicom import ContourSequenceItem
 
 
@@ -42,7 +46,11 @@ def get_image_uid_to_contours_map(
     return image_uid_to_contours_map
 
 
-def dicom_to_contours_by_structure(ds, image_uids, structure_names=None):
+def dicom_to_contours_by_structure(
+    ds: pydicom.Dataset,
+    image_uids: List[str],
+    structure_names: Optional[List[Union[str, TG263]]] = None,
+):
     name_to_number_map = {
         item.ROIName: item.ROINumber for item in ds.StructureSetROISequence
     }
@@ -61,7 +69,7 @@ def dicom_to_contours_by_structure(ds, image_uids, structure_names=None):
         for structure_name in structure_names
     }
 
-    contours_by_structure = {}
+    contours_by_structure: ContoursByStructure = {}
 
     for (
         structure_name,

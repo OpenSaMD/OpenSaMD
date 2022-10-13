@@ -15,7 +15,6 @@
 
 """DICOM UID constants and tools"""
 
-import logging
 import re
 
 import pydicom.uid

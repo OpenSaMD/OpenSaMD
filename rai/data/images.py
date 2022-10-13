@@ -20,10 +20,12 @@ from typing import List
 
 import numpy as np
 import pydicom
+from numpy.typing import NDArray
 
 from raicontours import cfg
 
 from rai.dicom import sorting as _dicom_sorting
+from rai.typing.contours import Grid
 
 
 def paths_to_image_stack_hfs(paths: List[pathlib.Path]):
@@ -83,7 +85,9 @@ def _get_model_dicom_grid_and_rescaled_image(ds: pydicom.Dataset):
     return x_grid, y_grid, rescaled
 
 
-def _convert_array_to_or_from_hfs_with_grids(x_grid, y_grid, array):
+def _convert_array_to_or_from_hfs_with_grids(
+    x_grid: Grid, y_grid: Grid, array: NDArray[np.float32]
+):
     """Flips the input and output along the axis where x_grid or y_grid
     is not currently always increasing.
     """

@@ -22,6 +22,8 @@ import rai
 
 
 def test_inference():
+    """Testing inference over jittered grid"""
+
     image_paths, structure_path = rai.download_deepmind_example()
 
     x_grid, y_grid, image_stack, image_uids = rai.paths_to_image_stack_hfs(image_paths)
@@ -35,13 +37,13 @@ def test_inference():
         model=model, image_stack=image_stack, grid=(z, y, x)
     )
 
-    pd_contours_by_structure_tg263 = rai.masks_to_contours_by_structure(
+    predicted_contours_by_structure = rai.masks_to_contours_by_structure(
         x_grid, y_grid, masks_pd
     )
 
     structure_ds = pydicom.read_file(structure_path)
 
-    merge_map = {
+    align_map = {
         "Orbit-Lt": [TG263.Eye_L],
         "Orbit-Rt": [TG263.Eye_R],
         "Lacrimal-Lt": [TG263.Glnd_Lacrimal_L],
@@ -50,21 +52,24 @@ def test_inference():
         "Lens-Rt": [TG263.Lens_R],
         "Optic-Nerve-Lt": [TG263.OpticNrv_L],
         "Optic-Nerve-Rt": [TG263.OpticNrv_R],
+        # If there was an "Eyes" structure, would do the following:
+        # "Eyes": [TG263.Eye_L, TG263.Eye_R]
     }
 
-    gt_contours_by_structure_dicom_names = rai.dicom_to_contours_by_structure(
-        ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
+    dicom_structure_names = list(align_map.keys())
+    dicom_contours_by_structure = rai.dicom_to_contours_by_structure(
+        ds=structure_ds, image_uids=image_uids, structure_names=dicom_structure_names
     )
 
-    pd_contours_by_structure_dicom_names = rai.merge_contours_by_structure(
-        pd_contours_by_structure_tg263, merge_map
+    aligned_predicted_contours_by_structure = rai.merge_contours_by_structure(
+        predicted_contours_by_structure, align_map
     )
 
     dice = {}
-    for name in merge_map:
+    for name in align_map:
         dice[name] = rai.dice_from_contours_by_slice(
-            gt_contours_by_structure_dicom_names[name],
-            pd_contours_by_structure_dicom_names[name],
+            dicom_contours_by_structure[name],
+            aligned_predicted_contours_by_structure[name],
         )
 
     assert dice["Orbit-Lt"] > 0.89
