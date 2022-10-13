@@ -13,41 +13,31 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import numpy as np
+
 import pydicom
 
-from raicontours import TG263
+from raicontours import TG263, cfg
 
-from rai.contours import merge as _merge_contours
-from rai.data import download as _data_download
-from rai.data import images as _images_data
-from rai.dicom import structures as _dicom_structures
-from rai.mask import convert as _mask_convert
-from rai.metrics import dice as _dice_metric
-
-from . import main as _inference
+import rai
 
 
 def test_inference():
-    image_paths, structure_path = _data_download.deepmind_example()
+    image_paths, structure_path = rai.download_deepmind_example()
 
-    x_grid, y_grid, image_stack, image_uids = _images_data.paths_to_image_stack_hfs(
-        image_paths
-    )
+    x_grid, y_grid, image_stack, image_uids = rai.paths_to_image_stack_hfs(image_paths)
 
     z = [35, 45, 55]
     y = [140, 155, 175, 195, 215, 230]
     x = [210, 230, 250, 270, 290, 310]
 
-    masks_pd = _inference.inference_over_jittered_grid(
-        image_stack=image_stack, grid=(z, y, x)
+    model = rai.load_model(cfg=cfg)
+    masks_pd = rai.inference_over_jittered_grid(
+        model=model, image_stack=image_stack, grid=(z, y, x)
     )
 
-    pd_contours_by_structure_tg263 = _mask_convert.masks_to_contours_by_structure(
+    pd_contours_by_structure_tg263 = rai.masks_to_contours_by_structure(
         x_grid, y_grid, masks_pd
     )
-
-    #
 
     structure_ds = pydicom.read_file(structure_path)
 
@@ -62,19 +52,17 @@ def test_inference():
         "Optic-Nerve-Rt": [TG263.OpticNrv_R],
     }
 
-    gt_contours_by_structure_dicom_names = (
-        _dicom_structures.dicom_to_contours_by_structure(
-            ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
-        )
+    gt_contours_by_structure_dicom_names = rai.dicom_to_contours_by_structure(
+        ds=structure_ds, image_uids=image_uids, structure_names=merge_map.keys()
     )
 
-    pd_contours_by_structure_dicom_names = _merge_contours.merge_contours_by_structure(
+    pd_contours_by_structure_dicom_names = rai.merge_contours_by_structure(
         pd_contours_by_structure_tg263, merge_map
     )
 
     dice = {}
     for name in merge_map:
-        dice[name] = _dice_metric.from_contours_by_slice(
+        dice[name] = rai.dice_from_contours_by_slice(
             gt_contours_by_structure_dicom_names[name],
             pd_contours_by_structure_dicom_names[name],
         )

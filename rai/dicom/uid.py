@@ -15,11 +15,12 @@
 
 """DICOM UID constants and tools"""
 
+import logging
 import re
 
 import pydicom.uid
 
-from rai._version import __version__
+from rai._version import __version__, version_info
 
 # Many thanks to the Medical Connections for offering free
 # valid UIDs (http://www.medicalconnections.co.uk/FreeUID.html)
@@ -34,7 +35,14 @@ _RAI_CONTOURS_PRODUCT_ID = "1"
 RAI_CLIENT_ROOT_UID_PREFIX = f"{_RAI_ROOT_UID_PREFIX}1."
 RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{__version__}"
 
+# TODO: Add a representation within the implementation uid of production
+# vs dev release.
+_NO_DEV_VERSION = ".".join([str(item) for item in version_info[0:3]])
+
 RAI_CONTOURS_IMPLEMENTATION_CLASS_UID = (
-    f"{_RAI_INTERNAL_ROOT_UID_PREFIX}{_RAI_CONTOURS_PRODUCT_ID}.{__version__}"
+    f"{_RAI_INTERNAL_ROOT_UID_PREFIX}{_RAI_CONTOURS_PRODUCT_ID}.{_NO_DEV_VERSION}"
 )
-assert re.match(pydicom.uid.RE_VALID_UID, RAI_CONTOURS_IMPLEMENTATION_CLASS_UID)
+
+assert re.match(
+    pydicom.uid.RE_VALID_UID, RAI_CONTOURS_IMPLEMENTATION_CLASS_UID
+), RAI_CONTOURS_IMPLEMENTATION_CLASS_UID
