@@ -46,8 +46,8 @@ tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
 tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Windows\"" }
 
 # Pin while the model is likely to change significantly from one version to the
-# next
-raicontours = "0.3.0"
+# next, and also pinning while raicontours is utilising development releases.
+raicontours = "0.3.0-dev0"
 
 # Not needed after Python 3.7 support is dropped
 PyWavelets = "<1.4.0"
