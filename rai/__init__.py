@@ -34,3 +34,6 @@ from rai.mask.convert import (
 )
 from rai.metrics.dice import from_contours_by_slice as dice_from_contours_by_slice
 from rai.model.load import load_model as load_model
+
+from ._version import __version__ as __version__
+from ._version import version_info as version_info
