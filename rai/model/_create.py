@@ -23,13 +23,13 @@ from raicontours import Config
 def create_model(cfg: Config):
     """Create autosegmentation tensorflow model"""
 
-    image_input, masks_input, masks_input_shape = _create_inputs(cfg=cfg)
+    image_input, masks_input = _create_inputs(cfg=cfg)
 
     base_model = _base_model(cfg=cfg)
 
-    empty_masks = tf.broadcast_to(
-        tf.cast(0 * image_input, dtype=tf.uint8), masks_input_shape
-    )
+    num_structures = len(cfg["structures"])
+    empty_masks = tf.cast(0 * image_input, dtype=tf.uint8)[..., None]
+    empty_masks = tf.repeat(empty_masks, num_structures, axis=-1)
 
     x = base_model(inputs=[image_input, empty_masks, tf.constant([False], dtype=bool)])
     starting_model = tf.keras.Model(inputs=image_input, outputs=x)
@@ -37,7 +37,7 @@ def create_model(cfg: Config):
     x = base_model(inputs=[image_input, masks_input, tf.constant([True], dtype=bool)])
     dependent_model = tf.keras.Model(inputs=[image_input, masks_input], outputs=x)
 
-    return starting_model, dependent_model
+    return base_model, starting_model, dependent_model
 
 
 def _create_inputs(cfg: Config):
@@ -49,30 +49,30 @@ def _create_inputs(cfg: Config):
         shape=masks_input_shape, dtype=tf.uint8
     )
 
-    return image_input, masks_input, masks_input_shape
+    return image_input, masks_input
 
 
 def _base_model(cfg: Config):
     """Create autosegmentation tensorflow model"""
 
-    image_input, masks_input, _masks_input_shape = _create_inputs(cfg=cfg)
+    image_input, masks_input = _create_inputs(cfg=cfg)
     use_masks_flag: tf.Tensor = tf.keras.layers.Input(
-        shape=(1,), dtype=tf.bool, batch_size=1
+        shape=(), dtype=tf.bool, batch_size=1
     )
 
     x: tf.Tensor = image_input[..., None]
-    x = _convolution(x=x, filters=cfg["encoding_filter_counts"][0])
+    x_without_masks = _convolution(
+        x=x, filters=cfg["encoding_filter_counts"][0], name="image_initial"
+    )
 
-    def _add_masks_conv(x):
-        converted_masks_input = tf.cast(masks_input, dtype=tf.float32) / 255
+    converted_masks_input = tf.cast(masks_input, dtype=tf.float32) / 255
+    x_with_masks = x_without_masks + _convolution(
+        x=converted_masks_input,
+        filters=cfg["encoding_filter_counts"][0],
+        name="masks_initial",
+    )
 
-        x = x + _convolution(
-            x=converted_masks_input, filters=cfg["encoding_filter_counts"][0]
-        )
-
-        return x
-
-    x = tf.cond(use_masks_flag, lambda: _add_masks_conv(x), lambda: x)
+    x = ConditionalLayer()(inputs=[use_masks_flag, x_with_masks, x_without_masks])
 
     x = _core(cfg=cfg, x=x)
 
@@ -85,6 +85,14 @@ def _base_model(cfg: Config):
     return base_model
 
 
+class ConditionalLayer(tf.keras.layers.Layer):
+    def call(self, inputs, *_args, **_kwargs):
+        use_masks_flag, x_with_masks, x_without_masks = inputs
+        x = tf.cond(use_masks_flag, lambda: x_with_masks, lambda: x_without_masks)
+
+        return x
+
+
 def _core(cfg: Config, x: tf.Tensor):
     skips: List[tf.Tensor] = []
 
@@ -92,7 +100,11 @@ def _core(cfg: Config, x: tf.Tensor):
         is_last_step = i >= len(cfg["encoding_filter_counts"]) - 1
 
         x, skip = _encode(
-            x=x, filters=filters, pool=not is_last_step, skip_first_convolution=i == 0
+            x=x,
+            filters=filters,
+            pool=not is_last_step,
+            skip_first_convolution=i == 0,
+            name_index=i,
         )
 
         if not is_last_step:
@@ -100,8 +112,8 @@ def _core(cfg: Config, x: tf.Tensor):
 
     skips.reverse()
 
-    for filters, skip in zip(cfg["decoding_filter_counts"], skips):
-        x = _decode(x=x, skip=skip, filters=filters)
+    for i, (filters, skip) in enumerate(zip(cfg["decoding_filter_counts"], skips)):
+        x = _decode(x=x, skip=skip, filters=filters, name_index=i)
 
     x = tf.keras.layers.Conv3D(
         filters=len(cfg["structures"]), kernel_size=1, padding="same"
@@ -111,51 +123,74 @@ def _core(cfg: Config, x: tf.Tensor):
     return x
 
 
-def _encode(x: tf.Tensor, filters: int, pool: bool, skip_first_convolution: bool):
+def _encode(
+    x: tf.Tensor,
+    filters: int,
+    pool: bool,
+    skip_first_convolution: bool,
+    name_index: int,
+):
+    name = f"encode_{name_index}"
+
     for i in range(2):
+        looped_name = f"{name}_{i}"
         if skip_first_convolution and i == 0:
             pass
         else:
-            x = _convolution(x=x, filters=filters)
+            x = _convolution(x=x, filters=filters, name=looped_name)
 
-        x = _activation(x=x)
+        x = _activation(x=x, name=looped_name)
 
     skip = x
 
     if pool:
-        x = tf.keras.layers.MaxPooling3D(pool_size=(2, 2, 2))(x)
+        x = tf.keras.layers.MaxPooling3D(pool_size=(2, 2, 2), name=f"{name}_max_pool")(
+            x
+        )
 
     return x, skip
 
 
-def _decode(x: tf.Tensor, skip: tf.Tensor, filters: int):
-    x = _conv_transpose(x=x, filters=filters)
-    x = _activation(x)
+def _decode(x: tf.Tensor, skip: tf.Tensor, filters: int, name_index: int):
+    name = f"decode_{name_index}"
+
+    x = _conv_transpose(x=x, filters=filters, name=name)
+    x = _activation(x, name=name)
 
     x = tf.keras.layers.concatenate([skip, x], axis=-1)
 
-    for _ in range(2):
-        x = _convolution(x=x, filters=filters)
-        x = _activation(x=x)
+    for i in range(2):
+        looped_name = f"{name}_{i}"
+        x = _convolution(x=x, filters=filters, name=looped_name)
+        x = _activation(x=x, name=looped_name)
 
     return x
 
 
-def _convolution(x: tf.Tensor, filters: int):
-    x = tf.keras.layers.Conv3D(filters=filters, kernel_size=3, padding="same")(x)
-
-    return x
-
-
-def _conv_transpose(x: tf.Tensor, filters: int):
-    x = tf.keras.layers.Conv3DTranspose(
-        filters=filters, kernel_size=3, strides=(2, 2, 2), padding="same"
+def _convolution(x: tf.Tensor, filters: int, name: str):
+    x = tf.keras.layers.Conv3D(
+        filters=filters,
+        kernel_size=3,
+        padding="same",
+        name=f"{name}_convolution",
     )(x)
 
     return x
 
 
-def _activation(x: tf.Tensor):
-    x = tf.keras.layers.Activation("relu")(x)
+def _conv_transpose(x: tf.Tensor, filters: int, name: str):
+    x = tf.keras.layers.Conv3DTranspose(
+        filters=filters,
+        kernel_size=3,
+        strides=(2, 2, 2),
+        padding="same",
+        name=f"{name}_conv_transpose",
+    )(x)
+
+    return x
+
+
+def _activation(x: tf.Tensor, name: str):
+    x = tf.keras.layers.Activation("relu", name=f"{name}_activation")(x)
 
     return x
