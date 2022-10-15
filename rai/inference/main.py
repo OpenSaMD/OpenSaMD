@@ -14,7 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import itertools
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 import numpy as np
 import tensorflow as tf
@@ -29,9 +29,23 @@ from . import merge as _merge
 
 
 def run_inference(
-    cfg: Config, model: tf.keras.Model, image_stack: NDArray[np.float32], points: Points
+    cfg: Config,
+    model: tf.keras.Model,
+    points: Points,
+    image_stack: NDArray[np.float32],
+    masks_stack: Optional[NDArray[np.uint8]] = None,
 ):
-    model_input = _batch.create_batch(cfg=cfg, image_stack=image_stack, points=points)
+    model_image_input = _batch.create_batch(
+        cfg=cfg, points=points, array_stack=image_stack
+    )
+    if masks_stack is not None:
+        model_masks_input = _batch.create_batch(
+            cfg=cfg, points=points, array_stack=masks_stack
+        )
+        model_input = [model_image_input, model_masks_input]
+    else:
+        model_input = model_image_input
+
     model_output = model.predict(model_input)
 
     num_structures = model.output_shape[-1]
@@ -48,8 +62,9 @@ def run_inference(
 def inference_over_jittered_grid(
     cfg: Config,
     model: tf.keras.Model,
-    image_stack: NDArray[np.float32],
     grid: Tuple[List[int], List[int], List[int]],
+    image_stack: NDArray[np.float32],
+    masks_stack: Optional[NDArray[np.uint8]] = None,
 ):
     points = []
     for point in itertools.product(*grid):
@@ -57,25 +72,31 @@ def inference_over_jittered_grid(
         points.append(tuple(point.tolist()))
 
     masks_pd = run_inference(
-        cfg=cfg, model=model, image_stack=image_stack, points=points
+        cfg=cfg,
+        model=model,
+        points=points,
+        image_stack=image_stack,
+        masks_stack=masks_stack,
     )
 
     where_mask = np.where(masks_pd > 127.5)
-    min_where_mask = np.min(where_mask, axis=1)
-    max_where_mask = np.max(where_mask, axis=1)
 
-    points_array = np.array(points)
+    if len(where_mask) > 0:
+        min_where_mask = np.min(where_mask, axis=1)
+        max_where_mask = np.max(where_mask, axis=1)
 
-    for i in range(3):
-        min_point = np.min(points_array[:, i])
-        max_point = np.max(points_array[:, i])
+        points_array = np.array(points)
 
-        if min_point >= min_where_mask[i] or max_point <= max_where_mask[i]:
-            raise ValueError(
-                "Masks were found outside of the centre points in the "
-                f"provided grid.\nAxis: {i} | "
-                f"Point range: {[min_point, max_point]} | "
-                f"Found mask range: {[min_where_mask[i], max_where_mask[i]]}"
-            )
+        for i in range(3):
+            min_point = np.min(points_array[:, i])
+            max_point = np.max(points_array[:, i])
+
+            if min_point >= min_where_mask[i] or max_point <= max_where_mask[i]:
+                raise ValueError(
+                    "Masks were found outside of the centre points in the "
+                    f"provided grid.\nAxis: {i} | "
+                    f"Point range: {[min_point, max_point]} | "
+                    f"Found mask range: {[min_where_mask[i], max_where_mask[i]]}"
+                )
 
     return masks_pd

@@ -61,18 +61,18 @@ def _base_model(cfg: Config):
     )
 
     x: tf.Tensor = image_input[..., None]
-    x_without_masks = _convolution(
+    x = _convolution(
         x=x, filters=cfg["encoding_filter_counts"][0], name="image_initial"
     )
 
     converted_masks_input = tf.cast(masks_input, dtype=tf.float32) / 255
-    x_with_masks = x_without_masks + _convolution(
+    x_with_masks = x + _convolution(
         x=converted_masks_input,
         filters=cfg["encoding_filter_counts"][0],
         name="masks_initial",
     )
 
-    x = ConditionalLayer()(inputs=[use_masks_flag, x_with_masks, x_without_masks])
+    x = ConditionalLayer()(inputs=[use_masks_flag, x_with_masks, x])
 
     x = _core(cfg=cfg, x=x)
 
