@@ -16,7 +16,6 @@
 from typing import List
 
 import tensorflow as tf
-from this import d
 
 from raicontours import Config
 
