@@ -16,7 +16,7 @@
 
 import functools
 import logging
-from typing import List
+from typing import List, Tuple
 
 import numpy as np
 import scipy.special
@@ -24,7 +24,7 @@ from numpy.typing import NDArray
 
 
 @functools.lru_cache(maxsize=1)
-def create_inference_weighting(patch_dimensions: tuple[int, int, int]):
+def create_inference_weighting(patch_dimensions: Tuple[int, int, int]):
     profiles: List[NDArray[np.float32]] = []
 
     for length in patch_dimensions:
