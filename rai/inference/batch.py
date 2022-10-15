@@ -19,7 +19,7 @@ import numpy as np
 import tensorflow as tf
 from numpy.typing import NDArray
 
-from raicontours import cfg
+from raicontours import Config
 
 from rai.typing.inference import Points
 from rai.vendor.stackoverflow import slicing_without_array_copy
@@ -27,7 +27,7 @@ from rai.vendor.stackoverflow import slicing_without_array_copy
 from . import _points
 
 
-def create_batch(image_stack: NDArray[np.float32], points: Points):
+def create_batch(cfg: Config, image_stack: NDArray[np.float32], points: Points):
     patch_dimensions = cfg["patch_dimensions"]
 
     collected_batched_image_stacks: List[NDArray[np.float32]] = []

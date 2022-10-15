@@ -22,7 +22,7 @@ import skimage.draw
 import skimage.measure
 from numpy.typing import NDArray
 
-from raicontours import TG263, cfg
+from raicontours import TG263, Config
 
 from rai.dicom import structures as _dicom_structures
 from rai.typing.contours import (
@@ -39,7 +39,7 @@ from rai.typing.dicom import ContourSequenceItem
 
 
 def masks_to_contours_by_structure(
-    x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
+    cfg: Config, x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
 ):
     contours_by_structure: ContoursByStructure = {}
 

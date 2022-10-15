@@ -17,18 +17,21 @@ import numba
 import numpy as np
 from numpy.typing import NDArray
 
-from raicontours import cfg
+from raicontours import Config
 
 from . import _points, _weighting
 
 
 def merge_predictions(
+    cfg: Config,
     merged: NDArray[np.uint8],
     counts: NDArray[np.float32],
     points,
     model_output: NDArray[np.uint8],
 ):
-    weighting = _weighting.create_inference_weighting()
+    weighting = _weighting.create_inference_weighting(
+        patch_dimensions=cfg["patch_dimensions"]
+    )
 
     shape = merged.shape
 

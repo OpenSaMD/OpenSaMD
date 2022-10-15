@@ -22,13 +22,13 @@ import numpy as np
 import pydicom
 from numpy.typing import NDArray
 
-from raicontours import cfg
+from raicontours import Config
 
 from rai.dicom import sorting as _dicom_sorting
 from rai.typing.contours import Grid
 
 
-def paths_to_image_stack_hfs(paths: List[pathlib.Path]):
+def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
     sorted_paths = sorted(paths, key=_sorting_key)
 
     image_uids: List[str] = []
@@ -43,7 +43,7 @@ def paths_to_image_stack_hfs(paths: List[pathlib.Path]):
             loaded_x_grid,
             loaded_y_grid,
             model_input_image,
-        ) = _get_model_dicom_grid_and_rescaled_image(ds=ds)
+        ) = _get_model_dicom_grid_and_rescaled_image(cfg=cfg, ds=ds)
         x_grid, y_grid = _validate_grid(x_grid, y_grid, loaded_x_grid, loaded_y_grid)
 
         image_stack.append(model_input_image[None, ...])
@@ -76,7 +76,7 @@ def _sorting_key(path: pathlib.Path):
     return -_dicom_sorting.slice_position(header)
 
 
-def _get_model_dicom_grid_and_rescaled_image(ds: pydicom.Dataset):
+def _get_model_dicom_grid_and_rescaled_image(cfg: Config, ds: pydicom.Dataset):
     original = ds.pixel_array * ds.RescaleSlope + ds.RescaleIntercept
     rescaled = (original - cfg["rescale_intercept"]) / cfg["rescale_slope"]
 

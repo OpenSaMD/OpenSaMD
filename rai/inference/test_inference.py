@@ -16,13 +16,16 @@
 
 import pydicom
 
-from raicontours import TG263, cfg
+import raicontours
 
 import rai
+
+TG263 = raicontours.TG263
 
 
 def test_inference():
     """Testing inference over jittered grid"""
+    cfg = raicontours.get_config()
 
     image_paths, structure_path = rai.download_deepmind_example()
 
@@ -34,11 +37,11 @@ def test_inference():
 
     model = rai.load_model(cfg=cfg)
     masks_pd = rai.inference_over_jittered_grid(
-        model=model, image_stack=image_stack, grid=(z, y, x)
+        cfg=cfg, model=model, image_stack=image_stack, grid=(z, y, x)
     )
 
     predicted_contours_by_structure = rai.masks_to_contours_by_structure(
-        x_grid, y_grid, masks_pd
+        cfg=cfg, x_grid=x_grid, y_grid=y_grid, masks=masks_pd
     )
 
     structure_ds = pydicom.read_file(structure_path)

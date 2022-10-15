@@ -15,13 +15,16 @@
 
 import raicontours
 
-Config = raicontours.Config
-
 from . import _create
+
+Config = raicontours.Config
 
 
 def load_model(cfg: Config):
-    model = _create.create_model(cfg)
-    model.load_weights(cfg["model_path"])
+    starting_model, dependent_model = _create.create_model(cfg)
 
-    return model
+    # Only need to load the weights for one model, as both models share
+    # the same weights internally.
+    starting_model.load_weights(cfg["model_path"])
+
+    return starting_model, dependent_model

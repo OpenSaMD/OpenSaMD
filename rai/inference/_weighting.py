@@ -22,14 +22,12 @@ import numpy as np
 import scipy.special
 from numpy.typing import NDArray
 
-from raicontours import cfg
 
-
-@functools.lru_cache(None)
-def create_inference_weighting():
+@functools.lru_cache(maxsize=1)
+def create_inference_weighting(patch_dimensions: tuple[int, int, int]):
     profiles: List[NDArray[np.float32]] = []
 
-    for length in cfg["patch_dimensions"]:
+    for length in patch_dimensions:
         profile_function = _create_profile_function(
             centre=(length - 1) / 2,
             field_width=length * 0.8,

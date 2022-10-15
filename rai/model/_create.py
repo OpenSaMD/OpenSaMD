@@ -16,22 +16,74 @@
 from typing import List
 
 import tensorflow as tf
+from this import d
 
 from raicontours import Config
 
 
 def create_model(cfg: Config):
     """Create autosegmentation tensorflow model"""
+
+    image_input, masks_input, masks_input_shape = _create_inputs(cfg=cfg)
+
+    base_model = _base_model(cfg=cfg)
+
+    empty_masks = tf.broadcast_to(
+        tf.cast(0 * image_input, dtype=tf.uint8), masks_input_shape
+    )
+
+    x = base_model(inputs=[image_input, empty_masks, tf.constant([False], dtype=bool)])
+    starting_model = tf.keras.Model(inputs=image_input, outputs=x)
+
+    x = base_model(inputs=[image_input, masks_input, tf.constant([True], dtype=bool)])
+    dependent_model = tf.keras.Model(inputs=[image_input, masks_input], outputs=x)
+
+    return starting_model, dependent_model
+
+
+def _create_inputs(cfg: Config):
     image_input: tf.Tensor = tf.keras.layers.Input(shape=cfg["patch_dimensions"])
 
+    num_structures = len(cfg["structures"])
+    masks_input_shape = cfg["patch_dimensions"] + (num_structures,)
+    masks_input: tf.Tensor = tf.keras.layers.Input(
+        shape=masks_input_shape, dtype=tf.uint8
+    )
+
+    return image_input, masks_input, masks_input_shape
+
+
+def _base_model(cfg: Config):
+    """Create autosegmentation tensorflow model"""
+
+    image_input, masks_input, _masks_input_shape = _create_inputs(cfg=cfg)
+    use_masks_flag: tf.Tensor = tf.keras.layers.Input(
+        shape=(1,), dtype=tf.bool, batch_size=1
+    )
+
     x: tf.Tensor = image_input[..., None]
+    x = _convolution(x=x, filters=cfg["encoding_filter_counts"][0])
+
+    def _add_masks_conv(x):
+        converted_masks_input = tf.cast(masks_input, dtype=tf.float32) / 255
+
+        x = x + _convolution(
+            x=converted_masks_input, filters=cfg["encoding_filter_counts"][0]
+        )
+
+        return x
+
+    x = tf.cond(use_masks_flag, lambda: _add_masks_conv(x), lambda: x)
+
     x = _core(cfg=cfg, x=x)
 
     mask_output = tf.cast(tf.round(x * 255), dtype=tf.uint8)
 
-    model = tf.keras.Model(inputs=image_input, outputs=mask_output)
+    base_model = tf.keras.Model(
+        inputs=[image_input, masks_input, use_masks_flag], outputs=mask_output
+    )
 
-    return model
+    return base_model
 
 
 def _core(cfg: Config, x: tf.Tensor):
@@ -40,7 +92,9 @@ def _core(cfg: Config, x: tf.Tensor):
     for i, filters in enumerate(cfg["encoding_filter_counts"]):
         is_last_step = i >= len(cfg["encoding_filter_counts"]) - 1
 
-        x, skip = _encode(x=x, filters=filters, pool=not is_last_step)
+        x, skip = _encode(
+            x=x, filters=filters, pool=not is_last_step, skip_first_convolution=i == 0
+        )
 
         if not is_last_step:
             skips.append(skip)
@@ -58,9 +112,13 @@ def _core(cfg: Config, x: tf.Tensor):
     return x
 
 
-def _encode(x: tf.Tensor, filters: int, pool: bool):
-    for _ in range(2):
-        x = _convolution(x=x, filters=filters)
+def _encode(x: tf.Tensor, filters: int, pool: bool, skip_first_convolution: bool):
+    for i in range(2):
+        if skip_first_convolution and i == 0:
+            pass
+        else:
+            x = _convolution(x=x, filters=filters)
+
         x = _activation(x=x)
 
     skip = x
