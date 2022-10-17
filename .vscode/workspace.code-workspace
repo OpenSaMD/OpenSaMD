@@ -114,6 +114,7 @@
       "tensorflow",
       "tmpl",
       "tomlkit",
+      "tqdm",
       "venv",
       "virtualenvs",
       "waivable"

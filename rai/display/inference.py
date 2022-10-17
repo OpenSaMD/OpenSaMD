@@ -36,6 +36,8 @@ def plot_contours_by_structure(
     for dicom_name, tg263_names in merge_map.items():
         colour = next(colour_iterator)
 
+        dicom_name = f"DICOM {dicom_name}"
+
         for name in [dicom_name] + tg263_names:
             colours[name] = colour
 

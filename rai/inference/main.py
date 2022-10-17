@@ -34,6 +34,7 @@ def run_inference(
     points: Points,
     image_stack: NDArray[np.float32],
     masks_stack: Optional[NDArray[np.uint8]] = None,
+    max_batch_size: Optional[int] = None,
 ):
     model_image_input = _batch.create_batch(
         cfg=cfg, points=points, array_stack=image_stack
@@ -46,7 +47,12 @@ def run_inference(
     else:
         model_input = model_image_input
 
-    model_output = model.predict(model_input)
+    if max_batch_size is not None:
+        model_output = _batch.run_batch(
+            model=model, model_input=model_input, max_batch_size=max_batch_size
+        )
+    else:
+        model_output = model.predict(model_input)
 
     num_structures = model.output_shape[-1]
 
@@ -65,6 +71,7 @@ def inference_over_jittered_grid(
     grid: Tuple[List[int], List[int], List[int]],
     image_stack: NDArray[np.float32],
     masks_stack: Optional[NDArray[np.uint8]] = None,
+    max_batch_size: Optional[int] = None,
 ):
     points = []
     for point in itertools.product(*grid):
@@ -77,6 +84,7 @@ def inference_over_jittered_grid(
         points=points,
         image_stack=image_stack,
         masks_stack=masks_stack,
+        max_batch_size=max_batch_size,
     )
 
     where_mask = np.where(masks_pd > 127.5)

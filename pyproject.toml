@@ -40,6 +40,7 @@ scipy = "*"
 pydicom = "*"
 click = "*"
 numba = "*"
+tqdm = "*"
 
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
@@ -47,7 +48,8 @@ tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Wi
 
 # Pin while the model is likely to change significantly from one version to the
 # next, and also pinning while raicontours is utilising development releases.
-raicontours = "0.3.0-dev0"
+# raicontours = "0.3.0-dev0"
+raicontours = { path = "../raicontours", develop = true }
 
 # Not needed after Python 3.7 support is dropped
 PyWavelets = "<1.4.0"

@@ -13,10 +13,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from typing import Any, List, Optional, TypeVar
+from typing import List, TypeVar
 
 import numpy as np
 import tensorflow as tf
+import tqdm
 from numpy.typing import NDArray
 
 from raicontours import Config
@@ -72,11 +73,22 @@ def create_batch(cfg: Config, points: Points, array_stack: NDArray[T]):
 
 
 def run_batch(model: tf.keras.Model, model_input, max_batch_size):
-    steps = int(np.ceil(model_input.shape[0] / max_batch_size))
-    batches = np.array_split(model_input, steps, axis=0)
+    if isinstance(model_input, list):
+        steps = int(np.ceil(model_input[0].shape[0] / max_batch_size))
+
+        individual_batches = []
+        for item in model_input:
+            individual_batches.append(np.array_split(item, steps, axis=0))
+
+        assert len(individual_batches) == len(model_input)
+
+        batches = zip(*individual_batches)
+    else:
+        steps = int(np.ceil(model_input.shape[0] / max_batch_size))
+        batches = np.array_split(model_input, steps, axis=0)
 
     results = []
-    for batch in batches:
-        results.append(model.predict(batch))
+    for batch in tqdm.tqdm(batches):
+        results.append(model.predict(batch, verbose=0))
 
     return np.concatenate(results, axis=0)
