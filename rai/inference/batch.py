@@ -82,7 +82,7 @@ def run_batch(model: tf.keras.Model, model_input, max_batch_size):
 
         assert len(individual_batches) == len(model_input)
 
-        batches = zip(*individual_batches)
+        batches = list(zip(*individual_batches))
     else:
         steps = int(np.ceil(model_input.shape[0] / max_batch_size))
         batches = np.array_split(model_input, steps, axis=0)
