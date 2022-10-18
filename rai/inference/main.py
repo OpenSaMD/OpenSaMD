@@ -43,7 +43,14 @@ def run_inference(
         model_masks_input = _batch.create_batch(
             cfg=cfg, points=points, array_stack=masks_stack
         )
-        model_input = [model_image_input, model_masks_input]
+
+        useful_points_ref = np.max(model_masks_input, axis=(1, 2, 3, 4)) != 0
+        points = [point for point, useful in zip(points, useful_points_ref) if useful]
+
+        model_input = [
+            model_image_input[useful_points_ref, ...],
+            model_masks_input[useful_points_ref, ...],
+        ]
     else:
         model_input = model_image_input
 
@@ -72,6 +79,7 @@ def inference_over_jittered_grid(
     image_stack: NDArray[np.float32],
     masks_stack: Optional[NDArray[np.uint8]] = None,
     max_batch_size: Optional[int] = None,
+    verify: bool = True,
 ):
     points = []
     for point in itertools.product(*grid):
@@ -87,24 +95,25 @@ def inference_over_jittered_grid(
         max_batch_size=max_batch_size,
     )
 
-    where_mask = np.where(masks_pd > 127.5)
+    if verify:
+        where_mask = np.where(masks_pd > 127.5)
 
-    if len(where_mask) > 0:
-        min_where_mask = np.min(where_mask, axis=1)
-        max_where_mask = np.max(where_mask, axis=1)
+        if len(where_mask) > 0:
+            min_where_mask = np.min(where_mask, axis=1)
+            max_where_mask = np.max(where_mask, axis=1)
 
-        points_array = np.array(points)
+            points_array = np.array(points)
 
-        for i in range(3):
-            min_point = np.min(points_array[:, i])
-            max_point = np.max(points_array[:, i])
+            for i in range(3):
+                min_point = np.min(points_array[:, i])
+                max_point = np.max(points_array[:, i])
 
-            if min_point >= min_where_mask[i] or max_point <= max_where_mask[i]:
-                raise ValueError(
-                    "Masks were found outside of the centre points in the "
-                    f"provided grid.\nAxis: {i} | "
-                    f"Point range: {[min_point, max_point]} | "
-                    f"Found mask range: {[min_where_mask[i], max_where_mask[i]]}"
-                )
+                if min_point >= min_where_mask[i] or max_point <= max_where_mask[i]:
+                    raise ValueError(
+                        "Masks were found outside of the centre points in the "
+                        f"provided grid.\nAxis: {i} | "
+                        f"Point range: {[min_point, max_point]} | "
+                        f"Found mask range: {[min_where_mask[i], max_where_mask[i]]}"
+                    )
 
     return masks_pd
