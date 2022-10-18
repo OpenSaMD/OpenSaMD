@@ -90,17 +90,23 @@ def plot_contours_by_structure(
         for structure_name, contours_by_slice in contours_by_structure.items():
             contours = contours_by_slice[z_index]
 
-            for contour in contours:
+            for i, contour in enumerate(contours):
                 contour_array = np.array(contour + [contour[0]])
 
-                ax.plot(
+                plot_args = (
                     contour_array[:, 0],
                     contour_array[:, 1],
                     line_prop[structure_name],
-                    label=labels[structure_name],
-                    c=colours[structure_name],
-                    alpha=alpha[structure_name],
                 )
+                plot_kwargs = {
+                    "c": colours[structure_name],
+                    "alpha": alpha[structure_name],
+                }
+
+                if i == 0:
+                    plot_kwargs["label"] = labels[structure_name]
+
+                ax.plot(*plot_args, **plot_kwargs)
 
                 xlim[1] = np.max([np.max(contour_array[:, 0]), xlim[1]])
                 xlim[0] = np.min([np.min(contour_array[:, 0]), xlim[0]])

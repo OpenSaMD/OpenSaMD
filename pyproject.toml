@@ -42,6 +42,12 @@ click = "*"
 numba = "*"
 tqdm = "*"
 
+plotly = ">=4"
+ipywidgets = ">=7.6"
+jupyter-dash = "*"
+pandas = "*"
+statsmodels = "*"
+
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
 tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Windows\"" }

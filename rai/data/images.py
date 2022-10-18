@@ -36,6 +36,7 @@ def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
 
     x_grid = None
     y_grid = None
+    z_grid = []
 
     for path in sorted_paths:
         ds = pydicom.read_file(path)
@@ -48,13 +49,14 @@ def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
 
         image_stack.append(model_input_image[None, ...])
         image_uids.append(ds.SOPInstanceUID)
+        z_grid.append(float(ds.ImagePositionPatient[-1]))
 
     image_stack = np.concatenate(image_stack, axis=0)
     x_grid_hfs, y_grid_hfs, image_stack_hfs = _convert_array_to_or_from_hfs_with_grids(
         x_grid, y_grid, image_stack
     )
 
-    return x_grid_hfs, y_grid_hfs, image_stack_hfs, image_uids
+    return x_grid_hfs, y_grid_hfs, z_grid, image_stack_hfs, image_uids
 
 
 def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):
