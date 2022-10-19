@@ -14,34 +14,31 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-var plot_element = document.getElementById("{plot_id}");
+var plotlyElement = document.getElementById("{plot_id}");
 
-console.log("{plot_id}")
-
-var arrayLength = plot_element.layout.images.length;
-var imageIndices = {
+var images = {
     "transverse": {},
     "coronal": {},
     "sagittal": {},
-}
+};
 
 var updatePlaneOrientations = {
     "transverse": ["sagittal", "coronal"],
     "coronal": ["sagittal", "transverse"],
     "sagittal": ["coronal", "transverse"],
-}
+};
 
-for (var i = 0; i < arrayLength; i++) {
-    var image = plot_element.layout.images[i]
+
+plotlyElement.layout.images.forEach(image => {
     var splitImageName = image.name.split("_")
 
     var planeOrientation = splitImageName[0]
     var sliceIndex = splitImageName[1]
 
-    imageIndices[planeOrientation][sliceIndex] = i
-}
+    images[planeOrientation][sliceIndex] = image
+});
 
-plot_element.on('plotly_click', function(data){
+plotlyElement.on('plotly_click', function(data){
     var point = data.points[0]
     var clickedPlaneOrientation = point.data.name
 
@@ -51,22 +48,15 @@ plot_element.on('plotly_click', function(data){
     var xUpdate = updatePlaneOrientations[clickedPlaneOrientation][0]
     var yUpdate = updatePlaneOrientations[clickedPlaneOrientation][1]
 
-    var imageIndex
-
-    for (var i = 0; i < Object.keys(imageIndices[xUpdate]).length; i++) {
-        imageIndex = imageIndices[xUpdate][i]
-        plot_element.layout.images[imageIndex].visible = false
+    for (var i = 0; i < Object.keys(images[xUpdate]).length; i++) {
+        images[xUpdate][i].visible = false
     }
-    for (var i = 0; i < Object.keys(imageIndices[yUpdate]).length; i++) {
-        imageIndex = imageIndices[yUpdate][i]
-        plot_element.layout.images[imageIndex].visible = false
+    for (var i = 0; i < Object.keys(images[yUpdate]).length; i++) {
+        images[yUpdate][i].visible = false
     }
 
-    imageIndex = imageIndices[xUpdate][clickedX]
-    plot_element.layout.images[imageIndex].visible = true
+    images[xUpdate][clickedX].visible = true
+    images[yUpdate][clickedY].visible = true
 
-    imageIndex = imageIndices[yUpdate][clickedY]
-    plot_element.layout.images[imageIndex].visible = true
-
-    Plotly.react(plot_element, plot_element.data, plot_element.layout)
+    Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout)
 })

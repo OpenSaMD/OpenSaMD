@@ -189,6 +189,8 @@ def draw(
 
     display(HTML(html))
 
+    return fig
+
 
 def _expand_limits(x_lim, dx):
     diff = x_lim[1] - x_lim[0]
@@ -226,10 +228,6 @@ def create_plotly_layout_images(
     grids, visible_slice_indices, transverse, coronal, sagittal
 ):
     z_grid, y_grid, x_grid = grids
-
-    # TODO: Verification
-    x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
-
     size_x, centre_x = _get_image_size_and_centre(x_grid)
     size_y, centre_y = _get_image_size_and_centre(y_grid)
     size_z, centre_z = _get_image_size_and_centre(z_grid)
