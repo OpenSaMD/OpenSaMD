@@ -43,7 +43,7 @@ HERE = pathlib.Path(__file__).parent
 POST_SCRIPT_PATH = HERE / "plotly-post-script.js"
 
 
-def draw_masks(
+def draw_contours_from_masks(
     cfg: Config,
     z_grid: Grid,
     y_grid: Grid,
@@ -64,7 +64,7 @@ def draw_masks(
     )
 
     centre_indices = scipy.ndimage.center_of_mass(masks)
-    visible_slice_indices = centre_indices[0:3]
+    visible_slice_indices = [int(np.round(item)) for item in centre_indices[0:3]]
 
     contours = {
         "transverse": transverse_contours,
@@ -80,8 +80,8 @@ def draw_masks(
     )
 
     where_mask = np.where(masks > 127.5)
-    min_mask_index = np.min(where_mask, axis=1)
-    max_mask_index = np.max(where_mask, axis=1)
+    min_mask_index = np.min(where_mask, axis=1).tolist()
+    max_mask_index = np.max(where_mask, axis=1).tolist()
 
     z_range = sorted([z_grid[min_mask_index[0]], z_grid[max_mask_index[0]]])
     y_range = sorted(
@@ -89,7 +89,7 @@ def draw_masks(
     )
     x_range = sorted([x_grid[min_mask_index[2]], x_grid[max_mask_index[2]]])
 
-    return _draw(
+    _draw(
         cfg=cfg,
         grids=grids,
         images=images,
