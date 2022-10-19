@@ -144,6 +144,21 @@ function setOrientationIndexVisibleTrue(planeOrientation, index) {
 };
 
 
+// https://www.freecodecamp.org/news/javascript-debounce-example/
+function debounce(func, timeout = 50){
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+}
+
+function plotlyFigureUpdate(){
+    Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout);
+}
+const plotlyDebouncedFigureUpdate = debounce(() => plotlyFigureUpdate());
+
+
 planeOrientation.forEach(planeOrientation => {
     var axisElement = axisElements[planeOrientation];
 
@@ -159,11 +174,9 @@ planeOrientation.forEach(planeOrientation => {
             newSliceIndex = numSlices[planeOrientation];
         }
 
-        console.log(newSliceIndex)
-
         setOrientationVisibleFalse(planeOrientation);
         setOrientationIndexVisibleTrue(planeOrientation, newSliceIndex);
 
-        Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout)
+        plotlyDebouncedFigureUpdate()
     })
 });
