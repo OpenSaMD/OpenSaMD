@@ -42,7 +42,7 @@ def draw(grids, images, ranges):
     common_trace_options = {
         "colorscale": "gray",
         "hoverinfo": "none",
-        "opacity": 0,
+        "opacity": 0.5,
         "showscale": False,
     }
 
@@ -97,7 +97,7 @@ def draw(grids, images, ranges):
     common_axis_options = {
         "constrain": "domain",
         # "showticklabels": False,
-        "spikesnap": "data",
+        "spikesnap": "hovered data",
         "spikemode": "across",
         "spikedash": "solid",
         "spikethickness": 0,
@@ -172,14 +172,15 @@ def _get_image_params(x_grid, y_grid, z_grid):
     return x0, dx, y0, dy, z0, dz
 
 
-def _get_image_size(grid):
+def _get_image_size_and_centre(grid):
     grid_limits = [grid[0], grid[-1]]
     dx = grid[1] - grid[0]
 
     expanded_limits = _expand_limits(grid_limits, dx)
     size = np.abs(expanded_limits[1] - expanded_limits[0])
+    centre = np.mean(grid_limits)
 
-    return size
+    return size, centre
 
 
 def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sagittal):
@@ -188,9 +189,9 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
     # TODO: Verification
     x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
 
-    size_x = _get_image_size(x_grid)
-    size_y = _get_image_size(y_grid)
-    size_z = _get_image_size(z_grid)
+    size_x, centre_x = _get_image_size_and_centre(x_grid)
+    size_y, centre_y = _get_image_size_and_centre(y_grid)
+    size_z, centre_z = _get_image_size_and_centre(z_grid)
 
     images = []
 
@@ -209,8 +210,8 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
                 source=img,
                 xref="x",
                 yref="y",
-                x=x0,
-                y=y0,
+                x=centre_x,
+                y=centre_y,
                 sizex=size_x,
                 sizey=size_y,
                 **common_image_options,
@@ -225,8 +226,8 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
                 source=img,
                 xref="x3",
                 yref="y3",
-                x=x0,
-                y=z0,
+                x=centre_x,
+                y=centre_z,
                 sizex=size_x,
                 sizey=size_z,
                 **common_image_options,
@@ -241,8 +242,8 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
                 source=img,
                 xref="x4",
                 yref="y4",
-                x=y0,
-                y=z0,
+                x=centre_y,
+                y=centre_z,
                 sizex=size_y,
                 sizey=size_z,
                 **common_image_options,
