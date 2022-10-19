@@ -77,6 +77,50 @@ def inference_from_dicom_image_paths(
         max_batch_size=max_batch_size,
     )
 
+    for i in range(3):
+        predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
+
+    assert predicted_masks.shape[0] == image_stack.shape[0]
+
+    reduced_image_stack = skimage.measure.block_reduce(
+        image_stack, block_size=cfg["reduce_block_sizes"][1], func=np.mean
+    )
+    grid = tuple(
+        (_get_inference_steps(num_slices) for num_slices in reduced_image_stack.shape)
+    )
+    predicted_masks = _inference_over_jittered_grid(
+        cfg=cfg,
+        model=rai_dependent_model,
+        grid=grid,
+        image_stack=reduced_image_stack,
+        masks_stack=predicted_masks,
+        max_batch_size=max_batch_size,
+    )
+
+    for i in range(1, 3):
+        predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
+
+    assert predicted_masks.shape[0:3] == image_stack.shape
+
+    grid = tuple((_get_inference_steps(num_slices) for num_slices in image_stack.shape))
+    predicted_masks = _inference_over_jittered_grid(
+        cfg=cfg,
+        model=rai_dependent_model,
+        grid=grid,
+        image_stack=image_stack,
+        masks_stack=predicted_masks,
+        max_batch_size=max_batch_size,
+    )
+
+    return (
+        x_grid,
+        y_grid,
+        z_grid,
+        image_uids,
+        original_image_stack,
+        predicted_masks[0:original_num_slices, ...],
+    )
+
 
 def _get_inference_steps(num_slices: int):
     # TODO: Reduce this step size
@@ -95,7 +139,7 @@ def _inference_over_jittered_grid(
     image_stack: NDArray[np.float32],
     masks_stack: Optional[NDArray[np.uint8]] = None,
     max_batch_size: Optional[int] = None,
-    verify: bool = True,
+    verify: bool = False,
 ):
     points = []
     for point in itertools.product(*grid):

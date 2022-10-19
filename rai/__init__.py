@@ -26,8 +26,9 @@ from rai.dicom.structures import (
 from rai.display.inference import (
     plot_contours_by_structure as plot_contours_by_structure,
 )
+from rai.display.interactive import draw_contours_from_masks as draw_contours_from_masks
 from rai.inference.main import (
-    inference_over_jittered_grid as inference_over_jittered_grid,
+    inference_from_dicom_image_paths as inference_from_dicom_image_paths,
 )
 from rai.mask.convert import (
     masks_to_contours_by_structure as masks_to_contours_by_structure,

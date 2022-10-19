@@ -50,12 +50,10 @@ plotlyElement.data.forEach(trace => {
         return;
     }
 
-    var splitScatterName = trace.name.split(",");
+    var splitScatterName = trace.name.split(", ");
 
-    var planeOrientation = splitScatterName[0];
-    // var structureName = splitScatterName[1];
+    var planeOrientation = splitScatterName[1];
     var sliceIndex = splitScatterName[2];
-    // var contourIndex = splitScatterName[3];
 
     if (contourTraces[planeOrientation][sliceIndex] === undefined) {
         contourTraces[planeOrientation][sliceIndex] = [trace];

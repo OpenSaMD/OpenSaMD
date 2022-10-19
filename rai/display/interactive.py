@@ -140,13 +140,15 @@ def _draw(
 
                     fig.add_trace(
                         go.Scatter(
-                            name=f"{orientation},{structure_name},{slice_index},{contour_index}",
+                            name=f"{structure_name}, {orientation}, {slice_index}",
                             visible=visible,
+                            legendgroup=structure_name,
                             x=contour_array[:, 0],
                             y=contour_array[:, 1],
                             hoverinfo="skip",
                             mode="lines",
                             marker={"color": colours[structure_name]},
+                            showlegend=contour_index == 0,
                         ),
                         *axis_coords[orientation],
                     )
@@ -221,7 +223,7 @@ def _draw(
         {
             "paper_bgcolor": "rgba(0,0,0,0)",
             "plot_bgcolor": "rgba(0,0,0,0)",
-            "showlegend": False,
+            "legend": dict(yanchor="top", y=0.99, xanchor="right", x=0.99),
             "height": 1000,
             "width": 1000,
             "images": images,
