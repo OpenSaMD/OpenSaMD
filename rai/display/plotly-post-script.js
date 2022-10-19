@@ -15,19 +15,15 @@
 
 
 var plotlyElement = document.getElementById("{plot_id}");
+var transverseElement = plotlyElement.querySelector('.xy')
+var coronalElement = plotlyElement.querySelector('.x3y3')
+var sagittalElement = plotlyElement.querySelector('.x4y4')
 
 var images = {
-    "transverse": {},
-    "coronal": {},
-    "sagittal": {},
+    "transverse": [],
+    "coronal": [],
+    "sagittal": [],
 };
-
-var updatePlaneOrientations = {
-    "transverse": ["sagittal", "coronal"],
-    "coronal": ["sagittal", "transverse"],
-    "sagittal": ["coronal", "transverse"],
-};
-
 
 plotlyElement.layout.images.forEach(image => {
     var splitImageName = image.name.split("_")
@@ -37,6 +33,37 @@ plotlyElement.layout.images.forEach(image => {
 
     images[planeOrientation][sliceIndex] = image
 });
+
+var contourTraces = {
+    "transverse": [],
+    "coronal": [],
+    "sagittal": [],
+};
+
+plotlyElement.data.forEach(trace => {
+    if (trace.type !== "scatter") {
+        return;
+    }
+
+    var splitScatterName = trace.name.split(",");
+
+    var planeOrientation = splitScatterName[0];
+    var structureName = splitScatterName[1];
+    var sliceIndex = splitScatterName[2];
+    var contourIndex = splitScatterName[3];
+
+    if (contourTraces[planeOrientation][sliceIndex] === undefined) {
+        contourTraces[planeOrientation][sliceIndex] = [trace];
+    } else {
+        contourTraces[planeOrientation][sliceIndex].push(trace)
+    }
+});
+
+var updatePlaneOrientations = {
+    "transverse": ["sagittal", "coronal"],
+    "coronal": ["sagittal", "transverse"],
+    "sagittal": ["coronal", "transverse"],
+};
 
 plotlyElement.on('plotly_click', function(data){
     var point = data.points[0]
@@ -48,15 +75,53 @@ plotlyElement.on('plotly_click', function(data){
     var xUpdate = updatePlaneOrientations[clickedPlaneOrientation][0]
     var yUpdate = updatePlaneOrientations[clickedPlaneOrientation][1]
 
-    for (var i = 0; i < Object.keys(images[xUpdate]).length; i++) {
-        images[xUpdate][i].visible = false
-    }
-    for (var i = 0; i < Object.keys(images[yUpdate]).length; i++) {
-        images[yUpdate][i].visible = false
-    }
+    setOrientationVisibleFalse(xUpdate)
+    setOrientationVisibleFalse(yUpdate)
 
-    images[xUpdate][clickedX].visible = true
-    images[yUpdate][clickedY].visible = true
+    setOrientationIndexVisibleTrue(xUpdate, clickedX)
+    setOrientationIndexVisibleTrue(yUpdate, clickedY)
 
     Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout)
+});
+
+function setOrientationVisibleFalse(planeOrientation) {
+    images[planeOrientation].forEach(image => {
+        image.visible = false;
+    });
+
+    contourTraces[planeOrientation].forEach(contours => {
+        contours.forEach(contourTrace => {
+            contourTrace.visible = false;
+        });
+    });
+};
+
+
+function setOrientationIndexVisibleTrue(planeOrientation, index) {
+    images[planeOrientation][index].visible = true
+
+    var contours = contourTraces[planeOrientation][index]
+
+    if (contours !== undefined) {
+        contours.forEach(contourTrace => {
+            contourTrace.visible = true;
+        });
+    }
+
+};
+
+
+transverseElement.addEventListener('wheel', (event) => {
+    event.preventDefault()
+    console.log(event)
+})
+
+coronalElement.addEventListener('wheel', (event) => {
+    event.preventDefault()
+    console.log(event)
+})
+
+sagittalElement.addEventListener('wheel', (event) => {
+    event.preventDefault()
+    console.log(event)
 })

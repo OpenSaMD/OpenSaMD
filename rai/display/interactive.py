@@ -148,6 +148,7 @@ def draw(
         {
             "paper_bgcolor": "rgba(0,0,0,0)",
             "plot_bgcolor": "rgba(0,0,0,0)",
+            "showlegend": False,
             "height": 900,
             "width": 900,
             "images": images,
@@ -179,7 +180,7 @@ def draw(
         config={
             "displayModeBar": True,
             "displaylogo": False,
-            "scrollZoom": True,
+            "scrollZoom": False,
         },
         full_html=False,
         post_script=post_script,
@@ -339,14 +340,17 @@ def _get_colours():
     for cmap in cmaps_to_pull_from:
         loaded_colours += matplotlib.cm.get_cmap(cmap).colors
 
-    np_colours: NDArray[Any] = np.array(loaded_colours)
+    np_colours: NDArray[np.uint8] = np.round(np.array(loaded_colours) * 255).astype(
+        np.uint8
+    )
 
     greys_ref = np.logical_and(
-        np.abs(np_colours[:, 0] - np_colours[:, 1]) < 0.1,
-        np.abs(np_colours[:, 0] - np_colours[:, 2]) < 0.1,
-        np.abs(np_colours[:, 1] - np_colours[:, 2]) < 0.1,
+        np.abs(np_colours[:, 0] - np_colours[:, 1]) < 30,
+        np.abs(np_colours[:, 0] - np_colours[:, 2]) < 30,
+        np.abs(np_colours[:, 1] - np_colours[:, 2]) < 30,
     )
     np_colours = np_colours[np.invert(greys_ref)]
-    colours: List[Tuple[float, float, float]] = [tuple(item) for item in np_colours]
 
-    return itertools.cycle(colours)
+    rgb_string_colours = [f"rgb({item[0]},{item[1]},{item[2]})" for item in np_colours]
+
+    return itertools.cycle(rgb_string_colours)
