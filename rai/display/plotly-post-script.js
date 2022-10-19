@@ -14,10 +14,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+console.log("{plot_id}")
+
 var plotlyElement = document.getElementById("{plot_id}");
-var transverseElement = plotlyElement.querySelector('.xy')
-var coronalElement = plotlyElement.querySelector('.x3y3')
-var sagittalElement = plotlyElement.querySelector('.x4y4')
+
+var axisElements = {
+    "transverse": plotlyElement.querySelector('.xy'),
+    "coronal": plotlyElement.querySelector('.x3y3'),
+    "sagittal": plotlyElement.querySelector('.x4y4'),
+}
 
 var images = {
     "transverse": [],
@@ -48,9 +53,9 @@ plotlyElement.data.forEach(trace => {
     var splitScatterName = trace.name.split(",");
 
     var planeOrientation = splitScatterName[0];
-    var structureName = splitScatterName[1];
+    // var structureName = splitScatterName[1];
     var sliceIndex = splitScatterName[2];
-    var contourIndex = splitScatterName[3];
+    // var contourIndex = splitScatterName[3];
 
     if (contourTraces[planeOrientation][sliceIndex] === undefined) {
         contourTraces[planeOrientation][sliceIndex] = [trace];
@@ -64,6 +69,30 @@ var updatePlaneOrientations = {
     "coronal": ["sagittal", "transverse"],
     "sagittal": ["coronal", "transverse"],
 };
+
+var currentSliceIndices = {
+    "transverse": null,
+    "coronal": null,
+    "sagittal": null,
+}
+
+var planeOrientation = ["transverse", "coronal", "sagittal"]
+
+planeOrientation.forEach(planeOrientation => {
+    images[planeOrientation].forEach((image, index) => {
+        if (image.visible) {
+            currentSliceIndices[planeOrientation] = index;
+        }
+    });
+});
+
+console.log(currentSliceIndices)
+
+var numSlices = {
+    "transverse": images["transverse"].length,
+    "coronal": images["coronal"].length,
+    "sagittal": images["sagittal"].length,
+}
 
 plotlyElement.on('plotly_click', function(data){
     var point = data.points[0]
@@ -94,6 +123,9 @@ function setOrientationVisibleFalse(planeOrientation) {
             contourTrace.visible = false;
         });
     });
+
+    // TODO: Look into race conditions resulting from this approach.
+    currentSliceIndices[planeOrientation] = null
 };
 
 
@@ -108,20 +140,30 @@ function setOrientationIndexVisibleTrue(planeOrientation, index) {
         });
     }
 
+    currentSliceIndices[planeOrientation] = index;
 };
 
 
-transverseElement.addEventListener('wheel', (event) => {
-    event.preventDefault()
-    console.log(event)
-})
+planeOrientation.forEach(planeOrientation => {
+    var axisElement = axisElements[planeOrientation];
 
-coronalElement.addEventListener('wheel', (event) => {
-    event.preventDefault()
-    console.log(event)
-})
+    axisElement.addEventListener('wheel', event => {
+        event.preventDefault();
 
-sagittalElement.addEventListener('wheel', (event) => {
-    event.preventDefault()
-    console.log(event)
-})
+        var direction = Math.sign(event.deltaY);
+
+        var newSliceIndex = currentSliceIndices[planeOrientation] + direction
+        if (newSliceIndex < 0) {
+            newSliceIndex = 0;
+        } else if (newSliceIndex > numSlices[planeOrientation]) {
+            newSliceIndex = numSlices[planeOrientation];
+        }
+
+        console.log(newSliceIndex)
+
+        setOrientationVisibleFalse(planeOrientation);
+        setOrientationIndexVisibleTrue(planeOrientation, newSliceIndex);
+
+        Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout)
+    })
+});
