@@ -42,7 +42,7 @@ def draw(grids, images, ranges):
     common_trace_options = {
         "colorscale": "gray",
         "hoverinfo": "none",
-        "opacity": 0.5,
+        "opacity": 0,
         "showscale": False,
     }
 
@@ -156,7 +156,7 @@ def _expand_limits(x_lim, dx):
     sign = np.sign(diff)
     pixel_buffer = sign * np.abs(dx) / 2
 
-    expanded_xlim = [x_lim[0] - pixel_buffer / 2, x_lim[1] + pixel_buffer / 2]
+    expanded_xlim = [x_lim[0] - pixel_buffer, x_lim[1] + pixel_buffer]
 
     return expanded_xlim
 
