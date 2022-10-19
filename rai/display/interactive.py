@@ -15,20 +15,43 @@
 
 
 import base64
+import itertools
 import pathlib
 from io import BytesIO
+from typing import Any, Dict, List, Tuple
 
 import imageio
+import matplotlib.cm
 import numpy as np
 import plotly.graph_objects as go
 from IPython.display import HTML, display
+from numpy.typing import NDArray
 from plotly.subplots import make_subplots
+
+from raicontours import Config
+
+from rai.typing.contours import ContoursByStructure, StructureName
 
 HERE = pathlib.Path(__file__).parent
 POST_SCRIPT_PATH = HERE / "plotly-post-script.js"
 
 
-def draw(grids, images, ranges):
+def draw(
+    cfg: Config,
+    grids,
+    images,
+    visible_slice_indices,
+    ranges,
+    transverse_contours: ContoursByStructure,
+):
+    colour_iterator = _get_colours()
+    colours: Dict[StructureName, Tuple[float, float, float]] = {
+        name: next(colour_iterator) for name in cfg["structures"]
+    }
+
+    z_grid, y_grid, x_grid = grids
+    x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
+
     fig = make_subplots(
         rows=2,
         cols=2,
@@ -36,11 +59,27 @@ def draw(grids, images, ranges):
         horizontal_spacing=0.05,
     )
 
-    z_grid, y_grid, x_grid = grids
-    x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
+    for orientation_index, orientation in enumerate(["transverse"]):
+        for structure_name, contours_by_slice in transverse_contours.items():
+            for slice_index, contours in enumerate(contours_by_slice):
+                visible = visible_slice_indices[orientation_index] == slice_index
 
-    common_trace_options = {
-        "colorscale": "gray",
+                for contour_index, contour in enumerate(contours):
+                    contour_array = np.array(contour + [contour[0]])
+
+                    fig.add_trace(
+                        go.Scatter(
+                            name=f"{orientation},{structure_name},{slice_index},{contour_index}",
+                            visible=visible,
+                            x=contour_array[:, 0],
+                            y=contour_array[:, 1],
+                            hoverinfo="skip",
+                            mode="lines",
+                            marker={"color": colours[structure_name]},
+                        )
+                    )
+
+    common_heatmap_options = {
         "hoverinfo": "none",
         "opacity": 0,
         "showscale": False,
@@ -56,7 +95,7 @@ def draw(grids, images, ranges):
             name="transverse",
             xaxis="x",
             yaxis="y",
-            **common_trace_options,
+            **common_heatmap_options,
         ),
         1,
         1,
@@ -72,7 +111,7 @@ def draw(grids, images, ranges):
             name="coronal",
             xaxis="x3",
             yaxis="y3",
-            **common_trace_options,
+            **common_heatmap_options,
         ),
         2,
         1,
@@ -88,7 +127,7 @@ def draw(grids, images, ranges):
             name="sagittal",
             xaxis="x4",
             yaxis="y4",
-            **common_trace_options,
+            **common_heatmap_options,
         ),
         2,
         2,
@@ -183,7 +222,9 @@ def _get_image_size_and_centre(grid):
     return size, centre
 
 
-def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sagittal):
+def create_plotly_layout_images(
+    grids, visible_slice_indices, transverse, coronal, sagittal
+):
     z_grid, y_grid, x_grid = grids
 
     # TODO: Verification
@@ -206,7 +247,7 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
         images.append(
             dict(
                 name=f"transverse_{i}",
-                visible=i == visible_indices[0],
+                visible=i == visible_slice_indices[0],
                 source=img,
                 xref="x",
                 yref="y",
@@ -222,7 +263,7 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
         images.append(
             dict(
                 name=f"coronal_{i}",
-                visible=i == visible_indices[1],
+                visible=i == visible_slice_indices[1],
                 source=img,
                 xref="x3",
                 yref="y3",
@@ -238,7 +279,7 @@ def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sag
         images.append(
             dict(
                 name=f"sagittal_{i}",
-                visible=i == visible_indices[2],
+                visible=i == visible_slice_indices[2],
                 source=img,
                 xref="x4",
                 yref="y4",
@@ -292,3 +333,22 @@ def _convert_to_b64(image, vmin, vmax):
     img = f"data:image/png;base64,{b64}"
 
     return img
+
+
+def _get_colours():
+    cmaps_to_pull_from = ["tab10", "Set3", "Set1", "Set2"]
+    loaded_colours: List[Tuple[float, float, float]] = []
+    for cmap in cmaps_to_pull_from:
+        loaded_colours += matplotlib.cm.get_cmap(cmap).colors
+
+    np_colours: NDArray[Any] = np.array(loaded_colours)
+
+    greys_ref = np.logical_and(
+        np.abs(np_colours[:, 0] - np_colours[:, 1]) < 0.1,
+        np.abs(np_colours[:, 0] - np_colours[:, 2]) < 0.1,
+        np.abs(np_colours[:, 1] - np_colours[:, 2]) < 0.1,
+    )
+    np_colours = np_colours[np.invert(greys_ref)]
+    colours: List[Tuple[float, float, float]] = [tuple(item) for item in np_colours]
+
+    return itertools.cycle(colours)
