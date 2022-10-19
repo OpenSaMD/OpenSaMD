@@ -24,19 +24,82 @@ import imageio
 import matplotlib.cm
 import numpy as np
 import plotly.graph_objects as go
+import scipy.ndimage
 from IPython.display import HTML, display
 from numpy.typing import NDArray
 from plotly.subplots import make_subplots
 
 from raicontours import Config
 
-from rai.typing.contours import ContoursByStructure, StructureName
+import rai
+from rai.typing.contours import (
+    AllStructuresMaskStack,
+    ContoursByStructure,
+    Grid,
+    StructureName,
+)
 
 HERE = pathlib.Path(__file__).parent
 POST_SCRIPT_PATH = HERE / "plotly-post-script.js"
 
 
-def draw(
+def draw_masks(
+    cfg: Config,
+    z_grid: Grid,
+    y_grid: Grid,
+    x_grid: Grid,
+    image_stack,
+    masks: AllStructuresMaskStack,
+    vmin,
+    vmax,
+):
+    transverse_contours = rai.masks_to_contours_by_structure(
+        cfg=cfg, x_grid=x_grid, y_grid=y_grid, masks=masks, axis=0
+    )
+    coronal_contours = rai.masks_to_contours_by_structure(
+        cfg=cfg, x_grid=x_grid, y_grid=z_grid, masks=masks, axis=1
+    )
+    sagittal_contours = rai.masks_to_contours_by_structure(
+        cfg=cfg, x_grid=y_grid, y_grid=z_grid, masks=masks, axis=2
+    )
+
+    centre_indices = scipy.ndimage.center_of_mass(masks)
+    visible_slice_indices = centre_indices[0:3]
+
+    contours = {
+        "transverse": transverse_contours,
+        "coronal": coronal_contours,
+        "sagittal": sagittal_contours,
+    }
+
+    transverse, coronal, sagittal = _collect_slices(image_stack, vmin, vmax)
+
+    grids = (z_grid, y_grid, x_grid)
+    images = _create_plotly_layout_images(
+        grids, visible_slice_indices, transverse, coronal, sagittal
+    )
+
+    where_mask = np.where(masks > 127.5)
+    min_mask_index = np.min(where_mask, axis=1)
+    max_mask_index = np.max(where_mask, axis=1)
+
+    z_range = sorted([z_grid[min_mask_index[0]], z_grid[max_mask_index[0]]])
+    y_range = sorted(
+        [y_grid[min_mask_index[1]], y_grid[max_mask_index[1]]], reverse=True
+    )
+    x_range = sorted([x_grid[min_mask_index[2]], x_grid[max_mask_index[2]]])
+
+    return _draw(
+        cfg=cfg,
+        grids=grids,
+        images=images,
+        ranges=[z_range, y_range, x_range],
+        contours=contours,
+        visible_slice_indices=visible_slice_indices,
+    )
+
+
+def _draw(
     cfg: Config,
     grids,
     images,
@@ -55,8 +118,8 @@ def draw(
     fig = make_subplots(
         rows=2,
         cols=2,
-        vertical_spacing=0.03,
-        horizontal_spacing=0.01,
+        vertical_spacing=0.05,
+        horizontal_spacing=0.05,
     )
 
     axis_coords = {
@@ -143,7 +206,7 @@ def draw(
     )
 
     common_axis_options = {
-        "constrain": "domain",
+        # "constrain": "domain",
         # "showticklabels": False,
         "spikesnap": "hovered data",
         "spikemode": "across",
@@ -151,6 +214,7 @@ def draw(
         "spikethickness": 0,
         "showgrid": False,
         "zeroline": False,
+        "scaleratio": 1,
     }
 
     fig.update_layout(
@@ -159,7 +223,7 @@ def draw(
             "plot_bgcolor": "rgba(0,0,0,0)",
             "showlegend": False,
             "height": 1000,
-            "width": 1500,
+            "width": 1000,
             "images": images,
             "dragmode": "pan",
             "xaxis": {
@@ -169,16 +233,26 @@ def draw(
             },
             "yaxis": {
                 "range": _expand_limits(ranges[1], dy),
+                "matches": "x4",
                 **common_axis_options,
             },
-            "xaxis3": {"matches": "x", **common_axis_options},
+            "xaxis3": {
+                "matches": "x",
+                "scaleanchor": "y3",
+                **common_axis_options,
+            },
             "yaxis3": {
                 "range": _expand_limits(ranges[0], dz),
-                "scaleanchor": "x",
+                "matches": "y4",
                 **common_axis_options,
             },
-            "yaxis4": {"matches": "y3", **common_axis_options},
-            "xaxis4": {"matches": "y", **common_axis_options},
+            "yaxis4": {
+                **common_axis_options,
+            },
+            "xaxis4": {
+                "scaleanchor": "y4",
+                **common_axis_options,
+            },
         }
     )
 
@@ -234,7 +308,7 @@ def _get_image_size_and_centre(grid):
     return size, centre
 
 
-def create_plotly_layout_images(
+def _create_plotly_layout_images(
     grids, visible_slice_indices, transverse, coronal, sagittal
 ):
     z_grid, y_grid, x_grid = grids
@@ -302,7 +376,7 @@ def create_plotly_layout_images(
     return images
 
 
-def collect_slices(image_stack, vmin, vmax):
+def _collect_slices(image_stack, vmin, vmax):
     transverse = []
     for i in range(image_stack.shape[0]):
         img = _convert_to_b64(image_stack[i, :, :], vmin, vmax)
