@@ -28,7 +28,7 @@ HERE = pathlib.Path(__file__).parent
 POST_SCRIPT_PATH = HERE / "plotly-post-script.js"
 
 
-def draw(grids, images):
+def draw(grids, images, ranges):
     fig = make_subplots(
         rows=2,
         cols=2,
@@ -37,9 +37,7 @@ def draw(grids, images):
     )
 
     z_grid, y_grid, x_grid = grids
-    x0, dx, _size_x, y0, dy, _size_y, z0, dz, _size_z = _get_image_params(
-        x_grid, y_grid, z_grid
-    )
+    x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
 
     common_trace_options = {
         "colorscale": "gray",
@@ -54,7 +52,7 @@ def draw(grids, images):
             dx=dx,
             y0=y0,
             dy=dy,
-            z=np.ones(shape=(len(y_grid), len(x_grid))),
+            z=np.zeros(shape=(len(y_grid), len(x_grid))),
             name="transverse",
             xaxis="x",
             yaxis="y",
@@ -70,7 +68,7 @@ def draw(grids, images):
             dx=dx,
             y0=z0,
             dy=dz,
-            z=np.ones(shape=(len(z_grid), len(x_grid))),
+            z=np.zeros(shape=(len(z_grid), len(x_grid))),
             name="coronal",
             xaxis="x3",
             yaxis="y3",
@@ -86,7 +84,7 @@ def draw(grids, images):
             dx=dy,
             y0=z0,
             dy=dz,
-            z=np.ones(shape=(len(z_grid), len(y_grid))),
+            z=np.zeros(shape=(len(z_grid), len(y_grid))),
             name="sagittal",
             xaxis="x4",
             yaxis="y4",
@@ -103,20 +101,31 @@ def draw(grids, images):
         "spikemode": "across",
         "spikedash": "solid",
         "spikethickness": 0,
+        "showgrid": False,
+        "zeroline": False,
     }
 
     fig.update_layout(
         {
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            "plot_bgcolor": "rgba(0,0,0,0)",
             "height": 900,
             "width": 900,
             "images": images,
             "dragmode": "pan",
-            "xaxis": {"range": [-120, 150], "scaleanchor": "y", **common_axis_options},
-            "yaxis": {"range": [-100, 170], **common_axis_options},
+            "xaxis": {
+                "range": _expand_limits(ranges[2], dx),
+                "scaleanchor": "y",
+                **common_axis_options,
+            },
+            "yaxis": {
+                "range": _expand_limits(ranges[1], dy),
+                **common_axis_options,
+            },
             "xaxis3": {"matches": "x", **common_axis_options},
             "yaxis3": {
-                "range": [-160, 110],
-                "scaleanchor": "x3",
+                "range": _expand_limits(ranges[0], dz),
+                "scaleanchor": "x",
                 **common_axis_options,
             },
             "yaxis4": {"matches": "y3", **common_axis_options},
@@ -142,36 +151,61 @@ def draw(grids, images):
     display(HTML(html))
 
 
+def _expand_limits(x_lim, dx):
+    diff = x_lim[1] - x_lim[0]
+    sign = np.sign(diff)
+    pixel_buffer = sign * np.abs(dx) / 2
+
+    expanded_xlim = [x_lim[0] - pixel_buffer / 2, x_lim[1] + pixel_buffer / 2]
+
+    return expanded_xlim
+
+
 def _get_image_params(x_grid, y_grid, z_grid):
     x0 = x_grid[0]
     dx = x_grid[1] - x_grid[0]
-    y0 = y_grid[-1]
-    dy = y_grid[-2] - y_grid[-1]
+    y0 = y_grid[0]
+    dy = y_grid[1] - y_grid[0]
     z0 = z_grid[0]
     dz = z_grid[1] - z_grid[0]
 
-    size_x = np.abs(x_grid[-1] - x_grid[0])
-    size_y = np.abs(y_grid[-1] - y_grid[0])
-    size_z = np.abs(z_grid[-1] - z_grid[0])
-
-    return x0, dx, size_x, y0, dy, size_y, z0, dz, size_z
+    return x0, dx, y0, dy, z0, dz
 
 
-def _create_plotly_layout_images(grids, transverse, coronal, sagittal):
+def _get_image_size(grid):
+    grid_limits = [grid[0], grid[-1]]
+    dx = grid[1] - grid[0]
+
+    expanded_limits = _expand_limits(grid_limits, dx)
+    size = np.abs(expanded_limits[1] - expanded_limits[0])
+
+    return size
+
+
+def create_plotly_layout_images(grids, visible_indices, transverse, coronal, sagittal):
     z_grid, y_grid, x_grid = grids
 
     # TODO: Verification
-    x0, _dx, size_x, y0, _dy, size_y, z0, _dz, size_z = _get_image_params(
-        x_grid, y_grid, z_grid
-    )
+    x0, dx, y0, dy, z0, dz = _get_image_params(x_grid, y_grid, z_grid)
+
+    size_x = _get_image_size(x_grid)
+    size_y = _get_image_size(y_grid)
+    size_z = _get_image_size(z_grid)
 
     images = []
+
+    common_image_options = {
+        "xanchor": "center",
+        "yanchor": "middle",
+        "sizing": "stretch",
+        "layer": "below",
+    }
 
     for i, img in enumerate(transverse):
         images.append(
             dict(
                 name=f"transverse_{i}",
-                visible=i == 50,
+                visible=i == visible_indices[0],
                 source=img,
                 xref="x",
                 yref="y",
@@ -179,8 +213,7 @@ def _create_plotly_layout_images(grids, transverse, coronal, sagittal):
                 y=y0,
                 sizex=size_x,
                 sizey=size_y,
-                sizing="stretch",
-                # layer="below",
+                **common_image_options,
             )
         )
 
@@ -188,7 +221,7 @@ def _create_plotly_layout_images(grids, transverse, coronal, sagittal):
         images.append(
             dict(
                 name=f"coronal_{i}",
-                visible=i == 256,
+                visible=i == visible_indices[1],
                 source=img,
                 xref="x3",
                 yref="y3",
@@ -196,8 +229,7 @@ def _create_plotly_layout_images(grids, transverse, coronal, sagittal):
                 y=z0,
                 sizex=size_x,
                 sizey=size_z,
-                sizing="stretch",
-                # layer="below",
+                **common_image_options,
             )
         )
 
@@ -205,23 +237,22 @@ def _create_plotly_layout_images(grids, transverse, coronal, sagittal):
         images.append(
             dict(
                 name=f"sagittal_{i}",
-                visible=i == 256,
+                visible=i == visible_indices[2],
                 source=img,
                 xref="x4",
                 yref="y4",
-                x=y_grid[0],
+                x=y0,
                 y=z0,
                 sizex=size_y,
                 sizey=size_z,
-                sizing="stretch",
-                # layer="below",
+                **common_image_options,
             )
         )
 
     return images
 
 
-def _collect_slices(image_stack, vmin, vmax):
+def collect_slices(image_stack, vmin, vmax):
     transverse = []
     for i in range(image_stack.shape[0]):
         img = _convert_to_b64(image_stack[i, :, :], vmin, vmax)
