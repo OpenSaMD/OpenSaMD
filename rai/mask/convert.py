@@ -36,10 +36,11 @@ from rai.typing.contours import (
     MaskStack,
 )
 from rai.typing.dicom import ContourSequenceItem
+from rai.vendor.stackoverflow import slicing_without_array_copy
 
 
 def masks_to_contours_by_structure(
-    cfg: Config, x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack
+    cfg: Config, x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack, axis=0
 ):
     contours_by_structure: ContoursByStructure = {}
 
@@ -47,8 +48,13 @@ def masks_to_contours_by_structure(
         this_structure = masks[..., structure_index]
 
         contours_by_slice: ContoursBySlice = []
-        for z_index in range(this_structure.shape[0]):
-            this_slice = this_structure[z_index, ...]
+        for slice_index in range(this_structure.shape[axis]):
+            this_slice = np.squeeze(
+                slicing_without_array_copy(
+                    this_structure, slice(slice_index, slice_index + 1), axis
+                ),
+                axis=axis,
+            )
             contours = mask_to_contours(x_grid, y_grid, this_slice)
             contours_by_slice.append(contours)
 

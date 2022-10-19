@@ -107,10 +107,13 @@ plotlyElement.on('plotly_click', function(data){
     setOrientationVisibleFalse(xUpdate)
     setOrientationVisibleFalse(yUpdate)
 
-    setOrientationIndexVisibleTrue(xUpdate, clickedX)
-    setOrientationIndexVisibleTrue(yUpdate, clickedY)
+    setOrientationIndexImageVisibleTrue(xUpdate, clickedX)
+    setOrientationIndexImageVisibleTrue(yUpdate, clickedY)
 
-    Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout)
+    setOrientationIndexContoursVisibleTrue(xUpdate, clickedX)
+    setOrientationIndexContoursVisibleTrue(yUpdate, clickedY)
+
+    plotlyDebouncedFigureUpdate()
 });
 
 function setOrientationVisibleFalse(planeOrientation) {
@@ -129,9 +132,12 @@ function setOrientationVisibleFalse(planeOrientation) {
 };
 
 
-function setOrientationIndexVisibleTrue(planeOrientation, index) {
+function setOrientationIndexImageVisibleTrue(planeOrientation, index) {
     images[planeOrientation][index].visible = true
+    currentSliceIndices[planeOrientation] = index;
+};
 
+function setOrientationIndexContoursVisibleTrue(planeOrientation, index) {
     var contours = contourTraces[planeOrientation][index]
 
     if (contours !== undefined) {
@@ -139,13 +145,11 @@ function setOrientationIndexVisibleTrue(planeOrientation, index) {
             contourTrace.visible = true;
         });
     }
-
-    currentSliceIndices[planeOrientation] = index;
 };
 
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
-function debounce(func, timeout = 50){
+function debounce(func, timeout){
     let timer;
     return (...args) => {
         clearTimeout(timer);
@@ -156,7 +160,8 @@ function debounce(func, timeout = 50){
 function plotlyFigureUpdate(){
     Plotly.react(plotlyElement, plotlyElement.data, plotlyElement.layout);
 }
-const plotlyDebouncedFigureUpdate = debounce(() => plotlyFigureUpdate());
+
+const plotlyDebouncedFigureUpdate = debounce(() => plotlyFigureUpdate(), timeout=200);
 
 
 planeOrientation.forEach(planeOrientation => {
@@ -175,8 +180,9 @@ planeOrientation.forEach(planeOrientation => {
         }
 
         setOrientationVisibleFalse(planeOrientation);
-        setOrientationIndexVisibleTrue(planeOrientation, newSliceIndex);
+        setOrientationIndexImageVisibleTrue(planeOrientation, newSliceIndex);
+        setOrientationIndexContoursVisibleTrue(planeOrientation, newSliceIndex);
 
-        plotlyDebouncedFigureUpdate()
+        plotlyDebouncedFigureUpdate();
     })
 });

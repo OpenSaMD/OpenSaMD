@@ -42,10 +42,10 @@ def draw(
     images,
     visible_slice_indices,
     ranges,
-    transverse_contours: ContoursByStructure,
+    contours: Dict[str, ContoursByStructure],
 ):
     colour_iterator = _get_colours()
-    colours: Dict[StructureName, Tuple[float, float, float]] = {
+    colours: Dict[StructureName, str] = {
         name: next(colour_iterator) for name in cfg["structures"]
     }
 
@@ -55,16 +55,24 @@ def draw(
     fig = make_subplots(
         rows=2,
         cols=2,
-        vertical_spacing=0.05,
-        horizontal_spacing=0.05,
+        vertical_spacing=0.03,
+        horizontal_spacing=0.01,
     )
 
-    for orientation_index, orientation in enumerate(["transverse"]):
-        for structure_name, contours_by_slice in transverse_contours.items():
-            for slice_index, contours in enumerate(contours_by_slice):
+    axis_coords = {
+        "transverse": (1, 1),
+        "coronal": (2, 1),
+        "sagittal": (2, 2),
+    }
+
+    for orientation_index, (orientation, contours_by_structure) in enumerate(
+        contours.items()
+    ):
+        for structure_name, contours_by_slice in contours_by_structure.items():
+            for slice_index, contours_for_this_slice in enumerate(contours_by_slice):
                 visible = visible_slice_indices[orientation_index] == slice_index
 
-                for contour_index, contour in enumerate(contours):
+                for contour_index, contour in enumerate(contours_for_this_slice):
                     contour_array = np.array(contour + [contour[0]])
 
                     fig.add_trace(
@@ -76,7 +84,8 @@ def draw(
                             hoverinfo="skip",
                             mode="lines",
                             marker={"color": colours[structure_name]},
-                        )
+                        ),
+                        *axis_coords[orientation],
                     )
 
     common_heatmap_options = {
@@ -149,8 +158,8 @@ def draw(
             "paper_bgcolor": "rgba(0,0,0,0)",
             "plot_bgcolor": "rgba(0,0,0,0)",
             "showlegend": False,
-            "height": 900,
-            "width": 900,
+            "height": 1000,
+            "width": 1500,
             "images": images,
             "dragmode": "pan",
             "xaxis": {
