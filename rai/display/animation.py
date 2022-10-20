@@ -74,9 +74,9 @@ def auto_scroll_contours_by_orientation(
         name: next(colour_iterator) for name in structure_names
     }
 
-    fig, axs = plt.subplots(nrows=2, ncols=2)
+    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
 
-    axs[0, 0].pcolormesh(
+    transverse_image = axs[0, 0].pcolormesh(
         x_grid,
         y_grid,
         images[slice_ranges[0][0], :, :],
@@ -93,40 +93,35 @@ def auto_scroll_contours_by_orientation(
     def update(i):
         z_index = slice_ranges[0][i]
 
-        axs[0, 0].pcolormesh(
-            x_grid,
-            y_grid,
-            images[z_index, :, :],
-            vmin=vmin,
-            vmax=vmax,
-            shading="nearest",
-            cmap="gray",
-        )
-        for structure_name, contours_by_slice in contours_by_orientation[
-            "transverse"
-        ].items():
-            contours = contours_by_slice[z_index]
+        transverse_image.set_array(images[z_index, :, :])
 
-            for j, contour in enumerate(contours):
-                contour_array = np.array(contour + [contour[0]])
+        # for structure_name, contours_by_slice in contours_by_orientation[
+        #     "transverse"
+        # ].items():
+        #     contours = contours_by_slice[z_index]
 
-                plot_args = (
-                    contour_array[:, 0],
-                    contour_array[:, 1],
-                    # line_prop[structure_name],
-                )
-                plot_kwargs = {
-                    "c": colours[structure_name],
-                    # "alpha": alpha[structure_name],
-                }
+        #     for j, contour in enumerate(contours):
+        #         contour_array = np.array(contour + [contour[0]])
 
-                # if j == 0:
-                #     plot_kwargs["label"] = labels[structure_name]
+        #         plot_args = (
+        #             contour_array[:, 0],
+        #             contour_array[:, 1],
+        #             # line_prop[structure_name],
+        #         )
+        #         plot_kwargs = {
+        #             "c": colours[structure_name],
+        #             # "alpha": alpha[structure_name],
+        #         }
 
-                axs[0, 0].plot(*plot_args, **plot_kwargs)
+        #         # if j == 0:
+        #         #     plot_kwargs["label"] = labels[structure_name]
+
+        #         axs[0, 0].plot(*plot_args, **plot_kwargs)
+
+        # return transverse_image
 
     animation = matplotlib.animation.FuncAnimation(
-        fig, update, frames=len(slice_ranges[0]), interval=50, blit=True
+        fig, update, frames=len(slice_ranges[0]), interval=20, blit=True, repeat=False
     )
     ctx = {"paused": False}
 
