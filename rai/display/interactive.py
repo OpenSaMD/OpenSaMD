@@ -18,81 +18,61 @@ import base64
 import itertools
 import pathlib
 from io import BytesIO
-from typing import Any, Dict, List, Tuple
+from typing import Dict, List, Tuple
 
 import imageio
 import matplotlib.cm
 import numpy as np
 import plotly.graph_objects as go
-import scipy.ndimage
 from IPython.display import HTML, display
 from numpy.typing import NDArray
 from plotly.subplots import make_subplots
 
 from raicontours import Config
 
-import rai
-from rai.typing.contours import (
-    AllStructuresMaskStack,
-    ContoursByStructure,
-    Grid,
-    StructureName,
-)
+from rai.typing.contours import ContoursByOrientation, Grid, StructureName
+
+from .animation import ORIENTATION_TO_AXIS
 
 HERE = pathlib.Path(__file__).parent
 POST_SCRIPT_PATH = HERE / "plotly-post-script.js"
 
 
-def draw_contours_from_masks(
+def draw_contours_by_orientation(
     cfg: Config,
-    z_grid: Grid,
-    y_grid: Grid,
-    x_grid: Grid,
-    image_stack,
-    masks: AllStructuresMaskStack,
+    grids: Tuple[Grid, Grid, Grid],
+    images,
+    contours_by_orientation: ContoursByOrientation,
     vmin,
     vmax,
-    orientations=("transverse", "coronal", "sagittal"),
+    axis_limits,
+    centre_indices,
 ):
+    orientations = ("transverse", "coronal", "sagittal")
 
-    centre_indices = scipy.ndimage.center_of_mass(masks)
-    visible_slice_indices = {
-        key: int(np.round(centre_indices[orientation_axis_map[key]]))
-        for key in orientations
-    }
+    image_slices = _collect_image_slices(images, vmin, vmax, orientations)
 
-    image_slices = _collect_image_slices(image_stack, vmin, vmax, orientations)
-
-    grids = (z_grid, y_grid, x_grid)
-    images = _create_plotly_layout_images(grids, visible_slice_indices, image_slices)
-
-    where_mask = np.where(masks > 127.5)
-    min_mask_index = np.min(where_mask, axis=1).tolist()
-    max_mask_index = np.max(where_mask, axis=1).tolist()
-
-    z_range = sorted([z_grid[min_mask_index[0]], z_grid[max_mask_index[0]]])
-    y_range = sorted(
-        [y_grid[min_mask_index[1]], y_grid[max_mask_index[1]]], reverse=True
+    plotly_layout_images = _create_plotly_layout_images(
+        grids, centre_indices, image_slices
     )
-    x_range = sorted([x_grid[min_mask_index[2]], x_grid[max_mask_index[2]]])
 
     _draw(
         cfg=cfg,
         grids=grids,
-        images=images,
-        ranges=[z_range, y_range, x_range],
-        contours=contours,
-        visible_slice_indices=visible_slice_indices,
+        plotly_layout_images=plotly_layout_images,
+        axis_limits=axis_limits,
+        contours_by_orientation=contours_by_orientation,
+        centre_indices=centre_indices,
     )
 
 
 def _draw(
     cfg: Config,
     grids,
-    images,
-    visible_slice_indices,
-    ranges,
-    contours: Dict[str, ContoursByStructure],
+    plotly_layout_images,
+    centre_indices,
+    axis_limits,
+    contours_by_orientation: ContoursByOrientation,
 ):
     colour_iterator = _get_colours()
     colours: Dict[StructureName, str] = {
@@ -115,10 +95,11 @@ def _draw(
         "sagittal": (2, 2),
     }
 
-    for orientation, contours_by_structure in contours.items():
+    for orientation, contours_by_structure in contours_by_orientation.items():
         for structure_name, contours_by_slice in contours_by_structure.items():
             for slice_index, contours_for_this_slice in enumerate(contours_by_slice):
-                visible = visible_slice_indices[orientation] == slice_index
+                axis = ORIENTATION_TO_AXIS[orientation]
+                visible = centre_indices[axis] == slice_index
 
                 for contour_index, contour in enumerate(contours_for_this_slice):
                     contour_array = np.array(contour + [contour[0]])
@@ -138,7 +119,7 @@ def _draw(
                         *axis_coords[orientation],
                     )
 
-    orientations = tuple(contours.keys())
+    orientations = tuple(contours_by_orientation.keys())
 
     orientation_dependent_heatmap_options = {
         "transverse": {
@@ -205,15 +186,15 @@ def _draw(
             "legend": dict(yanchor="top", y=0.99, xanchor="right", x=0.99),
             "height": 1000,
             "width": 1000,
-            "images": images,
+            "images": plotly_layout_images,
             "dragmode": "pan",
             "xaxis": {
-                "range": _expand_limits(ranges[2], dx),
+                "range": _expand_limits(axis_limits[2], dx),
                 "scaleanchor": "y",
                 **common_axis_options,
             },
             "yaxis": {
-                "range": _expand_limits(ranges[1], dy),
+                "range": _expand_limits(axis_limits[1], dy),
                 "matches": "x4",
                 **common_axis_options,
             },
@@ -223,7 +204,7 @@ def _draw(
                 **common_axis_options,
             },
             "yaxis3": {
-                "range": _expand_limits(ranges[0], dz),
+                "range": _expand_limits(axis_limits[0], dz),
                 "matches": "y4",
                 **common_axis_options,
             },
@@ -334,7 +315,8 @@ def _create_plotly_layout_images(grids, visible_slice_indices, image_slices):
     }
 
     for orientation in orientations:
-        visible_slice_index = visible_slice_indices[orientation]
+        axis = ORIENTATION_TO_AXIS[orientation]
+        visible_slice_index = visible_slice_indices[axis]
         sliced_images_for_this_orientation = image_slices[orientation]
 
         for i, img in enumerate(sliced_images_for_this_orientation):
@@ -387,7 +369,7 @@ def _convert_to_b64(image, vmin, vmax):
     scaled_img = scaled_img.astype(np.uint8)
 
     in_memory_file.seek(0)
-    imageio.imsave(in_memory_file, scaled_img, format="png")
+    imageio.imsave(in_memory_file, scaled_img, format="png")  # type: ignore
     in_memory_file.seek(0)
 
     raw = in_memory_file.read()
@@ -401,7 +383,7 @@ def _get_colours():
     cmaps_to_pull_from = ["tab10", "Set3", "Set1", "Set2"]
     loaded_colours: List[Tuple[float, float, float]] = []
     for cmap in cmaps_to_pull_from:
-        loaded_colours += matplotlib.cm.get_cmap(cmap).colors
+        loaded_colours += matplotlib.cm.get_cmap(cmap).colors  # type: ignore
 
     np_colours: NDArray[np.uint8] = np.round(np.array(loaded_colours) * 255).astype(
         np.uint8

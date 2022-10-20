@@ -22,12 +22,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.ndimage
 from matplotlib.axes import Axes
-from matplotlib.axis import Axis
 
-import rai
 from rai.typing.contours import (
     ContoursByOrientation,
-    ContoursByStructure,
     ContoursXY,
     Grid,
     Orienation,
@@ -35,7 +32,7 @@ from rai.typing.contours import (
 )
 from rai.vendor.stackoverflow import slicing_without_array_copy
 
-_ORIENTATION_TO_AXIS: Dict[Orienation, int] = {
+ORIENTATION_TO_AXIS: Dict[Orienation, int] = {
     "transverse": 0,
     "coronal": 1,
     "sagittal": 2,
@@ -47,7 +44,7 @@ def view_ranges_from_masks(grids, masks, buffer=0.1):
     min_mask_index = np.min(where_mask, axis=1).tolist()
     max_mask_index = np.max(where_mask, axis=1).tolist()
 
-    slice_ranges = tuple(
+    slice_indices = tuple(
         (
             list(range(min_mask_index[axis], max_mask_index[axis] + 1))
             for axis in range(3)
@@ -73,14 +70,18 @@ def view_ranges_from_masks(grids, masks, buffer=0.1):
 
         axis_limits.append(tuple(sorted_limits))
 
-    return slice_ranges, tuple(axis_limits)
+    centre_indices = [
+        int(np.round(item)) for item in scipy.ndimage.center_of_mass(masks)[0:3]
+    ]
+
+    return slice_indices, tuple(axis_limits), centre_indices
 
 
 def auto_scroll_contours_by_orientation(
     grids: Tuple[Grid, Grid, Grid],
     images,
     contours_by_orientation: ContoursByOrientation,
-    slice_ranges: Tuple[List[int], List[int], List[int]],
+    slice_indicies: Tuple[List[int], List[int], List[int]],
     axis_limits: Tuple[Tuple[float, float], Tuple[float, float], Tuple[float, float]],
     structure_names: List[StructureName],
     vmin,
@@ -101,8 +102,6 @@ def auto_scroll_contours_by_orientation(
         "coronal": fig.add_subplot(gs[1, 0]),
         "sagittal": fig.add_subplot(gs[1, 1]),
     }
-
-    z_index = slice_ranges[0][0]
 
     orientation_specific_params = {
         "transverse": {
@@ -134,9 +133,11 @@ def auto_scroll_contours_by_orientation(
         },
     }
 
+    image_patches = {}
+    contour_patches = {}
     for orientation, ax in axs.items():
-        axis = _ORIENTATION_TO_AXIS[orientation]
-        transverse_image, contour_plots = _populate_axis_for_orientation_and_index(
+        axis = ORIENTATION_TO_AXIS[orientation]
+        image_patch, contour_patch = _populate_axis_for_orientation_and_index(
             ax=ax,
             images=images,
             contours_by_orientation=contours_by_orientation,
@@ -144,32 +145,50 @@ def auto_scroll_contours_by_orientation(
             vmin=vmin,
             vmax=vmax,
             orientation=orientation,
-            index=slice_ranges[axis][0],
+            index=slice_indicies[axis][0],
             **orientation_specific_params[orientation]
         )
+
+        image_patches[orientation] = image_patch
+        contour_patches[orientation] = contour_patch
 
         ax.set_xlim(*orientation_specific_limits[orientation]["xlim"])
         ax.set_ylim(*orientation_specific_limits[orientation]["ylim"])
 
     # plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
 
-    def update(i):
-        z_index = slice_ranges[0][i]
+    animation_index_conversion = []
+    for orientation, axis in ORIENTATION_TO_AXIS.items():
+        index_pair = [(orientation, index) for index in slice_indicies[axis]]
+        animation_index_conversion += index_pair
 
-        transverse_image.set_array(images[z_index, :, :])
-        for structure_name, contour_plot in contour_plots.items():
-            contours_by_slice = contours_by_orientation["transverse"][structure_name]
-            contours = _combine_contours_for_plotting(contours_by_slice[z_index])
+    def update(animation_index):
+        orientation, slice_index = animation_index_conversion[animation_index]
+        axis = ORIENTATION_TO_AXIS[orientation]
 
-            contour_plot.set_xdata(contours[:, 0]),
-            contour_plot.set_ydata(contours[:, 1]),
+        image = slicing_without_array_copy(
+            images, slice(slice_index, slice_index + 1), axis
+        )
+        image = np.squeeze(image, axis=axis)
+        image_patches[orientation].set_array(image)
+
+        for structure_name, contour_patch in contour_patches[orientation].items():
+            contours_by_slice = contours_by_orientation[orientation][structure_name]
+            contours = _combine_contours_for_plotting(contours_by_slice[slice_index])
+
+            contour_patch.set_xdata(contours[:, 0])
+            contour_patch.set_ydata(contours[:, 1])
 
     animation = matplotlib.animation.FuncAnimation(
-        fig, update, frames=len(slice_ranges[0]), interval=20, blit=True, repeat=False
+        fig,
+        update,
+        frames=len(animation_index_conversion),
+        interval=20,
+        repeat=False,
     )
     ctx = {"paused": False}
 
-    def toggle_pause(*args, **kwargs):
+    def toggle_pause(*_args, **_kwargs):
         if ctx["paused"]:
             animation.resume()
         else:
@@ -193,7 +212,7 @@ def _populate_axis_for_orientation_and_index(
     orientation: Orienation,
     index: int,
 ):
-    axis = _ORIENTATION_TO_AXIS[orientation]
+    axis = ORIENTATION_TO_AXIS[orientation]
 
     image = slicing_without_array_copy(images, slice(index, index + 1), axis)
     image = np.squeeze(image, axis=axis)
@@ -249,16 +268,16 @@ def _get_colours():
     cmaps_to_pull_from = ["tab10", "Set3", "Set1", "Set2"]
     loaded_colours = []
     for cmap in cmaps_to_pull_from:
-        loaded_colours += matplotlib.cm.get_cmap(cmap).colors
+        loaded_colours += matplotlib.cm.get_cmap(cmap).colors  # type: ignore
 
-    colours = np.array(loaded_colours)
+    colours = np.array(loaded_colours)  # type: ignore
 
     greys_ref = np.logical_and(
-        np.abs(colours[:, 0] - colours[:, 1]) < 0.1,
-        np.abs(colours[:, 0] - colours[:, 2]) < 0.1,
-        np.abs(colours[:, 1] - colours[:, 2]) < 0.1,
+        np.abs(colours[:, 0] - colours[:, 1]) < 0.1,  # type: ignore
+        np.abs(colours[:, 0] - colours[:, 2]) < 0.1,  # type: ignore
+        np.abs(colours[:, 1] - colours[:, 2]) < 0.1,  # type: ignore
     )
-    colours: np.ndarray = colours[np.invert(greys_ref)]
+    colours: np.ndarray = colours[np.invert(greys_ref)]  # type: ignore
     colours: List[Tuple[float, float, float]] = [tuple(item) for item in colours]
 
     return itertools.cycle(colours)

@@ -27,7 +27,9 @@ from rai.display.animation import (
     auto_scroll_contours_by_orientation as auto_scroll_contours_by_orientation,
 )
 from rai.display.animation import view_ranges_from_masks as view_ranges_from_masks
-from rai.display.interactive import draw_contours_from_masks as draw_contours_from_masks
+from rai.display.interactive import (
+    draw_contours_by_orientation as draw_contours_by_orientation,
+)
 from rai.inference.main import (
     inference_from_dicom_image_paths as inference_from_dicom_image_paths,
 )
