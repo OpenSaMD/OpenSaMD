@@ -86,6 +86,7 @@ def plot_contours_by_structure(
     slice_indices,
     axis_limits,
     structure_names,
+    figsize,
     vmin,
     vmax,
 ):
@@ -127,7 +128,7 @@ def plot_contours_by_structure(
 
     axis = ORIENTATION_TO_AXIS[orientation]
     for i in slice_indices[axis]:
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=figsize)
         _populate_axis_for_orientation_and_index(
             ax=ax,
             images=images,
