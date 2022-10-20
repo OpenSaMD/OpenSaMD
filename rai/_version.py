@@ -3,5 +3,5 @@
 
 """Package version information"""
 
-version_info = [0, 2, 0, "dev1"]
-__version__ = "0.2.0-dev1"
+version_info = [0, 2, 0, "dev2"]
+__version__ = "0.2.0-dev2"

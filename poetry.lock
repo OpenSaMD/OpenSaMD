@@ -31,7 +31,7 @@ test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "anyio"
-version = "3.6.1"
+version = "3.6.2"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
 category = "main"
 optional = false
@@ -45,7 +45,7 @@ typing-extensions = {version = "*", markers = "python_version < \"3.8\""}
 [package.extras]
 doc = ["packaging", "sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
 test = ["contextlib2", "coverage[toml] (>=4.5)", "hypothesis (>=4.0)", "mock (>=4)", "pytest (>=7.0)", "pytest-mock (>=3.6.1)", "trustme", "uvloop (<0.15)", "uvloop (>=0.15)"]
-trio = ["trio (>=0.16)"]
+trio = ["trio (>=0.16,<0.22)"]
 
 [[package]]
 name = "appnope"
@@ -294,7 +294,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "cycler"
 version = "0.11.0"
 description = "Composable style cycles"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -470,7 +470,7 @@ python-versions = "*"
 name = "fonttools"
 version = "4.37.4"
 description = "Tools to manipulate font files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -722,6 +722,26 @@ traitlets = ">=5.1.0"
 test = ["flaky", "ipyparallel", "pre-commit", "pytest (>=6.0)", "pytest-cov", "pytest-timeout"]
 
 [[package]]
+name = "ipympl"
+version = "0.9.2"
+description = "Matplotlib Jupyter Extension"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ipython = "<9"
+ipython-genutils = "*"
+ipywidgets = ">=7.6.0,<9"
+matplotlib = ">=3.4.0,<4"
+numpy = "*"
+pillow = "*"
+traitlets = "<6"
+
+[package.extras]
+docs = ["Sphinx (>=1.5)", "myst-nb", "sphinx-book-theme", "sphinx-copybutton", "sphinx-thebe", "sphinx-togglebutton"]
+
+[[package]]
 name = "ipython"
 version = "7.34.0"
 description = "IPython: Productive Interactive Computing"
@@ -908,7 +928,7 @@ testing = ["coverage", "ipykernel", "matplotlib", "nbformat (>=5.1)", "numpy", "
 
 [[package]]
 name = "jupyter-client"
-version = "7.4.2"
+version = "7.4.3"
 description = "Jupyter protocol implementation and client libraries"
 category = "main"
 optional = false
@@ -925,11 +945,11 @@ traitlets = "*"
 
 [package.extras]
 doc = ["ipykernel", "myst-parser", "sphinx (>=1.3.6)", "sphinx-rtd-theme", "sphinxcontrib-github-alt"]
-test = ["codecov", "coverage", "ipykernel (>=6.5)", "ipython", "mypy", "pre-commit", "pytest", "pytest-asyncio (>=0.18)", "pytest-cov", "pytest-timeout"]
+test = ["codecov", "coverage", "ipykernel (>=6.12)", "ipython", "mypy", "pre-commit", "pytest", "pytest-asyncio (>=0.18)", "pytest-cov", "pytest-timeout"]
 
 [[package]]
 name = "jupyter-core"
-version = "4.11.1"
+version = "4.11.2"
 description = "Jupyter core package. A base package on which Jupyter projects rely."
 category = "main"
 optional = false
@@ -1066,7 +1086,7 @@ tests = ["Pillow", "keras", "pandas", "pytest", "pytest-cov", "pytest-xdist", "t
 name = "kiwisolver"
 version = "1.4.4"
 description = "A fast implementation of the Cassowary constraint solver"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1185,7 +1205,7 @@ python-versions = ">=3.7"
 name = "matplotlib"
 version = "3.5.3"
 description = "Python plotting package"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1933,7 +1953,7 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pyright"
-version = "1.1.275"
+version = "1.1.276"
 description = "Command line wrapper for pyright"
 category = "dev"
 optional = false
@@ -2057,19 +2077,14 @@ py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
 name = "raicontours"
-version = "0.3.0-dev1"
+version = "0.3.0.dev2"
 description = ""
 category = "main"
 optional = false
 python-versions = ">=3.7"
-develop = true
 
 [package.dependencies]
 typing-extensions = "*"
-
-[package.source]
-type = "directory"
-url = "../raicontours"
 
 [[package]]
 name = "requests"
@@ -2191,7 +2206,7 @@ testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (
 name = "setuptools-scm"
 version = "6.4.2"
 description = "the blessed package to manage your versions by scm tags"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -2832,7 +2847,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -3027,7 +3042,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<3.11"
-content-hash = "c8e1a242e975012525268e07d04e832bd4d0fdffb4311ba73d0b8474358d5680"
+content-hash = "2ba83819c670bda0d6568b0f3f99fe15f71d31ea23f3eb9661ec7902ec7f8aba"
 
 [metadata.files]
 absl-py = [
@@ -3043,8 +3058,8 @@ ansi2html = [
     {file = "ansi2html-1.8.0.tar.gz", hash = "sha256:38b82a298482a1fa2613f0f9c9beb3db72a8f832eeac58eb2e47bf32cd37f6d5"},
 ]
 anyio = [
-    {file = "anyio-3.6.1-py3-none-any.whl", hash = "sha256:cb29b9c70620506a9a8f87a309591713446953302d7d995344d0d7c6c0c9a7be"},
-    {file = "anyio-3.6.1.tar.gz", hash = "sha256:413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b"},
+    {file = "anyio-3.6.2-py3-none-any.whl", hash = "sha256:fbbe32bd270d2a2ef3ed1c5d45041250284e31fc0a4df4a5a6071842051a51e3"},
+    {file = "anyio-3.6.2.tar.gz", hash = "sha256:25ea0d673ae30af41a0c442f81cf3b38c7e79fdc7b60335a4c14e05eb0947421"},
 ]
 appnope = [
     {file = "appnope-0.1.3-py2.py3-none-any.whl", hash = "sha256:265a455292d0bd8a72453494fa24df5a11eb18373a60c7c0430889f22548605e"},
@@ -3567,6 +3582,10 @@ ipykernel = [
     {file = "ipykernel-6.16.0-py3-none-any.whl", hash = "sha256:d3d95241cd4dd302fea9d5747b00509b58997356d1f6333c9a074c3eccb78cb3"},
     {file = "ipykernel-6.16.0.tar.gz", hash = "sha256:7fe42c0d58435e971dc15fd42189f20d66bf35f3056bda4f6554271bc1fa3d0d"},
 ]
+ipympl = [
+    {file = "ipympl-0.9.2-py2.py3-none-any.whl", hash = "sha256:655604f0bf6d264cf599766950a5b26e292d107cc23e197503647e75417981cc"},
+    {file = "ipympl-0.9.2.tar.gz", hash = "sha256:c865c1992248f9966fbe4b6006239ae2959b00fc7e887ae32b0bd389808f0f8b"},
+]
 ipython = [
     {file = "ipython-7.34.0-py3-none-any.whl", hash = "sha256:c175d2440a1caff76116eb719d40538fbb316e214eda85c5515c303aacbfb23e"},
     {file = "ipython-7.34.0.tar.gz", hash = "sha256:af3bdb46aa292bce5615b1b2ebc76c2080c5f77f54bda2ec72461317273e7cd6"},
@@ -3608,12 +3627,12 @@ jupyter-cache = [
     {file = "jupyter_cache-0.4.3-py3-none-any.whl", hash = "sha256:6d5d662d81f565d18009e8dcfd3a56fb876af47eafead2a19ef0045aba8ffe3b"},
 ]
 jupyter-client = [
-    {file = "jupyter_client-7.4.2-py3-none-any.whl", hash = "sha256:f8929321204d3f0b446401cfadc04ed8226e77002a9e379416df8c252607f695"},
-    {file = "jupyter_client-7.4.2.tar.gz", hash = "sha256:b91a9a7b91ac69adf170d98c87917320f6b466e1c5e89b300226ef4047193376"},
+    {file = "jupyter_client-7.4.3-py3-none-any.whl", hash = "sha256:8845e3f5a339734b1ecc21d2100638aa1c7a145e356a31845f155cda5b624b1c"},
+    {file = "jupyter_client-7.4.3.tar.gz", hash = "sha256:4fa2514cdb54dd9fbdcf7d7e4c5c3c8a973028168a8b4fc097b6aef625be13b0"},
 ]
 jupyter-core = [
-    {file = "jupyter_core-4.11.1-py3-none-any.whl", hash = "sha256:715e22bb6cc7db3718fddfac1f69f1c7e899ca00e42bdfd4bf3705452b9fd84a"},
-    {file = "jupyter_core-4.11.1.tar.gz", hash = "sha256:2e5f244d44894c4154d06aeae3419dd7f1b0ef4494dc5584929b398c61cfd314"},
+    {file = "jupyter_core-4.11.2-py3-none-any.whl", hash = "sha256:3815e80ec5272c0c19aad087a0d2775df2852cfca8f5a17069e99c9350cecff8"},
+    {file = "jupyter_core-4.11.2.tar.gz", hash = "sha256:c2909b9bc7dca75560a6c5ae78c34fd305ede31cd864da3c0d0bb2ed89aa9337"},
 ]
 jupyter-dash = [
     {file = "jupyter-dash-0.4.2.tar.gz", hash = "sha256:d546c7c25a2867c14c95a48af0ad572803b26915a5ce6052158c9dede4dbf48c"},
@@ -4393,8 +4412,8 @@ pyparsing = [
     {file = "pyparsing-3.0.9.tar.gz", hash = "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"},
 ]
 pyright = [
-    {file = "pyright-1.1.275-py3-none-any.whl", hash = "sha256:83072f509e18160f2661a2276ac85f471112dbcfc1dadf0cbb0393a4d56db72a"},
-    {file = "pyright-1.1.275.tar.gz", hash = "sha256:f0061ce47c785b9b64745b7648ff9732a99811ef7c7f3f88642aa2cb7868c81e"},
+    {file = "pyright-1.1.276-py3-none-any.whl", hash = "sha256:d9388405ea20a55446cb7809b1746158bdf557f9162b476f5aed71173f4ffd2b"},
+    {file = "pyright-1.1.276.tar.gz", hash = "sha256:debaa08f6975dd381b9408880e36bb781ba7a1a6cf24b7868e83be41b6c8cb75"},
 ]
 pyrsistent = [
     {file = "pyrsistent-0.18.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:df46c854f490f81210870e509818b729db4488e1f30f2a1ce1698b2295a878d1"},
@@ -4608,7 +4627,10 @@ pyzmq = [
     {file = "pyzmq-24.0.1-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:687700f8371643916a1d2c61f3fdaa630407dd205c38afff936545d7b7466066"},
     {file = "pyzmq-24.0.1.tar.gz", hash = "sha256:216f5d7dbb67166759e59b0479bca82b8acf9bed6015b526b8eb10143fb08e77"},
 ]
-raicontours = []
+raicontours = [
+    {file = "raicontours-0.3.0.dev2-py3-none-any.whl", hash = "sha256:8cadfdc4b4ce09c556509a9fbb4ddb764f1b9440c35fee268d37d381681a7f13"},
+    {file = "raicontours-0.3.0.dev2.tar.gz", hash = "sha256:6fa470168092bb371b16e045488182af378348a407a972b3a26739fbeec9f752"},
+]
 requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
