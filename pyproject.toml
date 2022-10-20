@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rai"
-version = "0.2.0-dev3"
+version = "0.2.0-dev4"
 readme = "README.md"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
@@ -42,12 +42,12 @@ click = "*"
 numba = "*"
 tqdm = "*"
 
-plotly = ">=4"
-ipywidgets = ">=7.6"
-jupyter-dash = "*"
-pandas = "*"
-statsmodels = "*"
-ipympl = "*"
+# plotly = ">=4"
+# ipywidgets = ">=7.6"
+# jupyter-dash = "*"
+# pandas = "*"
+# statsmodels = "*"
+# ipympl = "*"
 
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }

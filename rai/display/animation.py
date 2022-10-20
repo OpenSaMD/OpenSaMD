@@ -25,6 +25,7 @@ from matplotlib.axes import Axes
 
 from rai.typing.contours import (
     ContoursByOrientation,
+    ContoursByStructure,
     ContoursXY,
     Grid,
     Orienation,
@@ -75,6 +76,73 @@ def view_ranges_from_masks(grids, masks, buffer=0.1):
     ]
 
     return slice_indices, tuple(axis_limits), centre_indices
+
+
+def plot_contours_by_structure(
+    grids,
+    images,
+    contours_by_structure: ContoursByStructure,
+    orientation: Orienation,
+    slice_indices,
+    axis_limits,
+    structure_names,
+    vmin,
+    vmax,
+):
+    z_grid, y_grid, x_grid = grids
+    colour_iterator = _get_colours()
+    colours: Dict[StructureName, Tuple[float, float, float]] = {
+        name: next(colour_iterator) for name in structure_names
+    }
+
+    orientation_specific_params = {
+        "transverse": {
+            "x_grid": x_grid,
+            "y_grid": y_grid,
+        },
+        "coronal": {
+            "x_grid": x_grid,
+            "y_grid": z_grid,
+        },
+        "sagittal": {
+            "x_grid": y_grid,
+            "y_grid": z_grid,
+        },
+    }
+
+    orientation_specific_limits = {
+        "transverse": {
+            "xlim": axis_limits[2],
+            "ylim": axis_limits[1],
+        },
+        "coronal": {
+            "xlim": axis_limits[2],
+            "ylim": axis_limits[0],
+        },
+        "sagittal": {
+            "xlim": axis_limits[1],
+            "ylim": axis_limits[0],
+        },
+    }
+
+    axis = ORIENTATION_TO_AXIS[orientation]
+    for i in slice_indices[axis]:
+        fig, ax = plt.subplots()
+        _populate_axis_for_orientation_and_index(
+            ax=ax,
+            images=images,
+            contours_by_structure=contours_by_structure,
+            colours=colours,
+            vmin=vmin,
+            vmax=vmax,
+            orientation=orientation,
+            index=i,
+            **orientation_specific_params[orientation]
+        )
+        ax.set_xlim(*orientation_specific_limits[orientation]["xlim"])
+        ax.set_ylim(*orientation_specific_limits[orientation]["ylim"])
+
+        plt.show()
 
 
 def auto_scroll_contours_by_orientation(
@@ -141,7 +209,7 @@ def auto_scroll_contours_by_orientation(
         image_patch, contour_patch = _populate_axis_for_orientation_and_index(
             ax=ax,
             images=images,
-            contours_by_orientation=contours_by_orientation,
+            contours_by_structure=contours_by_orientation[orientation],
             colours=colours,
             vmin=vmin,
             vmax=vmax,
@@ -204,7 +272,7 @@ def _populate_axis_for_orientation_and_index(
     x_grid,
     y_grid,
     images,
-    contours_by_orientation: ContoursByOrientation,
+    contours_by_structure: ContoursByStructure,
     colours,
     vmin,
     vmax,
@@ -225,8 +293,6 @@ def _populate_axis_for_orientation_and_index(
         shading="nearest",
         cmap="gray",
     )
-
-    contours_by_structure = contours_by_orientation[orientation]
 
     contour_traces_by_structure = {}
     for structure_name, contours_by_slice in contours_by_structure.items():

@@ -49,7 +49,9 @@ class _Options(TypedDict):
     y_grid: Grid
 
 
-def masks_to_contours_by_orientation(grids, masks, structure_names):
+def masks_to_contours_by_structure(
+    grids, masks, structure_names, orientation: Orienation
+):
     (z_grid, y_grid, x_grid) = grids
 
     orientation_dependent_conversion_options: Dict[Orienation, _Options] = {
@@ -70,18 +72,18 @@ def masks_to_contours_by_orientation(grids, masks, structure_names):
         },
     }
 
-    contours_by_orientation: ContoursByOrientation = {}
-    for orientation, options in orientation_dependent_conversion_options.items():
-        contours_by_orientation[orientation] = masks_to_contours_by_structure(
-            structure_names=structure_names,
-            masks=masks,
-            **options,
-        )
+    options = orientation_dependent_conversion_options[orientation]
 
-    return contours_by_orientation
+    contours = _masks_to_contours_by_structure(
+        structure_names=structure_names,
+        masks=masks,
+        **options,
+    )
+
+    return contours
 
 
-def masks_to_contours_by_structure(
+def _masks_to_contours_by_structure(
     x_grid: Grid,
     y_grid: Grid,
     masks: AllStructuresMaskStack,

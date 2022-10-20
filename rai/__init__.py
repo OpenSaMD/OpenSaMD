@@ -26,14 +26,11 @@ from rai.dicom.structures import (
 from rai.display.animation import (
     auto_scroll_contours_by_orientation as auto_scroll_contours_by_orientation,
 )
+from rai.display.animation import (
+    plot_contours_by_structure as plot_contours_by_structure,
+)
 from rai.display.animation import view_ranges_from_masks as view_ranges_from_masks
-from rai.display.interactive import (
-    draw_contours_by_orientation as draw_contours_by_orientation,
-)
 from rai.inference.main import inference as inference
-from rai.mask.convert import (
-    masks_to_contours_by_orientation as masks_to_contours_by_orientation,
-)
 from rai.mask.convert import (
     masks_to_contours_by_structure as masks_to_contours_by_structure,
 )
