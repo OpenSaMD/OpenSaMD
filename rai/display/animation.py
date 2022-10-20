@@ -86,6 +86,7 @@ def auto_scroll_contours_by_orientation(
     structure_names: List[StructureName],
     vmin,
     vmax,
+    interval,
 ):
     z_grid, y_grid, x_grid = grids
 
@@ -183,7 +184,7 @@ def auto_scroll_contours_by_orientation(
         fig,
         update,
         frames=len(animation_index_conversion),
-        interval=20,
+        interval=interval,
         repeat=False,
     )
     ctx = {"paused": False}
