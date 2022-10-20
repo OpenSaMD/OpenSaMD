@@ -56,7 +56,9 @@ def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
         x_grid, y_grid, image_stack
     )
 
-    return x_grid_hfs, y_grid_hfs, z_grid, image_stack_hfs, image_uids
+    grids = (z_grid, y_grid_hfs, x_grid_hfs)
+
+    return grids, image_stack_hfs, image_uids
 
 
 def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):

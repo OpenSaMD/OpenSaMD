@@ -88,7 +88,7 @@ def run_batch(model: tf.keras.Model, model_input, max_batch_size):
         batches = np.array_split(model_input, steps, axis=0)
 
     results = []
-    for batch in tqdm.tqdm(batches):
+    for batch in batches:
         results.append(model.predict(batch, verbose=0))
 
     return np.concatenate(results, axis=0)

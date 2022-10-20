@@ -49,7 +49,9 @@ class _Options(TypedDict):
     y_grid: Grid
 
 
-def masks_to_contours_by_orientation(x_grid, y_grid, z_grid, masks, structure_names):
+def masks_to_contours_by_orientation(grids, masks, structure_names):
+    (z_grid, y_grid, x_grid) = grids
+
     orientation_dependent_conversion_options: Dict[Orienation, _Options] = {
         "transverse": {
             "axis": 0,

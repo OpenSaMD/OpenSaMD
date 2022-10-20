@@ -42,7 +42,7 @@ def merge_predictions(
 
     patch_dimensions = cfg["patch_dimensions"]
 
-    for i, point in tqdm.tqdm(list(enumerate(points))):
+    for i, point in enumerate(points):
         z, y, x = point
 
         z_patch_slice, z_merged_slice = _points.point_to_slices(

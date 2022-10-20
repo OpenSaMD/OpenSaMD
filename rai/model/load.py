@@ -20,7 +20,7 @@ from . import _create
 Config = raicontours.Config
 
 
-def load_model(cfg: Config):
+def load_models(cfg: Config):
     base_model, starting_model, dependent_model = _create.create_model(cfg)
     base_model.load_weights(cfg["model_path"])
 

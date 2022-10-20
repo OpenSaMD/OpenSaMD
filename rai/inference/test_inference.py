@@ -35,7 +35,7 @@ def test_inference():
     y = [140, 155, 175, 195, 215, 230]
     x = [210, 230, 250, 270, 290, 310]
 
-    model = rai.load_model(cfg=cfg)
+    model = rai.load_models(cfg=cfg)
     masks_pd = rai.inference_over_jittered_grid(
         cfg=cfg, model=model, image_stack=image_stack, grid=(z, y, x)
     )

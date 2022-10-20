@@ -30,9 +30,7 @@ from rai.display.animation import view_ranges_from_masks as view_ranges_from_mas
 from rai.display.interactive import (
     draw_contours_by_orientation as draw_contours_by_orientation,
 )
-from rai.inference.main import (
-    inference_from_dicom_image_paths as inference_from_dicom_image_paths,
-)
+from rai.inference.main import inference as inference
 from rai.mask.convert import (
     masks_to_contours_by_orientation as masks_to_contours_by_orientation,
 )
@@ -40,7 +38,7 @@ from rai.mask.convert import (
     masks_to_contours_by_structure as masks_to_contours_by_structure,
 )
 from rai.metrics.dice import from_contours_by_slice as dice_from_contours_by_slice
-from rai.model.load import load_model as load_model
+from rai.model.load import load_models as load_models
 
 from ._version import __version__ as __version__
 from ._version import version_info as version_info

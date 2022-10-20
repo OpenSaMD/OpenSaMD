@@ -197,8 +197,6 @@ def auto_scroll_contours_by_orientation(
 
     fig.canvas.mpl_connect("button_press_event", toggle_pause)
 
-    return update
-
 
 def _populate_axis_for_orientation_and_index(
     ax: Axes,
