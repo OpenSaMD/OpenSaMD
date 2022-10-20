@@ -21,12 +21,28 @@ import matplotlib.cm
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.ndimage
+from matplotlib.axes import Axes
+from matplotlib.axis import Axis
 
 import rai
-from rai.typing.contours import ContoursByOrientation, ContoursXY, Grid, StructureName
+from rai.typing.contours import (
+    ContoursByOrientation,
+    ContoursByStructure,
+    ContoursXY,
+    Grid,
+    Orienation,
+    StructureName,
+)
+from rai.vendor.stackoverflow import slicing_without_array_copy
+
+_ORIENTATION_TO_AXIS: Dict[Orienation, int] = {
+    "transverse": 0,
+    "coronal": 1,
+    "sagittal": 2,
+}
 
 
-def view_ranges_from_masks(grids, masks):
+def view_ranges_from_masks(grids, masks, buffer=0.1):
     where_mask = np.where(masks > 127.5)
     min_mask_index = np.min(where_mask, axis=1).tolist()
     max_mask_index = np.max(where_mask, axis=1).tolist()
@@ -39,22 +55,25 @@ def view_ranges_from_masks(grids, masks):
     )
 
     axis_reverse = [False, True, False]
-    axis_limits = tuple(
-        (
-            tuple(
-                sorted(
-                    [
-                        grids[axis][min_mask_index[axis]],
-                        grids[axis][max_mask_index[axis]],
-                    ],
-                    reverse=reverse,
-                )
-            )
-            for axis, reverse in enumerate(axis_reverse)
-        )
-    )
 
-    return slice_ranges, axis_limits
+    axis_limits = []
+    for axis, reverse in enumerate(axis_reverse):
+        lim_a = grids[axis][min_mask_index[axis]]
+        lim_b = grids[axis][max_mask_index[axis]]
+
+        limit_range = np.abs(lim_b - lim_a)
+        expansion = buffer * limit_range
+
+        sorted_limits = sorted([lim_a, lim_b])
+        sorted_limits[0] = sorted_limits[0] - expansion
+        sorted_limits[1] = sorted_limits[1] + expansion
+
+        if reverse:
+            sorted_limits = [sorted_limits[1], sorted_limits[0]]
+
+        axis_limits.append(tuple(sorted_limits))
+
+    return slice_ranges, tuple(axis_limits)
 
 
 def auto_scroll_contours_by_orientation(
@@ -74,83 +93,76 @@ def auto_scroll_contours_by_orientation(
         name: next(colour_iterator) for name in structure_names
     }
 
-    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
+    fig = plt.figure(constrained_layout=True, figsize=(12, 12))
+    gs = fig.add_gridspec(2, 2)
+
+    axs: Dict[Orienation, Axes] = {
+        "transverse": fig.add_subplot(gs[0, :]),
+        "coronal": fig.add_subplot(gs[1, 0]),
+        "sagittal": fig.add_subplot(gs[1, 1]),
+    }
 
     z_index = slice_ranges[0][0]
 
-    transverse_image = axs[0, 0].pcolormesh(
-        x_grid,
-        y_grid,
-        images[z_index, :, :],
-        vmin=vmin,
-        vmax=vmax,
-        shading="nearest",
-        cmap="gray",
-    )
+    orientation_specific_params = {
+        "transverse": {
+            "x_grid": x_grid,
+            "y_grid": y_grid,
+        },
+        "coronal": {
+            "x_grid": x_grid,
+            "y_grid": z_grid,
+        },
+        "sagittal": {
+            "x_grid": y_grid,
+            "y_grid": z_grid,
+        },
+    }
 
-    contours_plots = {}
-    for structure_name, contours_by_slice in contours_by_orientation[
-        "transverse"
-    ].items():
-        contours = contours_by_slice[z_index]
+    orientation_specific_limits = {
+        "transverse": {
+            "xlim": axis_limits[2],
+            "ylim": axis_limits[1],
+        },
+        "coronal": {
+            "xlim": axis_limits[2],
+            "ylim": axis_limits[0],
+        },
+        "sagittal": {
+            "xlim": axis_limits[1],
+            "ylim": axis_limits[0],
+        },
+    }
 
-        contour_arrays = []
-        for contour in contours:
-            contour_arrays.append(np.array(contour + [contour[0]]))
-
-        combined_contours: ContoursXY = [[(np.nan, np.nan)]] * (
-            len(contour_arrays) * 2 - 1
+    for orientation, ax in axs.items():
+        axis = _ORIENTATION_TO_AXIS[orientation]
+        transverse_image, contour_plots = _populate_axis_for_orientation_and_index(
+            ax=ax,
+            images=images,
+            contours_by_orientation=contours_by_orientation,
+            colours=colours,
+            vmin=vmin,
+            vmax=vmax,
+            orientation=orientation,
+            index=slice_ranges[axis][0],
+            **orientation_specific_params[orientation]
         )
-        combined_contours[0::2] = contour_arrays
 
-        try:
-            merged_contour_arrays = np.concatenate(combined_contours, axis=0)
-        except ValueError:
-            merged_contour_arrays = np.array([[np.nan, np.nan]])
+        ax.set_xlim(*orientation_specific_limits[orientation]["xlim"])
+        ax.set_ylim(*orientation_specific_limits[orientation]["ylim"])
 
-        plot_args = (
-            merged_contour_arrays[:, 0],
-            merged_contour_arrays[:, 1],
-            # line_prop[structure_name],
-        )
-        plot_kwargs = {
-            "c": colours[structure_name],
-            # "alpha": alpha[structure_name],
-        }
-
-        # if j == 0:
-        #     plot_kwargs["label"] = labels[structure_name]
-
-        (contours_plots[structure_name],) = axs[0, 0].plot(*plot_args, **plot_kwargs)
-
-    axs[0, 0].set_aspect("equal", "box")
-    axs[0, 0].set_xlim(axis_limits[2])
-    axs[0, 0].set_ylim(axis_limits[1])
+    # plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
 
     def update(i):
         z_index = slice_ranges[0][i]
 
         transverse_image.set_array(images[z_index, :, :])
-        for structure_name, contour_plot in contours_plots.items():
+        for structure_name, contour_plot in contour_plots.items():
             contours_by_slice = contours_by_orientation["transverse"][structure_name]
-            contours = contours_by_slice[z_index]
+            contours = _combine_contours_for_plotting(contours_by_slice[z_index])
 
-            contour_arrays = []
-            for contour in contours:
-                contour_arrays.append(np.array(contour + [contour[0]]))
-
-            combined_contours: ContoursXY = [[(np.nan, np.nan)]] * (
-                len(contour_arrays) * 2 - 1
-            )
-            combined_contours[0::2] = contour_arrays
-
-            try:
-                merged_contour_arrays = np.concatenate(combined_contours, axis=0)
-            except ValueError:
-                merged_contour_arrays = np.array([[np.nan, np.nan]])
-
-            contour_plot.set_xdata(merged_contour_arrays[:, 0]),
-            contour_plot.set_ydata(merged_contour_arrays[:, 1]),
+            contour_plot.set_xdata(contours[:, 0]),
+            contour_plot.set_ydata(contours[:, 1]),
 
     animation = matplotlib.animation.FuncAnimation(
         fig, update, frames=len(slice_ranges[0]), interval=20, blit=True, repeat=False
@@ -169,279 +181,68 @@ def auto_scroll_contours_by_orientation(
     return update
 
 
-class AutoScrollMasks:
-    def __init__(self, cfg, grids, images, masks, vmin, vmax):
-        z_grid, y_grid, x_grid = grids
-        orientations = ("transverse", "coronal", "sagittal")
-
-        orientation_axis_map = {"transverse": 0, "coronal": 1, "sagittal": 2}
-
-        contours = {
-            key: rai.masks_to_contours_by_structure(
-                cfg=cfg,
-                x_grid=x_grid,
-                y_grid=y_grid,
-                masks=masks,
-                axis=orientation_axis_map[key],
-            )
-            for key in orientations
-        }
-
-        colour_iterator = _get_colours()
-        colours: Dict[StructureName, Tuple[float, float, float]] = {
-            name: next(colour_iterator) for name in cfg["structures"]
-        }
-
-        centre_indices = scipy.ndimage.center_of_mass(masks)
-        visible_slice_indices = [int(np.round(item)) for item in centre_indices[0:3]]
-
-        where_mask = np.where(masks > 127.5)
-        min_mask_index = np.min(where_mask, axis=1).tolist()
-        max_mask_index = np.max(where_mask, axis=1).tolist()
-
-        self.z_slice_range = list(range(min_mask_index[0], max_mask_index[0] + 1))
-        y_slice_range = [min_mask_index[1], max_mask_index[1]]
-        x_slice_range = [min_mask_index[2], max_mask_index[2]]
-
-        z_axis_range = sorted([z_grid[min_mask_index[0]], z_grid[max_mask_index[0]]])
-        y_axis_range = sorted(
-            [y_grid[min_mask_index[1]], y_grid[max_mask_index[1]]], reverse=True
-        )
-        x_axis_range = sorted([x_grid[min_mask_index[2]], x_grid[max_mask_index[2]]])
-
-        fig, axs = plt.subplots(nrows=2, ncols=2)
-
-        axs[0, 0].set_aspect("equal", "box")
-        axs[0, 0].set_xlim(x_axis_range)
-        axs[0, 0].set_ylim(y_axis_range)
-
-        self.images = images
-        self.transverse_image = axs[0, 0].pcolormesh(
-            x_grid,
-            y_grid,
-            images[self.z_slice_range[0], :, :],
-            vmin=vmin,
-            vmax=vmax,
-            shading="nearest",
-            cmap="gray",
-        )
-
-        self.animation = animation.FuncAnimation(
-            fig, self.update, frames=200, interval=50, blit=True
-        )
-        self.paused = False
-
-        fig.canvas.mpl_connect("button_press_event", self.toggle_pause)
-
-    def toggle_pause(self, *args, **kwargs):
-        if self.paused:
-            self.animation.resume()
-        else:
-            self.animation.pause()
-        self.paused = not self.paused
-
-    def update(self, i):
-        self.transverse_image.set_array = self.images[self.z_slice_range[i], :, :]
-
-        return (self.transverse_image,)
-
-
-def animate_masks(cfg, grids, images, masks, vmin, vmax):
-    z_grid, y_grid, x_grid = grids
-
-    colour_iterator = _get_colours()
-    colours: Dict[StructureName, Tuple[float, float, float]] = {
-        name: next(colour_iterator) for name in cfg["structures"]
-    }
-
-    ylim = [-np.inf, np.inf]
-    xlim = [np.inf, -np.inf]
-
-    axs = []
-
-    for z_index in range(image_stack.shape[0]):
-        has_a_contour = False
-
-        for structure_name, contours_by_slice in contours_by_structure.items():
-            contours = contours_by_slice[z_index]
-            if len(contours) > 0:
-                has_a_contour = True
-                break
-
-        if not has_a_contour:
-            continue
-
-        fig, ax = plt.subplots()
-        axs.append(ax)
-
-        ax.pcolormesh(
-            x_grid,
-            y_grid,
-            image_stack[z_index, :, :],
-            vmin=vmin,
-            vmax=vmax,
-            shading="nearest",
-            cmap="gray",
-        )
-
-        for structure_name, contours_by_slice in contours_by_structure.items():
-            contours = contours_by_slice[z_index]
-
-            for i, contour in enumerate(contours):
-                contour_array = np.array(contour + [contour[0]])
-
-                plot_args = (
-                    contour_array[:, 0],
-                    contour_array[:, 1],
-                    line_prop[structure_name],
-                )
-                plot_kwargs = {
-                    "c": colours[structure_name],
-                    "alpha": alpha[structure_name],
-                }
-
-                if i == 0:
-                    plot_kwargs["label"] = labels[structure_name]
-
-                ax.plot(*plot_args, **plot_kwargs)
-
-                xlim[1] = np.max([np.max(contour_array[:, 0]), xlim[1]])
-                xlim[0] = np.min([np.min(contour_array[:, 0]), xlim[0]])
-                ylim[0] = np.max([np.max(contour_array[:, 1]), ylim[0]])
-                ylim[1] = np.min([np.min(contour_array[:, 1]), ylim[1]])
-
-        ax.set_aspect("equal", "box")
-
-        plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
-        plt.title(f"Slice: {z_index}")
-
-    x_range = xlim[1] - xlim[0]
-    y_range = ylim[0] - ylim[1]
-
-    margin = 0.2
-
-    xlim[0] -= x_range * margin
-    xlim[1] += x_range * margin
-
-    ylim[1] -= y_range * margin
-    ylim[0] += y_range * margin
-
-    for ax in axs:
-        ax.set_ylim(ylim)
-        ax.set_xlim(xlim)
-
-
-def plot_contours_by_structure(
-    x_grid, y_grid, image_stack, contours_by_structure, merge_map=None
+def _populate_axis_for_orientation_and_index(
+    ax: Axes,
+    x_grid,
+    y_grid,
+    images,
+    contours_by_orientation: ContoursByOrientation,
+    colours,
+    vmin,
+    vmax,
+    orientation: Orienation,
+    index: int,
 ):
-    if merge_map is None:
-        merge_map = {i: [key] for i, key in enumerate(contours_by_structure)}
+    axis = _ORIENTATION_TO_AXIS[orientation]
 
-    colour_iterator = _get_colours()
+    image = slicing_without_array_copy(images, slice(index, index + 1), axis)
+    image = np.squeeze(image, axis=axis)
 
-    colours = {}
-    line_prop = {}
-    alpha = {}
-    labels = {}
-    for dicom_name, tg263_names in merge_map.items():
-        colour = next(colour_iterator)
+    image_trace = ax.pcolormesh(
+        x_grid,
+        y_grid,
+        image,
+        vmin=vmin,
+        vmax=vmax,
+        shading="nearest",
+        cmap="gray",
+    )
 
-        dicom_name = f"DICOM {dicom_name}"
+    contours_by_structure = contours_by_orientation[orientation]
 
-        for name in [dicom_name] + tg263_names:
-            colours[name] = colour
+    contour_traces_by_structure = {}
+    for structure_name, contours_by_slice in contours_by_structure.items():
+        contours = _combine_contours_for_plotting(contours_by_slice[index])
 
-        line_prop[dicom_name] = "--"
-        alpha[dicom_name] = 0.7
+        plot_args = (contours[:, 0], contours[:, 1])
+        plot_kwargs = {
+            "c": colours[structure_name],
+            "label": structure_name,
+        }
 
-        collected_name = "DICOM"
-        for name in tg263_names:
-            line_prop[name] = "-"
-            alpha[name] = 1
-            labels[name] = f"RAi {name.value}"
-
-            collected_name = f"{collected_name} {name.value}"
-
-        labels[dicom_name] = collected_name
-
-    vmin = 0.2
-    vmax = 0.4
-
-    ylim = [-np.inf, np.inf]
-    xlim = [np.inf, -np.inf]
-
-    axs = []
-
-    for z_index in range(image_stack.shape[0]):
-        has_a_contour = False
-
-        for structure_name, contours_by_slice in contours_by_structure.items():
-            contours = contours_by_slice[z_index]
-            if len(contours) > 0:
-                has_a_contour = True
-                break
-
-        if not has_a_contour:
-            continue
-
-        fig, ax = plt.subplots()
-        axs.append(ax)
-
-        ax.pcolormesh(
-            x_grid,
-            y_grid,
-            image_stack[z_index, :, :],
-            vmin=vmin,
-            vmax=vmax,
-            shading="nearest",
-            cmap="gray",
+        (contour_traces_by_structure[structure_name],) = ax.plot(
+            *plot_args, **plot_kwargs
         )
 
-        for structure_name, contours_by_slice in contours_by_structure.items():
-            contours = contours_by_slice[z_index]
+    ax.set_aspect("equal", "box")
 
-            for i, contour in enumerate(contours):
-                contour_array = np.array(contour + [contour[0]])
+    return image_trace, contour_traces_by_structure
 
-                plot_args = (
-                    contour_array[:, 0],
-                    contour_array[:, 1],
-                    line_prop[structure_name],
-                )
-                plot_kwargs = {
-                    "c": colours[structure_name],
-                    "alpha": alpha[structure_name],
-                }
 
-                if i == 0:
-                    plot_kwargs["label"] = labels[structure_name]
+def _combine_contours_for_plotting(contours: ContoursXY):
+    contour_arrays = []
+    for contour in contours:
+        contour_arrays.append(np.array(contour + [contour[0]]))
 
-                ax.plot(*plot_args, **plot_kwargs)
+    combined_contours: ContoursXY = [[(np.nan, np.nan)]] * (len(contour_arrays) * 2 - 1)
+    combined_contours[0::2] = contour_arrays
 
-                xlim[1] = np.max([np.max(contour_array[:, 0]), xlim[1]])
-                xlim[0] = np.min([np.min(contour_array[:, 0]), xlim[0]])
-                ylim[0] = np.max([np.max(contour_array[:, 1]), ylim[0]])
-                ylim[1] = np.min([np.min(contour_array[:, 1]), ylim[1]])
+    try:
+        merged_contour_arrays = np.concatenate(combined_contours, axis=0)
+    except ValueError:
+        merged_contour_arrays = np.array([[np.nan, np.nan]])
 
-        ax.set_aspect("equal", "box")
-
-        plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
-        plt.title(f"Slice: {z_index}")
-
-    x_range = xlim[1] - xlim[0]
-    y_range = ylim[0] - ylim[1]
-
-    margin = 0.2
-
-    xlim[0] -= x_range * margin
-    xlim[1] += x_range * margin
-
-    ylim[1] -= y_range * margin
-    ylim[0] += y_range * margin
-
-    for ax in axs:
-        ax.set_ylim(ylim)
-        ax.set_xlim(xlim)
+    return merged_contour_arrays
 
 
 def _get_colours():
