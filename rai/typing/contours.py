@@ -17,6 +17,7 @@ from typing import Dict, List, Tuple, Union
 
 import numpy as np
 from numpy.typing import NDArray
+from typing_extensions import Literal
 
 from raicontours import TG263
 
@@ -35,3 +36,6 @@ ContoursBySlice = List[ContoursXY]
 
 StructureName = Union[str, TG263]
 ContoursByStructure = Dict[StructureName, ContoursBySlice]
+
+Orienation = Literal["transverse", "coronal", "sagittal"]
+ContoursByOrientation = Dict[Orienation, ContoursByStructure]

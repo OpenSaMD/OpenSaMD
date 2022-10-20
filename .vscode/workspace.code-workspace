@@ -123,7 +123,8 @@
   "extensions": {
     "recommendations": [
       "executablebookproject.myst-highlight",
-      "jasonnutter.vscode-codeowners"
+      "jasonnutter.vscode-codeowners",
+      "bungcip.better-toml"
     ]
   }
 }

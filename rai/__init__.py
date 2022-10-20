@@ -23,12 +23,16 @@ from rai.data.images import paths_to_image_stack_hfs as paths_to_image_stack_hfs
 from rai.dicom.structures import (
     dicom_to_contours_by_structure as dicom_to_contours_by_structure,
 )
-from rai.display.inference import (
-    plot_contours_by_structure as plot_contours_by_structure,
+from rai.display.animation import (
+    auto_scroll_contours_by_orientation as auto_scroll_contours_by_orientation,
 )
+from rai.display.animation import view_ranges_from_masks as view_ranges_from_masks
 from rai.display.interactive import draw_contours_from_masks as draw_contours_from_masks
 from rai.inference.main import (
     inference_from_dicom_image_paths as inference_from_dicom_image_paths,
+)
+from rai.mask.convert import (
+    masks_to_contours_by_orientation as masks_to_contours_by_orientation,
 )
 from rai.mask.convert import (
     masks_to_contours_by_structure as masks_to_contours_by_structure,

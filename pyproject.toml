@@ -47,6 +47,7 @@ ipywidgets = ">=7.6"
 jupyter-dash = "*"
 pandas = "*"
 statsmodels = "*"
+ipympl = "*"
 
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }

@@ -15,18 +15,20 @@
 
 """Mask conversion to and from contour lines"""
 
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import skimage.draw
 import skimage.measure
 from numpy.typing import NDArray
+from typing_extensions import Literal, TypedDict
 
 from raicontours import TG263, Config
 
 from rai.dicom import structures as _dicom_structures
 from rai.typing.contours import (
     AllStructuresMaskStack,
+    ContoursByOrientation,
     ContoursBySlice,
     ContoursByStructure,
     ContoursXY,
@@ -34,17 +36,59 @@ from rai.typing.contours import (
     Grid,
     Mask,
     MaskStack,
+    Orienation,
+    StructureName,
 )
 from rai.typing.dicom import ContourSequenceItem
 from rai.vendor.stackoverflow import slicing_without_array_copy
 
 
+class _Options(TypedDict):
+    axis: int
+    x_grid: Grid
+    y_grid: Grid
+
+
+def masks_to_contours_by_orientation(x_grid, y_grid, z_grid, masks, structure_names):
+    orientation_dependent_conversion_options: Dict[Orienation, _Options] = {
+        "transverse": {
+            "axis": 0,
+            "x_grid": x_grid,
+            "y_grid": y_grid,
+        },
+        "coronal": {
+            "axis": 1,
+            "x_grid": x_grid,
+            "y_grid": z_grid,
+        },
+        "sagittal": {
+            "axis": 2,
+            "x_grid": y_grid,
+            "y_grid": z_grid,
+        },
+    }
+
+    contours_by_orientation: ContoursByOrientation = {}
+    for orientation, options in orientation_dependent_conversion_options.items():
+        contours_by_orientation[orientation] = masks_to_contours_by_structure(
+            structure_names=structure_names,
+            masks=masks,
+            **options,
+        )
+
+    return contours_by_orientation
+
+
 def masks_to_contours_by_structure(
-    cfg: Config, x_grid: Grid, y_grid: Grid, masks: AllStructuresMaskStack, axis=0
+    x_grid: Grid,
+    y_grid: Grid,
+    masks: AllStructuresMaskStack,
+    structure_names: List[StructureName],
+    axis=0,
 ):
     contours_by_structure: ContoursByStructure = {}
 
-    for structure_index, structure_name in enumerate(cfg["structures"]):
+    for structure_index, structure_name in enumerate(structure_names):
         this_structure = masks[..., structure_index]
 
         contours_by_slice: ContoursBySlice = []

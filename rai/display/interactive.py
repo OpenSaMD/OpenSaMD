@@ -54,18 +54,6 @@ def draw_contours_from_masks(
     vmax,
     orientations=("transverse", "coronal", "sagittal"),
 ):
-    orientation_axis_map = {"transverse": 0, "coronal": 1, "sagittal": 2}
-
-    contours = {
-        key: rai.masks_to_contours_by_structure(
-            cfg=cfg,
-            x_grid=x_grid,
-            y_grid=y_grid,
-            masks=masks,
-            axis=orientation_axis_map[key],
-        )
-        for key in orientations
-    }
 
     centre_indices = scipy.ndimage.center_of_mass(masks)
     visible_slice_indices = {
