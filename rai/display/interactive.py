@@ -52,32 +52,31 @@ def draw_contours_from_masks(
     masks: AllStructuresMaskStack,
     vmin,
     vmax,
+    orientations=("transverse", "coronal", "sagittal"),
 ):
-    transverse_contours = rai.masks_to_contours_by_structure(
-        cfg=cfg, x_grid=x_grid, y_grid=y_grid, masks=masks, axis=0
-    )
-    coronal_contours = rai.masks_to_contours_by_structure(
-        cfg=cfg, x_grid=x_grid, y_grid=z_grid, masks=masks, axis=1
-    )
-    sagittal_contours = rai.masks_to_contours_by_structure(
-        cfg=cfg, x_grid=y_grid, y_grid=z_grid, masks=masks, axis=2
-    )
-
-    centre_indices = scipy.ndimage.center_of_mass(masks)
-    visible_slice_indices = [int(np.round(item)) for item in centre_indices[0:3]]
+    orientation_axis_map = {"transverse": 0, "coronal": 1, "sagittal": 2}
 
     contours = {
-        "transverse": transverse_contours,
-        "coronal": coronal_contours,
-        "sagittal": sagittal_contours,
+        key: rai.masks_to_contours_by_structure(
+            cfg=cfg,
+            x_grid=x_grid,
+            y_grid=y_grid,
+            masks=masks,
+            axis=orientation_axis_map[key],
+        )
+        for key in orientations
     }
 
-    transverse, coronal, sagittal = _collect_slices(image_stack, vmin, vmax)
+    centre_indices = scipy.ndimage.center_of_mass(masks)
+    visible_slice_indices = {
+        key: int(np.round(centre_indices[orientation_axis_map[key]]))
+        for key in orientations
+    }
+
+    image_slices = _collect_image_slices(image_stack, vmin, vmax, orientations)
 
     grids = (z_grid, y_grid, x_grid)
-    images = _create_plotly_layout_images(
-        grids, visible_slice_indices, transverse, coronal, sagittal
-    )
+    images = _create_plotly_layout_images(grids, visible_slice_indices, image_slices)
 
     where_mask = np.where(masks > 127.5)
     min_mask_index = np.min(where_mask, axis=1).tolist()
@@ -128,12 +127,10 @@ def _draw(
         "sagittal": (2, 2),
     }
 
-    for orientation_index, (orientation, contours_by_structure) in enumerate(
-        contours.items()
-    ):
+    for orientation, contours_by_structure in contours.items():
         for structure_name, contours_by_slice in contours_by_structure.items():
             for slice_index, contours_for_this_slice in enumerate(contours_by_slice):
-                visible = visible_slice_indices[orientation_index] == slice_index
+                visible = visible_slice_indices[orientation] == slice_index
 
                 for contour_index, contour in enumerate(contours_for_this_slice):
                     contour_array = np.array(contour + [contour[0]])
@@ -153,59 +150,53 @@ def _draw(
                         *axis_coords[orientation],
                     )
 
+    orientations = tuple(contours.keys())
+
+    orientation_dependent_heatmap_options = {
+        "transverse": {
+            "x0": x0,
+            "dx": dx,
+            "y0": y0,
+            "dy": dy,
+            "z": np.zeros(shape=(len(y_grid), len(x_grid))),
+            "xaxis": "x",
+            "yaxis": "y",
+        },
+        "coronal": {
+            "x0": x0,
+            "dx": dx,
+            "y0": z0,
+            "dy": dz,
+            "z": np.zeros(shape=(len(z_grid), len(x_grid))),
+            "xaxis": "x3",
+            "yaxis": "y3",
+        },
+        "sagittal": {
+            "x0": y0,
+            "dx": dx,
+            "y0": y0,
+            "dy": dz,
+            "z": np.zeros(shape=(len(z_grid), len(y_grid))),
+            "xaxis": "x4",
+            "yaxis": "y4",
+        },
+    }
+
     common_heatmap_options = {
         "hoverinfo": "none",
         "opacity": 0,
         "showscale": False,
     }
 
-    fig.add_trace(
-        go.Heatmap(
-            x0=x0,
-            dx=dx,
-            y0=y0,
-            dy=dy,
-            z=np.zeros(shape=(len(y_grid), len(x_grid))),
-            name="transverse",
-            xaxis="x",
-            yaxis="y",
-            **common_heatmap_options,
-        ),
-        1,
-        1,
-    )
-
-    fig.add_trace(
-        go.Heatmap(
-            x0=x0,
-            dx=dx,
-            y0=z0,
-            dy=dz,
-            z=np.zeros(shape=(len(z_grid), len(x_grid))),
-            name="coronal",
-            xaxis="x3",
-            yaxis="y3",
-            **common_heatmap_options,
-        ),
-        2,
-        1,
-    )
-
-    fig.add_trace(
-        go.Heatmap(
-            x0=y0,
-            dx=dy,
-            y0=z0,
-            dy=dz,
-            z=np.zeros(shape=(len(z_grid), len(y_grid))),
-            name="sagittal",
-            xaxis="x4",
-            yaxis="y4",
-            **common_heatmap_options,
-        ),
-        2,
-        2,
-    )
+    for orientation in orientations:
+        fig.add_trace(
+            go.Heatmap(
+                name=orientation,
+                **orientation_dependent_heatmap_options[orientation],
+                **common_heatmap_options,
+            ),
+            *axis_coords[orientation],
+        )
 
     common_axis_options = {
         # "constrain": "domain",
@@ -310,15 +301,42 @@ def _get_image_size_and_centre(grid):
     return size, centre
 
 
-def _create_plotly_layout_images(
-    grids, visible_slice_indices, transverse, coronal, sagittal
-):
+def _create_plotly_layout_images(grids, visible_slice_indices, image_slices):
+    orientations = tuple(image_slices.keys())
+
     z_grid, y_grid, x_grid = grids
     size_x, centre_x = _get_image_size_and_centre(x_grid)
     size_y, centre_y = _get_image_size_and_centre(y_grid)
     size_z, centre_z = _get_image_size_and_centre(z_grid)
 
     images = []
+
+    orientation_axis_map = {
+        "transverse": {
+            "xref": "x",
+            "yref": "y",
+            "x": centre_x,
+            "y": centre_y,
+            "sizex": size_x,
+            "sizey": size_y,
+        },
+        "coronal": {
+            "xref": "x3",
+            "yref": "y3",
+            "x": centre_x,
+            "y": centre_z,
+            "sizex": size_x,
+            "sizey": size_z,
+        },
+        "sagittal": {
+            "xref": "x4",
+            "yref": "y4",
+            "x": centre_y,
+            "y": centre_z,
+            "sizex": size_y,
+            "sizey": size_z,
+        },
+    }
 
     common_image_options = {
         "xanchor": "center",
@@ -327,77 +345,49 @@ def _create_plotly_layout_images(
         "layer": "below",
     }
 
-    for i, img in enumerate(transverse):
-        images.append(
-            dict(
-                name=f"transverse_{i}",
-                visible=i == visible_slice_indices[0],
-                source=img,
-                xref="x",
-                yref="y",
-                x=centre_x,
-                y=centre_y,
-                sizex=size_x,
-                sizey=size_y,
-                **common_image_options,
-            )
-        )
+    for orientation in orientations:
+        visible_slice_index = visible_slice_indices[orientation]
+        sliced_images_for_this_orientation = image_slices[orientation]
 
-    for i, img in enumerate(coronal):
-        images.append(
-            dict(
-                name=f"coronal_{i}",
-                visible=i == visible_slice_indices[1],
-                source=img,
-                xref="x3",
-                yref="y3",
-                x=centre_x,
-                y=centre_z,
-                sizex=size_x,
-                sizey=size_z,
-                **common_image_options,
+        for i, img in enumerate(sliced_images_for_this_orientation):
+            images.append(
+                dict(
+                    name=f"{orientation}_{i}",
+                    visible=i == visible_slice_index,
+                    source=img,
+                    **orientation_axis_map[orientation],
+                    **common_image_options,
+                )
             )
-        )
-
-    for i, img in enumerate(sagittal):
-        images.append(
-            dict(
-                name=f"sagittal_{i}",
-                visible=i == visible_slice_indices[2],
-                source=img,
-                xref="x4",
-                yref="y4",
-                x=centre_y,
-                y=centre_z,
-                sizex=size_y,
-                sizey=size_z,
-                **common_image_options,
-            )
-        )
 
     return images
 
 
-def _collect_slices(image_stack, vmin, vmax):
-    transverse = []
-    for i in range(image_stack.shape[0]):
-        img = _convert_to_b64(image_stack[i, :, :], vmin, vmax)
+def _collect_image_slices(image_stack, vmin, vmax, orientations):
+    image_slices = {}
 
-        transverse.append(img)
+    if "transverse" in orientations:
+        image_slices["transverse"] = []
+        for i in range(image_stack.shape[0]):
+            img = _convert_to_b64(image_stack[i, :, :], vmin, vmax)
 
-    coronal = []
-    for i in range(image_stack.shape[1]):
-        img = _convert_to_b64(image_stack[:, i, :], vmin, vmax)
+            image_slices["transverse"].append(img)
 
-        coronal.append(img)
+    if "coronal" in orientations:
+        image_slices["coronal"] = []
+        for i in range(image_stack.shape[1]):
+            img = _convert_to_b64(image_stack[:, i, :], vmin, vmax)
 
-    sagittal = []
-    for i in range(image_stack.shape[2]):
-        img = _convert_to_b64(image_stack[:, -1::-1, i], vmin, vmax)
+            image_slices["coronal"].append(img)
 
-        sagittal.append(img)
+    if "sagittal" in orientations:
+        image_slices["sagittal"] = []
+        for i in range(image_stack.shape[2]):
+            img = _convert_to_b64(image_stack[:, -1::-1, i], vmin, vmax)
 
-    return transverse, coronal, sagittal
+            image_slices["sagittal"].append(img)
+
+    return image_slices
 
 
 def _convert_to_b64(image, vmin, vmax):

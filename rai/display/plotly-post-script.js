@@ -173,8 +173,8 @@ planeOrientation.forEach(planeOrientation => {
         var newSliceIndex = currentSliceIndices[planeOrientation] + direction
         if (newSliceIndex < 0) {
             newSliceIndex = 0;
-        } else if (newSliceIndex > numSlices[planeOrientation]) {
-            newSliceIndex = numSlices[planeOrientation];
+        } else if (newSliceIndex >= numSlices[planeOrientation]) {
+            newSliceIndex = numSlices[planeOrientation] - 1;
         }
 
         setOrientationVisibleFalse(planeOrientation);
