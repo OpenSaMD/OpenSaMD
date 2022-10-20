@@ -23,7 +23,7 @@ import numpy as np
 import scipy.ndimage
 
 import rai
-from rai.typing.contours import ContoursByOrientation, Grid, StructureName
+from rai.typing.contours import ContoursByOrientation, ContoursXY, Grid, StructureName
 
 
 def view_ranges_from_masks(grids, masks):
@@ -76,15 +76,52 @@ def auto_scroll_contours_by_orientation(
 
     fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
 
+    z_index = slice_ranges[0][0]
+
     transverse_image = axs[0, 0].pcolormesh(
         x_grid,
         y_grid,
-        images[slice_ranges[0][0], :, :],
+        images[z_index, :, :],
         vmin=vmin,
         vmax=vmax,
         shading="nearest",
         cmap="gray",
     )
+
+    contours_plots = {}
+    for structure_name, contours_by_slice in contours_by_orientation[
+        "transverse"
+    ].items():
+        contours = contours_by_slice[z_index]
+
+        contour_arrays = []
+        for contour in contours:
+            contour_arrays.append(np.array(contour + [contour[0]]))
+
+        combined_contours: ContoursXY = [[(np.nan, np.nan)]] * (
+            len(contour_arrays) * 2 - 1
+        )
+        combined_contours[0::2] = contour_arrays
+
+        try:
+            merged_contour_arrays = np.concatenate(combined_contours, axis=0)
+        except ValueError:
+            merged_contour_arrays = np.array([[np.nan, np.nan]])
+
+        plot_args = (
+            merged_contour_arrays[:, 0],
+            merged_contour_arrays[:, 1],
+            # line_prop[structure_name],
+        )
+        plot_kwargs = {
+            "c": colours[structure_name],
+            # "alpha": alpha[structure_name],
+        }
+
+        # if j == 0:
+        #     plot_kwargs["label"] = labels[structure_name]
+
+        (contours_plots[structure_name],) = axs[0, 0].plot(*plot_args, **plot_kwargs)
 
     axs[0, 0].set_aspect("equal", "box")
     axs[0, 0].set_xlim(axis_limits[2])
@@ -94,31 +131,26 @@ def auto_scroll_contours_by_orientation(
         z_index = slice_ranges[0][i]
 
         transverse_image.set_array(images[z_index, :, :])
+        for structure_name, contour_plot in contours_plots.items():
+            contours_by_slice = contours_by_orientation["transverse"][structure_name]
+            contours = contours_by_slice[z_index]
 
-        # for structure_name, contours_by_slice in contours_by_orientation[
-        #     "transverse"
-        # ].items():
-        #     contours = contours_by_slice[z_index]
+            contour_arrays = []
+            for contour in contours:
+                contour_arrays.append(np.array(contour + [contour[0]]))
 
-        #     for j, contour in enumerate(contours):
-        #         contour_array = np.array(contour + [contour[0]])
+            combined_contours: ContoursXY = [[(np.nan, np.nan)]] * (
+                len(contour_arrays) * 2 - 1
+            )
+            combined_contours[0::2] = contour_arrays
 
-        #         plot_args = (
-        #             contour_array[:, 0],
-        #             contour_array[:, 1],
-        #             # line_prop[structure_name],
-        #         )
-        #         plot_kwargs = {
-        #             "c": colours[structure_name],
-        #             # "alpha": alpha[structure_name],
-        #         }
+            try:
+                merged_contour_arrays = np.concatenate(combined_contours, axis=0)
+            except ValueError:
+                merged_contour_arrays = np.array([[np.nan, np.nan]])
 
-        #         # if j == 0:
-        #         #     plot_kwargs["label"] = labels[structure_name]
-
-        #         axs[0, 0].plot(*plot_args, **plot_kwargs)
-
-        # return transverse_image
+            contour_plot.set_xdata(merged_contour_arrays[:, 0]),
+            contour_plot.set_ydata(merged_contour_arrays[:, 1]),
 
     animation = matplotlib.animation.FuncAnimation(
         fig, update, frames=len(slice_ranges[0]), interval=20, blit=True, repeat=False
