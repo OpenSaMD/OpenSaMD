@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rai"
-version = "0.2.0-dev5"
+version = "0.2.0-dev6"
 readme = "README.md"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
@@ -42,6 +42,8 @@ click = "*"
 numba = "*"
 tqdm = "*"
 
+cryptography = "*"
+
 # plotly = ">=4"
 # ipywidgets = ">=7.6"
 # jupyter-dash = "*"
@@ -55,8 +57,8 @@ tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Wi
 
 # Pin while the model is likely to change significantly from one version to the
 # next, and also pinning while raicontours is utilising development releases.
-raicontours = "0.3.0-dev2"
-# raicontours = { path = "../raicontours", develop = true }
+# raicontours = "0.3.0-dev2"
+raicontours = { path = "../raicontours", develop = true }
 
 # Not needed after Python 3.7 support is dropped
 PyWavelets = "<1.4.0"

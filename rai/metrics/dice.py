@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -133,14 +134,6 @@ def from_contours(a: ContoursXY, b: ContoursXY):
         The Dice score
     """
     return from_shapely(
-        a=_contours_yx_to_shapely(a),
-        b=_contours_yx_to_shapely(b),
+        a=_contours_xy_to_shapely(a),
+        b=_contours_xy_to_shapely(b),
     )
-
-
-def _contours_yx_to_shapely(contours: ContoursXY):
-    geom = shapely.geometry.Polygon()
-    for xy_coords in contours:
-        geom = geom.union(shapely.geometry.Polygon(xy_coords))
-
-    return geom

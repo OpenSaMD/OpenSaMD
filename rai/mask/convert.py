@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -40,7 +41,7 @@ from rai.typing.contours import (
     StructureName,
 )
 from rai.typing.dicom import ContourSequenceItem
-from rai.vendor.stackoverflow import slicing_without_array_copy
+from rai.vendor.stackoverflow.slicing import slicing_without_array_copy
 
 
 class _Options(TypedDict):
@@ -50,7 +51,7 @@ class _Options(TypedDict):
 
 
 def masks_to_contours_by_structure(
-    grids, masks, structure_names, orientation: Orienation
+    grids, masks, structure_names, orientation: Orienation = "transverse"
 ):
     (z_grid, y_grid, x_grid) = grids
 

@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,9 +20,18 @@ from rai.contours.merge import (
     merge_contours_by_structure as merge_contours_by_structure,
 )
 from rai.data.download import deepmind_example as download_deepmind_example
-from rai.data.images import paths_to_image_stack_hfs as paths_to_image_stack_hfs
+from rai.data.download import hnscc_example as download_hnscc_example
+from rai.data.images import paths_to_sorted_image_series as paths_to_sorted_image_series
+from rai.data.images import (
+    sorted_image_series_to_image_stack_hfs as sorted_image_series_to_image_stack_hfs,
+)
+from rai.dicom.rtstruct import create_dicom_structure_set as create_dicom_structure_set
 from rai.dicom.structures import (
     dicom_to_contours_by_structure as dicom_to_contours_by_structure,
+)
+from rai.dicom.uid import (
+    RAI_CONTOURS_IMPLEMENTATION_CLASS_UID,
+    RAI_IMPLEMENTATION_VERSION_NAME,
 )
 from rai.display.animation import (
     auto_scroll_contours_by_orientation as auto_scroll_contours_by_orientation,

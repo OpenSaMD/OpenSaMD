@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -31,7 +32,7 @@ from rai.typing.contours import (
     Orienation,
     StructureName,
 )
-from rai.vendor.stackoverflow import slicing_without_array_copy
+from rai.vendor.stackoverflow.slicing import slicing_without_array_copy
 
 ORIENTATION_TO_AXIS: Dict[Orienation, int] = {
     "transverse": 0,

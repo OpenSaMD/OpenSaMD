@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -18,10 +19,10 @@
 from typing import List, Tuple
 
 import numpy as np
-import pydicom.uid
 import shapely.geometry
 from typing_extensions import TypedDict
 
+from rai.contours.convert import contour_to_dicom_format
 from rai.dicom import append, uid
 from rai.typing.contours import ContoursBySlice, ContourXY
 from rai.typing.dicom import TypedDataset
@@ -81,9 +82,7 @@ def _create_slice_aligned_dicom_files(
     contour_sequence_b: List[append.DicomItem] = []
 
     for i, (contours_on_a, contours_on_b) in enumerate(zip(slices_a, slices_b)):
-        reference_sop_instance_uid = pydicom.uid.generate_uid(
-            prefix=uid.RAI_CLIENT_ROOT_UID_PREFIX
-        )
+        reference_sop_instance_uid = uid.generate_uid()
 
         for contour in contours_on_a:
             _append_contour_sequence_item(
@@ -129,18 +128,10 @@ def _append_contour_sequence_item(
                     "ReferencedSOPInstanceUID": reference_sop_instance_uid,
                 }
             ],
-            "ContourData": _contour_to_dicom_format(contour, z_value=z_value),
+            "ContourData": contour_to_dicom_format(contour, z_value=z_value),
             "ContourGeometricType": "CLOSED_PLANAR",
         }
     )
-
-
-def _contour_to_dicom_format(contour: ContourXY, z_value: float):
-    dicom_format_contour: List[float] = []
-    for x, y in contour:
-        dicom_format_contour.extend([x, y, z_value])
-
-    return dicom_format_contour
 
 
 def test_dice_from_polygons():

@@ -126,3 +126,4 @@ dmypy.json
 # USER
 
 *.dcm
+*.zip

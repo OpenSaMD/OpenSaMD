@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,22 +25,25 @@ from numpy.typing import NDArray
 
 from raicontours import Config
 
-from rai.dicom import sorting as _dicom_sorting
 from rai.typing.contours import Grid
+from rai.vendor.innolitics import sorting as _dicom_sorting
 
 
-def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
-    sorted_paths = sorted(paths, key=_sorting_key)
+def paths_to_sorted_image_series(paths: List[pathlib.Path]):
+    datasets = [pydicom.read_file(path) for path in paths]
+    sorted_image_series = sorted(datasets, key=_sorting_key)
 
-    image_uids: List[str] = []
+    return sorted_image_series
+
+
+def sorted_image_series_to_image_stack_hfs(cfg: Config, sorted_image_series):
     image_stack = []
 
     x_grid = None
     y_grid = None
     z_grid = []
 
-    for path in sorted_paths:
-        ds = pydicom.read_file(path)
+    for ds in sorted_image_series:
         (
             loaded_x_grid,
             loaded_y_grid,
@@ -48,17 +52,16 @@ def paths_to_image_stack_hfs(cfg: Config, paths: List[pathlib.Path]):
         x_grid, y_grid = _validate_grid(x_grid, y_grid, loaded_x_grid, loaded_y_grid)
 
         image_stack.append(model_input_image[None, ...])
-        image_uids.append(ds.SOPInstanceUID)
         z_grid.append(float(ds.ImagePositionPatient[-1]))
 
     image_stack = np.concatenate(image_stack, axis=0)
     x_grid_hfs, y_grid_hfs, image_stack_hfs = _convert_array_to_or_from_hfs_with_grids(
-        x_grid, y_grid, image_stack
+        x_grid, y_grid, image_stack  # type: ignore
     )
 
     grids = (z_grid, y_grid_hfs, x_grid_hfs)
 
-    return grids, image_stack_hfs, image_uids
+    return grids, image_stack_hfs
 
 
 def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):
@@ -74,10 +77,8 @@ def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):
     return x_grid_reference, y_grid_reference
 
 
-def _sorting_key(path: pathlib.Path):
-    header = pydicom.read_file(path, force=True, stop_before_pixels=True)
-
-    return -_dicom_sorting.slice_position(header)
+def _sorting_key(ds: pydicom.Dataset):
+    return -_dicom_sorting.slice_position(ds)
 
 
 def _get_model_dicom_grid_and_rescaled_image(cfg: Config, ds: pydicom.Dataset):
