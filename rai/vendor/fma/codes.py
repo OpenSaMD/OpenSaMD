@@ -1,15 +1,17 @@
 # Foundational Model of Anatomy release version 5.0.0
 # Created on Wed Apr 24 10:25:20 PDT 2019
 
-# The FMA is licensed under the Creative Commons 3.0 Unported license. A
-# copy is included in this distribution as license.txt. The file
-# pun_fma.owl is not a required part of the FMA ontology. It is an
-# accessory file intended to make the FMA easier to query via RDF-based
-# query languages like SPARQL.
-
+# The FMA is licensed under the Creative Commons 3.0 Unported license.
 
 # FMA description content downloaded from
 # http://sig.biostr.washington.edu/share/downloads/fma/release/latest/fma.zip
+
+# CSV version of the FMA able to be downloaded from
+# https://bioportal.bioontology.org/ontologies/FMA
+
+# A pruned version of the CSV file with just codes and descriptions is
+# saved to
+# https://github.com/RadiotherapyAI/FMA/raw/367d57c04521f1c50f633b82d9827ee025cf5402/FMA.csv
 
 # TG263 to FMA code conversion extracted from
 # https://www.aapm.org/pubs/reports/rpt_263_supplemental/TG263_Nomenclature_Worksheet_20170815.xls
@@ -17,23 +19,42 @@
 from raicontours import TG263
 
 FMA_NAMES = {
+    3862: "Anterior interventricular branch of left coronary artery",
+    5906: "Brachial nerve plexus",
+    7088: "Heart",
+    7131: "Esophagus",
+    7148: "Stomach",
+    7196: "Spleen",
+    7197: "Liver",
+    7198: "Pancreas",
+    7200: "Small intestine",
+    7201: "Large intestine",
+    7202: "Gallbladder",
+    7204: "Right kidney",
+    7205: "Left kidney",
+    7206: "Duodenum",
+    7309: "Right lung",
+    7310: "Left lung",
+    7394: "Trachea",
+    7465: "Carina of trachea",
+    7486: "Manubrium",
+    7647: "Spinal cord",
+    9600: "Prostate",
+    9680: "Vertebral canal",
     12514: "Right eyeball",
     12515: "Left eyeball",
     13889: "Pituitary gland",
     14544: "Rectum",
+    15629: "Right adrenal gland",
+    15630: "Left adrenal gland",
     15900: "Urinary bladder",
     16580: "Bony pelvis",
     19386: "Seminal vesicle",
     20292: "Cavity of mouth",
-    223695: "Left nipple",
-    235068: "Parasternal lymphatic chain",
-    256135: "Body",
-    275022: "Right hippocampus",
-    275024: "Left hippocampus",
-    3862: "Anterior interventricular branch of left coronary artery",
     45244: "Right brachial nerve plexus",
     45245: "Left brachial nerve plexus",
     45643: "External genitalia",
+    46620: "Constrictor muscle of pharynx",
     50060: "Chest wall",
     50801: "Brain",
     50875: "Right optic nerve",
@@ -51,7 +72,6 @@ FMA_NAMES = {
     55414: "Glottis",
     58242: "Right lens",
     58243: "Left lens",
-    5906: "Brachial nerve plexus",
     59102: "Right lacrimal gland",
     59103: "Left lacrimal gland",
     59797: "Right parotid gland",
@@ -63,28 +83,13 @@ FMA_NAMES = {
     61825: "Temporal lobe",
     62045: "Optic chiasm",
     67944: "Cerebellum",
-    7088: "Heart",
-    7131: "Esophagus",
     71331: "Set of ribs",
-    7148: "Stomach",
-    7196: "Spleen",
-    7197: "Liver",
-    7198: "Pancreas",
-    7200: "Small intestine",
-    7201: "Large intestine",
-    7202: "Gallbladder",
-    7204: "Right kidney",
-    7205: "Left kidney",
-    7206: "Duodenum",
-    7309: "Right lung",
-    7310: "Left lung",
-    7394: "Trachea",
-    7465: "Carina of trachea",
-    7486: "Manubrium",
-    7647: "Spinal cord",
     79876: "Brainstem",
-    9600: "Prostate",
-    9680: "Vertebral canal",
+    223695: "Left nipple",
+    235068: "Parasternal lymphatic chain",
+    256135: "Body",
+    275022: "Right hippocampus",
+    275024: "Left hippocampus",
 }
 
 
