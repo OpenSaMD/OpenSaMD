@@ -35,6 +35,7 @@ from raicontours import TG263, Config
 import rai
 from rai.contours.convert import contour_to_dicom_format
 from rai.typing.contours import ContoursBySlice, ContoursByStructure
+from rai.vendor.fma.codes import DEFAULT_FMA_CODES, FMA_NAMES
 
 from . import _codes, _inheritance, append, pinhole
 from . import uid as _uid
@@ -67,7 +68,7 @@ def create_dicom_structure_set(
         merged_contours_by_structure[structure_name] = merged_contours_by_slice
 
     structure_names = cfg["structures"]
-    structure_codes = [_codes.DEFAULT_FMA_CODES[item] for item in structure_names]
+    structure_codes = [DEFAULT_FMA_CODES[item] for item in structure_names]
     roi_description = "{structure_name}"
     structure_set_description = (
         f"Created using rai v{rai.__version__} "
@@ -245,7 +246,7 @@ def _add_roi_sequence(
                     "CodeValue": str(structure_code),
                     "CodingSchemeDesignator": "FMA",
                     "CodingSchemeVersion": "3.2",
-                    "CodeMeaning": _codes.FMA_NAMES[structure_code],
+                    "CodeMeaning": FMA_NAMES[structure_code],
                     "MappingResource": "99VMS",
                     "ContextGroupVersion": "20161209",
                     "ContextIdentifier": "VMS011",

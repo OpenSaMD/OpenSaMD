@@ -124,7 +124,8 @@
     "recommendations": [
       "executablebookproject.myst-highlight",
       "jasonnutter.vscode-codeowners",
-      "bungcip.better-toml"
+      "bungcip.better-toml",
+      "stkb.rewrap"
     ]
   }
 }
