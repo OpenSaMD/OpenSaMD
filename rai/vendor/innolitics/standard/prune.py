@@ -21,7 +21,7 @@
 import json
 import pathlib
 
-from rai.dicom._inheritance import DICOM_MODULES
+from rai.dicom._inheritance import RTSTRUCT_DICOM_MODULES
 
 from .load import get_standard
 
@@ -33,7 +33,7 @@ def prune_module_attributes():
 
     module_to_attributes = get_standard(standard_to_prune)
 
-    modules_to_keep = set(DICOM_MODULES.keys())
+    modules_to_keep = set(RTSTRUCT_DICOM_MODULES.keys())
 
     pruned_module_to_attributes = [
         item for item in module_to_attributes if item["moduleId"] in modules_to_keep

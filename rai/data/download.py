@@ -23,6 +23,30 @@ from typing import List, Union
 from rai._paths import RAI_DATA
 
 
+def lctsc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "LCTSC"):
+    data_dir = pathlib.Path(data_dir)
+
+    repo = "RadiotherapyAI/data-tcia-lctsc"
+    commit_hash = "641f0a5d17e62e7a5fa63452d62aaeb22b91fc22"
+    study_path = "LCTSC-Test-S3-102/11-08-2004-LEFT%20LUNG-11520"
+
+    relative_structure_path = "1.000000-.simplified-02503/1-1.dcm"
+    relative_image_paths = [
+        f"1.000000-95635/1-{item:03d}.dcm" for item in range(1, 211)
+    ]
+
+    image_paths, structure_path = _github_images_and_structure_download(
+        data_dir,
+        repo,
+        commit_hash,
+        study_path,
+        relative_structure_path,
+        relative_image_paths,
+    )
+
+    return image_paths, structure_path
+
+
 def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
     data_dir = pathlib.Path(data_dir)
 

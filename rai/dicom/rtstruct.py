@@ -44,7 +44,7 @@ from .anonymise import encrypt as _encrypt
 TypedDataset = _typing.TypedDataset
 
 AttributeType = _inheritance.AttributeType
-DICOM_MODULES = _inheritance.DICOM_MODULES
+RTSTRUCT_DICOM_MODULES = _inheritance.RTSTRUCT_DICOM_MODULES
 Usage = _inheritance.Usage
 Inheritance = _inheritance.Inheritance
 ModuleOptions = _inheritance.ModuleOptions
@@ -404,7 +404,7 @@ def _create_base(
     _pull_encrypted_tags_from_reference(study_header_reference, ds)
     modules_to_inherit = [
         module_id
-        for module_id, module_options in DICOM_MODULES.items()
+        for module_id, module_options in RTSTRUCT_DICOM_MODULES.items()
         if module_options.inheritance == Inheritance.INHERIT
     ]
     for module_id in modules_to_inherit:
@@ -422,7 +422,7 @@ def _create_base(
     _add_roi_modules(ds)
     _add_approval_module(ds)
 
-    for module_id in DICOM_MODULES:
+    for module_id in RTSTRUCT_DICOM_MODULES:
         _raise_if_module_is_invalid(ds, module_id)
 
     return ds
@@ -527,7 +527,7 @@ def _add_approval_module(ds):
 
 def _raise_if_module_is_invalid(ds, module_id):
     attribute_type_map = _inheritance.get_keyword_types_for_module(module_id)
-    if DICOM_MODULES[module_id].usage == Usage.USER_OPTIONAL:
+    if RTSTRUCT_DICOM_MODULES[module_id].usage == Usage.USER_OPTIONAL:
         if not _is_there_any_attribute(attribute_type_map, ds):
             return
 
@@ -644,7 +644,7 @@ def _pull_attributes(reference, target, attribute_type_map: Dict[str, AttributeT
 def _module_attributes(usage: Usage, inheritance: Inheritance = None):
     modules = [
         module_id
-        for module_id, module_options in DICOM_MODULES.items()
+        for module_id, module_options in RTSTRUCT_DICOM_MODULES.items()
         if module_options.usage == usage
         and (inheritance is None or module_options.inheritance == inheritance)
     ]

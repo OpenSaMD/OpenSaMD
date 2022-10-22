@@ -52,7 +52,7 @@ def dicom_to_contours_by_structure(
     image_uids: List[str],
     structure_names: Optional[List[Union[str, TG263]]] = None,
 ):
-    name_to_number_map = {
+    name_to_number_map: Dict[str, str] = {
         item.ROIName: item.ROINumber for item in ds.StructureSetROISequence
     }
 
@@ -61,7 +61,7 @@ def dicom_to_contours_by_structure(
     }
 
     if structure_names is None:
-        structure_names = name_to_number_map.keys()
+        structure_names = list(name_to_number_map.keys())
 
     structure_name_to_contour_sequence_map = {
         structure_name: number_to_contour_sequence_map[

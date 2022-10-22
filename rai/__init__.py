@@ -21,6 +21,7 @@ from rai.contours.merge import (
 )
 from rai.data.download import deepmind_example as download_deepmind_example
 from rai.data.download import hnscc_example as download_hnscc_example
+from rai.data.download import lctsc_example as download_lctsc_example
 from rai.data.images import paths_to_sorted_image_series as paths_to_sorted_image_series
 from rai.data.images import (
     sorted_image_series_to_image_stack_hfs as sorted_image_series_to_image_stack_hfs,

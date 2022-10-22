@@ -49,7 +49,7 @@ class ModuleOptions(NamedTuple):
     inheritance: Inheritance
 
 
-DICOM_MODULES = {
+RTSTRUCT_DICOM_MODULES = {
     "patient": ModuleOptions(Usage.MANDATORY, Inheritance.INHERIT),
     "general-study": ModuleOptions(Usage.MANDATORY, Inheritance.INHERIT),
     "patient-study": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
