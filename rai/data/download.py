@@ -35,16 +35,19 @@ def lctsc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "LCTSC"):
         f"1.000000-95635/1-{item:03d}.dcm" for item in range(1, 211)
     ]
 
-    image_paths, structure_path = _github_images_and_structure_download(
+    license_filename = "LICENSE"
+    readme_filename = "README.md"
+
+    return _github_images_and_structure_download(
         data_dir,
         repo,
         commit_hash,
         study_path,
         relative_structure_path,
         relative_image_paths,
+        license_filename,
+        readme_filename,
     )
-
-    return image_paths, structure_path
 
 
 def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
@@ -59,16 +62,19 @@ def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
         f"2.000000-47027/1-{item:03d}.dcm" for item in range(1, 177)
     ]
 
-    image_paths, structure_path = _github_images_and_structure_download(
+    license_filename = "license.html"
+    readme_filename = "README.md"
+
+    return _github_images_and_structure_download(
         data_dir,
         repo,
         commit_hash,
         study_path,
         relative_structure_path,
         relative_image_paths,
+        license_filename,
+        readme_filename,
     )
-
-    return image_paths, structure_path
 
 
 def deepmind_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "deepmind"):
@@ -81,16 +87,19 @@ def deepmind_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "deepmind")
     relative_structure_path = "RS.dcm"
     relative_image_paths = [f"CT-{item:03d}.dcm" for item in range(165)]
 
-    image_paths, structure_path = _github_images_and_structure_download(
+    license_filename = "LICENSE"
+    readme_filename = "README.md"
+
+    return _github_images_and_structure_download(
         data_dir,
         repo,
         commit_hash,
         study_path,
         relative_structure_path,
         relative_image_paths,
+        license_filename,
+        readme_filename,
     )
-
-    return image_paths, structure_path
 
 
 def _github_images_and_structure_download(
@@ -100,24 +109,53 @@ def _github_images_and_structure_download(
     study_path: str,
     relative_structure_path: str,
     relative_image_paths: List[str],
+    license_filename: str,
+    readme_filename: str,
 ):
     repo_url = f"https://github.com/{repo}"
 
-    download_url_root = f"{repo_url}/raw/{commit_hash}/{study_path}"
+    download_url_root = f"{repo_url}/raw/{commit_hash}"
+    license_url = f"{download_url_root}/{license_filename}"
+    readme_url = f"{download_url_root}/{readme_filename}"
+    data_license_path = data_dir / license_filename
+    data_readme_path = data_dir / readme_filename
+
+    study_url_root = f"{download_url_root}/{study_path}"
     resolved_study_path = data_dir / urllib.parse.unquote(study_path)
 
-    structure_url = f"{download_url_root}/{relative_structure_path}"
+    structure_url = f"{study_url_root}/{relative_structure_path}"
     structure_path = resolved_study_path / relative_structure_path
 
-    image_urls = [f"{download_url_root}/{path}" for path in relative_image_paths]
+    image_urls = [f"{study_url_root}/{path}" for path in relative_image_paths]
     image_paths = [resolved_study_path / path for path in relative_image_paths]
 
-    urls_to_download = [structure_url] + image_urls
-    paths_to_save_to = [structure_path] + image_paths
+    rai_license_path = RAI_DATA / "LICENSE"
+    rai_license_url = (
+        "https://raw.githubusercontent.com/RadiotherapyAI/rai/main/LICENSE"
+    )
+
+    urls_to_download = [
+        structure_url,
+        license_url,
+        readme_url,
+        rai_license_url,
+    ] + image_urls
+    paths_to_save_to = [
+        structure_path,
+        data_license_path,
+        data_readme_path,
+        rai_license_path,
+    ] + image_paths
 
     _multiprocess_download(urls_to_download, paths_to_save_to)
 
-    return image_paths, structure_path
+    return (
+        image_paths,
+        structure_path,
+        data_license_path,
+        data_readme_path,
+        rai_license_path,
+    )
 
 
 def _multiprocess_download(

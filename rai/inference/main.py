@@ -58,6 +58,10 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
             for num_slices in reduced_image_stack.shape
         )
     )
+    print(
+        "First pass being run with a grid of:\n"
+        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
+    )
     predicted_masks = _inference_over_jittered_grid(
         cfg=cfg,
         model=rai_starting_model,
@@ -80,6 +84,10 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
             for num_slices in reduced_image_stack.shape
         )
     )
+    print(
+        "Second pass being run with a grid of:\n"
+        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
+    )
     predicted_masks = _inference_over_jittered_grid(
         cfg=cfg,
         model=rai_dependent_model,
@@ -99,6 +107,10 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
             _get_inference_steps(num_slices, step_size)
             for num_slices in image_stack.shape
         )
+    )
+    print(
+        "Third pass being run with a grid of:\n"
+        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
     )
     predicted_masks = _inference_over_jittered_grid(
         cfg=cfg,

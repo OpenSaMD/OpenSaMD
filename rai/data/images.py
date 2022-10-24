@@ -29,14 +29,14 @@ from rai.typing.contours import Grid
 from rai.vendor.innolitics import sorting as _dicom_sorting
 
 
-def paths_to_sorted_image_series(paths: List[pathlib.Path]):
-    datasets = [pydicom.read_file(path) for path in paths]
-    sorted_image_series = sorted(datasets, key=_sorting_key)
-
-    return sorted_image_series
+def sort_dicom_image_paths(paths: List[pathlib.Path]):
+    sorted_paths = sorted(paths, key=_sorting_key)
+    return sorted_paths
 
 
-def sorted_image_series_to_image_stack_hfs(cfg: Config, sorted_image_series):
+def sorted_image_series_to_image_stack_hfs(
+    cfg: Config, sorted_image_series: List[pydicom.Dataset]
+):
     image_stack = []
 
     x_grid = None
@@ -77,7 +77,8 @@ def _validate_grid(x_grid_reference, y_grid_reference, x_grid, y_grid):
     return x_grid_reference, y_grid_reference
 
 
-def _sorting_key(ds: pydicom.Dataset):
+def _sorting_key(path: pathlib.Path):
+    ds = pydicom.dcmread(path, stop_before_pixels=True, force=True)
     return -_dicom_sorting.slice_position(ds)
 
 
