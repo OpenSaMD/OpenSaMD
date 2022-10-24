@@ -16,7 +16,7 @@
 
 import itertools
 import random
-from typing import List, Optional, Tuple, cast
+from typing import List, Optional, Tuple
 
 import numpy as np
 import skimage.measure
@@ -32,7 +32,9 @@ from . import batch as _batch
 from . import merge as _merge
 
 
-def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
+def inference(cfg: Config, models, image_stack, max_batch_size):
+    step_size = 32
+
     rai_starting_model, rai_dependent_model = models
 
     original_num_slices = image_stack.shape[0]
@@ -55,7 +57,7 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
 
     grid = tuple(
         (
-            _get_inference_steps(num_slices, step_size)
+            _get_inference_steps(num_slices, step_size=step_size)
             for num_slices in reduced_image_stack.shape
         )
     )
@@ -67,7 +69,7 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
         f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
     )
 
-    predicted_masks, _, _, _ = _inference_over_points(
+    predicted_masks, _, _, _, _ = _inference_over_points(
         cfg=cfg,
         model=rai_starting_model,
         points=points,
@@ -85,19 +87,19 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
     )
     grid = tuple(
         (
-            _get_inference_steps(num_slices, step_size)
+            _get_inference_steps(num_slices, step_size=step_size)
             for num_slices in reduced_image_stack.shape
         )
     )
+    points = _grid_to_jittered_points(grid=grid)
+
     print(
         "Second pass has the image downscaled by "
         f"{cfg['reduce_block_sizes'][1]} with {len(points)} patches centred on the grid:\n"
         f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
     )
 
-    points = _grid_to_jittered_points(grid=grid)
-
-    predicted_masks, _, _, _ = _inference_over_points(
+    predicted_masks, _, _, _, _ = _inference_over_points(
         cfg=cfg,
         model=rai_dependent_model,
         points=points,
@@ -113,23 +115,25 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
 
     grid = tuple(
         (
-            _get_inference_steps(num_slices, step_size)
+            _get_inference_steps(num_slices, step_size=step_size)
             for num_slices in image_stack.shape
         )
     )
-    print(
-        "Third pass has no image downscaling with "
-        f"{len(points)} patches are centred on the grid:\n"
-        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
-    )
 
     points = _grid_to_jittered_points(grid=grid)
+
+    print(
+        "Third pass has no image downscaling with "
+        f"{len(points)} patches centred on the grid:\n"
+        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
+    )
 
     (
         predicted_masks,
         counts,
         min_predictions,
         max_predictions,
+        total_num_points_previously_used,
     ) = _inference_over_points(
         cfg=cfg,
         model=rai_dependent_model,
@@ -143,37 +147,17 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
     if max_predictions is None or min_predictions is None:
         raise ValueError("Expected max and min predictions here")
 
-    # Estimate of 68% prob interval
-    # relevant_points = np.any(
-    #     np.logical_and(predicted_masks > 40, predicted_masks < 215), axis=-1
-    # )
     # Estimate of 95% prob interval
     relevant_points = np.any(
         np.logical_and(predicted_masks > 6, predicted_masks < 249), axis=-1
     )
-    # relevant_points = np.logical_and(
-    #     np.any(np.logical_and(predicted_masks > 6, predicted_masks < 249), axis=-1),
-    #     counts[..., 0] > 0.5,
-    # )
-    # TODO: Tune these threshold points.
-    # TODO: Consider making the min/max collection be over a reduced
-    # range so as to not be biased towards capturing patch edges here.
-    # points_with_sufficient_threshold_disagreement = np.any(
-    #     np.logical_and(
-    #         np.logical_and(max_predictions > 127.5, min_predictions < 127.5),
-    #         np.logical_or(max_predictions > 249.0, min_predictions < 6.0),
-    #     ),
-    #     axis=-1,
-    # )
 
-    # 140 was tuned based on the successful smoothing out of
-    # checkerboard artefacts on a structure that was "struggling".
-    points_with_sufficient_threshold_disagreement = np.any(
-        max_predictions - min_predictions > 127.5, axis=-1
+    points_with_threshold_disagreement = np.any(
+        np.logical_and(max_predictions > 127.5, min_predictions < 127.5), axis=-1
     )
 
     ref_of_points_to_refine = np.logical_and(
-        relevant_points, points_with_sufficient_threshold_disagreement
+        relevant_points, points_with_threshold_disagreement
     )
 
     coords_of_points_to_refine = np.where(ref_of_points_to_refine)
@@ -181,11 +165,17 @@ def inference(cfg: Config, models, image_stack, max_batch_size, step_size: int):
 
     random.shuffle(points)
 
+    # Limit the number of recalc points so as to not over-prioritise
+    # uncertain areas and leave other areas at the edge.
+    max_num_points_to_use = total_num_points_previously_used * 2
+    if len(points) > max_num_points_to_use:
+        points = points[0:max_num_points_to_use]
+
     print(
         "Final pass has no image downscaling with "
         f"{len(points)} pertinent patches chosen."
     )
-    predicted_masks, _, _, _ = _inference_over_points(
+    predicted_masks, _, _, _, _ = _inference_over_points(
         cfg=cfg,
         model=rai_dependent_model,
         points=points,
@@ -249,8 +239,17 @@ def _inference_over_points(
     max_points = 100
     sections = int(np.ceil(len(points) / max_points))
     split_points = np.array_split(points, sections)
+
+    total_num_points_used = 0
+
     for a_set_of_points in tqdm(split_points):
-        merged, counts, min_predictions, max_predictions = _patch_inference(
+        (
+            merged,
+            counts,
+            min_predictions,
+            max_predictions,
+            num_points_used,
+        ) = _patch_inference(
             cfg=cfg,
             model=model,
             points=a_set_of_points,
@@ -263,7 +262,9 @@ def _inference_over_points(
             max_predictions=max_predictions,
         )
 
-    return merged, counts, min_predictions, max_predictions
+        total_num_points_used += num_points_used
+
+    return merged, counts, min_predictions, max_predictions, total_num_points_used
 
 
 def _patch_inference(
@@ -286,7 +287,7 @@ def _patch_inference(
     points = [point for point, useful in zip(points, useful_points_ref) if useful]
 
     if len(points) == 0:
-        return merged, counts, min_predictions, max_predictions
+        return merged, counts, min_predictions, max_predictions, 0
 
     model_image_input = model_image_input[useful_points_ref, ...]
 
@@ -299,7 +300,7 @@ def _patch_inference(
         points = [point for point, useful in zip(points, useful_points_ref) if useful]
 
         if len(points) == 0:
-            return merged, counts, min_predictions, max_predictions
+            return merged, counts, min_predictions, max_predictions, 0
 
         model_input = [
             model_image_input[useful_points_ref, ...],
@@ -315,7 +316,7 @@ def _patch_inference(
     else:
         model_output = model.predict(model_input)
 
-    return _merge.merge_predictions(
+    merged, counts, min_predictions, max_predictions = _merge.merge_predictions(
         cfg=cfg,
         merged=merged,
         counts=counts,
@@ -324,3 +325,7 @@ def _patch_inference(
         min_predictions=min_predictions,
         max_predictions=max_predictions,
     )
+
+    num_points_used = len(points)
+
+    return merged, counts, min_predictions, max_predictions, num_points_used

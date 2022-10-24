@@ -31,7 +31,7 @@ def create_inference_weighting(patch_dimensions: Tuple[int, int, int]):
     for length in patch_dimensions:
         profile_function = _create_profile_function(
             centre=(length - 1) / 2,
-            field_width=length * 0.8,
+            field_width=length * 0.5,
             penumbra_width=length * 0.2,
         )
 
