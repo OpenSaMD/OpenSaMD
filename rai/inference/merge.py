@@ -14,9 +14,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import Optional
+
 import numba
 import numpy as np
-import tqdm
 from numpy.typing import NDArray
 
 from raicontours import Config
@@ -30,6 +31,8 @@ def merge_predictions(
     counts: NDArray[np.float32],
     points,
     model_output: NDArray[np.uint8],
+    min_predictions: Optional[NDArray[np.uint8]],
+    max_predictions: Optional[NDArray[np.uint8]],
 ):
     weighting = _weighting.create_inference_weighting(
         patch_dimensions=cfg["patch_dimensions"]
@@ -78,7 +81,25 @@ def merge_predictions(
         merged[z_merged_slice, y_merged_slice, x_merged_slice, :] = updated_prediction
         counts[z_merged_slice, y_merged_slice, x_merged_slice, :] = updated_counts
 
-    return merged, counts
+        if min_predictions is not None:
+            min_predictions[z_merged_slice, y_merged_slice, x_merged_slice, :] = np.min(
+                [
+                    min_predictions[z_merged_slice, y_merged_slice, x_merged_slice, :],
+                    updated_prediction,
+                ],
+                axis=0,
+            )
+
+        if max_predictions is not None:
+            max_predictions[z_merged_slice, y_merged_slice, x_merged_slice, :] = np.max(
+                [
+                    max_predictions[z_merged_slice, y_merged_slice, x_merged_slice, :],
+                    updated_prediction,
+                ],
+                axis=0,
+            )
+
+    return merged, counts, min_predictions, max_predictions
 
 
 @numba.jit(nopython=True)
