@@ -34,7 +34,7 @@ from raicontours import TG263, Config
 
 import rai
 from rai.contours.convert import contour_to_dicom_format
-from rai.typing.contours import ContoursBySlice, ContoursByStructure
+from rai.typing.contours import ContoursByStructure
 from rai.vendor.fma.codes import DEFAULT_FMA_CODES, FMA_NAMES
 
 from . import _codes, _inheritance, append
@@ -109,7 +109,7 @@ def create_dicom_structure_set(
         image_series_headers=image_series_headers,
         name_to_number_map=name_to_number_map,
         name_to_colour_map=name_to_colour_map,
-        merged_contours_by_structure=merged_contours_by_structure,
+        contours_by_structure=contours_by_structure,
     )
 
     return ds
@@ -140,14 +140,14 @@ def _add_contour_sequence(
     name_to_number_map: Dict[TG263, str],
     name_to_colour_map: Dict[str, Tuple[int, int, int]],
     # contours_per_slice: list[Dict[str, list[np.ndarray]]],
-    merged_contours_by_structure: ContoursByStructure,
+    contours_by_structure: ContoursByStructure,
 ):
     roi_contour_sequence = []
 
     for structure_name, roi_number in name_to_number_map.items():
         contour_sequence = []
 
-        contours_by_slice = merged_contours_by_structure[structure_name]
+        contours_by_slice = contours_by_structure[structure_name]
 
         for contours, image_header in zip(contours_by_slice, image_series_headers):
             if len(contours) == 0:
