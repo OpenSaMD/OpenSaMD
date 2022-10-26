@@ -28,10 +28,7 @@ from rai.typing.contours import ContoursXY
 DEFAULT_EPSILON = 0.00001
 
 
-def merge_contours_with_pinhole(contours: ContoursXY, epsilon=None):
-    if len(contours) < 2:
-        return contours
-
+def merge_contours_with_pinhole(contours: ContoursXY, simplify_tolerance, epsilon=None):
     polygons = _contours_to_polygons(contours)
     groups = _get_groups(polygons)
 
@@ -41,6 +38,8 @@ def merge_contours_with_pinhole(contours: ContoursXY, epsilon=None):
         for inner_index in inner_polygon_indices:
             inner_polygon = polygons[inner_index]
             merged = _merge_with_pinhole(merged, inner_polygon, epsilon=epsilon)
+
+        merged = merged.simplify(simplify_tolerance)
 
         merged_polygons.append(merged)
 

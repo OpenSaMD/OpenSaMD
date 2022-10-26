@@ -79,6 +79,42 @@ def view_ranges_from_masks(grids, masks, buffer=0.1):
     return slice_indices, tuple(axis_limits), centre_indices
 
 
+def view_ranges_from_contours_by_structure(
+    contours_by_structure: ContoursByStructure, buffer
+):
+    min_slice = np.inf
+    max_slice = -np.inf
+
+    xmin = np.inf
+    xmax = -np.inf
+
+    ymin = np.inf
+    ymax = -np.inf
+
+    for contours_by_slice in contours_by_structure.values():
+        for i, contours in enumerate(contours_by_slice):
+            if len(contours) == 0:
+                continue
+
+            stacked_contours_array = np.vstack(contours)
+
+            min_slice = min(min_slice, i)
+            max_slice = max(max_slice, i)
+
+            xmin = min(xmin, np.min(stacked_contours_array[:, 0]))
+            xmax = max(xmax, np.max(stacked_contours_array[:, 0]))
+            ymin = min(ymin, np.min(stacked_contours_array[:, 1]))
+            ymax = max(ymax, np.max(stacked_contours_array[:, 1]))
+
+    if min_slice == np.inf or max_slice == -np.inf:
+        raise ValueError("Expected slices to be found")
+
+    slice_indices = (list(range(int(min_slice), int(max_slice) + 1)), None, None)
+    axis_limits = (None, (ymax + buffer, ymin - buffer), (xmin - buffer, xmax + buffer))
+
+    return slice_indices, axis_limits
+
+
 def plot_contours_by_structure(
     grids,
     images,
@@ -143,6 +179,8 @@ def plot_contours_by_structure(
         )
         ax.set_xlim(*orientation_specific_limits[orientation]["xlim"])
         ax.set_ylim(*orientation_specific_limits[orientation]["ylim"])
+
+        plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
 
         plt.show()
 
@@ -298,6 +336,9 @@ def _populate_axis_for_orientation_and_index(
 
     contour_traces_by_structure = {}
     for structure_name, contours_by_slice in contours_by_structure.items():
+        if len(contours_by_slice[index]) == 0:
+            continue
+
         contours = _combine_contours_for_plotting(contours_by_slice[index])
 
         plot_args = (contours[:, 0], contours[:, 1])

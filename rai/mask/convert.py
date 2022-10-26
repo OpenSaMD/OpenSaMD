@@ -26,6 +26,7 @@ from typing_extensions import Literal, TypedDict
 
 from raicontours import TG263, Config
 
+from rai.contours import pinhole
 from rai.dicom import structures as _dicom_structures
 from rai.typing.contours import (
     AllStructuresMaskStack,
@@ -91,6 +92,9 @@ def _masks_to_contours_by_structure(
     structure_names: List[StructureName],
     axis=0,
 ):
+    smallest_pixel_dimension = np.min([np.diff(x_grid), np.diff(y_grid)])
+    simplify_tolerance = smallest_pixel_dimension / 10
+
     contours_by_structure: ContoursByStructure = {}
 
     for structure_index, structure_name in enumerate(structure_names):
@@ -109,7 +113,18 @@ def _masks_to_contours_by_structure(
 
         contours_by_structure[structure_name] = contours_by_slice
 
-    return contours_by_structure
+    contours_by_structure_with_pinholes: ContoursByStructure = {}
+
+    for structure_name, contours_by_slice in contours_by_structure.items():
+        merged_contours_by_slice: ContoursBySlice = []
+        for contours in contours_by_slice:
+            merged_contours_by_slice.append(
+                pinhole.merge_contours_with_pinhole(contours, simplify_tolerance)
+            )
+
+        contours_by_structure_with_pinholes[structure_name] = merged_contours_by_slice
+
+    return contours_by_structure_with_pinholes
 
 
 def contour_sequence_to_mask_stack(

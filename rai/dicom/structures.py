@@ -56,19 +56,28 @@ def dicom_to_contours_by_structure(
         item.ROIName: item.ROINumber for item in ds.StructureSetROISequence
     }
 
-    number_to_contour_sequence_map = {
-        item.ReferencedROINumber: item.ContourSequence for item in ds.ROIContourSequence
-    }
+    number_to_contour_sequence_map = {}
+
+    for item in ds.ROIContourSequence:
+        try:
+            number_to_contour_sequence_map[
+                item.ReferencedROINumber
+            ] = item.ContourSequence
+        except AttributeError:
+            pass
 
     if structure_names is None:
         structure_names = list(name_to_number_map.keys())
 
-    structure_name_to_contour_sequence_map = {
-        structure_name: number_to_contour_sequence_map[
-            name_to_number_map[structure_name]
-        ]
-        for structure_name in structure_names
-    }
+    structure_name_to_contour_sequence_map = {}
+
+    for structure_name in structure_names:
+        try:
+            structure_name_to_contour_sequence_map[
+                structure_name
+            ] = number_to_contour_sequence_map[name_to_number_map[structure_name]]
+        except KeyError:
+            pass
 
     contours_by_structure: ContoursByStructure = {}
 

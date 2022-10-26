@@ -199,7 +199,7 @@ def _get_inference_steps(num_slices: int, step_size: int):
 def _grid_to_jittered_points(grid: Tuple[List[int], List[int], List[int]]) -> Points:
     points = []
     for point in itertools.product(*grid):
-        point = np.random.randint(-1, 2, size=3) + point
+        point = np.random.randint(-1, 2, size=3) + np.array(point)
         points.append(tuple(point.tolist()))
 
     return points

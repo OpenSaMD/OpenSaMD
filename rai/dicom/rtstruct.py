@@ -37,7 +37,7 @@ from rai.contours.convert import contour_to_dicom_format
 from rai.typing.contours import ContoursBySlice, ContoursByStructure
 from rai.vendor.fma.codes import DEFAULT_FMA_CODES, FMA_NAMES
 
-from . import _codes, _inheritance, append, pinhole
+from . import _codes, _inheritance, append
 from . import uid as _uid
 from .anonymise import _tags, _typing
 from .anonymise import encrypt as _encrypt
@@ -56,16 +56,6 @@ def create_dicom_structure_set(
     image_series_headers: List[pydicom.Dataset],
     contours_by_structure: ContoursByStructure,
 ):
-    merged_contours_by_structure: ContoursByStructure = {}
-
-    for structure_name, contours_by_slice in contours_by_structure.items():
-        merged_contours_by_slice: ContoursBySlice = []
-        for contours in contours_by_slice:
-            merged_contours_by_slice.append(
-                pinhole.merge_contours_with_pinhole(contours)
-            )
-
-        merged_contours_by_structure[structure_name] = merged_contours_by_slice
 
     structure_names = cfg["structures"]
     structure_codes = [DEFAULT_FMA_CODES[item] for item in structure_names]
