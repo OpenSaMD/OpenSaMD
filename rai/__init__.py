@@ -40,6 +40,7 @@ from rai.display.animation import (
 from rai.display.animation import (
     plot_contours_by_structure as plot_contours_by_structure,
 )
+from rai.display.animation import view_ranges_from_contours_by_structure
 from rai.display.animation import view_ranges_from_masks as view_ranges_from_masks
 from rai.inference.main import inference as inference
 from rai.mask.convert import (
