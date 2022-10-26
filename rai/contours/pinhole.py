@@ -18,6 +18,7 @@
 import itertools
 from typing import List, Tuple
 
+import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import shapely.geometry
@@ -151,9 +152,15 @@ def _build_digraph(polygons: List[shapely.geometry.Polygon]) -> nx.DiGraph:
             polygon_dg.add_edge(node_b, node_a)
         elif p_a.disjoint(p_b):
             continue
+        elif p_a.touches(p_b):
+            continue
         else:
+            plt.plot(*p_a.exterior.xy)
+            plt.plot(*p_b.exterior.xy)
+            plt.show()
             raise ValueError(
-                "All contours should either be disjoint, or be fully contained"
+                "All contours should either be disjoint, just be "
+                "touching, or be fully contained"
             )
 
     transitive_reduction = nx.transitive_reduction(polygon_dg)

@@ -52,7 +52,7 @@ class _Options(TypedDict):
 
 
 def masks_to_contours_by_structure(
-    grids, masks, structure_names, orientation: Orienation = "transverse"
+    cfg: Config, grids, masks, structure_names, orientation: Orienation = "transverse"
 ):
     (z_grid, y_grid, x_grid) = grids
 
@@ -79,6 +79,7 @@ def masks_to_contours_by_structure(
     contours = _masks_to_contours_by_structure(
         structure_names=structure_names,
         masks=masks,
+        levels=cfg["levels"],
         **options,
     )
 
@@ -90,6 +91,7 @@ def _masks_to_contours_by_structure(
     y_grid: Grid,
     masks: AllStructuresMaskStack,
     structure_names: List[StructureName],
+    levels: Dict[TG263, float],
     axis=0,
 ):
     smallest_pixel_dimension = np.min([np.diff(x_grid), np.diff(y_grid)])
@@ -100,6 +102,11 @@ def _masks_to_contours_by_structure(
     for structure_index, structure_name in enumerate(structure_names):
         this_structure = masks[..., structure_index]
 
+        try:
+            level = levels[structure_name]  # type: ignore
+        except KeyError:
+            level = 127.5
+
         contours_by_slice: ContoursBySlice = []
         for slice_index in range(this_structure.shape[axis]):
             this_slice = np.squeeze(
@@ -108,7 +115,8 @@ def _masks_to_contours_by_structure(
                 ),
                 axis=axis,
             )
-            contours = mask_to_contours(x_grid, y_grid, this_slice)
+
+            contours = mask_to_contours(x_grid, y_grid, this_slice, level=level)
             contours_by_slice.append(contours)
 
         contours_by_structure[structure_name] = contours_by_slice
@@ -152,7 +160,9 @@ def contour_sequence_to_mask_stack(
     return concatenated_mask_stack
 
 
-def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> ContoursXY:
+def mask_to_contours(
+    x_grid: Grid, y_grid: Grid, mask: Mask, level: float
+) -> ContoursXY:
     """Converts a uint8 anti-aliased mask into a series of contours.
 
     This is a wrapper around `skimage.measure.find_contours` with the
@@ -173,6 +183,8 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> ContoursXY:
         A mask between 0-255 where 0 is outside the contours, 255 inside
         the contours and 1-254 represents a pixel that is partially
         encompassed by the contours.
+    level : float
+        Mask level to use to extract the contours.
 
     Returns
     -------
@@ -187,7 +199,7 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> ContoursXY:
     padded_mask = np.pad(mask, 1)  # pyright: ignore [reportUnknownMemberType]
 
     contours_coords_padded_image_frame = skimage.measure.find_contours(
-        padded_mask, level=127.5
+        padded_mask, level=level
     )
     contours_coords_image_frame = [
         item - 1 for item in contours_coords_padded_image_frame

@@ -147,20 +147,24 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
     if max_predictions is None or min_predictions is None:
         raise ValueError("Expected max and min predictions here")
 
-    # Estimate of 95% prob interval
-    relevant_points = np.any(
-        np.logical_and(predicted_masks > 6, predicted_masks < 249), axis=-1
-    )
+    contouring_levels: List[float] = []
+    for structure_name in cfg["structures"]:
+        try:
+            contouring_levels.append(cfg["levels"][structure_name])
+        except KeyError:
+            contouring_levels.append(127.5)
+
+    array_contouring_levels = np.array(contouring_levels)[None, None, None, :]
 
     points_with_threshold_disagreement = np.any(
-        np.logical_and(max_predictions > 127.5, min_predictions < 127.5), axis=-1
+        np.logical_and(
+            max_predictions > array_contouring_levels,
+            min_predictions < array_contouring_levels,
+        ),
+        axis=-1,
     )
 
-    ref_of_points_to_refine = np.logical_and(
-        relevant_points, points_with_threshold_disagreement
-    )
-
-    coords_of_points_to_refine = np.where(ref_of_points_to_refine)
+    coords_of_points_to_refine = np.where(points_with_threshold_disagreement)
     points = np.vstack(coords_of_points_to_refine).T.tolist()
 
     random.shuffle(points)

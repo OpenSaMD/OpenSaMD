@@ -126,6 +126,7 @@ def plot_contours_by_structure(
     figsize,
     vmin,
     vmax,
+    callback=None,
 ):
     z_grid, y_grid, x_grid = grids
     colour_iterator = _get_colours()
@@ -181,6 +182,9 @@ def plot_contours_by_structure(
         ax.set_ylim(*orientation_specific_limits[orientation]["ylim"])
 
         plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
+
+        if callback is not None:
+            callback(fig, ax, i)
 
         plt.show()
 
@@ -345,6 +349,7 @@ def _populate_axis_for_orientation_and_index(
         plot_kwargs = {
             "c": colours[structure_name],
             "label": structure_name,
+            "lw": 3,
         }
 
         (contour_traces_by_structure[structure_name],) = ax.plot(
