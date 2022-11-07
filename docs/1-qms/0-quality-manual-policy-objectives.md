@@ -67,7 +67,7 @@ being stand-alone software:
 
 {{device_manufacturer}} aims to use AI to save lives within radiotherapy. To
 achieve this it has the goals to reduce treatment errors and improve treatment
-efficacy while helping more patients be treated through efficiency gains.
+efficacy while helping more patients to be treated through efficiency gains.
 
 ### Quality Objectives
 
