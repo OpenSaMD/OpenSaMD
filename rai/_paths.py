@@ -14,31 +14,18 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Building the documentation"""
+"""Repository paths utilised by the CLI module"""
 
-import os
-import subprocess
+import pathlib
 
-from rai._paths import DOCS_DIR, REPO_ROOT
+HERE = pathlib.Path(__file__)
+REPO_ROOT = HERE.parents[1]
+DOCS_DIR = REPO_ROOT / "docs"
+LIBRARY_DIR = REPO_ROOT / "rai"
 
+RAI_HOME_DIR = pathlib.Path.home() / ".rai"
+RAI_DATA = RAI_HOME_DIR / "data"
 
-def build(clean: bool):
-    """Build the Jupyter Book documentation"""
-
-    env = os.environ.copy()
-
-    if clean:
-        subprocess.check_call(
-            ["jupyter-book", "clean", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
-        )
-
-    with open(DOCS_DIR / "_toc.yml", "w", encoding="utf8") as f:
-        subprocess.check_call(
-            ["jupyter-book", "toc", "from-project", str(DOCS_DIR)],
-            cwd=REPO_ROOT,
-            env=env,
-            stdout=f,
-        )
-    subprocess.check_call(
-        ["jupyter-book", "build", str(DOCS_DIR)], cwd=REPO_ROOT, env=env
-    )
+GIT_DIR = REPO_ROOT.parent
+RAICONTOURS_REPO_ROOT = GIT_DIR / "raicontours"
+RAICONTOURS_LIBRARY_DIR = RAICONTOURS_REPO_ROOT / "raicontours"
