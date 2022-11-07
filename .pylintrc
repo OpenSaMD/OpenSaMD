@@ -4,8 +4,8 @@ ignore =
 
 [MESSAGES CONTROL]
 disable =
-    fixme,
-    line-too-long,
+    fixme,  ; Makes TODO lines not flag the CI
+    line-too-long,  ; Line length is being entirely managed by black
 
 [FORMAT]
 good-names =
