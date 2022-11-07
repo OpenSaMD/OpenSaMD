@@ -1916,14 +1916,19 @@ py = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
 name = "raicontours"
-version = "0.3.0.dev3"
+version = "0.3.0-dev3"
 description = ""
 category = "main"
 optional = false
 python-versions = ">=3.7"
+develop = true
 
 [package.dependencies]
 typing-extensions = "*"
+
+[package.source]
+type = "directory"
+url = "../raicontours"
 
 [[package]]
 name = "requests"
@@ -2840,7 +2845,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<3.11"
-content-hash = "68618620388f91e828218f243bd9fe991112913df57439fea39acab621f4cae3"
+content-hash = "8d835df32dc7e40f426096ea9af291bedf945ab8968e3787c6e73e4df7f24a7d"
 
 [metadata.files]
 absl-py = [
@@ -4319,10 +4324,7 @@ pyzmq = [
     {file = "pyzmq-24.0.1-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:687700f8371643916a1d2c61f3fdaa630407dd205c38afff936545d7b7466066"},
     {file = "pyzmq-24.0.1.tar.gz", hash = "sha256:216f5d7dbb67166759e59b0479bca82b8acf9bed6015b526b8eb10143fb08e77"},
 ]
-raicontours = [
-    {file = "raicontours-0.3.0.dev3-py3-none-any.whl", hash = "sha256:f9c9bb53da92ca9ca91bcb8b39e9e6005e3e90ca9885e44a91cfa0522d5cf4e9"},
-    {file = "raicontours-0.3.0.dev3.tar.gz", hash = "sha256:e77c8e68b3549ef4557b1a765828bb2b47e326829b0744635c17976b66055ef4"},
-]
+raicontours = []
 requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},

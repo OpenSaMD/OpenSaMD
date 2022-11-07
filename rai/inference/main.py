@@ -24,7 +24,7 @@ import tensorflow as tf
 from numpy.typing import NDArray
 from tqdm import tqdm
 
-from raicontours import Config
+from raicontours import Config, get_mask_level
 
 from rai.typing.inference import Points
 
@@ -149,10 +149,7 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
 
     contouring_levels: List[float] = []
     for structure_name in cfg["structures"]:
-        try:
-            contouring_levels.append(cfg["levels"][structure_name])
-        except KeyError:
-            contouring_levels.append(127.5)
+        contouring_levels.append(get_mask_level(cfg=cfg, structure_name=structure_name))
 
     array_contouring_levels = np.array(contouring_levels)[None, None, None, :]
 

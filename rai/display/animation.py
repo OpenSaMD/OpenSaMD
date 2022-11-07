@@ -346,6 +346,10 @@ def _populate_axis_for_orientation_and_index(
         contours = _combine_contours_for_plotting(contours_by_slice[index])
 
         plot_args = (contours[:, 0], contours[:, 1])
+
+        if structure_name.startswith("DICOM"):
+            plot_args = plot_args + ("--",)
+
         plot_kwargs = {
             "c": colours[structure_name],
             "label": structure_name,

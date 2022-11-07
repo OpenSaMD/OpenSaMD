@@ -24,7 +24,7 @@ import skimage.measure
 from numpy.typing import NDArray
 from typing_extensions import Literal, TypedDict
 
-from raicontours import TG263, Config
+from raicontours import TG263, Config, get_mask_level
 
 from rai.contours import pinhole
 from rai.dicom import structures as _dicom_structures
@@ -77,9 +77,9 @@ def masks_to_contours_by_structure(
     options = orientation_dependent_conversion_options[orientation]
 
     contours = _masks_to_contours_by_structure(
+        cfg=cfg,
         structure_names=structure_names,
         masks=masks,
-        levels=cfg["levels"],
         **options,
     )
 
@@ -87,11 +87,11 @@ def masks_to_contours_by_structure(
 
 
 def _masks_to_contours_by_structure(
+    cfg: Config,
     x_grid: Grid,
     y_grid: Grid,
     masks: AllStructuresMaskStack,
     structure_names: List[StructureName],
-    levels: Dict[TG263, float],
     axis=0,
 ):
     smallest_pixel_dimension = np.min([np.diff(x_grid), np.diff(y_grid)])
@@ -102,10 +102,7 @@ def _masks_to_contours_by_structure(
     for structure_index, structure_name in enumerate(structure_names):
         this_structure = masks[..., structure_index]
 
-        try:
-            level = levels[structure_name]  # type: ignore
-        except KeyError:
-            level = 127.5
+        level = get_mask_level(cfg=cfg, structure_name=structure_name)
 
         contours_by_slice: ContoursBySlice = []
         for slice_index in range(this_structure.shape[axis]):
