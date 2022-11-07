@@ -12,4 +12,5 @@ good-names =
     i,j,k,x,y,z,a,b,dx,dy,x0,y0,p,t,ax,c,f,ds,vr,xx,yy,zz
 
 [DESIGN]
-max-locals = 16
+max-locals = 25
+max-args = 8
