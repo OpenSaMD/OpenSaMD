@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -18,7 +19,7 @@
 import os
 import subprocess
 
-from ._paths import DOCS_DIR, REPO_ROOT
+from rai._paths import DOCS_DIR, REPO_ROOT
 
 
 def build(clean: bool):
