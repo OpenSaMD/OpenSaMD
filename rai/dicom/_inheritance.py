@@ -20,6 +20,11 @@ from typing import NamedTuple
 
 
 class AttributeType(enum.Enum):
+    """DICOM Data Element attribute requirement types.
+
+    See <https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.4.html>
+    """
+
     REQUIRED = "1"
     CONDITIONALLY_REQUIRED = "1C"
     REQUIRED_EMPTY_IF_UNKNOWN = "2"
@@ -28,30 +33,56 @@ class AttributeType(enum.Enum):
 
 
 class Usage(str, enum.Enum):
+    """DICOM module usage requirements
+
+    See the usage column within
+    <https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.19.3.html#table_A.19.3-1>
+    """
+
     MANDATORY = "M"
     USER_OPTIONAL = "U"
 
 
 class Inheritance(str, enum.Enum):
+    """Whether or not a given module should be inherited from the
+    original CT series, or if it should be created fresh within the
+    new RT Structure file.
+    """
+
     CREATE = "create"
     INHERIT = "inherit"
 
 
 class ModuleOptions(NamedTuple):
+    """The options for a given module.
+
+    Used to represent the following table:
+    https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.19.3.html#table_A.19.3-1
+    """
+
     usage: Usage
     inheritance: Inheritance
 
 
+# Encoding of the RT Structure Set IOD Modules table. Original table
+# available at:
+# <https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_A.19.3.html#table_A.19.3-1>
 RTSTRUCT_DICOM_MODULES = {
+    # IE Patient
     "patient": ModuleOptions(Usage.MANDATORY, Inheritance.INHERIT),
+    "clinical-trial-subject": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
+    # IE Study
     "general-study": ModuleOptions(Usage.MANDATORY, Inheritance.INHERIT),
     "patient-study": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
-    "rt-series": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
-    "clinical-trial-subject": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
     "clinical-trial-study": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
+    # IE Series
+    "rt-series": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
     "clinical-trial-series": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.CREATE),
+    # IE Equipment
     "general-equipment": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
+    # IE Frame of Reference
     "frame-of-reference": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.INHERIT),
+    # IE Structure Set
     "structure-set": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
     "roi-contour": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
     "rt-roi-observations": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
