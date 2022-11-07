@@ -60,11 +60,11 @@ according to the intended purpose described within this documentation.
 
 ### Workflow overview
 
-Radiotherapy AI's contour recommendations product is deployed on-site as a
-DICOM server. It is designed to sit between your centre's CT scanner and your
-treatment planning system.
+Radiotherapy AI's {{device_name}} product (Regulated Medical Device) is
+deployed on-site as a DICOM server. It is designed to sit between your centre's
+CT scanner and your treatment planning system.
 
 When patients undergo their simulation, images are auto-sent through to
 Radiotherapy AI's DICOM and inference server, contours are auto-generated, and
-then the results are then automatically sent through to your treatment planning
-system.
+then the results are then automatically sent through to either your treatment
+planning system, or any other DICOM receiver of your choice.
