@@ -15,6 +15,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+"""Defining DICOM module inheritance from a CT Image Series into an RT Structure Set.
+"""
+
+
 import enum
 from typing import NamedTuple
 
