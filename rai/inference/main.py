@@ -32,7 +32,7 @@ from . import batch as _batch
 from . import merge as _merge
 
 
-def inference(cfg: Config, models, image_stack, max_batch_size):
+def inference(cfg: Config, models, image_stack: NDArray[np.floating], max_batch_size):
     step_size = 32
 
     rai_starting_model, rai_dependent_model = models
@@ -51,112 +51,66 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
     assert num_slices == desired_num_slices
     assert image_stack.shape[1:3] == (512, 512)
 
-    reduced_image_stack = _reduced_image_stack(
-        image_stack,
-        block_size=cfg["reduce_block_sizes"][0],
-        reduce_algorithms=cfg["reduce_algorithms"],
-    )
+    predicted_masks = None
+    max_predictions = None
+    min_predictions = None
+    total_num_points_previously_used = None
+    reduced_image_stack = None
+    counts = None
 
-    grid = tuple(
-        (
-            _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in reduced_image_stack.shape[0:-1]
+    for resize_index, reduce_block_size in enumerate(cfg["reduce_block_sizes"]):
+        reduced_image_stack = _reduced_image_stack(
+            image_stack,
+            block_size=reduce_block_size,
+            reduce_algorithms=cfg["reduce_algorithms"],
         )
-    )
-    points = _grid_to_jittered_points(grid=grid)
 
-    print(
-        "First pass has the image downscaled by "
-        f"{cfg['reduce_block_sizes'][0]} with {len(points)} patches centred on the grid:\n"
-        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
-    )
-
-    predicted_masks, _, _, _, _ = _inference_over_points(
-        cfg=cfg,
-        model=rai_starting_model,
-        points=points,
-        image_stack=reduced_image_stack,
-        max_batch_size=max_batch_size,
-    )
-
-    for i in range(3):
-        predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
-
-    assert predicted_masks.shape[0] == image_stack.shape[0]
-
-    reduced_image_stack = _reduced_image_stack(
-        image_stack,
-        block_size=cfg["reduce_block_sizes"][1],
-        reduce_algorithms=cfg["reduce_algorithms"],
-    )
-
-    grid = tuple(
-        (
-            _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in reduced_image_stack.shape[0:-1]
+        grid = tuple(
+            (
+                _get_inference_steps(num_slices, step_size=step_size)
+                for num_slices in reduced_image_stack.shape[0:-1]
+            )
         )
-    )
-    points = _grid_to_jittered_points(grid=grid)
+        points = _grid_to_jittered_points(grid=grid)
 
-    print(
-        "Second pass has the image downscaled by "
-        f"{cfg['reduce_block_sizes'][1]} with {len(points)} patches centred on the grid:\n"
-        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
-    )
-
-    predicted_masks, _, _, _, _ = _inference_over_points(
-        cfg=cfg,
-        model=rai_dependent_model,
-        points=points,
-        image_stack=reduced_image_stack,
-        masks_stack=predicted_masks,
-        max_batch_size=max_batch_size,
-    )
-
-    for i in range(1, 3):
-        predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
-
-    assert predicted_masks.shape[0:3] == image_stack.shape
-
-    reduced_image_stack = _reduced_image_stack(
-        image_stack,
-        block_size=cfg["reduce_block_sizes"][2],
-        reduce_algorithms=cfg["reduce_algorithms"],
-    )
-
-    grid = tuple(
-        (
-            _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in reduced_image_stack.shape[0:-1]
+        print(
+            "Image downscaled by "
+            f"{reduce_block_size} with {len(points)} patches centred on the grid:\n"
+            f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
         )
-    )
 
-    points = _grid_to_jittered_points(grid=grid)
+        if resize_index == 0:
+            model = rai_starting_model
+        else:
+            model = rai_dependent_model
 
-    print(
-        "Third pass has no image downscaling with "
-        f"{len(points)} patches centred on the grid:\n"
-        f"  z: {grid[0]}\n  y: {grid[1]}\n  x: {grid[2]}"
-    )
+        (
+            predicted_masks,
+            counts,
+            min_predictions,
+            max_predictions,
+            total_num_points_previously_used,
+        ) = _inference_over_points(
+            cfg=cfg,
+            model=model,
+            points=points,
+            image_stack=reduced_image_stack,
+            masks_stack=predicted_masks,
+            max_batch_size=max_batch_size,
+            collect_min_max=resize_index == 2,
+        )
 
-    (
-        predicted_masks,
-        counts,
-        min_predictions,
-        max_predictions,
-        total_num_points_previously_used,
-    ) = _inference_over_points(
-        cfg=cfg,
-        model=rai_dependent_model,
-        points=points,
-        image_stack=reduced_image_stack,
-        masks_stack=predicted_masks,
-        max_batch_size=max_batch_size,
-        collect_min_max=True,
-    )
+        # TODO: Make these appropriately dependent on the diff between reduce_block_size
+        if resize_index == 0:
+            for i in range(3):
+                predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
 
-    if max_predictions is None or min_predictions is None:
-        raise ValueError("Expected max and min predictions here")
+        elif resize_index == 1:
+            for i in range(1, 3):
+                predicted_masks = np.repeat(predicted_masks, repeats=2, axis=i)
+
+    assert total_num_points_previously_used is not None
+    assert reduced_image_stack is not None
 
     contouring_levels: List[float] = []
     for structure_name in cfg["structures"]:
