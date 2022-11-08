@@ -51,14 +51,16 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
     assert num_slices == desired_num_slices
     assert image_stack.shape[1:3] == (512, 512)
 
-    reduced_image_stack = skimage.measure.block_reduce(
-        image_stack, block_size=cfg["reduce_block_sizes"][0], func=np.mean
+    reduced_image_stack = _reduced_image_stack(
+        image_stack,
+        block_size=cfg["reduce_block_sizes"][0],
+        reduce_algorithms=cfg["reduce_algorithms"],
     )
 
     grid = tuple(
         (
             _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in reduced_image_stack.shape
+            for num_slices in reduced_image_stack.shape[0:-1]
         )
     )
     points = _grid_to_jittered_points(grid=grid)
@@ -82,13 +84,16 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
 
     assert predicted_masks.shape[0] == image_stack.shape[0]
 
-    reduced_image_stack = skimage.measure.block_reduce(
-        image_stack, block_size=cfg["reduce_block_sizes"][1], func=np.mean
+    reduced_image_stack = _reduced_image_stack(
+        image_stack,
+        block_size=cfg["reduce_block_sizes"][1],
+        reduce_algorithms=cfg["reduce_algorithms"],
     )
+
     grid = tuple(
         (
             _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in reduced_image_stack.shape
+            for num_slices in reduced_image_stack.shape[0:-1]
         )
     )
     points = _grid_to_jittered_points(grid=grid)
@@ -113,10 +118,16 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
 
     assert predicted_masks.shape[0:3] == image_stack.shape
 
+    reduced_image_stack = _reduced_image_stack(
+        image_stack,
+        block_size=cfg["reduce_block_sizes"][2],
+        reduce_algorithms=cfg["reduce_algorithms"],
+    )
+
     grid = tuple(
         (
             _get_inference_steps(num_slices, step_size=step_size)
-            for num_slices in image_stack.shape
+            for num_slices in reduced_image_stack.shape[0:-1]
         )
     )
 
@@ -138,7 +149,7 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
         cfg=cfg,
         model=rai_dependent_model,
         points=points,
-        image_stack=image_stack,
+        image_stack=reduced_image_stack,
         masks_stack=predicted_masks,
         max_batch_size=max_batch_size,
         collect_min_max=True,
@@ -180,7 +191,7 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
         cfg=cfg,
         model=rai_dependent_model,
         points=points,
-        image_stack=image_stack,
+        image_stack=reduced_image_stack,
         masks_stack=predicted_masks,
         max_batch_size=max_batch_size,
         merged=predicted_masks,
@@ -188,6 +199,28 @@ def inference(cfg: Config, models, image_stack, max_batch_size):
     )
 
     return predicted_masks[0:original_num_slices, ...]
+
+
+def _reduced_image_stack(
+    image_stack, block_size, reduce_algorithms
+) -> NDArray[np.floating]:
+    collected_reduced_image_stack = []
+
+    for reduce_algorithm in reduce_algorithms:
+        algorithm = getattr(np, reduce_algorithm)
+
+        if block_size == (1, 1, 1):
+            reduced = image_stack[..., None]
+        else:
+            reduced = skimage.measure.block_reduce(
+                image_stack, block_size=block_size, func=algorithm
+            )[..., None]
+
+        collected_reduced_image_stack.append(reduced)
+
+    reduced_image_stack = np.concatenate(collected_reduced_image_stack, axis=-1)
+
+    return reduced_image_stack
 
 
 def _get_inference_steps(num_slices: int, step_size: int):
@@ -220,10 +253,12 @@ def _inference_over_points(
 
     if merged is None:
         num_structures = model.output_shape[-1]
-        merged = np.zeros(shape=image_stack.shape + (num_structures,), dtype=np.uint8)
+        merged = np.zeros(
+            shape=image_stack.shape[0:-1] + (num_structures,), dtype=np.uint8
+        )
 
     if counts is None:
-        counts = np.zeros(shape=image_stack.shape + (1,), dtype=np.float32)
+        counts = np.zeros(shape=image_stack.shape[0:-1] + (1,), dtype=np.float32)
 
     min_predictions: Optional[NDArray[np.uint8]]
     max_predictions: Optional[NDArray[np.uint8]]
@@ -284,7 +319,9 @@ def _patch_inference(
         cfg=cfg, points=points, array_stack=image_stack
     )
 
-    useful_points_ref = np.max(model_image_input, axis=(1, 2, 3)) > 0.1
+    max_index = cfg["reduce_algorithms"].index("max")
+
+    useful_points_ref = np.max(model_image_input[..., max_index], axis=(1, 2, 3)) > 0.1
     points = [point for point, useful in zip(points, useful_points_ref) if useful]
 
     if len(points) == 0:

@@ -29,7 +29,7 @@ def create_model(cfg: Config):
     base_model = _base_model(cfg=cfg)
 
     num_structures = len(cfg["structures"])
-    empty_masks = tf.cast(0 * image_input, dtype=tf.uint8)[..., None]
+    empty_masks = tf.cast(0 * image_input[..., 0:1], dtype=tf.uint8)
     empty_masks = tf.repeat(empty_masks, num_structures, axis=-1)
 
     x = base_model(inputs=[image_input, empty_masks, tf.constant([False], dtype=bool)])
@@ -42,7 +42,8 @@ def create_model(cfg: Config):
 
 
 def _create_inputs(cfg: Config):
-    image_input: tf.Tensor = tf.keras.layers.Input(shape=cfg["patch_dimensions"])
+    image_input_shape = cfg["patch_dimensions"] + (len(cfg["reduce_algorithms"]),)
+    image_input: tf.Tensor = tf.keras.layers.Input(shape=image_input_shape)
 
     num_structures = len(cfg["structures"])
     masks_input_shape = cfg["patch_dimensions"] + (num_structures,)
@@ -61,7 +62,7 @@ def _base_model(cfg: Config):
         shape=(), dtype=tf.bool, batch_size=1
     )
 
-    x: tf.Tensor = image_input[..., None]
+    x: tf.Tensor = image_input
     x = _convolution(
         x=x, filters=cfg["encoding_filter_counts"][0], name="image_initial"
     )
