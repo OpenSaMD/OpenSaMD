@@ -34,6 +34,7 @@ from . import merge as _merge
 
 def inference(cfg: Config, models, image_stack: NDArray[np.floating], max_batch_size):
     step_size = 32
+    # step_size = 24
 
     rai_starting_model, rai_dependent_model = models
 
@@ -321,3 +322,11 @@ def _patch_inference(
     num_points_used = len(points)
 
     return merged, counts, min_predictions, max_predictions, num_points_used
+
+
+# def _add_noise(model_image_input: NDArray[np.floating]):
+#     model_image_input += np.random.normal(
+#         loc=0, scale=0.01, size=model_image_input.shape
+#     )
+
+#     return model_image_input
