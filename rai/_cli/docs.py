@@ -23,7 +23,20 @@ from rai._paths import DOCS_DIR, REPO_ROOT
 
 
 def build(clean: bool):
-    """Build the Jupyter Book documentation"""
+    """Build the Jupyter Book documentation
+
+    Parameters
+    ----------
+    clean : bool
+        If set to true the previous jupyter-book build is removed.
+        Without removal this build command is much quicker, however
+        updates involving navigation links and other global
+        documentation outputs are not propagated into pages that are not
+        triggered for rebuild.
+
+        Set this to true if you want every page to be built a-fresh.
+
+    """
 
     env = os.environ.copy()
 

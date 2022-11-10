@@ -4,13 +4,14 @@ ignore =
 
 [MESSAGES CONTROL]
 disable =
-    fixme,
-    line-too-long,
-    logging-fstring-interpolation,
+    fixme,  ; Makes TODO lines not flag the CI
+    line-too-long,  ; Line length is being entirely managed by black
+    logging-fstring-interpolation,  ; Even though this is slower, it is easier to read
 
 [FORMAT]
 good-names =
     i,j,k,x,y,z,a,b,dx,dy,dz,x0,y0,z0,p,t,ax,c,f,ds,vr,xx,yy,zz,mu,gs
 
 [DESIGN]
-max-locals = 20
+max-locals = 25
+max-args = 8

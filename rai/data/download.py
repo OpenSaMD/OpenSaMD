@@ -14,16 +14,49 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Example data download utilities"""
+
 import multiprocessing
 import pathlib
 import urllib.parse
 import urllib.request
-from typing import List, Union
+from typing import List, NamedTuple, Union
 
 from rai._paths import RAI_DATA
 
 
-def lctsc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "LCTSC"):
+class DownloadedExamplePaths(NamedTuple):
+    """The paths returned by each of the example download functions."""
+
+    image_paths: List[pathlib.Path]
+    structure_path: pathlib.Path
+    data_license_path: pathlib.Path
+    data_readme_path: pathlib.Path
+    rai_license_path: pathlib.Path
+
+
+def lctsc_example(
+    data_dir: Union[str, pathlib.Path] = RAI_DATA / "LCTSC"
+) -> DownloadedExamplePaths:
+    """Downloads an example dataset from the 2017 Lung CT Segmentation
+    Challenge.
+
+    <https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=24284539>
+
+    Parameters
+    ----------
+    data_dir : Union[str, pathlib.Path], optional
+        The directory used for downloading the data.
+
+    Returns
+    -------
+    image_paths: List[pathlib.Path]
+    structure_path: pathlib.Path
+    data_license_path: pathlib.Path
+    data_readme_path: pathlib.Path
+    rai_license_path: pathlib.Path
+
+    """
     data_dir = pathlib.Path(data_dir)
 
     repo = "RadiotherapyAI/data-tcia-lctsc"
@@ -50,7 +83,27 @@ def lctsc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "LCTSC"):
     )
 
 
-def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
+def hnscc_example(
+    data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"
+) -> DownloadedExamplePaths:
+    """Downloads an example dataset from the TCIA HNSCC dataset.
+
+    <https://wiki.cancerimagingarchive.net/display/Public/HNSCC>
+
+    Parameters
+    ----------
+    data_dir : Union[str, pathlib.Path], optional
+        The directory used for downloading the data.
+
+    Returns
+    -------
+    image_paths: List[pathlib.Path]
+    structure_path: pathlib.Path
+    data_license_path: pathlib.Path
+    data_readme_path: pathlib.Path
+    rai_license_path: pathlib.Path
+
+    """
     data_dir = pathlib.Path(data_dir)
 
     repo = "RadiotherapyAI/data-tcia-hnscc-part-3"
@@ -77,7 +130,27 @@ def hnscc_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "HNSCC"):
     )
 
 
-def deepmind_example(data_dir: Union[str, pathlib.Path] = RAI_DATA / "deepmind"):
+def deepmind_example(
+    data_dir: Union[str, pathlib.Path] = RAI_DATA / "deepmind"
+) -> DownloadedExamplePaths:
+    """Downloads an example dataset from the deepmind dataset.
+
+    <https://github.com/deepmind/tcia-ct-scan-dataset>
+
+    Parameters
+    ----------
+    data_dir : Union[str, pathlib.Path], optional
+        The directory used for downloading the data.
+
+    Returns
+    -------
+    image_paths: List[pathlib.Path]
+    structure_path: pathlib.Path
+    data_license_path: pathlib.Path
+    data_readme_path: pathlib.Path
+    rai_license_path: pathlib.Path
+
+    """
     data_dir = pathlib.Path(data_dir)
 
     repo = "RadiotherapyAI/data-tcia-deepmind"
@@ -149,7 +222,7 @@ def _github_images_and_structure_download(
 
     _multiprocess_download(urls_to_download, paths_to_save_to)
 
-    return (
+    return DownloadedExamplePaths(
         image_paths,
         structure_path,
         data_license_path,
