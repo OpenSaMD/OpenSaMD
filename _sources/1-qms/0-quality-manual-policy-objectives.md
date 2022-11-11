@@ -65,9 +65,9 @@ being stand-alone software:
 > which are important for it. Maybe you're developing software for patients
 > with a certain disease and your goal is to improve their lives. -->
 
-{{device_manufacturer}} aims to make AI assisted radiotherapy cancer treatments
-accessible to all. With the goals to reduce treatment errors while improving
-overall treatment efficacy and efficiency.
+{{device_manufacturer}} aims to use AI to save lives within radiotherapy. To
+achieve this it has the goals to reduce treatment errors and improve treatment
+efficacy while helping more patients to be treated through efficiency gains.
 
 ### Quality Objectives
 
@@ -80,13 +80,33 @@ overall treatment efficacy and efficiency.
 > narrowed down to concrete measures like for example the monthly number of
 > user complaints. -->
 
-When tracking the quality of the AI autocontouring software its
-results are compared to health practitioner ground truth contours. These
-comparisons are undergone utilising the following metrics:
+It is the objective of {{device_manufacturer}} to provide best-of-class device
+performance while obtaining high standards of customer satisfaction.
+
+Device performance is governed by the underlying algorithm as well as the
+overall software quality.
+
+When tracking the quality of the AI autocontouring software its results are
+compared to health practitioner ground truth contours over a range of datasets
+that have not been used for model training. These comparisons are undergone
+utilising the following metrics:
 
 - Hausdorff
 - Surface and Volumetric Dice
 - Four point health practitioner approval scale
+
+Software quality is tracked through the following objectives:
+
+- Minimisation of reported defects
+- Software uptime
+- Software maintainability
+
+Customer satisfaction is tracked through user feedback. Various objectives
+based on achieving customer satisfaction are:
+
+- Timely support
+- Software performance
+- Ease of use and installation
 
 ### Short-Term Goals
 
@@ -97,17 +117,24 @@ comparisons are undergone utilising the following metrics:
 > a goal-oriented system in place to track your team's work? Even better: align
 > business and quality goals and describe your system here. -->
 
+Software development goal tracking is managed through the GitHub issue system.
+See <https://github.com/RadiotherapyAI/rai/issues>.
+
 ## 3. Roles
 
 <!-- > Describe the roles of the people in your company. Typically this is done by
 > drawing an organigram (you could use draw.io for that). Or, you just use a
 > table like below. -->
 
-| Role(s)                                     | People           |
-| ------------------------------------------- | ---------------- |
-| CEO, QMO, PRRC, CTO, CPO, Software Engineer | Simon Biggs      |
-| Regulatory Consultant                       | Dr Oliver Eidel  |
-| Regulatory Consultant                       | Pierre Lonchampt |
+| Role(s)               | People           |
+| --------------------- | ---------------- |
+| CEO                   | Simon Biggs      |
+| QMO                   | Simon Biggs      |
+| PRRC                  | Simon Biggs      |
+| CTO                   | Simon Biggs      |
+| Advisor               | Stuart Swerdloff |
+| Regulatory Consultant | Dr Oliver Eidel  |
+| Regulatory Consultant | Pierre Lonchampt |
 
 All C-level roles are referred to as the Management. Management is generally
 responsible to define responsibilities and authorities, to define and
