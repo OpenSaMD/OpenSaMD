@@ -19,7 +19,7 @@
 import pathlib
 
 HERE = pathlib.Path(__file__)
-REPO_ROOT = HERE.parents[1]
+REPO_ROOT = pathlib.Path(HERE.parents[1])
 DOCS_DIR = REPO_ROOT / "docs"
 LIBRARY_DIR = REPO_ROOT / "rai"
 
