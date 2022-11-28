@@ -26,7 +26,7 @@ classifiers = [
 
 # TODO: Create a release CLI that temporarily removes these bounds prior to
 # release.
-python = ">=3.7,<3.11"
+python = ">=3.8,<3.11"
 
 # We keep all version constraints as broad as possible for the library release.
 # For the application release, all versions are pinned and tightly controlled.
@@ -34,7 +34,7 @@ python = ">=3.7,<3.11"
 # https://iscinumpy.dev/post/app-vs-library/ and
 # https://iscinumpy.dev/post/bound-version-constraints/ for more info.
 shapely = "*"
-numpy = "*"
+numpy = ">=1.23.0"
 scikit-image = "*"
 scipy = "*"
 pydicom = "*"
@@ -56,23 +56,19 @@ raicontours = "0.3.0-dev6"
 PyWavelets = "<1.4.0"
 
 [tool.poetry.dev-dependencies]
-jupyter-book = "*"
 black = "*"
 blackdoc = "*"
-pytest = "*"
-pylint = "*"
-pytest-pylint = "*"
-pre-commit = "*"
 ipykernel = "*"
+jupyter-book = "*"
 matplotlib = "*"
 mypy = "*"
+pre-commit = "*"
+pylint = "*"
 pyoxidizer = "*"
+pyright = "*"
+pytest = "*"
+pytest-pylint = "*"
 tomlkit = "*"
-
-# Pin pyright for now as updates often bring in new typechecking issues. By
-# pinning pyright we can limit typechecking issues to their own PRs designed to
-# explicitly update pyright.
-pyright = "1.1.271"
 
 [tool.poetry.scripts]
 rai = "rai.__main__:cli"
