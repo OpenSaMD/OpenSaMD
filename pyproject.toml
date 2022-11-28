@@ -33,17 +33,17 @@ python = ">=3.8,<3.11"
 # But that is managed within the `poetry.lock` file, not here. See
 # https://iscinumpy.dev/post/app-vs-library/ and
 # https://iscinumpy.dev/post/bound-version-constraints/ for more info.
-shapely = "*"
+click = "*"
+cryptography = "*"
+numba = "*"
 numpy = ">=1.23.0"
+pydicom = "*"
 scikit-image = "*"
 scipy = "*"
-pydicom = "*"
-click = "*"
-numba = "*"
+shapely = "*"
 tqdm = "*"
 
-cryptography = "*"
-
+# Using directml plugin on Windows makes install nearly seamless
 tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
 tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
 tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Windows\"" }
@@ -51,9 +51,6 @@ tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Wi
 # Pin while the model is likely to change significantly from one version to the
 # next, and also pinning while raicontours is utilising development releases.
 raicontours = "0.3.0-dev6"
-
-# Not needed after Python 3.7 support is dropped
-PyWavelets = "<1.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "*"
