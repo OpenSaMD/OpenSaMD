@@ -20,7 +20,7 @@ import multiprocessing
 import pathlib
 import urllib.parse
 import urllib.request
-from typing import List, Union, NamedTuple
+from typing import List, NamedTuple, Union
 
 from rai._paths import RAI_DATA
 

@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -13,11 +14,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Repository paths utilised by the CLI module"""
+from typing import List, Tuple
 
-import pathlib
-
-HERE = pathlib.Path(__file__)
-REPO_ROOT = HERE.parents[2]
-DOCS_DIR = REPO_ROOT / "docs"
-LIBRARY_DIR = REPO_ROOT / "rai"
+Points = List[Tuple[int, int, int]]

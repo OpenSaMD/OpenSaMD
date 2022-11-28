@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rai"
-version = "0.1.3"
+version = "0.2.0-dev10"
 readme = "README.md"
 description = "AI assisted treatments accessible to all"
 authors = ["Simon Biggs <simon.biggs@radiotherapy.ai>"]
@@ -23,7 +23,10 @@ classifiers = [
 # Ideally find a way to not upper pin if possible. See the following for more
 # details:
 # https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
-python = ">=3.9,<3.12"
+
+# TODO: Create a release CLI that temporarily removes these bounds prior to
+# release.
+python = ">=3.7,<3.11"
 
 # We keep all version constraints as broad as possible for the library release.
 # For the application release, all versions are pinned and tightly controlled.
@@ -36,6 +39,29 @@ scikit-image = "*"
 scipy = "*"
 pydicom = "*"
 click = "*"
+numba = "*"
+tqdm = "*"
+
+cryptography = "*"
+
+# plotly = ">=4"
+# ipywidgets = ">=7.6"
+# jupyter-dash = "*"
+# pandas = "*"
+# statsmodels = "*"
+# ipympl = "*"
+
+tensorflow = { version = "*", markers = "platform_system != \"Windows\"" }
+tensorflow-intel = { version = "*", markers = "platform_system == \"Windows\"" }
+tensorflow-directml-plugin = { version = "*", markers = "platform_system == \"Windows\"" }
+
+# Pin while the model is likely to change significantly from one version to the
+# next, and also pinning while raicontours is utilising development releases.
+raicontours = "0.3.0-dev5"
+# raicontours = { path = "../raicontours", develop = true }
+
+# Not needed after Python 3.7 support is dropped
+PyWavelets = "<1.4.0"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "*"
@@ -61,7 +87,7 @@ exclude = [
     "**/node_modules",
     "**/__pycache__",
 ]
-typeCheckingMode = "strict"
+# typeCheckingMode = "strict"
 
 [tool.isort]
 multi_line_output = 3
@@ -70,6 +96,17 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 ensure_newline_before_comments = true
+
+known_second_party = ["raicontours"]
+known_first_party = ["rai"]
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "THIRDPARTY",
+    "SECOND_PARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -13,15 +14,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# pylint: disable = import-outside-toplevel
+
 """CLI entrance
 
 Currently only utilised to build the docs
 """
 
 import click
-
-from ._cli import docs as _docs
-from ._cli import propagate as _propagate
 
 
 @click.group()
@@ -33,6 +33,7 @@ def cli():
 @click.option("--clean/--no-clean", default=False)
 def docs(clean: bool):
     """Build the Radiotherapy AI regulatory documentation"""
+    from ._cli import docs as _docs
 
     _docs.build(clean)
 
@@ -43,8 +44,16 @@ def propagate():
 
     For example, version numbers.
     """
+    from ._cli import propagate as _propagate
 
     _propagate.run()
+
+
+@cli.command()
+def prune():
+    from rai.vendor.innolitics.standard import prune as _prune
+
+    _prune.prune_module_attributes()
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -15,17 +16,150 @@
 
 """Mask conversion to and from contour lines"""
 
+from typing import Any, Dict, List, Tuple
+
 import numpy as np
 import skimage.draw
 import skimage.measure
 from numpy.typing import NDArray
+from typing_extensions import Literal, TypedDict
 
-Contours = list[NDArray[np.float64]]
-Grid = NDArray[np.float64]
-Mask = NDArray[np.uint8]
+from raicontours import TG263, Config, get_mask_level
+
+from rai.contours import pinhole
+from rai.dicom import structures as _dicom_structures
+from rai.typing.contours import (
+    AllStructuresMaskStack,
+    ContoursByOrientation,
+    ContoursBySlice,
+    ContoursByStructure,
+    ContoursXY,
+    ContourXY,
+    Grid,
+    Mask,
+    MaskStack,
+    Orienation,
+    StructureName,
+)
+from rai.typing.dicom import ContourSequenceItem
+from rai.vendor.stackoverflow.slicing import slicing_without_array_copy
 
 
-def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
+class _Options(TypedDict):
+    axis: int
+    x_grid: Grid
+    y_grid: Grid
+
+
+def masks_to_contours_by_structure(
+    cfg: Config, grids, masks, structure_names, orientation: Orienation = "transverse"
+):
+    (z_grid, y_grid, x_grid) = grids
+
+    orientation_dependent_conversion_options: Dict[Orienation, _Options] = {
+        "transverse": {
+            "axis": 0,
+            "x_grid": x_grid,
+            "y_grid": y_grid,
+        },
+        "coronal": {
+            "axis": 1,
+            "x_grid": x_grid,
+            "y_grid": z_grid,
+        },
+        "sagittal": {
+            "axis": 2,
+            "x_grid": y_grid,
+            "y_grid": z_grid,
+        },
+    }
+
+    options = orientation_dependent_conversion_options[orientation]
+
+    contours = _masks_to_contours_by_structure(
+        cfg=cfg,
+        structure_names=structure_names,
+        masks=masks,
+        **options,
+    )
+
+    return contours
+
+
+def _masks_to_contours_by_structure(
+    cfg: Config,
+    x_grid: Grid,
+    y_grid: Grid,
+    masks: AllStructuresMaskStack,
+    structure_names: List[StructureName],
+    axis=0,
+):
+    smallest_pixel_dimension = np.min([np.diff(x_grid), np.diff(y_grid)])
+    simplify_tolerance = smallest_pixel_dimension / 10
+
+    contours_by_structure: ContoursByStructure = {}
+
+    for structure_index, structure_name in enumerate(structure_names):
+        this_structure = masks[..., structure_index]
+
+        level = get_mask_level(cfg=cfg, structure_name=structure_name)
+
+        contours_by_slice: ContoursBySlice = []
+        for slice_index in range(this_structure.shape[axis]):
+            this_slice = np.squeeze(
+                slicing_without_array_copy(
+                    this_structure, slice(slice_index, slice_index + 1), axis
+                ),
+                axis=axis,
+            )
+
+            contours = mask_to_contours(x_grid, y_grid, this_slice, level=level)
+            contours_by_slice.append(contours)
+
+        contours_by_structure[structure_name] = contours_by_slice
+
+    contours_by_structure_with_pinholes: ContoursByStructure = {}
+
+    for structure_name, contours_by_slice in contours_by_structure.items():
+        merged_contours_by_slice: ContoursBySlice = []
+        for contours in contours_by_slice:
+            merged_contours_by_slice.append(
+                pinhole.merge_contours_with_pinhole(contours, simplify_tolerance)
+            )
+
+        contours_by_structure_with_pinholes[structure_name] = merged_contours_by_slice
+
+    return contours_by_structure_with_pinholes
+
+
+def contour_sequence_to_mask_stack(
+    x_grid: Grid,
+    y_grid: Grid,
+    sorted_image_uids: List[str],
+    contour_sequence: List[ContourSequenceItem],
+    expansion: int = 16,
+) -> MaskStack:
+    image_uid_to_contours_map = _dicom_structures.get_image_uid_to_contours_map(
+        contour_sequence=contour_sequence,
+    )
+
+    mask_stack: List[Mask] = []
+
+    for image_uid in sorted_image_uids:
+        contours = image_uid_to_contours_map[image_uid]
+        mask = contours_to_mask(
+            x_grid=x_grid, y_grid=y_grid, contours=contours, expansion=expansion
+        )
+        mask_stack.append(mask[None, ...])
+
+    concatenated_mask_stack = np.concatenate(mask_stack, axis=0)
+
+    return concatenated_mask_stack
+
+
+def mask_to_contours(
+    x_grid: Grid, y_grid: Grid, mask: Mask, level: float
+) -> ContoursXY:
     """Converts a uint8 anti-aliased mask into a series of contours.
 
     This is a wrapper around `skimage.measure.find_contours` with the
@@ -46,13 +180,14 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
         A mask between 0-255 where 0 is outside the contours, 255 inside
         the contours and 1-254 represents a pixel that is partially
         encompassed by the contours.
+    level : float
+        Mask level to use to extract the contours.
 
     Returns
     -------
-    contours : list of (n,2)-ndarrays in row column (y x) order
-        Each contour is an ndarray of shape (n, 2), consisting of n
-        (row, column aka y, x) coordinates along the contour. This is
-        inline with the return value of `skimage.measure.find_contours`.
+    contours : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
 
     """
 
@@ -61,7 +196,7 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
     padded_mask = np.pad(mask, 1)  # pyright: ignore [reportUnknownMemberType]
 
     contours_coords_padded_image_frame = skimage.measure.find_contours(
-        padded_mask, level=127.5
+        padded_mask, level=level
     )
     contours_coords_image_frame = [
         item - 1 for item in contours_coords_padded_image_frame
@@ -70,18 +205,20 @@ def mask_to_contours(x_grid: Grid, y_grid: Grid, mask: Mask) -> Contours:
     x0, dx = _grid_to_transform(x_grid)
     y0, dy = _grid_to_transform(y_grid)
 
-    contours: list[NDArray[np.float64]] = []
+    contours: ContoursXY = []
     for yx_coords in contours_coords_image_frame:
         yx_coords[:, 1] = yx_coords[:, 1] * dx + x0
         yx_coords[:, 0] = yx_coords[:, 0] * dy + y0
 
-        contours.append(yx_coords)
+        xy_coords: ContourXY = [(x, y) for y, x in yx_coords]
+
+        contours.append(xy_coords)
 
     return contours
 
 
 def contours_to_mask(
-    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int = 16
+    x_grid: Grid, y_grid: Grid, contours: ContoursXY, expansion: int = 16
 ) -> Mask:
     """Creates a uint8 anti-aliased mask from a list of contours.
 
@@ -91,9 +228,9 @@ def contours_to_mask(
         The x-coordinates of the resulting mask
     y_grid : NDArray[np.float64]
         The y-coordinates of the resulting mask
-    contours : list of (n,2)-ndarrays in row column (y x) order
-        A list of contours where each contour is an ndarray of shape
-        (n, 2)
+    contours : ContoursXY
+        A list of contours where each contour is a list of points in
+        (x, y) order.
     expansion : int, optional
         The amount to expand the mask by prior to averaging down. The
         default value results in 16 x 16 = 256 possible values for each
@@ -126,7 +263,7 @@ def contours_to_mask(
 
 
 def _contours_to_expanded_mask(
-    x_grid: Grid, y_grid: Grid, contours: Contours, expansion: int
+    x_grid: Grid, y_grid: Grid, contours: ContoursXY, expansion: int
 ):
     expanded_mask_size = (len(y_grid) * expansion, len(x_grid) * expansion)
 
@@ -135,9 +272,11 @@ def _contours_to_expanded_mask(
 
     expanded_mask = np.zeros(expanded_mask_size)
 
-    for yx_coords in contours:
-        y = yx_coords[:, 0]
-        x = yx_coords[:, 1]
+    for xy_coords in contours:
+        xy_coords_array = np.array(xy_coords)
+
+        y = xy_coords_array[:, 1]
+        x = xy_coords_array[:, 0]
 
         i = ((y - y0) / dy) * expansion + (expansion - 1) * 0.5
         j = ((x - x0) / dx) * expansion + (expansion - 1) * 0.5
@@ -154,7 +293,7 @@ def _contours_to_expanded_mask(
     return expanded_mask
 
 
-def _grid_to_transform(grid: Grid) -> tuple[float, float]:
+def _grid_to_transform(grid: Grid) -> Tuple[float, float]:
     x0 = grid[0]
     all_dx = np.diff(grid)  # pyright: ignore [reportUnknownMemberType]
     dx = all_dx[0]

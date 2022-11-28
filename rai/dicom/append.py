@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -15,7 +16,7 @@
 
 """Module for generating DICOM files from a dictionary format"""
 
-from typing import Any, Union, cast
+from typing import Any, Dict, List, Union, cast
 
 import numpy as np
 import pydicom
@@ -23,11 +24,11 @@ import pydicom.datadict
 from numpy.typing import NDArray
 
 DicomItem = Union[
-    dict[str, "DicomItem"],
-    list["DicomItem"],
-    list[float],
-    list[str],
-    list[int],
+    Dict[str, "DicomItem"],
+    List["DicomItem"],
+    List[float],
+    List[str],
+    List[int],
     NDArray[Any],
     str,
 ]
@@ -35,7 +36,7 @@ DicomItem = Union[
 
 def append_dict_to_dataset(
     ds: pydicom.Dataset,
-    to_append: dict[str, DicomItem],
+    to_append: Dict[str, DicomItem],
 ):
     """Append a dictionary to a given pydicom Dataset
 
@@ -43,7 +44,7 @@ def append_dict_to_dataset(
     ----------
     ds : pydicom.Dataset
         The pydicom Dataset for which to append the dictionary to.
-    to_append : dict[str, DicomItem]
+    to_append : Dict[str, DicomItem]
         A dictionary in the structure of a DICOM header.
 
     Returns
@@ -110,7 +111,7 @@ def append_dict_to_dataset(
                         f"VR was {vr}."
                     )
 
-                value = cast(list[dict[str, DicomItem]], value)
+                value = cast(List[Dict[str, DicomItem]], value)
 
                 setattr(
                     ds,

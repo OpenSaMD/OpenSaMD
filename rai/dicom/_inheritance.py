@@ -15,12 +15,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-"""Defining DICOM module inheritance from a CT Image Series into an RT Structure Set.
-"""
-
-
 import enum
+import functools
+import re
 from typing import NamedTuple
+
+import pydicom
+import pydicom.datadict
+
+from rai.vendor.innolitics.standard.load import get_standard
 
 
 class AttributeType(enum.Enum):
@@ -95,3 +98,28 @@ RTSTRUCT_DICOM_MODULES = {
     "sop-common": ModuleOptions(Usage.MANDATORY, Inheritance.CREATE),
     "common-instance-reference": ModuleOptions(Usage.USER_OPTIONAL, Inheritance.CREATE),
 }
+
+
+@functools.lru_cache()
+def get_keyword_types_for_module(module_id):
+    keyword_types = {
+        _string_tag_to_dicom_keyword(item["tag"]): AttributeType(item["type"])
+        for item in get_standard("module_to_attributes")
+        if item["moduleId"] == module_id and len(item["path"].split(":")) == 2
+    }
+
+    return keyword_types
+
+
+def _string_tag_to_dicom_keyword(tag):
+    tag = tag.replace(" ", "")
+    match = re.match(r"\(([0-9A-F]+),([0-9A-F]+)\)", tag)
+
+    if match is None:
+        raise ValueError(f"The tag {tag} was unable to be converted to a DICOM keyword")
+
+    groups = match.groups()
+    tag = (int(groups[0], 16), int(groups[1], 16))
+    keyword = pydicom.datadict.keyword_for_tag(tag)
+
+    return keyword

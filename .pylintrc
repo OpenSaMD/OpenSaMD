@@ -6,10 +6,11 @@ ignore =
 disable =
     fixme,  ; Makes TODO lines not flag the CI
     line-too-long,  ; Line length is being entirely managed by black
+    logging-fstring-interpolation,  ; Even though this is slower, it is easier to read
 
 [FORMAT]
 good-names =
-    i,j,k,x,y,z,a,b,dx,dy,x0,y0,p,t,ax,c,f,ds,vr,xx,yy,zz
+    i,j,k,x,y,z,a,b,dx,dy,dz,x0,y0,z0,p,t,ax,c,f,ds,vr,xx,yy,zz,mu,gs
 
 [DESIGN]
 max-locals = 25

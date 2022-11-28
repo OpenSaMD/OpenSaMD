@@ -1,4 +1,5 @@
-# Copyright (C) 2022 Radiotherapy AI Holdings Pty Ltd
+# RAi, machine learning solutions in radiotherapy
+# Copyright (C) 2021-2022 Radiotherapy AI Holdings Pty Ltd
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,9 +20,10 @@
 # as detailed within:
 # https://github.com/innolitics/dicom-standard/tree/master/standard
 
-from typing import Literal
+from typing import List
 
 import pydicom
+from typing_extensions import Literal
 
 # pylint: disable = missing-class-docstring
 
@@ -31,16 +33,16 @@ class ContourImageSequenceItem(pydicom.Dataset):
 
 
 class ContourSequenceItem(pydicom.Dataset):
-    ContourImageSequence: list[ContourImageSequenceItem]
-    ContourData: list[float]
+    ContourImageSequence: List[ContourImageSequenceItem]
+    ContourData: List[float]
     ContourGeometricType: Literal[
         "CLOSED_PLANAR", "POINT", "OPEN_PLANAR", "OPEN_NONPLANAR"
     ]
 
 
 class ROIContourSequenceItem(pydicom.Dataset):
-    ContourSequence: list[ContourSequenceItem]
+    ContourSequence: List[ContourSequenceItem]
 
 
 class TypedDataset(pydicom.Dataset):
-    ROIContourSequence: list[ROIContourSequenceItem]
+    ROIContourSequence: List[ROIContourSequenceItem]
