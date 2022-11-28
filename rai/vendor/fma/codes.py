@@ -16,6 +16,12 @@
 # TG263 to FMA code conversion extracted from
 # https://www.aapm.org/pubs/reports/rpt_263_supplemental/TG263_Nomenclature_Worksheet_20170815.xls
 
+"""Foundational Model of Anatomy codes (FMA codes).
+
+These are used with RT DICOM structure files for template aligning
+within the Eclipse treatment planning system.
+"""
+
 from raicontours import TG263
 
 FMA_NAMES = {
