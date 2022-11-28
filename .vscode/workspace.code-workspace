@@ -39,6 +39,7 @@
     "cSpell.language": "en-GB",
     "cSpell.words": [
       "allclose",
+      "ASMIRT",
       "astype",
       "autocontouring",
       "AUTOGEN",
@@ -46,9 +47,11 @@
       "bibtex",
       "blackbox",
       "blackdoc",
+      "BRTO",
       "capa",
       "CODEOWNERS",
       "colorbar",
+      "Contourer",
       "creativecommons",
       "CUDA",
       "deepmind",
@@ -69,9 +72,11 @@
       "isort",
       "labeled",
       "lctsc",
+      "Liesbeth",
       "linspace",
       "Lonchampt",
       "matplotlib",
+      "Michaël",
       "myst",
       "nbstripout",
       "ndarray",
@@ -89,6 +94,7 @@
       "pyright",
       "pytest",
       "radiotherapyai",
+      "RANZCR",
       "rtai",
       "RTSTRUCT",
       "ruamel",
@@ -107,7 +113,8 @@
       "tomlkit",
       "venv",
       "virtualenvs",
-      "waivable"
+      "waivable",
+      "Wouter"
     ]
   },
   "extensions": {
