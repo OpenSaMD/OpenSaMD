@@ -60,7 +60,6 @@ jupyter-book = "*"
 black = "*"
 blackdoc = "*"
 pytest = "*"
-pyright = "*"
 pylint = "*"
 pytest-pylint = "*"
 pre-commit = "*"
@@ -69,6 +68,11 @@ matplotlib = "*"
 mypy = "*"
 pyoxidizer = "*"
 tomlkit = "*"
+
+# Pin pyright for now as updates often bring in new typechecking issues. By
+# pinning pyright we can limit typechecking issues to their own PRs designed to
+# explicitly update pyright.
+pyright = "1.1.271"
 
 [tool.poetry.scripts]
 rai = "rai.__main__:cli"
