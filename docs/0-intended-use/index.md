@@ -183,7 +183,7 @@ The software is intended to receive DICOM files that conform to the DICOM
 standard. The software that it provides results to is intended to receive and
 appropriately handle standards compliant DICOM structure files. It is not
 intended to directly interface with another medical device except via this
-standard DICOM input output (either file based or DICOM network protocol
+standard DICOM input and/or output (either file based or DICOM network protocol
 based).
 
 ### Prompt access to notifications, warnings and alerts
@@ -196,8 +196,8 @@ configurable alerts and warnings can provide the appropriate notification.
 
 ## Part of the Body / Type of Tissue Interacted With
 
-The device is stand-alone software. It receives input from the user and outputs
-information. It does not come in contact with tissue or bodily fluids.
+The device is stand-alone software. It does not come in contact with tissue or
+bodily fluids.
 
 ## Variants / Accessories
 
