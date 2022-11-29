@@ -72,7 +72,7 @@ jobs:
         if: steps.poetry-cache.outputs.cache-hit == 'true'
         shell: bash
         run: |
-          timeout 10s poetry run pip --version || rm -rf .venv
+          rm -rf .venv
 
       - name: Poetry install
         run: |
