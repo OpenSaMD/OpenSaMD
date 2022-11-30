@@ -54,7 +54,10 @@ html:
 
 parse:
   myst_substitutions:
-    device_name: "`RAIContours`"
+    device_name: "`Clinical OpenSaMD Platform`"
     device_version: "`v0.1.0`"
+    open_source_software_name: "`Non Clinical OpenSaMD Platform`"
     device_manufacturer: "Radiotherapy AI Pty Ltd"
     python_version: "3.10.6"
+    device_website: "https://opensamd.com/"
+    online_repository: "https://github.com/OpenSaMD/OpenSaMD"
