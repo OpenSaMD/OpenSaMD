@@ -28,7 +28,7 @@ Original work by OpenRegulatory available at
 | Classification: | {{device_classification}} |
 | Rule:           | Rule 9                    |
 
-### Key classifying rule component
+### Classifying rule
 
 All active devices intended to emit ionizing radiation for therapeutic
 purposes, **including devices which control or monitor such devices, or which**

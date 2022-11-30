@@ -8,4 +8,4 @@ Original work by OpenRegulatory available at
 <https://github.com/openregulatory/templates>
 -->
 
-# General Regulatory Requirements
+# Classifications and Regulatory Checklists

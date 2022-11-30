@@ -199,7 +199,7 @@ Required qualification for this role:
 | ---------------------------------------------------------- | ---------------- |
 | [](./capa/0-sop)                                           | Core             |
 | [](./document-and-record-control/0-sop)                    | Core             |
-| [](../2-techdoc/62304/sop-integrated-software-development) | Core             |
+| [](../3-techdoc/62304/sop-integrated-software-development) | Core             |
 | [](./post-market-surveillance/0-sop)                       | Support          |
 | [](./software-validation/0-sop)                            | Support          |
 | [](./management-review/0-sop)                              |                  |
@@ -207,9 +207,9 @@ Required qualification for this role:
 | [](./purchasing/0-sop)                                     |                  |
 | [](./sop-update-of-regulations)                            |                  |
 | [](./human-resources/0-sop)                                |                  |
-| [](../2-techdoc/62304/sop-change-management)               |                  |
-| [](../2-techdoc/62304/sop-deployment)                      |                  |
+| [](../3-techdoc/62304/sop-change-management)               |                  |
+| [](../3-techdoc/62304/sop-deployment)                      |                  |
 | [](./sop-feedback-management)                              |                  |
 | [](./vigilance/0-sop)                                      |                  |
 | [](./sop-internal-audit)                                   |                  |
-| [](../2-techdoc/62304/sop-software-problem-resolution)     |                  |
+| [](../3-techdoc/62304/sop-software-problem-resolution)     |                  |
