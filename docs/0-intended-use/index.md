@@ -47,7 +47,7 @@ the following use cases:
 - Alignment of radiotherapy simulation images into breathing phases to support
   the treatment workflow.
 
-{{device_name}} intends to be a platform that supports the safe and effective
+The {{device_name}} intends to be a platform that supports the safe and effective
 translation of open source research into Clinical Software as Medical Devices.
 As such, it is expected that future regulatory submissions will include
 expansions on the above intended use where the surrounding documentation is
