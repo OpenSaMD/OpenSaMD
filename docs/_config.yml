@@ -56,6 +56,7 @@ parse:
   myst_substitutions:
     device_name: "`Clinical OpenSaMD Platform`"
     device_version: "`v0.1.0`"
+    device_classification: "Class IIb"
     open_source_software_name: "`Non Clinical OpenSaMD Platform`"
     device_manufacturer: "Radiotherapy AI Pty Ltd"
     python_version: "3.10.6"
