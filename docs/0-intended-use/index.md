@@ -30,18 +30,18 @@ Original work by OpenRegulatory available at
 - Version: {{device_version}}
 - Basic UDI-DI: N/A
 
-## Intended Use
+## {{device_name}} Intended Use
 
 <!-- > Describe the core medical functionality of your device and how it treats,
 > diagnoses or alleviates a disease. Keep it high-level so that this
 > description is true for as long as possible even when the device is updated. -->
 
-## Intended Medical Indication
-
 Utilised as clinical decision support software within the radiotherapy
 treatment workflow. Provides anatomical contours utilised by health
 practitioners to create a radiotherapy treatment plan to assist in cancer
 treatment or other radiotherapy treatments.
+
+## Intended Medical Indication
 
 <!-- > Describe the condition(s) and/or disease(s) to be screened, monitored,
 > treated, diagnosed, or prevented by your software. Importantly, also list
@@ -54,23 +54,6 @@ For each contour provided by the software to the user, the user needs to be
 able to validate the contour against the clinically implemented contouring
 protocol, and if needed, either refine the provided contour to come into
 alignment with the protocol, or potentially completely redraw the contour.
-
-Either a network file path or an intranet URL that references the corresponding
-contouring protocols is to be provided by the customer organisation to
-Radiotherapy AI so that within each DICOM ROI Description field this protocol
-reference can be displayed. It is expected that the software that the user
-utilises to validate/refine the contours provides a means for the user to
-clearly view this imported DICOM field.
-
-This is to be inline with the following requirement for exempt clinical
-decision support software (CDSS) [as per the TGA](https://www.tga.gov.au/sites/default/files/clinical-decision-support-software.pdf):
-
-> Exempted CDSS devices must clearly reference the basis of the
-> recommendations, including the source(s) of information used (e.g. specific
-> clinical guideline, hospital procedure) so that the information can be
-> independently reviewed by the user. The user may rely on their own judgement
-> and reach a recommendation without primarily relying on the software
-> function.
 
 (case-validation)=
 
@@ -112,6 +95,9 @@ models in radiotherapy see the following article:
 
 <!-- > List anything that you want to explicitly exclude from your intended use. -->
 
+Utilisation is to be limited to where the model itself has undergone in-centre
+validation. See section [](case-validation) for further details.
+
 ## Patient Population
 
 <!-- > Describe the patient population your software is intended to be used on. Note
@@ -121,7 +107,7 @@ models in radiotherapy see the following article:
 > characteristics to describe: Age group, weight range, health, condition(s). -->
 
 The patient population is to be limited to where the model itself has undergone
-validation. See section [](case-validation) for further details.
+in-centre validation. See section [](case-validation) for further details.
 
 ## User Profile
 
@@ -131,11 +117,11 @@ validation. See section [](case-validation) for further details.
 
 ### Used by those with appropriate training and knowledge
 
-The contours provided by the Radiotherapy AI Contour Recommendations software
-are a recommendation only. When being used to support clinical radiotherapy
-treatment within Australia these contours are to be provided to a RANZCR
-certified Radiation Oncologist or an ASMIRT certified Radiation Therapist for
-subsequent refinement according to that clinic's approved contouring protocols.
+The contours provided by the {{device_name}} software are a recommendation
+only. When being used to support clinical radiotherapy treatment within
+Australia these contours are to be provided to a RANZCR certified Radiation
+Oncologist or an ASMIRT certified Radiation Therapist for subsequent refinement
+according to that clinic's approved contouring protocols.
 
 ### Refined by a relevant health professional and subsequently checked by an independent relevant health professional
 
@@ -161,17 +147,6 @@ The software is not to be used in situations where the software provides
 recommendations that cannot be corroborated with current published clinical
 protocols.
 
-It is by this intended use that criteria 2 and 3 for CDSS to be considered
-exempt is met:
-
-> **Criteria 2**: It is intended only for the purpose of providing or
-> supporting a recommendation to a health professional about prevention,
-> diagnosis, curing or alleviating a disease, ailment, defect or injury.
-
-> **Criteria 3**: It is not intended to replace the clinical judgement of a
-> health professional in relation to making a clinical diagnosis or decision
-> about the treatment of patients
-
 ## Use Environment Including Software/Hardware
 
 <!-- > Describe the typical use environment. What sort of devices is this running
@@ -182,35 +157,11 @@ exempt is met:
 > commonly, apps require users to have a smartphone with a compatible operating
 > system (iOS / Android). -->
 
-The DICOM server software is installed on a local Windows OS with version >=
-`10`. The results from the software are forwarded through to the treatment
-planning or contour editing/refining application of choice. It is within the
-environment of that other piece of software where the results from this product
-are utilised by the health practitioner.
+The {{device_name}} software is to be installed on a local server with one of
+the following OS types and versions:
 
-The data workflow of data for the deployment within the clinic is outlining
-within the diagram in {numref}`Figure %s <intended-use:pipeline>`:
-
-```{figure} deployment-diagram.png
-:name: intended-use:pipeline
-
-Outline of the data transmitted between the different systems in the pipeline.
-```
-
-### Be installed on a server with appropriate network and internet bandwidth
-
-In order to receive DICOM structure results in a timely fashion the provided
-network and internet bandwidth, in particular the upload bandwidth, needs to
-meet the requirements of the clinic. For a 200 slice CT scan at 512 kB per
-slice the resulting 100 MB dataset needs to be able to be uploaded to the cloud
-server for the model to create the contours. A 1 Gbit/s upload (top tier fibre
-NBN) will upload this data in ~1 second. A 20 Mbit/s upload connection (copper
-NBN) will upload this data in ~1 minute. A 1 Mbit/s upload connection (ADSL2+)
-will upload this data in ~15 minutes.
-
-Hospital and network traffic can cause upload bottlenecks. Enterprise routers
-can be configured using "Quality of Service" so as to prioritise uploads from
-specific servers.
+- Windows >= 10
+- Ubuntu LTS >= 22.04
 
 ## Operating Principle
 
@@ -219,53 +170,21 @@ specific servers.
 > generally state what sort of input goes in and what output comes out, e.g.
 > you could be processing images and returning diagnoses. -->
 
+The {{device_name}} software is designed to fulfil the `Automated Contourer`
+role within the [IHE RO BRTO-II profile](http://ihe-ro.org/doku.php?id=doc:profiles:brto-ii).
+
+This is defined as:
+
+> A system that consumes [an image series] and creates an RT Structure Set. ...
+
 ### To be utilised within the framework of standard DICOM input and output
 
 The software is intended to receive DICOM files that conform to the DICOM
 standard. The software that it provides results to is intended to receive and
 appropriately handle standards compliant DICOM structure files. It is not
 intended to directly interface with another medical device except via this
-standard DICOM input output (either file based or DICOM network protocol based).
-
-It is by this intended use that criteria 1 for CDSS to be considered exempt is
-met:
-
-> **Criteria 1**: It is not intended to directly process or analyse a medical
-> image or a signal from another medical device (including an in vitro
-> diagnostic device).
-
-### Pseudonymisation key for patient header information
-
-Identifying patient header information is pseudonymised so that reversal is
-only achievable via a key that is never sent to the Radiotherapy AI cloud
-server. This key is stored within the Windows Credential manager vault within
-the operating system where the local Radiotherapy AI DICOM server is installed.
-
-This key is to be treated with the same level of protection as the patient
-information it is encrypting. The Windows Credential vault is encrypted by the
-OS using the Windows account login password. It is expected that both
-access to that account and its account password meets requirements appropriate
-to the protection of identifying patient information.
-
-### Validation of pseudonymisation undergone with a representative sample
-
-The Radiotherapy AI DICOM server can be configured to not send files to the
-cloud but to instead send the pseudonymised data either to file, or to another
-piece of software via a DICOM send. This utility is to be used after
-installation, and after any upgrades to the DICOM server that adjust the
-pseudonymisation to verify that the appropriate header items within the DICOM
-file have been appropriately de-identified by the installed server.
-
-### Not to receive DICOM images that have identifying patient information burned into the pixel data
-
-Only identifying patient information that is stored within the standards
-compliant DICOM header is pseudonymised before sending to the cloud sever.
-
-The DICOM software can be configured to only send through certain DICOM file
-types. By default this is CT, MRI and RT-DICOM specific files. This is to help
-prevent bulk DICOM sends containing other DICOM types that sometimes have burnt
-in pixel data included having those extra images included in the
-pseudonymisation + upload.
+standard DICOM input and/or output (either file based or DICOM network protocol
+based).
 
 ### Prompt access to notifications, warnings and alerts
 
@@ -277,12 +196,12 @@ configurable alerts and warnings can provide the appropriate notification.
 
 ## Part of the Body / Type of Tissue Interacted With
 
-The device is stand-alone software. It receives input from the user and outputs
-information. It doesn't come in contact with tissue or bodily fluids.
+The device is stand-alone software. It does not come in contact with tissue or
+bodily fluids.
 
 ## Variants / Accessories
 
 <!-- > Describe variants and/or accessories of/to this device, if applicable. For
 > typical stand-alone software of startups, this shouldn't be applicable. -->
 
-This is stand-alone software and is not applicable.
+This is stand-alone software and this is not applicable.
