@@ -26,7 +26,13 @@ Original work by OpenRegulatory available at
 | --------------- | ------------------------- |
 | Version:        | {{device_version}}        |
 | Classification: | {{device_classification}} |
-| Rule:           | **TODO**                  |
+| Rule:           | Rule 9                    |
+
+### Key classifying rule component
+
+All active devices intended to emit ionizing radiation for therapeutic
+purposes, **including devices which control or monitor such devices, or which**
+**directly influence their performance, are classified as class IIb.**
 
 ## Chapter I: Applicable Definitions
 
@@ -42,7 +48,7 @@ Original work by OpenRegulatory available at
 
 Normally intended for continuous use for less than 60 minutes.
 
-_Applicable:_ **Yes**
+_Applicable:_ **No**
 
 #### 1.2 Short term
 
@@ -89,7 +95,7 @@ Any active device used, whether alone or in combination with other devices, to
 support, modify, replace or restore biological functions or structures with a
 view to treatment or alleviation of an illness, injury or disability.
 
-_Applicable:_ **No**
+_Applicable:_ **Yes**
 
 #### 2.5 Active device intended for diagnosis and monitoring
 
@@ -97,7 +103,7 @@ Any active device used, whether alone or in combination with other devices, to
 supply information for detecting, diagnosing, monitoring or treating physio
 logical conditions, states of health, illnesses or congenital deformities.
 
-_Applicable:_ **No**
+_Applicable:_ **Yes**
 
 #### 2.6 Central circulatory system
 
@@ -109,13 +115,13 @@ carotis externa, arteria carotis interna, arteriae cerebrales, truncus
 brachiocephalicus, venae cordis, venae pulmonales, vena cava superior and vena
 cava inferior.
 
-_Applicable:_ **TODO**
+_Applicable:_ **No**
 
 #### 2.7 Central nervous system
 
 The brain, meninges and spinal cord.
 
-_Applicable:_ **TODO**
+_Applicable:_ **No**
 
 #### 2.8 Injured skin or mucous membrane
 
@@ -141,7 +147,7 @@ Accessories for a medical device and for a product listed in Annex XVI MDR
 shall be classified in their own right separately from the device with which
 they are used.
 
-_Applicable:_ **No**
+_Applicable:_ **Yes**
 
 ### 3.3
 
@@ -180,7 +186,7 @@ In calculating the duration referred to in Section 1, continuous use shall mean:
 - the accumulated use of a device that is intended by the manufacturer to be
   replaced immediately with another of the same type.
 
-_Applicable:_ **Yes**
+_Applicable:_ **No**
 
 ### 3.7
 
@@ -190,46 +196,357 @@ information for the diagnosis.
 
 _Applicable:_ **No**
 
-## Chapter 3: Classification Rules
+## Chapter III: Classification Rules
 
-**4.) Non-Invasive Devices**
+### 4 Non-Invasive Devices
 
-| Rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Applicable |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **_Rule 1_**<br>All non-invasive devices are classified as class I, unless one of the rules set out hereinafter applies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |            |
-| **_Rule 2_**<br>All non-invasive devices intended for channelling or storing blood, body liquids, cells or tissues, liquids or gases for the purpose of eventual infusion, administration or introduction into the body are classified as class IIa:<br>— if they may be connected to a class IIa, class IIb or class III active device; or<br>— if they are intended for use for channelling or storing blood or other body liquids or for storing organs, parts<br>of organs or body cells and tissues, except for blood bags; blood bags are classified as class IIb.<br>In all other cases, such devices are classified as class I.                                                                                                                                    | No         |
-| **_Rule 3_**<br>All non-invasive devices intended for modifying the biological or chemical composition of human tissues or cells, blood, other body liquids or other liquids intended for implantation or administration into the body are classified as class IIb, unless the treatment for which the device is used consists of filtration, centrifugation or exchanges of gas, heat, in which case they are classified as class IIa.<br><br>All non-invasive devices consisting of a substance or a mixture of substances intended to be used in vitro in direct<br>contact with human cells, tissues or organs taken from the human body or used in vitro with human embryos<br>before their implantation or administration into the body are classified as class III. | No         |
-| **_Rule 4_**<br>All non-invasive devices which come into contact with injured skin or mucous membrane are classified as:<br>— class I if they are intended to be used as a mechanical barrier, for compression or for absorption of exudates;<br>— class IIb if they are intended to be used principally for injuries to skin which have breached the dermis or<br>mucous membrane and can only heal by secondary intent;<br>— class IIa if they are principally intended to manage the micro-environment of injured skin or mucous membrane; and<br>— class IIa in all other cases.<br><br>This rule applies also to the invasive devices that come into contact with injured mucous membrane.                                                                            | No         |
+#### 4.1 Rule 1
 
-**5.) Invasive Devices**
+All non-invasive devices are classified as class I, unless one of the rules set
+out hereinafter applies.
 
-| Rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Applicable |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **_Rule 5_**<br>All invasive devices with respect to body orifices, other than surgically invasive devices, which are not intended for connection to an active device or which are intended for connection to a class I active device are classified as:<br>— class I if they are intended for transient use;<br>— class IIa if they are intended for short-term use, except if they are used in the oral cavity as far as the pharynx, in an ear canal up to the ear drum or in the nasal cavity, in which case they are classified as class I; and<br>— class IIb if they are intended for long-term use, except if they are used in the oral cavity as far as the pharynx, in an ear canal up to the ear drum or in the nasal cavity and are not liable to be absorbed by the mucous membrane, in which case they are classified as class IIa.<br><br>All invasive devices with respect to body orifices, other than surgically invasive devices, intended for connection<br>to a class IIa, class IIb or class III active device, are classified as class IIa.                                                                                                                                                                                                                                                                                                                                                                        | No         |
-| **_Rule 6_**<br>All surgically invasive devices intended for transient use are classified as class IIa unless they:<br>— are intended specifically to control, diagnose, monitor or correct a defect of the heart or of the central circulatory system through direct contact with those parts of the body, in which case they are classified as class III;<br>— are reusable surgical instruments, in which case they are classified as class I;<br>— are intended specifically for use in direct contact with the heart or central circulatory system or the central nervous system, in which case they are classified as class III;<br>— are intended to supply energy in the form of ionising radiation in which case they are classified as class IIb;<br>— have a biological effect or are wholly or mainly absorbed in which case they are classified as class IIb; or<br>— are intended to administer medicinal products by means of a delivery system, if such administration of a medicinal product is done in a manner that is potentially hazardous taking account of the mode of application, in which case they are classified as class IIb.                                                                                                                                                                                                                                                                                | No         |
-| **_Rule 7_**<br>All surgically invasive devices intended for short-term use are classified as class IIa unless they:<br>— are intended specifically to control, diagnose, monitor or correct a defect of the heart or of the central circulatory system through direct contact with those parts of the body, in which case they are classified as class III;<br>— are intended specifically for use in direct contact with the heart or central circulatory system or the central nervous system, in which case they are classified as class III;<br>— are intended to supply energy in the form of ionizing radiation in which case they are classified as class IIb;<br>— have a biological effect or are wholly or mainly absorbed in which case they are classified as class III;<br>— are intended to undergo chemical change in the body in which case they are classified as class IIb, except if the devices are placed in the teeth; or<br>— are intended to administer medicines, in which case they are classified as class IIb.                                                                                                                                                                                                                                                                                                                                                                                               | No         |
-| **_Rule 8_**<br>All implantable devices and long-term surgically invasive devices are classified as class IIb unless they:<br>— are intended to be placed in the teeth, in which case they are classified as class IIa;<br>— are intended to be used in direct contact with the heart, the central circulatory system or the central nervous system, in which case they are classified as class III;<br>— have a biological effect or are wholly or mainly absorbed, in which case they are classified as class III;<br>— are intended to undergo chemical change in the body in which case they are classified as class III, except if the devices are placed in the teeth;<br>— are intended to administer medicinal products, in which case they are classified as class III;<br>— are active implantable devices or their accessories, in which cases they are classified as class III;<br>— are breast implants or surgical meshes, in which cases they are classified as class III;<br>— are total or partial joint replacements, in which case they are classified as class III, with the exception of ancillary components such as screws, wedges, plates and instruments; or<br>— are spinal disc replacement implants or are implantable devices that come into contact with the spinal column, in which case they are classified as class III with the exception of components such as screws, wedges, plates and instruments. | No         |
+_Applicable:_ **No**
 
-**6.) Active Devices**
+#### 4.2 Rule 2
 
-| Rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Applicable |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **_Rule 9_**<br>All active therapeutic devices intended to administer or exchange energy are classified as class IIa unless their characteristics are such that they may administer energy to or exchange energy with the human body in a potentially hazardous way, taking account of the nature, the density and site of application of the energy, in which case they are classified as class IIb.<br><br>All active devices intended to control or monitor the performance of active therapeutic class IIb devices, or intended directly to influence the performance of such devices are classified as class IIb.<br><br>All active devices intended to emit ionizing radiation for therapeutic purposes, including devices which control or monitor such devices, or which directly influence their performance, are classified as class IIb.<br><br>All active devices that are intended for controlling, monitoring or directly influencing the performance of active implantable devices are classified as class III.                                                                                                                                                                                                                                                    |            |
-| **_Rule 10_**<br>Active devices intended for diagnosis and monitoring are classified as class IIa:<br>— if they are intended to supply energy which will be absorbed by the human body, except for devices intended to illuminate the patient's body, in the visible spectrum, in which case they are classified as class I;<br>— if they are intended to image in vivo distribution of radiopharmaceuticals; or<br>— if they are intended to allow direct diagnosis or monitoring of vital physiological processes, unless they are specifically intended for monitoring of vital physiological parameters and the nature of variations of those parameters is such that it could result in immediate danger to the patient, for instance variations in cardiac performance, respiration, activity of the central nervous system, or they are intended for diagnosis in clinical situations where the patient is in immediate danger, in which cases they are classified as class IIb.<br><br>Active devices intended to emit ionizing radiation and intended for diagnostic or therapeutic radiology, including interventional radiology devices and devices which control or monitor such devices, or which directly influence their performance, are classified as class IIb. |            |
-| **_Rule 11_**<br>Software intended to provide information which is used to take decisions with diagnosis or therapeutic purposes is classified as class IIa, except if such decisions have an impact that may cause:<br>— death or an irreversible deterioration of a person's state of health, in which case it is in class III; or<br>— a serious deterioration of a person's state of health or a surgical intervention, in which case it is classified as class IIb.<br><br>Software intended to monitor physiological processes is classified as class IIa, except if it is intended for monitoring of vital physiological parameters, where the nature of variations of those parameters is such that it could result in immediate danger to the patient, in which case it is classified as class IIb. All other software is classified as class I.                                                                                                                                                                                                                                                                                                                                                                                                                         | Yes        |
-| **_Rule 12_**<br>All active devices intended to administer and/or remove medicinal products, body liquids or other substances to or from the body are classified as class IIa, unless this is done in a manner that is potentially hazardous, taking account of the nature of the substances involved, of the part of the body concerned and of the mode of application in which case they are classified as class IIb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |            |
-| **_Rule 13_**<br>All other active devices are classified as class I.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |            |
+All non-invasive devices intended for channelling or storing blood, body
+liquids, cells or tissues, liquids or gases for the purpose of eventual
+infusion, administration or introduction into the body are classified as class
+IIa:
 
-**7.) Special Rules**
+- if they may be connected to a class IIa, class IIb or class III
+  active device; or
+- if they are intended for use for channelling or storing blood or other body
+  liquids or for storing organs, parts of organs or body cells and tissues,
+  except for blood bags; blood bags are classified as class IIb.
 
-| Rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Applicable |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **_Rule 14_**<br>All devices incorporating, as an integral part, a substance which, if used separately, can be considered to be a medicinal product, as defined in point 2 of Article 1 of Directive 2001/83/EC, including a medicinal product derived from human blood or human plasma, as defined in point 10 of Article 1 of that Directive, and that has an action ancillary to that of the devices, are classified as class III.                                                                                                                                                                                                                                                                                                                                                                                                           | No         |
-| **_Rule 15_**<br>All devices used for contraception or prevention of the transmission of sexually transmitted diseases are classified as class IIb, unless they are implantable or long term invasive devices, in which case they are classified as class III.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No         |
-| **_Rule 16_**<br>All devices intended specifically to be used for disinfecting, cleaning, rinsing or, where appropriate, hydrating contact lenses are classified as class IIb.<br><br>All devices intended specifically to be used for disinfecting or sterilising medical devices are classified as class IIa, unless they are disinfecting solutions or washer-disinfectors intended specifically to be used for disinfecting invasive devices, as the end point of processing, in which case they are classified as class IIb.<br><br>This rule does not apply to devices that are intended to clean devices other than contact lenses by means of physical action only.                                                                                                                                                                     | No         |
-| **_Rule 17_**<br>Devices specifically intended for recording of diagnostic images generated by X-ray radiation are classified as class IIa.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No         |
-| **_Rule 18_**<br>All devices manufactured utilizing tissues or cells of human or animal origin, or their derivatives, which are non-viable or rendered non-viable, are classified as class III, unless such devices are manufactured utilizing tissues or cells of animal origin, or their derivatives, which are non-viable or rendered non-viable and are devices intended to come into contact with intact skin only.                                                                                                                                                                                                                                                                                                                                                                                                                        | No         |
-| **_Rule 19_**<br>All devices incorporating or consisting of nanomaterial are classified as:<br>— class III if they present a high or medium potential for internal exposure;<br>— class IIb if they present a low potential for internal exposure; and<br>— class IIa if they present a negligible potential for internal exposure.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | No         |
-| **_Rule 20_**<br>All invasive devices with respect to body orifices, other than surgically invasive devices, which are intended to administer medicinal products by inhalation are classified as class IIa, unless their mode of action has an essential impact on the efficacy and safety of the administered medicinal product or they are intended to treat life-threatening conditions, in which case they are classified as class IIb.                                                                                                                                                                                                                                                                                                                                                                                                     | No         |
-| **_Rule 21_**<br>Devices that are composed of substances or of combinations of substances that are intended to be introduced into the human body via a body orifice or applied to the skin and that are absorbed by or locally dispersed in the human body are classified as:<br>— class III if they, or their products of metabolism, are systemically absorbed by the human body in order to achieve the intended purpose;<br>— class III if they achieve their intended purpose in the stomach or lower gastrointestinal tract and they, or their products of metabolism, are systemically absorbed by the human body;<br>— class IIa if they are applied to the skin or if they are applied in the nasal or oral cavity as far as the pharynx, and achieve their intended purpose on those cavities; and<br>— class IIb in all other cases. | No         |
-| **_Rule 22_**<br>Active therapeutic devices with an integrated or incorporated diagnostic function which significantly determines the patient management by the device, such as closed loop systems or automated external defibrillators, are classified as class III.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |            |
+In all other cases, such devices are classified as class I.
+
+_Applicable:_ **No**
+
+#### 4.3 Rule 3
+
+All non-invasive devices intended for modifying the biological or chemical
+composition of human tissues or cells, blood, other body liquids or other
+liquids intended for implantation or administration into the body are
+classified as class IIb, unless the treatment for which the device is used
+consists of filtration, centrifugation or exchanges of gas, heat, in which case
+they are classified as class IIa.
+
+All non-invasive devices consisting of a substance or a mixture of substances
+intended to be used in vitro in direct contact with human cells, tissues or
+organs taken from the human body or used in vitro with human embryos before
+their implantation or administration into the body are classified as class III.
+
+_Applicable:_ **No**
+
+#### 4.4 Rule 4
+
+All non-invasive devices which come into contact with injured skin or mucous
+membrane are classified as:
+
+- class I if they are intended to be used as a mechanical barrier, for
+  compression or for absorption of exudates;
+- class IIb if they are intended to be used principally for injuries to skin
+  which have breached the dermis or mucous membrane and can only heal by
+  secondary intent;
+- class IIa if they are principally intended to manage the micro-environment of
+  injured skin or mucous membrane; and
+- class IIa in all other cases.
+
+This rule applies also to the invasive devices that come into contact with
+injured mucous membrane.
+
+_Applicable:_ **No**
+
+### 5 Invasive Devices
+
+#### 5.1 Rule 5
+
+All invasive devices with respect to body orifices, other than surgically
+invasive devices, which are not intended for connection to an active device or
+which are intended for connection to a class I active device are classified as:
+
+- class I if they are intended for transient use;
+- class IIa if they are intended for short-term use, except if they are used in
+  the oral cavity as far as the pharynx, in an ear canal up to the ear drum or
+  in the nasal cavity, in which case they are classified as class I; and
+- class IIb if they are intended for long-term use, except if they are used in
+  the oral cavity as far as the pharynx, in an ear canal up to the ear drum or
+  in the nasal cavity and are not liable to be absorbed by the mucous membrane,
+  in which case they are classified as class IIa.
+
+All invasive devices with respect to body orifices, other than surgically
+invasive devices, intended for connection to a class IIa, class IIb or class
+III active device, are classified as class IIa.
+
+_Applicable:_ **No**
+
+#### 5.2 Rule 6
+
+All surgically invasive devices intended for transient use are classified as
+class IIa unless they:
+
+- are intended specifically to control, diagnose, monitor or correct a defect
+  of the heart or of the central circulatory system through direct contact with
+  those parts of the body, in which case they are classified as class III;
+- are reusable surgical instruments, in which case they are classified as class
+  I;
+- are intended specifically for use in direct contact with the heart or central
+  circulatory system or the central nervous system, in which case they are
+  classified as class III;
+- are intended to supply energy in the form of ionising radiation in which case
+  they are classified as class IIb;
+- have a biological effect or are wholly or mainly absorbed in which case they
+  are classified as class IIb; or
+- are intended to administer medicinal products by means of a delivery system,
+  if such administration of a medicinal product is done in a manner that is
+  potentially hazardous taking account of the mode of application, in which
+  case they are classified as class IIb.
+
+_Applicable:_ **No**
+
+#### 5.3 Rule 7
+
+All surgically invasive devices intended for short-term use are classified as
+class IIa unless they:
+
+- are intended specifically to control, diagnose, monitor or correct a defect
+  of the heart or of the central circulatory system through direct contact with
+  those parts of the body, in which case they are classified as class III;
+
+- are intended specifically for use in direct contact with the heart or central
+  circulatory system or the central nervous system, in which case they are
+  classified as class III;
+- are intended to supply energy in the form of ionizing radiation in which case
+  they are classified as class IIb;
+- have a biological effect or are wholly or mainly absorbed in which case they
+  are classified as class III;
+- are intended to undergo chemical change in the body in which case they are
+  classified as class IIb, except if the devices are placed in the teeth; or
+- are intended to administer medicines, in which case they are classified as
+  class IIb.
+
+_Applicable:_ **No**
+
+#### 5.4 Rule 8
+
+All implantable devices and long-term surgically invasive devices are
+classified as class IIb unless they:
+
+- are intended to be placed in the teeth, in which case they are classified as
+  class IIa;
+- are intended to be used in direct contact with the heart, the central
+  circulatory system or the central nervous system, in which case they are
+  classified as class III;
+- have a biological effect or are wholly or mainly absorbed, in which case they
+  are classified as class III;
+- are intended to undergo chemical change in the body in which case they are
+  classified as class III, except if the devices are placed in the teeth;
+- are intended to administer medicinal products, in which case they are
+  classified as class III;
+- are active implantable devices or their accessories, in which cases they are
+  classified as class III;
+- are breast implants or surgical meshes, in which cases they are classified as
+  class III;
+- are total or partial joint replacements, in which case they are classified as
+  class III, with the exception of ancillary components such as screws, wedges,
+  plates and instruments; or
+- are spinal disc replacement implants or are implantable devices that come
+  into contact with the spinal column, in which case they are classified as
+  class III with the exception of components such as screws, wedges, plates and
+  instruments.
+
+_Applicable:_ **No**
+
+### 6 Active Devices
+
+#### 6.1 Rule 9
+
+All active therapeutic devices intended to administer or exchange energy are
+classified as class IIa unless their characteristics are such that they may
+administer energy to or exchange energy with the human body in a potentially
+hazardous way, taking account of the nature, the density and site of
+application of the energy, in which case they are classified as class IIb.
+
+All active devices intended to control or monitor the performance of active
+therapeutic class IIb devices, or intended directly to influence the
+performance of such devices are classified as class IIb.
+
+All active devices intended to emit ionizing radiation for therapeutic
+purposes, including devices which control or monitor such devices, or which
+directly influence their performance, are classified as class IIb.
+
+All active devices that are intended for controlling, monitoring or directly
+influencing the performance of active implantable devices are classified as
+class III.
+
+_Applicable:_ **Yes**
+
+#### 6.2 Rule 10
+
+Active devices intended for diagnosis and monitoring are classified as class
+IIa:
+
+- if they are intended to supply energy which will be absorbed by the human
+  body, except for devices intended to illuminate the patient's body, in the
+  visible spectrum, in which case they are classified as class I;
+- if they are intended to image in vivo distribution of radiopharmaceuticals;
+  or
+- if they are intended to allow direct diagnosis or monitoring of vital
+  physiological processes, unless they are specifically intended for monitoring
+  of vital physiological parameters and the nature of variations of those
+  parameters is such that it could result in immediate danger to the patient,
+  for instance variations in cardiac performance, respiration, activity of the
+  central nervous system, or they are intended for diagnosis in clinical
+  situations where the patient is in immediate danger, in which cases they are
+  classified as class IIb.
+
+Active devices intended to emit ionizing radiation and intended for diagnostic
+or therapeutic radiology, including interventional radiology devices and
+devices which control or monitor such devices, or which directly influence
+their performance, are classified as class IIb.
+
+_Applicable:_ **No**
+
+#### 6.3 Rule 11
+
+Software intended to provide information which is used to take decisions with
+diagnosis or therapeutic purposes is classified as class IIa, except if such
+decisions have an impact that may cause:
+
+- death or an irreversible deterioration of a person's state of health, in
+  which case it is in class III; or
+- a serious deterioration of a person's state of health or a surgical
+  intervention, in which case it is classified as class IIb.
+
+Software intended to monitor physiological processes is classified as class
+IIa, except if it is intended for monitoring of vital physiological parameters,
+where the nature of variations of those parameters is such that it could result
+in immediate danger to the patient, in which case it is classified as class
+IIb. All other software is classified as class I.
+
+_Applicable:_ **No**
+
+#### 6.4 Rule 12
+
+All active devices intended to administer and/or remove medicinal products,
+body liquids or other substances to or from the body are classified as class
+IIa, unless this is done in a manner that is potentially hazardous, taking
+account of the nature of the substances involved, of the part of the body
+concerned and of the mode of application in which case they are classified as
+class IIb.
+
+_Applicable:_ **No**
+
+#### 6.5 Rule 13
+
+All other active devices are classified as class I.
+
+_Applicable:_ **No**
+
+### 7 Special Rules
+
+#### 7.1 Rule 14
+
+All devices incorporating, as an integral part, a substance which, if used
+separately, can be considered to be a medicinal product, as defined in point 2
+of Article 1 of Directive 2001/83/EC, including a medicinal product derived
+from human blood or human plasma, as defined in point 10 of Article 1 of that
+Directive, and that has an action ancillary to that of the devices, are
+classified as class III.
+
+_Applicable:_ **No**
+
+#### 7.2 Rule 15
+
+All devices used for contraception or prevention of the transmission of
+sexually transmitted diseases are classified as class IIb, unless they are
+implantable or long term invasive devices, in which case they are classified as
+class III.
+
+_Applicable:_ **No**
+
+#### 7.3 Rule 16
+
+All devices intended specifically to be used for disinfecting, cleaning,
+rinsing or, where appropriate, hydrating contact lenses are classified as class
+IIb.
+
+All devices intended specifically to be used for disinfecting or sterilising
+medical devices are classified as class IIa, unless they are disinfecting
+solutions or washer-disinfectors intended specifically to be used for
+disinfecting invasive devices, as the end point of processing, in which case
+they are classified as class IIb.
+
+This rule does not apply to devices that are intended to clean devices other
+than contact lenses by means of physical action only.
+
+_Applicable:_ **No**
+
+#### 7.4 Rule 17
+
+Devices specifically intended for recording of diagnostic images generated by
+X-ray radiation are classified as class IIa.
+
+_Applicable:_ **No**
+
+#### 7.5 Rule 18
+
+All devices manufactured utilizing tissues or cells of human or animal origin,
+or their derivatives, which are non-viable or rendered non-viable, are
+classified as class III, unless such devices are manufactured utilizing tissues
+or cells of animal origin, or their derivatives, which are non-viable or
+rendered non-viable and are devices intended to come into contact with intact
+skin only.
+
+_Applicable:_ **No**
+
+#### 7.6 Rule 19
+
+All devices incorporating or consisting of nanomaterial are classified as:
+
+- class III if they present a high or medium potential for internal exposure;
+- class IIb if they present a low potential for internal exposure; and
+- class IIa if they present a negligible potential for internal exposure.
+
+_Applicable:_ **No**
+
+#### 7.7 Rule 20
+
+All invasive devices with respect to body orifices, other than surgically
+invasive devices, which are intended to administer medicinal products by
+inhalation are classified as class IIa, unless their mode of action has an
+essential impact on the efficacy and safety of the administered medicinal
+product or they are intended to treat life-threatening conditions, in which
+case they are classified as class IIb.
+
+_Applicable:_ **No**
+
+#### 7.8 Rule 21
+
+Devices that are composed of substances or of combinations of substances that
+are intended to be introduced into the human body via a body orifice or applied
+to the skin and that are absorbed by or locally dispersed in the human body are
+classified as:
+
+- class III if they, or their products of metabolism, are systemically absorbed
+  by the human body in order to achieve the intended purpose;
+- class III if they achieve their intended purpose in the stomach or lower
+  gastrointestinal tract and they, or their products of metabolism, are
+  systemically absorbed by the human body;
+- class IIa if they are applied to the skin or if they are applied in the nasal
+  or oral cavity as far as the pharynx, and achieve their intended purpose on
+  those cavities; and
+- class IIb in all other cases.
+
+_Applicable:_ **No**
+
+#### 7.9 Rule 22
+
+Active therapeutic devices with an integrated or incorporated diagnostic
+function which significantly determines the patient management by the device,
+such as closed loop systems or automated external defibrillators, are
+classified as class III.
+
+_Applicable:_ **No**
