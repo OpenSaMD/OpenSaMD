@@ -19,13 +19,13 @@
 import pathlib
 
 HERE = pathlib.Path(__file__)
-REPO_ROOT = pathlib.Path(HERE.parents[1])
+REPO_ROOT = pathlib.Path(HERE.parents[3])
 DOCS_DIR = REPO_ROOT / "docs"
-LIBRARY_DIR = REPO_ROOT / "rai"
+LIBRARY_DIR = pathlib.Path(HERE.parents[1])
 
 RAI_HOME_DIR = pathlib.Path.home() / ".rai"
 RAI_DATA = RAI_HOME_DIR / "data"
 
-GIT_DIR = REPO_ROOT.parent
-RAICONTOURS_REPO_ROOT = GIT_DIR / "raicontours"
+PYTHON_PACKAGES_DIR = REPO_ROOT.parent
+RAICONTOURS_REPO_ROOT = PYTHON_PACKAGES_DIR / "raicontours"
 RAICONTOURS_LIBRARY_DIR = RAICONTOURS_REPO_ROOT / "raicontours"
