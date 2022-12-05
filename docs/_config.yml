@@ -55,6 +55,6 @@ html:
 parse:
   myst_substitutions:
     device_name: "`RAIContours`"
-    device_version: "`v0.2.0-dev10`"
+    device_version: "`v0.2.0-dev12`"
     device_manufacturer: "Radiotherapy AI Pty Ltd"
     python_version: "3.7.9"

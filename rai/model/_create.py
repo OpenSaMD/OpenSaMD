@@ -14,11 +14,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import functools
 from typing import List
 
-import tensorflow as tf
-
 from raicontours import Config
+
+from rai._imports import tensorflow as tf
 
 
 def create_model(cfg: Config):
@@ -74,6 +75,7 @@ def _base_model(cfg: Config):
         name="masks_initial",
     )
 
+    ConditionalLayer = _create_conditional_layer()
     x = ConditionalLayer()(inputs=[use_masks_flag, x_with_masks, x])
 
     x = _core(cfg=cfg, x=x)
@@ -87,15 +89,19 @@ def _base_model(cfg: Config):
     return base_model
 
 
-class ConditionalLayer(tf.keras.layers.Layer):
-    def call(self, inputs, *_args, **_kwargs):
-        use_masks_flag, x_with_masks, x_without_masks = inputs
-        x = tf.cond(use_masks_flag, lambda: x_with_masks, lambda: x_without_masks)
+@functools.lru_cache(maxsize=None)
+def _create_conditional_layer():
+    class ConditionalLayer(tf.keras.layers.Layer):
+        def call(self, inputs, *_args, **_kwargs):
+            use_masks_flag, x_with_masks, x_without_masks = inputs
+            x = tf.cond(use_masks_flag, lambda: x_with_masks, lambda: x_without_masks)
 
-        return x
+            return x
+
+    return ConditionalLayer
 
 
-def _core(cfg: Config, x: tf.Tensor):
+def _core(cfg: Config, x: "tf.Tensor"):
     skips: List[tf.Tensor] = []
 
     for i, filters in enumerate(cfg["encoding_filter_counts"]):
@@ -126,7 +132,7 @@ def _core(cfg: Config, x: tf.Tensor):
 
 
 def _encode(
-    x: tf.Tensor,
+    x: "tf.Tensor",
     filters: int,
     pool: bool,
     skip_first_convolution: bool,
@@ -153,7 +159,7 @@ def _encode(
     return x, skip
 
 
-def _decode(x: tf.Tensor, skip: tf.Tensor, filters: int, name_index: int):
+def _decode(x: "tf.Tensor", skip: "tf.Tensor", filters: int, name_index: int):
     name = f"decode_{name_index}"
 
     x = _conv_transpose(x=x, filters=filters, name=name)
@@ -169,7 +175,7 @@ def _decode(x: tf.Tensor, skip: tf.Tensor, filters: int, name_index: int):
     return x
 
 
-def _convolution(x: tf.Tensor, filters: int, name: str):
+def _convolution(x: "tf.Tensor", filters: int, name: str):
     x = tf.keras.layers.Conv3D(
         filters=filters,
         kernel_size=3,
@@ -180,7 +186,7 @@ def _convolution(x: tf.Tensor, filters: int, name: str):
     return x
 
 
-def _conv_transpose(x: tf.Tensor, filters: int, name: str):
+def _conv_transpose(x: "tf.Tensor", filters: int, name: str):
     x = tf.keras.layers.Conv3DTranspose(
         filters=filters,
         kernel_size=3,
@@ -192,7 +198,7 @@ def _conv_transpose(x: tf.Tensor, filters: int, name: str):
     return x
 
 
-def _activation(x: tf.Tensor, name: str):
+def _activation(x: "tf.Tensor", name: str):
     x = tf.keras.layers.Activation("relu", name=f"{name}_activation")(x)
 
     return x

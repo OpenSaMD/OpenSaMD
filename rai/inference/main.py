@@ -20,12 +20,12 @@ from typing import List, Optional, Tuple
 
 import numpy as np
 import skimage.measure
-import tensorflow as tf
 from numpy.typing import NDArray
 from tqdm import tqdm
 
 from raicontours import Config, get_mask_level
 
+from rai._imports import tensorflow as tf
 from rai.typing.inference import Points
 
 from . import batch as _batch
@@ -196,7 +196,7 @@ def _grid_to_jittered_points(grid: Tuple[List[int], List[int], List[int]]) -> Po
 
 def _inference_over_points(
     cfg: Config,
-    model: tf.keras.Model,
+    model: "tf.keras.Model",
     points: Points,
     image_stack: NDArray[np.float32],
     masks_stack: Optional[NDArray[np.uint8]] = None,
@@ -260,7 +260,7 @@ def _inference_over_points(
 
 def _patch_inference(
     cfg: Config,
-    model: tf.keras.Model,
+    model: "tf.keras.Model",
     points: Points,
     image_stack: NDArray[np.float32],
     merged: NDArray[np.uint8],

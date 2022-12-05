@@ -17,12 +17,12 @@
 from typing import List, TypeVar
 
 import numpy as np
-import tensorflow as tf
 import tqdm
 from numpy.typing import NDArray
 
 from raicontours import Config
 
+from rai._imports import tensorflow as tf
 from rai.typing.inference import Points
 from rai.vendor.stackoverflow.slicing import slicing_without_array_copy
 
@@ -73,7 +73,7 @@ def create_batch(cfg: Config, points: Points, array_stack: NDArray[T]):
     return array_stack_batched
 
 
-def run_batch(model: tf.keras.Model, model_input, max_batch_size):
+def run_batch(model: "tf.keras.Model", model_input, max_batch_size):
     if isinstance(model_input, list):
         steps = int(np.ceil(model_input[0].shape[0] / max_batch_size))
 
