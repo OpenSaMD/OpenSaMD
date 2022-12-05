@@ -10,34 +10,301 @@ Original work by OpenRegulatory available at
 
 # Checklist: MDR General Safety and Performance Requirements
 
-## Chapter I: General Requirements
+## Mapping of Requirements
 
-| **No.** | **Requirement**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Applicable** | **Rationale**            | **Applicable Standard**      | **Evidence of Conformity**                                              |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------ | ---------------------------- | ----------------------------------------------------------------------- |
-| 1       | Devices shall achieve the performance intended by their manufacturer and shall be designed and manufactured in such a way that, during normal conditions of use, they are suitable for their intended purpose. They shall be safe and effective and shall not compromise the clinical condition or the safety of patients, or the safety and health of users or, where applicable, other persons, provided that any risks which may be associated with their use constitute acceptable risks when weighed against the benefits to the patient and are compatible with a high level of protection of health and safety, taking into account the generally acknowledged state of the art. | Yes            |                          | ISO 14971:2019               | Intended Use<br>Risk Management Report<br>Clinical Evaluation Report    |
-| 2       | The requirement in this Annex to reduce risks as far as possible means the reduction of risks as far as possible without adversely affecting the benefit-risk ratio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Yes            |                          | ISO 14971:2019               | Risk Management Report                                                  |
-| 3       | Manufacturers shall establish, implement, document and maintain a risk management system. Risk management shall be understood as a continuous iterative process throughout the entire lifecycle of a device, requiring regular systematic updating. In carrying out risk management manufacturers shall:                                                                                                                                                                                                                                                                                                                                                                                | Yes            |                          | ISO 14971:2019               | SOP Risk Management                                                     |
-| (a)     | establish and document a risk management plan for each device;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes            |                          | ISO 14971:2019               | Risk Management Plan                                                    |
-| (b)     | identify and analyze the known and foreseeable hazards associated with each device;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (c)     | estimate and evaluate the risks associated with, and occurring during, the intended use and during reasonably foreseeable misuse;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (d)     | eliminate or control the risks referred to in point (c) in accordance with the requirements of Section 4;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (e)     | evaluate the impact of information from the production phase and, in particular, from the post-market surveillance system, on hazards and the frequency of occurrence thereof, on estimates of their associated risks, as well as on the overall risk, benefit-risk ratio and risk acceptability; and                                                                                                                                                                                                                                                                                                                                                                                   | Yes            |                          | ISO 14971:2019               | Risk Table<br>SOP Integrated Software Development                       |
-| (f)     | based on the evaluation of the impact of the information referred to in point (e), if necessary amend control measures in line with the requirements of Section 4.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| 4       | Risk control measures adopted by manufacturers for the design and manufacture of the devices shall conform to safety principles, taking account of the generally acknowledged state of the art. To reduce risks, Manufacturers shall manage risks so that the residual risk associated with each hazard as well as the overall residual risk is judged acceptable. In selecting the most appropriate solutions, manufacturers shall, in the following order of priority:                                                                                                                                                                                                                | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (a)     | eliminate or reduce risks as far as possible through safe design and manufacture;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (b)     | where appropriate, take adequate protection measures, including alarms if necessary, in relation to risks that cannot be eliminated; and                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| (c)     | provide information for safety (warnings/precautions/contra-indications) and, where appropriate, training to users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes            |                          | ISO 14971:2019               | Risk Table                                                              |
-| 5       | In eliminating or reducing risks related to use error, the manufacturer shall:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                |                          |                              |                                                                         |
-| (a)     | reduce as far as possible the risks related to the ergonomic features of the device and the environment in which the device is intended to be used (design for patient safety), and                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes            |                          | IEC 62366-1:2015 + COR1:2016 | Risk Table<br>Software Requirements List<br>Usability Evaluation Report |
-| (b)     | give consideration to the technical knowledge, experience, education, training and use environment, where applicable, and the medical and physical conditions of intended users (design for lay, professional, disabled or other users).                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes            |                          | IEC 62366-1:2015 + COR1:2016 | Intended Use<br>Risk Table                                              |
-| 6       | The characteristics and performance of a device shall not be adversely affected to such a degree that the health or safety of the patient or the user and, where applicable, of other persons are compromised during the lifetime of the device, as indicated by the manufacturer, when the device is subjected to the stresses which can occur during normal conditions of use and has been properly maintained in accordance with the manufacturer’s instructions.                                                                                                                                                                                                                    | No             | Software device          |                              |                                                                         |
-| 7       | Devices shall be designed, manufactured and packaged in such a way that their characteristics and performance during their intended use are not adversely affected during transport and storage, for example, through fluctuations of temperature and humidity, taking account of the instructions and information provided by the manufacturer.                                                                                                                                                                                                                                                                                                                                        | No             | Software device          |                              |                                                                         |
-| 8       | All known and foreseeable risks, and any undesirable side-effects, shall be minimized and be acceptable when weighed against the evaluated benefits to the patient and/or user arising from the achieved performance of the device during normal conditions of use.                                                                                                                                                                                                                                                                                                                                                                                                                     | Yes            |                          | ISO 14971:2019               | Clinical Evaluation Report                                              |
-| 9       | For the devices referred to in Annex XVI, the general safety requirements set out in Sections 1 and 8 shall be understood to mean that the device, when used under the conditions and for the purposes intended, does not present a risk at all or presents a risk that is no more than the maximum acceptable risk related to the product’s use which is consistent with a high level of protection for the safety and health of persons.                                                                                                                                                                                                                                              | No             | Annex XVI does not apply |                              |                                                                         |
+| Medical Device Regulation (MDR) | Document Section |
+| ------------------------------- | ---------------- |
+| Annex I                         | [](annex-I)      |
+| Annex II                        | [](annex-II)     |
 
-## Chapter II: Requirements Regarding Design and Manufacture
+(annex-I)=
 
-### 2.1) Chemical, Physical and Biological Properties
+## Annex I: General Safety and Performance Requirements
+
+### Chapter I: General Requirements
+
+#### 1)
+
+Devices shall achieve the performance intended by their manufacturer and shall
+be designed and manufactured in such a way that, during normal conditions of
+use, they are suitable for their intended purpose. They shall be safe and
+effective and shall not compromise the clinical condition or the safety of
+patients, or the safety and health of users or, where applicable, other
+persons, provided that any risks which may be associated with their use
+constitute acceptable risks when weighed against the benefits to the patient
+and are compatible with a high level of protection of health and safety, taking
+into account the generally acknowledged state of the art.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../0-intended-use/index.md)
+- [](../3-techdoc/14971/risk-management-report.md)
+- [](../clinical-evaluation/clinical-evaluation-report.md)
+
+#### 2)
+
+The requirement in this Annex to reduce risks as far as possible means the
+reduction of risks as far as possible without adversely affecting the
+benefit-risk ratio.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-management-report.md)
+
+#### 3)
+
+Manufacturers shall establish, implement, document and maintain a risk
+management system. Risk management shall be understood as a continuous
+iterative process throughout the entire lifecycle of a device, requiring
+regular systematic updating.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/62304/sop-integrated-software-development.md)
+
+In carrying out risk management manufacturers shall:
+
+##### 3a)
+
+Establish and document a risk management plan for each device;
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-management-plan.md)
+
+##### 3b)
+
+Identify and analyze the known and foreseeable hazards associated with each
+device;
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+##### 3c)
+
+Estimate and evaluate the risks associated with, and occurring during, the
+intended use and during reasonably foreseeable misuse;
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+##### 3d)
+
+Eliminate or control the risks referred to in 3c) in accordance with
+the requirements of Section 4;
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+##### 3e)
+
+Evaluate the impact of information from the production phase and, in
+particular, from the post-market surveillance system, on hazards and the
+frequency of occurrence thereof, on estimates of their associated risks, as
+well as on the overall risk, benefit-risk ratio and risk acceptability; and
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+- [](../3-techdoc/62304/sop-integrated-software-development.md)
+
+##### 3f)
+
+Based on the evaluation of the impact of the information referred to in 3e, if
+necessary amend control measures in line with the requirements of Section 4.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+#### 4)
+
+Risk control measures adopted by manufacturers for the design and manufacture
+of the devices shall conform to safety principles, taking account of the
+generally acknowledged state of the art. To reduce risks, Manufacturers shall
+manage risks so that the residual risk associated with each hazard as well as
+the overall residual risk is judged acceptable.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+In selecting the most appropriate solutions, manufacturers shall, in the
+following order of priority:
+
+##### 4a)
+
+Eliminate or reduce risks as far as possible through safe design and
+manufacture;
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+##### 4b)
+
+Where appropriate, take adequate protection measures, including alarms if
+necessary, in relation to risks that cannot be eliminated; and
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+##### 4c)
+
+Provide information for safety (warnings/precautions/contra-indications) and,
+where appropriate, training to users.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+#### 5)
+
+In eliminating or reducing risks related to use error, the manufacturer shall:
+
+##### 5a)
+
+Reduce as far as possible the risks related to the ergonomic features of the
+device and the environment in which the device is intended to be used (design
+for patient safety), and
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **IEC 62366-1:2015 + COR1:2016**
+
+_Evidence of Conformity:_
+
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+- [](../3-techdoc/62304/software-requirements-list.md)
+- [](../3-techdoc//62366/usability-evaluation-report.md)
+
+##### 5b)
+
+Give consideration to the technical knowledge, experience, education, training
+and use environment, where applicable, and the medical and physical conditions
+of intended users (design for lay, professional, disabled or other users).
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **IEC 62366-1:2015 + COR1:2016**
+
+_Evidence of Conformity:_
+
+- [](../0-intended-use/index.md)
+- [](../3-techdoc/14971/risk-table-fmea/index.md)
+
+#### 6)
+
+The characteristics and performance of a device shall not be adversely affected
+to such a degree that the health or safety of the patient or the user and,
+where applicable, of other persons are compromised during the lifetime of the
+device, as indicated by the manufacturer, when the device is subjected to the
+stresses which can occur during normal conditions of use and has been properly
+maintained in accordance with the manufacturer's instructions.
+
+_Applicable:_ **No**
+
+_Rationale:_ Software device
+
+#### 7)
+
+Devices shall be designed, manufactured and packaged in such a way that their
+characteristics and performance during their intended use are not adversely
+affected during transport and storage, for example, through fluctuations of
+temperature and humidity, taking account of the instructions and information
+provided by the manufacturer.
+
+_Applicable:_ **No**
+
+_Rationale:_ Software device
+
+#### 8)
+
+All known and foreseeable risks, and any undesirable side-effects, shall be
+minimized and be acceptable when weighed against the evaluated benefits to the
+patient and/or user arising from the achieved performance of the device during
+normal conditions of use.
+
+_Applicable:_ **Yes**
+
+_Applicable Standard:_ **ISO 14971:2019**
+
+_Evidence of Conformity:_
+
+- [](../clinical-evaluation//clinical-evaluation-report.md)
+
+#### 9)
+
+For the devices referred to in Annex XVI, the general safety requirements set
+out in Sections 1 and 8 shall be understood to mean that the device, when used
+under the conditions and for the purposes intended, does not present a risk at
+all or presents a risk that is no more than the maximum acceptable risk related
+to the product's use which is consistent with a high level of protection for
+the safety and health of persons.
+
+_Applicable:_ **No**
+
+_Rationale:_ Annex XVI does not apply
+
+### Chapter II: Requirements Regarding Design and Manufacture
+
+#### 2.1) Chemical, Physical and Biological Properties
 
 | **No.** | **Requirement**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Applicable** | **Rationale**   | **Applicable Standard** | **Evidence of Conformity** |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------- | ----------------------- | -------------------------- |
@@ -304,6 +571,8 @@ Original work by OpenRegulatory available at
 | (z)     | a notice to the user and/or patient that any serious incident that has occurred in relation to the device should be reported to the manufacturer and the competent authority of the Member State in which the user and/or patient is established;                                                                                                                                                                                                                                                                                                                                                                                           | Yes            |                                  | IEC 62304:2006 / AMD1:2015                                | User Manual                                                              |
 | (aa)    | information to be supplied to the patient with an implanted device in accordance with Article 18;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No             | Software device                  |                                                           |                                                                          |
 | (ab)    | for devices that incorporate electronic programmable systems, including software, or software that are devices in themselves, minimum requirements concerning hardware, IT networks characteristics and IT security measures, including protection against unauthorized access, necessary to run the software as intended.                                                                                                                                                                                                                                                                                                                  | Yes            |                                  | IEC 62304:2006 / AMD1:2015                                | User Manual                                                              |
+
+(annex-II)=
 
 ## Annex II: Technical Documentation
 

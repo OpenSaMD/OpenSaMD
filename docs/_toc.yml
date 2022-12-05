@@ -8,6 +8,7 @@ entries:
   entries:
   - file: 1-general/0-mdr-classification-document
   - file: 1-general/checklist-mdr
+  - file: 1-general/checklist-tga-essential-principles
   - file: 1-general/declaration-of-conformity
   - file: 1-general/essential-requirements-mdd
   - file: 1-general/instructions-for-use

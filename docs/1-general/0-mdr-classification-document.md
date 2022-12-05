@@ -22,11 +22,11 @@ Original work by OpenRegulatory available at
 
 ## Summary
 
-| Product:        | {{device_name}}           |
-| --------------- | ------------------------- |
-| Version:        | {{device_version}}        |
-| Classification: | {{device_classification}} |
-| Rule:           | Rule 9                    |
+| Product:        | {{device_name}}                 |
+| --------------- | ------------------------------- |
+| Version:        | {{device_version}}              |
+| Classification: | Class {{device_classification}} |
+| Rule:           | Rule 9                          |
 
 ### Classifying rule
 
