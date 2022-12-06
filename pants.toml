@@ -69,4 +69,4 @@ add = [
 ]
 
 [python-bootstrap]
-search_path = ["<ASDF_LOCAL>"]
+search_path = ["<ASDF_LOCAL>", "<ASDF>", "<PYENV>", "<PATH>"]
