@@ -24,7 +24,7 @@ achieve.
 
 This open source research library is able to be installed by running:
 
-```
+```bash
 pip install rai
 ```
 
