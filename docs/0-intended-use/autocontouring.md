@@ -8,38 +8,13 @@ Original work by OpenRegulatory available at
 <https://github.com/openregulatory/templates>
 -->
 
-# Intended Use
+# Autocontouring
 
-## Mapping of Requirements to Document Sections
+The autocontouring component of {{device_name}} covers the following intended
+uses:
 
-| MDR Class | MDR Section                   | Document Section |
-| --------- | ----------------------------- | ---------------- |
-| (All)     | Annex II, 1.1 a) - d), h), i) | (All)            |
-
-| ISO 14971:2019 Section | Document Section |
-| ---------------------- | ---------------- |
-| 5.2                    | (All)            |
-
-| IEC 62366-1:2015 Section | Document Section |
-| ------------------------ | ---------------- |
-| 5.1                      | (All)            |
-
-## Product
-
-- Name: {{device_name}}
-- Version: {{device_version}}
-- Basic UDI-DI: N/A
-
-## {{device_name}} Intended Use
-
-<!-- > Describe the core medical functionality of your device and how it treats,
-> diagnoses or alleviates a disease. Keep it high-level so that this
-> description is true for as long as possible even when the device is updated. -->
-
-Utilised as clinical decision support software within the radiotherapy
-treatment workflow. Provides anatomical contours utilised by health
-practitioners to create a radiotherapy treatment plan to assist in cancer
-treatment or other radiotherapy treatments.
+- Clinical decision support within radiotherapy via automated contouring of
+  both target and avoidance structures within the treatment planning workflow.
 
 ## Intended Medical Indication
 
@@ -157,8 +132,8 @@ protocols.
 > commonly, apps require users to have a smartphone with a compatible operating
 > system (iOS / Android). -->
 
-The {{device_name}} software is to be installed on a local server with one of
-the following OS types and versions:
+For the purpose of autocontouring the {{device_name}} software is to be
+installed on a local server with one of the following OS types and versions:
 
 - Windows >= 10
 - Ubuntu LTS >= 22.04
@@ -170,8 +145,9 @@ the following OS types and versions:
 > generally state what sort of input goes in and what output comes out, e.g.
 > you could be processing images and returning diagnoses. -->
 
-The {{device_name}} software is designed to fulfil the `Automated Contourer`
-role within the [IHE RO BRTO-II profile](http://ihe-ro.org/doku.php?id=doc:profiles:brto-ii).
+When undergoing autocontouring the {{device_name}} software is designed to
+fulfil the `Contourer` role within the
+[IHE RO BRTO-II profile](http://ihe-ro.org/doku.php?id=doc:profiles:brto-ii).
 
 This is defined as:
 
@@ -193,15 +169,3 @@ thresholds for a range of relevant scenarios. The software itself may also
 present warnings and alerts. The email address of the user account used to
 access the software needs to be able to be readily accessed so that these
 configurable alerts and warnings can provide the appropriate notification.
-
-## Part of the Body / Type of Tissue Interacted With
-
-The device is stand-alone software. It does not come in contact with tissue or
-bodily fluids.
-
-## Variants / Accessories
-
-<!-- > Describe variants and/or accessories of/to this device, if applicable. For
-> typical stand-alone software of startups, this shouldn't be applicable. -->
-
-This is stand-alone software and this is not applicable.
