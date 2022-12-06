@@ -1,0 +1,3 @@
+[submodule "src/python/raicontours"]
+	path = src/python/raicontours
+	url = git@github.com:RadiotherapyAI/raicontours.git
