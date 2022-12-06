@@ -21,7 +21,6 @@ import numpy as np
 import shapely.geometry
 import shapely.geometry.base
 from numpy.typing import NDArray
-
 from rai.dicom.typing import ContourSequenceItem
 
 ContourXY = list[tuple[float, float]]

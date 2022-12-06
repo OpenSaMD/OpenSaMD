@@ -23,9 +23,8 @@ from typing import Dict, cast
 
 import black
 import tomlkit
-from typing_extensions import Literal
-
 from rai._paths import RAICONTOURS_REPO_ROOT, REPO_ROOT
+from typing_extensions import Literal
 
 PyProjectContents = Dict[
     Literal["tool"], Dict[Literal["poetry"], Dict[Literal["version"], str]]

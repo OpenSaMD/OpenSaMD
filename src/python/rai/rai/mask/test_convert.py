@@ -20,12 +20,10 @@ from typing import TypedDict
 
 import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
-
+from rai._paths import TEST_RECORDS_DIR
 from rai.metrics import dice
 
 from .convert import Contours, Grid, contours_to_mask, mask_to_contours
-
-from rai._paths import TEST_RECORDS_DIR
 
 FIGURE_DIR = TEST_RECORDS_DIR / "mask_test_figures"
 

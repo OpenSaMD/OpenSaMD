@@ -7,21 +7,42 @@ on:
   pull_request:
 
 jobs:
-  Build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+  build:
+    name: Perform CI Checks
 
-    defaults:
-      run:
-        working-directory: ./src/python/rai
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
 
     strategy:
       fail-fast: false
       matrix:
+        python-version: [3.9]
         task: ["pytest", "docs", "pyright"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - uses: pantsbuild/actions/init-pants@v2
+        with:
+          pants-python-version: ${{ matrix.python-version }}
+          gha-cache-key: cache0-py${{ matrix.python-version }}
+          named-caches-hash: ${{ hashFiles('3rdparty/python/default.lock') }}
+          cache-lmdb-store: "false"
+
+      - name: Check BUILD files
+        run: ./pants tailor --check update-build-files --check
+
+      - name: Lint and typecheck
+        run: |
+          ./pants lint check ::
+
+      - name: Test
+        run: |
+          ./pants test ::
+
+      - name: Package
+        run: |
+          ./pants package ::
 
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2

@@ -1,14 +1,16 @@
 [GLOBAL]
 pants_version = "2.14.0"
+
+pythonpath = ["%(buildroot)s/pants-plugins"]
 backend_packages = [
   "pants.backend.shell",
   "pants.backend.python",
   "pants.backend.python.lint.black",
-  "pants.backend.python.lint.bandit",
-  "pants.backend.python.lint.docformatter",
+  # "pants.backend.python.lint.docformatter",
+  # "pants.backend.python.lint.bandit",
   "pants.backend.python.lint.isort",
   "pants.backend.python.lint.pylint",
-  "pants.backend.python.typecheck.mypy",
+  # "pants.backend.experimental.python.lint.pyupgrade",
 ]
 
 [GLOBAL.pants_ignore]
@@ -28,6 +30,9 @@ root_patterns = [
 interpreter_constraints = ["==3.9.15"]
 enable_resolves = true
 resolves = { python-default = "3rdparty/python/default.lock"}
+
+# [pyupgrade]
+# args = ["--py39-plus"]
 
 [python-infer]
 assets = true
