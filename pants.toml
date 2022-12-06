@@ -6,11 +6,16 @@ backend_packages = [
   "pants.backend.shell",
   "pants.backend.python",
   "pants.backend.python.lint.black",
-  # "pants.backend.python.lint.docformatter",
-  # "pants.backend.python.lint.bandit",
   "pants.backend.python.lint.isort",
   "pants.backend.python.lint.pylint",
+
+  # TODO: Include this once it lands
+  # "pants.backend.python.typecheck.pyright"
+
+  # TODO: Include the following in their own PRs later on
   # "pants.backend.experimental.python.lint.pyupgrade",
+  # "pants.backend.python.lint.docformatter",
+  # "pants.backend.python.lint.bandit",
 ]
 
 [GLOBAL.pants_ignore]
