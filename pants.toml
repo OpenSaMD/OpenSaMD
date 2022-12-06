@@ -1,0 +1,70 @@
+[GLOBAL]
+pants_version = "2.14.0"
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.isort",
+  "pants.backend.python.lint.pylint",
+
+  # TODO: Include this once it lands
+  # "pants.backend.python.typecheck.pyright"
+
+  # TODO: Include the following in their own PRs later on
+  # "pants.backend.experimental.python.lint.pyupgrade",
+  # "pants.backend.python.lint.docformatter",
+  # "pants.backend.python.lint.bandit",
+  # "pants.backend.experimental.python.lint.autoflake",
+  # "pants.backend.python.lint.flake8",
+]
+
+[GLOBAL.pants_ignore]
+add = ["records/"]
+
+[anonymous-telemetry]
+enabled = true
+repo_id = "ad4dd1f1-8c32-4d36-9bb3-71a966bbc771"
+
+[source]
+root_patterns = [
+    "/src/python/*",
+]
+
+[python]
+# TODO: Propagate this from to/from .tool-versions
+interpreter_constraints = ["==3.9.15"]
+enable_resolves = true
+resolves = { python-default = "3rdparty/python/default.lock"}
+
+# [pyupgrade]
+# args = ["--py39-plus"]
+
+[python-infer]
+assets = true
+unowned_dependency_behavior = "error"
+
+[black]
+lockfile = "3rdparty/python/black.lock"
+
+[isort]
+args = ["--profile", "black", "-p", "rai", "-p", "raicontours"]
+lockfile = "3rdparty/python/isort.lock"
+
+[pylint]
+args = ["--ignore-patterns=.*.pyi"]
+lockfile = "3rdparty/python/pylint.lock"
+
+[pytest]
+args = ["--no-header"]
+lockfile = "3rdparty/python/pytest.lock"
+
+[pytest.extra_requirements]
+add = [
+  "ipdb",
+  "pytest-asyncio",
+  "pytest-html",
+  "pytest-icdiff",
+  "pygments",
+]
+
+[python-bootstrap]
+search_path = ["<ASDF_LOCAL>", "<ASDF>", "<PYENV>", "<PATH>"]
