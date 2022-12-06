@@ -120,7 +120,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="0-intended-use/autocontouring.html">
-     Intended Use
+     Autocontouring
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="0-intended-use/sgrt.html">
+     Surface guided radiotherapy
     </a>
    </li>
   </ul>
@@ -834,11 +839,6 @@ title="Print to PDF"
      Difference to the open source version
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#workflow-overview">
-     Workflow overview
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -880,11 +880,6 @@ title="Print to PDF"
      Difference to the open source version
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#workflow-overview">
-     Workflow overview
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -909,12 +904,12 @@ Original work by OpenRegulatory available at
 <section class="tex2jax_ignore mathjax_ignore" id="radiotherapy-ai-s-qms-and-techdoc">
 <h1>Radiotherapy AI’s QMS and TechDoc<a class="headerlink" href="#radiotherapy-ai-s-qms-and-techdoc" title="Permalink to this headline">#</a></h1>
 <p>Radiotherapy AI’s Quality Management System and Technical Documentation. Built
-on top of <a class="reference external" href="https://github.com/RadiotherapyAI/rai">GitHub</a> and <code class="docutils literal notranslate"><span class="pre">git</span></code>,
+on top of <span class="xref myst">GitHub</span> and <code class="docutils literal notranslate"><span class="pre">git</span></code>,
 <a class="reference external" href="https://github.com/openregulatory/templates">OpenRegulatory templates</a>, and
 <a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a>.</p>
 <p>All source for the Medical Device, the Quality Management System, and the
 Technical Documentation are available at
-<a class="reference external" href="https://github.com/RadiotherapyAI/rai">https://github.com/RadiotherapyAI/rai</a>.</p>
+&lt;<a class="reference external" href="https://github.com/OpenSaMD/OpenSaMD">https://github.com/OpenSaMD/OpenSaMD</a>&gt;.</p>
 <section id="disclaimer-while-qms-and-techdocs-are-under-initial-development">
 <h2>Disclaimer while QMS and TechDocs are under initial development<a class="headerlink" href="#disclaimer-while-qms-and-techdocs-are-under-initial-development" title="Permalink to this headline">#</a></h2>
 <p>This Quality Management System and this Technical Documentation are currently
@@ -926,7 +921,7 @@ companies create and regulate their products and help their patients.</p>
 <section id="device">
 <h2>Device<a class="headerlink" href="#device" title="Permalink to this headline">#</a></h2>
 <p>These documents corresponds to version <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code> of the
-<code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> software. Currently this software is pre-release, and both the
+<code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software. Currently this software is pre-release, and both the
 software and this document is expected to change before it is available for
 clinical use. Please reference the version of these documents that is supplied
 to you with the software itself.</p>
@@ -935,33 +930,23 @@ to you with the software itself.</p>
 <ul class="simple">
 <li><p><strong>Manufacturer Name</strong>: Radiotherapy AI Pty Ltd</p></li>
 <li><p><strong>Manufacturer’s Address</strong>: 17 Grampian Place Tatton NSW 2650 Australia</p></li>
-<li><p><strong>Software as a Medical Device Identification</strong>: <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code></p></li>
+<li><p><strong>Software as a Medical Device Identification</strong>: <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code>
+<code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code></p></li>
 </ul>
 </section>
 <section id="difference-to-the-open-source-version">
 <h3>Difference to the open source version<a class="headerlink" href="#difference-to-the-open-source-version" title="Permalink to this headline">#</a></h3>
-<p>This device corresponds to the software downloadable directly from
-<a class="reference external" href="https://radiotherapy.ai/">https://radiotherapy.ai/</a> (Regulated Medical Device). It does <strong>not</strong>
-correspond to the software downloadable from
-<a class="reference external" href="https://github.com/RadiotherapyAI/rai">https://github.com/RadiotherapyAI/rai</a> (Open Source Unregulated
-Software).</p>
-<p>The Open Source Unregulated Software is provided in the hope that it might be
-useful but WITHOUT ANY WARRANTY. It is <strong>not</strong> intended for clinical use, and
-is instead intended for research use only.</p>
-<p>The Regulated Medical Device described by this documentation corresponds only
-to the product that is able to be downloaded from <a class="reference external" href="https://radiotherapy.ai/">https://radiotherapy.ai/</a>.
-This is the product that is intended to be able to be used for clinical use
-according to the intended purpose described within this documentation.</p>
-</section>
-<section id="workflow-overview">
-<h3>Workflow overview<a class="headerlink" href="#workflow-overview" title="Permalink to this headline">#</a></h3>
-<p>Radiotherapy AI’s <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> product (Regulated Medical Device) is
-deployed on-site as a DICOM server. It is designed to sit between your centre’s
-CT scanner and your treatment planning system.</p>
-<p>When patients undergo their simulation, images are auto-sent through to
-Radiotherapy AI’s DICOM and inference server, contours are auto-generated, and
-then the results are then automatically sent through to either your treatment
-planning system, or any other DICOM receiver of your choice.</p>
+<p>This device corresponds to the <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software that is downloadable
+directly from &lt;<a class="reference external" href="https://opensamd.com/">https://opensamd.com/</a>&gt;. It does <strong>not</strong> correspond to the
+<code class="docutils literal notranslate"><span class="pre">Non</span> <span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software that is downloadable from
+&lt;<a class="reference external" href="https://github.com/OpenSaMD/OpenSaMD">https://github.com/OpenSaMD/OpenSaMD</a>&gt;.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Non</span> <span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> is provided in the hope that
+it might be useful but WITHOUT ANY WARRANTY. It is <strong>not</strong> intended for
+clinical use, and is instead intended for research use only.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> described by this documentation corresponds only to the
+product that is able to be downloaded from &lt;<a class="reference external" href="https://opensamd.com/">https://opensamd.com/</a>&gt;. This is the
+product that is intended to be able to be used for clinical use according to
+the intended purpose described within this documentation.</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">

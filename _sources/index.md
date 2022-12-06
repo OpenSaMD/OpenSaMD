@@ -11,13 +11,13 @@ Original work by OpenRegulatory available at
 # Radiotherapy AI's QMS and TechDoc
 
 Radiotherapy AI's Quality Management System and Technical Documentation. Built
-on top of [GitHub](https://github.com/RadiotherapyAI/rai) and `git`,
+on top of [GitHub]({{online_repository}}) and `git`,
 [OpenRegulatory templates](https://github.com/openregulatory/templates), and
 [Jupyter Book](https://jupyterbook.org/).
 
 All source for the Medical Device, the Quality Management System, and the
 Technical Documentation are available at
-<https://github.com/RadiotherapyAI/rai>.
+<{{online_repository}}>.
 
 ## Disclaimer while QMS and TechDocs are under initial development
 
@@ -39,32 +39,21 @@ to you with the software itself.
 
 - **Manufacturer Name**: {{device_manufacturer}}
 - **Manufacturer's Address**: 17 Grampian Place Tatton NSW 2650 Australia
-- **Software as a Medical Device Identification**: {{device_name}} {{device_version}}
+- **Software as a Medical Device Identification**: {{device_name}}
+  {{device_version}}
 
 ### Difference to the open source version
 
-This device corresponds to the software downloadable directly from
-<https://radiotherapy.ai/> (Regulated Medical Device). It does **not**
-correspond to the software downloadable from
-<https://github.com/RadiotherapyAI/rai> (Open Source Unregulated
-Software).
+This device corresponds to the {{device_name}} software that is downloadable
+directly from <{{device_website}}>. It does **not** correspond to the
+{{open_source_software_name}} software that is downloadable from
+<{{online_repository}}>.
 
-The Open Source Unregulated Software is provided in the hope that it might be
-useful but WITHOUT ANY WARRANTY. It is **not** intended for clinical use, and
-is instead intended for research use only.
+The {{open_source_software_name}} is provided in the hope that
+it might be useful but WITHOUT ANY WARRANTY. It is **not** intended for
+clinical use, and is instead intended for research use only.
 
-The Regulated Medical Device described by this documentation corresponds only
-to the product that is able to be downloaded from <https://radiotherapy.ai/>.
-This is the product that is intended to be able to be used for clinical use
-according to the intended purpose described within this documentation.
-
-### Workflow overview
-
-Radiotherapy AI's {{device_name}} product (Regulated Medical Device) is
-deployed on-site as a DICOM server. It is designed to sit between your centre's
-CT scanner and your treatment planning system.
-
-When patients undergo their simulation, images are auto-sent through to
-Radiotherapy AI's DICOM and inference server, contours are auto-generated, and
-then the results are then automatically sent through to either your treatment
-planning system, or any other DICOM receiver of your choice.
+The {{device_name}} described by this documentation corresponds only to the
+product that is able to be downloaded from <{{device_website}}>. This is the
+product that is intended to be able to be used for clinical use according to
+the intended purpose described within this documentation.

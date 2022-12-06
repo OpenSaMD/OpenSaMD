@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Intended Use &#8212; Radiotherapy AI</title>
+    <title>Autocontouring &#8212; Radiotherapy AI</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quality Management System" href="../1-qms/index.html" />
+    <link rel="next" title="Surface guided radiotherapy" href="sgrt.html" />
     <link rel="prev" title="Intended Use" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -121,7 +121,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Intended Use
+     Autocontouring
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sgrt.html">
+     Surface guided radiotherapy
     </a>
    </li>
   </ul>
@@ -816,26 +821,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mapping-of-requirements-to-document-sections">
-   Mapping of Requirements to Document Sections
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product">
-   Product
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raicontours-intended-use">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     RAIContours
-    </span>
-   </code>
-   Intended Use
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intended-medical-indication">
    Intended Medical Indication
   </a>
@@ -905,16 +890,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-of-the-body-type-of-tissue-interacted-with">
-   Part of the Body / Type of Tissue Interacted With
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variants-accessories">
-   Variants / Accessories
-  </a>
  </li>
 </ul>
 
@@ -925,7 +900,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Intended Use</h1>
+                <h1>Autocontouring</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -935,26 +910,6 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mapping-of-requirements-to-document-sections">
-   Mapping of Requirements to Document Sections
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product">
-   Product
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raicontours-intended-use">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     RAIContours
-    </span>
-   </code>
-   Intended Use
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intended-medical-indication">
    Intended Medical Indication
@@ -1025,16 +980,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-of-the-body-type-of-tissue-interacted-with">
-   Part of the Body / Type of Tissue Interacted With
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variants-accessories">
-   Variants / Accessories
-  </a>
  </li>
 </ul>
 
@@ -1055,67 +1000,14 @@ License. <http://creativecommons.org/licenses/by/4.0/>.
 Original work by OpenRegulatory available at
 <https://github.com/openregulatory/templates>
 -->
-<section class="tex2jax_ignore mathjax_ignore" id="intended-use">
-<h1>Intended Use<a class="headerlink" href="#intended-use" title="Permalink to this headline">#</a></h1>
-<section id="mapping-of-requirements-to-document-sections">
-<h2>Mapping of Requirements to Document Sections<a class="headerlink" href="#mapping-of-requirements-to-document-sections" title="Permalink to this headline">#</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>MDR Class</p></th>
-<th class="head"><p>MDR Section</p></th>
-<th class="head"><p>Document Section</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>(All)</p></td>
-<td><p>Annex II, 1.1 a) - d), h), i)</p></td>
-<td><p>(All)</p></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>ISO 14971:2019 Section</p></th>
-<th class="head"><p>Document Section</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>5.2</p></td>
-<td><p>(All)</p></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>IEC 62366-1:2015 Section</p></th>
-<th class="head"><p>Document Section</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>5.1</p></td>
-<td><p>(All)</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="product">
-<h2>Product<a class="headerlink" href="#product" title="Permalink to this headline">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="autocontouring">
+<h1>Autocontouring<a class="headerlink" href="#autocontouring" title="Permalink to this headline">#</a></h1>
+<p>The autocontouring component of <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> covers the following intended
+uses:</p>
 <ul class="simple">
-<li><p>Name: <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code></p></li>
-<li><p>Version: <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code></p></li>
-<li><p>Basic UDI-DI: N/A</p></li>
+<li><p>Clinical decision support within radiotherapy via automated contouring of
+both target and avoidance structures within the treatment planning workflow.</p></li>
 </ul>
-</section>
-<section id="raicontours-intended-use">
-<h2><code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> Intended Use<a class="headerlink" href="#raicontours-intended-use" title="Permalink to this headline">#</a></h2>
-<!-- > Describe the core medical functionality of your device and how it treats,
-> diagnoses or alleviates a disease. Keep it high-level so that this
-> description is true for as long as possible even when the device is updated. -->
-<p>Utilised as clinical decision support software within the radiotherapy
-treatment workflow. Provides anatomical contours utilised by health
-practitioners to create a radiotherapy treatment plan to assist in cancer
-treatment or other radiotherapy treatments.</p>
-</section>
 <section id="intended-medical-indication">
 <h2>Intended Medical Indication<a class="headerlink" href="#intended-medical-indication" title="Permalink to this headline">#</a></h2>
 <!-- > Describe the condition(s) and/or disease(s) to be screened, monitored,
@@ -1167,7 +1059,7 @@ Radiotherapy and Oncology.</p>
 <h2>Contraindications<a class="headerlink" href="#contraindications" title="Permalink to this headline">#</a></h2>
 <!-- > List anything that you want to explicitly exclude from your intended use. -->
 <p>Utilisation is to be limited to where the model itself has undergone in-centre
-validation. See section <a class="reference internal" href="index.html#case-validation"><span class="std std-ref">Limited by case validation of the deployed model</span></a> for further details.</p>
+validation. See section <a class="reference internal" href="#case-validation"><span class="std std-ref">Limited by case validation of the deployed model</span></a> for further details.</p>
 </section>
 <section id="patient-population">
 <h2>Patient Population<a class="headerlink" href="#patient-population" title="Permalink to this headline">#</a></h2>
@@ -1177,7 +1069,7 @@ validation. See section <a class="reference internal" href="index.html#case-vali
 > in patients, so in that case, they don't overlap. Some ideas for
 > characteristics to describe: Age group, weight range, health, condition(s). -->
 <p>The patient population is to be limited to where the model itself has undergone
-in-centre validation. See section <a class="reference internal" href="index.html#case-validation"><span class="std std-ref">Limited by case validation of the deployed model</span></a> for further details.</p>
+in-centre validation. See section <a class="reference internal" href="#case-validation"><span class="std std-ref">Limited by case validation of the deployed model</span></a> for further details.</p>
 </section>
 <section id="user-profile">
 <h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this headline">#</a></h2>
@@ -1186,7 +1078,7 @@ in-centre validation. See section <a class="reference internal" href="index.html
 > time spent using the software. -->
 <section id="used-by-those-with-appropriate-training-and-knowledge">
 <h3>Used by those with appropriate training and knowledge<a class="headerlink" href="#used-by-those-with-appropriate-training-and-knowledge" title="Permalink to this headline">#</a></h3>
-<p>The contours provided by the <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> software are a recommendation
+<p>The contours provided by the <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software are a recommendation
 only. When being used to support clinical radiotherapy treatment within
 Australia these contours are to be provided to a RANZCR certified Radiation
 Oncologist or an ASMIRT certified Radiation Therapist for subsequent refinement
@@ -1224,8 +1116,8 @@ protocols.</p>
 > Also, add other software or hardware which is required by your device. Most
 > commonly, apps require users to have a smartphone with a compatible operating
 > system (iOS / Android). -->
-<p>The <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> software is to be installed on a local server with one of
-the following OS types and versions:</p>
+<p>For the purpose of autocontouring the <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software is to be
+installed on a local server with one of the following OS types and versions:</p>
 <ul class="simple">
 <li><p>Windows &gt;= 10</p></li>
 <li><p>Ubuntu LTS &gt;= 22.04</p></li>
@@ -1237,8 +1129,9 @@ the following OS types and versions:</p>
 > guess this makes more sense for hardware devices. In any case, I'd just
 > generally state what sort of input goes in and what output comes out, e.g.
 > you could be processing images and returning diagnoses. -->
-<p>The <code class="docutils literal notranslate"><span class="pre">RAIContours</span></code> software is designed to fulfil the <code class="docutils literal notranslate"><span class="pre">Automated</span> <span class="pre">Contourer</span></code>
-role within the <a class="reference external" href="http://ihe-ro.org/doku.php?id=doc:profiles:brto-ii">IHE RO BRTO-II profile</a>.</p>
+<p>When undergoing autocontouring the <code class="docutils literal notranslate"><span class="pre">Clinical</span> <span class="pre">OpenSaMD</span> <span class="pre">Platform</span></code> software is designed to
+fulfil the <code class="docutils literal notranslate"><span class="pre">Contourer</span></code> role within the
+<a class="reference external" href="http://ihe-ro.org/doku.php?id=doc:profiles:brto-ii">IHE RO BRTO-II profile</a>.</p>
 <p>This is defined as:</p>
 <blockquote>
 <div><p>A system that consumes [an image series] and creates an RT Structure Set. …</p>
@@ -1260,17 +1153,6 @@ present warnings and alerts. The email address of the user account used to
 access the software needs to be able to be readily accessed so that these
 configurable alerts and warnings can provide the appropriate notification.</p>
 </section>
-</section>
-<section id="part-of-the-body-type-of-tissue-interacted-with">
-<h2>Part of the Body / Type of Tissue Interacted With<a class="headerlink" href="#part-of-the-body-type-of-tissue-interacted-with" title="Permalink to this headline">#</a></h2>
-<p>The device is stand-alone software. It does not come in contact with tissue or
-bodily fluids.</p>
-</section>
-<section id="variants-accessories">
-<h2>Variants / Accessories<a class="headerlink" href="#variants-accessories" title="Permalink to this headline">#</a></h2>
-<!-- > Describe variants and/or accessories of/to this device, if applicable. For
-> typical stand-alone software of startups, this shouldn't be applicable. -->
-<p>This is stand-alone software and this is not applicable.</p>
 </section>
 </section>
 
@@ -1308,10 +1190,10 @@ bodily fluids.</p>
             <p class="prev-next-title">Intended Use</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../1-qms/index.html" title="next page">
+    <a class='right-next' id="next-link" href="sgrt.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quality Management System</p>
+        <p class="prev-next-title">Surface guided radiotherapy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
