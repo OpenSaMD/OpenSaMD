@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./py/rai
+        working-directory: ./src/python/rai
 
     strategy:
       fail-fast: false
