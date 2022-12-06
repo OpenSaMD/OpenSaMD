@@ -16,18 +16,17 @@
 
 """Testing the mask conversion to and from contour lines"""
 
-import pathlib
 from typing import TypedDict
 
 import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
 
+from rai._paths import TEST_RECORDS_DIR
 from rai.metrics import dice
 
 from .convert import Contours, Grid, contours_to_mask, mask_to_contours
 
-HERE = pathlib.Path(__file__).parent
-FIGURE_DIR = HERE / "test_figures"
+FIGURE_DIR = TEST_RECORDS_DIR / "mask_test_figures"
 
 
 def test_conversion_round_trip():
