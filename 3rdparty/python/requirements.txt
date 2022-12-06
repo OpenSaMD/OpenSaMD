@@ -1,0 +1,13 @@
+# User
+black
+click
+matplotlib
+numpy
+pydicom
+shapely
+scikit-image
+tomlkit
+typing_extensions
+
+# Dev
+pylint

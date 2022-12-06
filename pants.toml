@@ -24,7 +24,7 @@ root_patterns = [
 # TODO: Propagate this from to/from .tool-versions
 interpreter_constraints = ["==3.9.15"]
 enable_resolves = true
-resolves = { python-default = "3rdparty/python/user_reqs.lock"}
+resolves = { python-default = "3rdparty/python/default.lock"}
 
 [python-infer]
 assets = true
