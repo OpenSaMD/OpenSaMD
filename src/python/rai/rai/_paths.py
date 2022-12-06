@@ -24,11 +24,11 @@ RAI_HOME_DIR = pathlib.Path.home() / ".rai"
 RAI_DATA = RAI_HOME_DIR / "data"
 
 # TODO: Need a robust way to get the repo directory when using pants
-try:
-    REPO_ROOT = pathlib.Path(os.getenv("GITHUB_WORKSPACE"))
-except TypeError:
-    GIT = HOME / "git"
-    REPO_ROOT = GIT / "OpenSaMD"
+
+if os.getenv("CI"):
+    REPO_ROOT = pathlib.Path("/home/runner/work/OpenSaMD/OpenSaMD")
+else:
+    REPO_ROOT = HOME / "git" / "OpenSaMD"
 
 DOCS_DIR = REPO_ROOT / "docs"
 PYTHON_PACKAGES_DIR = REPO_ROOT / "src" / "python"
