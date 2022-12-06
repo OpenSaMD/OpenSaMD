@@ -11,13 +11,13 @@ Original work by OpenRegulatory available at
 # Radiotherapy AI's QMS and TechDoc
 
 Radiotherapy AI's Quality Management System and Technical Documentation. Built
-on top of [GitHub]({{online_repository}}) and `git`,
+on top of [GitHub](https://github.com) and `git`,
 [OpenRegulatory templates](https://github.com/openregulatory/templates), and
 [Jupyter Book](https://jupyterbook.org/).
 
 All source for the Medical Device, the Quality Management System, and the
 Technical Documentation are available at
-<{{online_repository}}>.
+{{online_repository}}.
 
 ## Disclaimer while QMS and TechDocs are under initial development
 
@@ -45,15 +45,15 @@ to you with the software itself.
 ### Difference to the open source version
 
 This device corresponds to the {{device_name}} software that is downloadable
-directly from <{{device_website}}>. It does **not** correspond to the
+directly from {{device_website}}. It does **not** correspond to the
 {{open_source_software_name}} software that is downloadable from
-<{{online_repository}}>.
+{{online_repository}}.
 
 The {{open_source_software_name}} is provided in the hope that
 it might be useful but WITHOUT ANY WARRANTY. It is **not** intended for
 clinical use, and is instead intended for research use only.
 
 The {{device_name}} described by this documentation corresponds only to the
-product that is able to be downloaded from <{{device_website}}>. This is the
+product that is able to be downloaded from {{device_website}}. This is the
 product that is intended to be able to be used for clinical use according to
 the intended purpose described within this documentation.
