@@ -18,14 +18,21 @@
 
 import pathlib
 
-HERE = pathlib.Path(__file__)
-REPO_ROOT = pathlib.Path(HERE.parents[4])
-DOCS_DIR = REPO_ROOT / "docs"
-LIBRARY_DIR = pathlib.Path(HERE.parents[1])
-
+HOME = pathlib.Path.home()
 RAI_HOME_DIR = pathlib.Path.home() / ".rai"
 RAI_DATA = RAI_HOME_DIR / "data"
 
-PYTHON_PACKAGES_DIR = pathlib.Path(HERE.parents[2])
-RAICONTOURS_REPO_ROOT = PYTHON_PACKAGES_DIR / "raicontours"
-RAICONTOURS_LIBRARY_DIR = RAICONTOURS_REPO_ROOT / "raicontours"
+# TODO: Need a robust way to get the repo directory when using pants
+
+REPO_ROOT = pathlib.Path("/home/runner/work/OpenSaMD/OpenSaMD")
+
+if not REPO_ROOT.exists():
+    REPO_ROOT = HOME / "git" / "OpenSaMD"
+
+DOCS_DIR = REPO_ROOT / "docs"
+PYTHON_PACKAGES_DIR = REPO_ROOT / "src" / "python"
+
+RAI_DIR = PYTHON_PACKAGES_DIR / "rai"
+RAICONTOURS_DIR = PYTHON_PACKAGES_DIR / "raicontours"
+
+TEST_RECORDS_DIR = REPO_ROOT / "records" / "tests" / "python"

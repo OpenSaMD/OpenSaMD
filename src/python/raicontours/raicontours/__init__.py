@@ -16,6 +16,8 @@
 
 # pylint: disable = invalid-name, useless-import-alias
 
+"""RAiContours model package"""
+
 from __future__ import annotations
 
 import json
@@ -39,12 +41,16 @@ StructureName = Union[str, TG263]
 
 
 class UtilisationRecord(str, Enum):
+    """Representation of dataset training or validation"""
+
     Training = "training"
     Validation = "validation"
     NotUsed = "not-used"
 
 
 def dicom_utilisation(ds: pydicom.Dataset):
+    """Determine the utilisation status of a given pydicom dataset"""
+
     training, validation = _training_record()
 
     study_uid = ds.StudyInstanceUID
@@ -69,15 +75,15 @@ def _training_record() -> Tuple[Set[str], Set[str]]:
     return training, validation
 
 
-class ContourOptions(TypedDict, total=False):
-    from_mask: TG263
-    mask_level: float
-    union: list[StructureName]
-    difference: list[StructureName]
-    intersection: list[StructureName]
-    # buffer: float
-    colour: str
-    display: bool
+# class ContourOptions(TypedDict, total=False):
+#     from_mask: TG263
+#     mask_level: float
+#     union: list[StructureName]
+#     difference: list[StructureName]
+#     intersection: list[StructureName]
+#     # buffer: float
+#     colour: str
+#     display: bool
 
 
 class Config(TypedDict):
@@ -98,6 +104,8 @@ class Config(TypedDict):
 
 
 def get_config():
+    """Get the raicontours configuration"""
+
     # By (re)creating cfg within a function, separate cfg instances are
     # protected from mutating each other.
     cfg: Config = {
@@ -197,6 +205,12 @@ def get_config():
 
 
 def get_mask_level(cfg: Config, structure_name: StructureName):
+    """Determine the configuration mask level for a given structure.
+
+    This defaults to cfg['mask_level'] while taking into account the
+    individual structure overrides within cfg['mask_level_overrides'].
+    """
+
     try:
         mask_level = cfg["mask_level_overrides"][structure_name]
     except KeyError:
@@ -205,9 +219,8 @@ def get_mask_level(cfg: Config, structure_name: StructureName):
     return mask_level
 
 
-# TODO: Add a "uids used for training" list and use it to verify a DICOM
-# file can be used for metric calculation.
-
+# The below is a mock up of what integrated config inheritance might
+# look like. The below approaches have not yet been implemented.
 
 # "contours": {
 #     TG263.Lens_L: {
