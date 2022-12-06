@@ -38,6 +38,9 @@ resolves = { python-default = "3rdparty/python/default.lock"}
 assets = true
 unowned_dependency_behavior = "error"
 
+[pylint]
+args = ["--ignore-patterns=.*.pyi"]
+
 [pytest]
 args = ["--no-header"]
 lockfile = "3rdparty/python/pytest.lock"
