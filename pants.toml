@@ -11,6 +11,9 @@ backend_packages = [
   "pants.backend.python.typecheck.mypy",
 ]
 
+[GLOBAL.pants_ignore]
+add = ["records/"]
+
 [anonymous-telemetry]
 enabled = true
 repo_id = "ad4dd1f1-8c32-4d36-9bb3-71a966bbc771"
