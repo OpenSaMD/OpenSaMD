@@ -38,8 +38,15 @@ resolves = { python-default = "3rdparty/python/default.lock"}
 assets = true
 unowned_dependency_behavior = "error"
 
+[black]
+lockfile = "3rdparty/python/black.lock"
+
+[isort]
+lockfile = "3rdparty/python/isort.lock"
+
 [pylint]
 args = ["--ignore-patterns=.*.pyi"]
+lockfile = "3rdparty/python/pylint.lock"
 
 [pytest]
 args = ["--no-header"]

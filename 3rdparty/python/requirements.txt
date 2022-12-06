@@ -10,4 +10,5 @@ tomlkit
 typing_extensions
 
 # Dev
+# TODO: Shouldn't need this here as pants has its own location for it
 pylint
