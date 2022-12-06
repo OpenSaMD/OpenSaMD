@@ -3,7 +3,6 @@ pants_version = "2.14.0"
 
 pythonpath = ["%(buildroot)s/pants-plugins"]
 backend_packages = [
-  "pants.backend.shell",
   "pants.backend.python",
   "pants.backend.python.lint.black",
   "pants.backend.python.lint.isort",
@@ -16,6 +15,8 @@ backend_packages = [
   # "pants.backend.experimental.python.lint.pyupgrade",
   # "pants.backend.python.lint.docformatter",
   # "pants.backend.python.lint.bandit",
+  # "pants.backend.experimental.python.lint.autoflake",
+  # "pants.backend.python.lint.flake8",
 ]
 
 [GLOBAL.pants_ignore]
@@ -47,6 +48,7 @@ unowned_dependency_behavior = "error"
 lockfile = "3rdparty/python/black.lock"
 
 [isort]
+args = ["--profile", "black", "-p", "rai", "-p", "raicontours"]
 lockfile = "3rdparty/python/isort.lock"
 
 [pylint]

@@ -23,8 +23,9 @@ from typing import Dict, cast
 
 import black
 import tomlkit
-from rai._paths import RAICONTOURS_REPO_ROOT, REPO_ROOT
 from typing_extensions import Literal
+
+from rai._paths import RAICONTOURS_DIR, REPO_ROOT
 
 PyProjectContents = Dict[
     Literal["tool"], Dict[Literal["poetry"], Dict[Literal["version"], str]]
@@ -40,7 +41,7 @@ def run():
     """Undergo data propagation."""
     _propagate_python_version(REPO_ROOT)
     _propagate_product_version(REPO_ROOT, update_docs=True)
-    _propagate_product_version(RAICONTOURS_REPO_ROOT, update_docs=False)
+    _propagate_product_version(RAICONTOURS_DIR, update_docs=False)
 
 
 def _propagate_python_version(repo_root: pathlib.Path):

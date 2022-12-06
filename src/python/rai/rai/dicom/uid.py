@@ -18,6 +18,7 @@
 import re
 
 import pydicom.uid
+
 from rai._version import __version__
 
 # Many thanks to the Medical Connections for offering free

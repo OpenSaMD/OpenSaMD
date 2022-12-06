@@ -20,6 +20,7 @@ from typing import TypedDict
 import numpy as np
 import pydicom.uid
 import shapely.geometry
+
 from rai.dicom import append, uid
 from rai.dicom.typing import TypedDataset
 

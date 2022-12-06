@@ -20,6 +20,7 @@ from typing import TypedDict
 
 import matplotlib.pyplot as plt  # pyright: ignore [reportMissingTypeStubs, reportUnknownVariableType]
 import numpy as np
+
 from rai._paths import TEST_RECORDS_DIR
 from rai.metrics import dice
 
