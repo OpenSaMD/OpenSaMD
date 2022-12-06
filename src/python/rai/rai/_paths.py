@@ -16,14 +16,19 @@
 
 """Repository paths utilised by the CLI module"""
 
+import os
 import pathlib
 
 HOME = pathlib.Path.home()
 RAI_HOME_DIR = pathlib.Path.home() / ".rai"
 RAI_DATA = RAI_HOME_DIR / "data"
 
-GIT = HOME / "git"
-REPO_ROOT = GIT / "OpenSaMD"
+# TODO: Need a robust way to get the repo directory when using pants
+try:
+    REPO_ROOT = pathlib.Path(os.getenv("GITHUB_WORKSPACE"))
+except TypeError:
+    GIT = HOME / "git"
+    REPO_ROOT = GIT / "OpenSaMD"
 
 DOCS_DIR = REPO_ROOT / "docs"
 PYTHON_PACKAGES_DIR = REPO_ROOT / "src" / "python"
