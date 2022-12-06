@@ -1,6 +1,47 @@
 [GLOBAL]
 pants_version = "2.14.0"
+backend_packages = [
+  "pants.backend.shell",
+  "pants.backend.python",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.bandit",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.isort",
+  "pants.backend.python.lint.pylint",
+  "pants.backend.python.typecheck.mypy",
+]
 
 [anonymous-telemetry]
 enabled = true
 repo_id = "ad4dd1f1-8c32-4d36-9bb3-71a966bbc771"
+
+[source]
+root_patterns = [
+    "/src/python/*",
+]
+
+[python]
+# TODO: Propagate this from to/from .tool-versions
+interpreter_constraints = ["==3.9.15"]
+enable_resolves = true
+resolves = { python-default = "3rdparty/python/user_reqs.lock"}
+
+[python-infer]
+assets = true
+unowned_dependency_behavior = "error"
+
+[pytest]
+args = ["--no-header"]
+lockfile = "3rdparty/python/pytest.lock"
+
+[pytest.extra_requirements]
+add = [
+  "ipdb",
+  "pytest-asyncio",
+  "pytest-html",
+  "pytest-icdiff",
+  "pygments",
+]
+
+[python-bootstrap]
+search_path = ["<ASDF_LOCAL>"]
