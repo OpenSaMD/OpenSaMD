@@ -16,7 +16,6 @@
 
 """Repository paths utilised by the CLI module"""
 
-import os
 import pathlib
 
 HOME = pathlib.Path.home()
@@ -25,9 +24,9 @@ RAI_DATA = RAI_HOME_DIR / "data"
 
 # TODO: Need a robust way to get the repo directory when using pants
 
-if os.getenv("CI"):
-    REPO_ROOT = pathlib.Path("/home/runner/work/OpenSaMD/OpenSaMD")
-else:
+REPO_ROOT = pathlib.Path("/home/runner/work/OpenSaMD/OpenSaMD")
+
+if not REPO_ROOT.exists():
     REPO_ROOT = HOME / "git" / "OpenSaMD"
 
 DOCS_DIR = REPO_ROOT / "docs"
