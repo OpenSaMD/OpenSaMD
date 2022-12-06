@@ -29,7 +29,8 @@ jobs:
           cache-lmdb-store: "false"
 
       - name: Check BUILD files
-        run: ./pants tailor --check update-build-files --check ::
+        run: |
+          ./pants tailor --check update-build-files --check ::
 
       - name: Lint and typecheck
         run: |
