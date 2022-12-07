@@ -21,6 +21,14 @@
 from enum import Enum
 
 
+class UtilisationRecord(str, Enum):
+    """Representation of dataset training or validation"""
+
+    TRAINING = "training"
+    VALIDATION = "validation"
+    NOT_USED = "not-used"
+
+
 class TG263(str, Enum):
     """TG263 naming.
 

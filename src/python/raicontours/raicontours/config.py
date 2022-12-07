@@ -17,68 +17,15 @@
 
 """RAi contours model configuration"""
 
-import json
 import pathlib
-from enum import Enum
-from functools import lru_cache
-from typing import Set, Tuple, Union
+from typing import Union
 
-import pydicom
 from typing_extensions import TypedDict
 
-from .tg263 import TG263
-
-_HERE = pathlib.Path(__file__).parent.resolve()
-_model_path = _HERE / "model.h5"
-
+from raicontours._paths import model_path
+from raicontours.typing import TG263
 
 StructureName = Union[str, TG263]
-
-
-class UtilisationRecord(str, Enum):
-    """Representation of dataset training or validation"""
-
-    TRAINING = "training"
-    VALIDATION = "validation"
-    NOT_USED = "not-used"
-
-
-def dicom_utilisation(ds: pydicom.Dataset):
-    """Determine the utilisation status of a given pydicom dataset"""
-
-    training, validation = _training_record()
-
-    study_uid = ds.StudyInstanceUID
-
-    if study_uid in training:
-        return UtilisationRecord.TRAINING
-
-    if study_uid in validation:
-        return UtilisationRecord.VALIDATION
-
-    return UtilisationRecord.NOT_USED
-
-
-@lru_cache(maxsize=None)
-def _training_record() -> Tuple[Set[str], Set[str]]:
-    with open(_HERE / "training_record.json", encoding="utf8") as f:
-        data = json.load(f)
-
-    training: Set[str] = set(data["training"])
-    validation: Set[str] = set(data["validation"])
-
-    return training, validation
-
-
-# class ContourOptions(TypedDict, total=False):
-#     from_mask: TG263
-#     mask_level: float
-#     union: list[StructureName]
-#     difference: list[StructureName]
-#     intersection: list[StructureName]
-#     # buffer: float
-#     colour: str
-#     display: bool
 
 
 class Config(TypedDict):
@@ -95,7 +42,6 @@ class Config(TypedDict):
     reduce_algorithms: list[str]
     mask_level: float
     mask_level_overrides: dict[StructureName, float]
-    # contours: dict[StructureName, ContourOptions]
 
 
 def get_config():
@@ -104,7 +50,7 @@ def get_config():
     # By (re)creating cfg within a function, separate cfg instances are
     # protected from mutating each other.
     cfg: Config = {
-        "model_path": _model_path,
+        "model_path": model_path,
         # "structures": [
         #     TG263.Heart,
         #     TG263.Liver,
@@ -170,30 +116,7 @@ def get_config():
         "reduce_block_sizes": [(2, 4, 4), (1, 2, 2), (1, 1, 1)],
         "reduce_algorithms": ["min", "mean", "median", "max"],
         "mask_level": 127.5,
-        "mask_level_overrides": {
-            # TG263.Lens_L: 50,
-            # TG263.Lens_R: 50,
-            # TG263.OpticChiasm: 50,
-            # TG263.OpticNrv_L: 50,
-            # TG263.OpticNrv_R: 50,
-            # TG263.Eye_L: 100,
-            # TG263.Eye_R: 100,
-            # TG263.Glnd_Lacrimal_L: 50,
-            # TG263.Glnd_Lacrimal_R: 50,
-            # TG263.Glnd_Submand_L: 100,
-            # TG263.Glnd_Submand_R: 100,
-            # TG263.Musc_Constrict: 1.5,
-            # TG263.Trachea: 80,
-            # TG263.Esophagus: 80,
-            # TG263.Cochlea_L: 50,
-            # TG263.Cochlea_R: 50,
-            # TG263.Larynx: 50,
-            # TG263.Parotid_L: 70,
-            # TG263.Parotid_R: 70,
-            # TG263.Bone_Mandible: 110,
-            # TG263.Cavity_Oral: 80,
-            # TG263.Brainstem: 127.5,
-        },
+        "mask_level_overrides": {},
     }
 
     return cfg
@@ -212,73 +135,3 @@ def get_mask_level(cfg: Config, structure_name: StructureName):
         mask_level = cfg["mask_level"]
 
     return mask_level
-
-
-# The below is a mock up of what integrated config inheritance might
-# look like. The below approaches have not yet been implemented.
-
-# "contours": {
-#     TG263.Lens_L: {
-#         "from_mask": TG263.Lens_L,
-#         "mask_level": 50,
-#         "colour": "aqua blue",
-#     },
-#     TG263.Lens_R: {
-#         "from_mask": TG263.Lens_R,
-#         "mask_level": 50,
-#         "colour": "aqua green",
-#     },
-#     TG263.OpticNrv_L: {
-#         "from_mask": TG263.OpticNrv_L,
-#         "mask_level": 127.5,
-#         "colour": "deep red",
-#     },
-#     TG263.OpticNrv_R: {
-#         "from_mask": TG263.OpticNrv_R,
-#         "mask_level": 127.5,
-#         "colour": "orange red",
-#     },
-#     f"{TG263.OpticNrv_L.value} Generous": {
-#         "from_mask": TG263.OpticNrv_L,
-#         "mask_level": 50,
-#         "colour": "#2c6fbb",
-#     },
-#     f"{TG263.OpticNrv_R.value} Generous": {
-#         "from_mask": TG263.OpticNrv_R,
-#         "mask_level": 50,
-#         "colour": "#39ad48",
-#     },
-#     TG263.Eye_L: {"from_mask": TG263.Eye_L, "mask_level": 100},
-#     TG263.Eye_R: {"from_mask": TG263.Eye_R, "mask_level": 100},
-#     TG263.Glnd_Lacrimal_L: {
-#         "from_mask": TG263.Glnd_Lacrimal_L,
-#         "mask_level": 100,
-#     },
-#     TG263.Glnd_Lacrimal_R: {
-#         "from_mask": TG263.Glnd_Lacrimal_R,
-#         "mask_level": 100,
-#     },
-#     TG263.Eyes: {
-#         "union": [TG263.Eye_L, TG263.Eye_R],
-#     },
-#     # "Eyes + 3mm": {
-#     #     "union": [TG263.Eyes],
-#     #     "buffer": 3,
-#     # },
-#     # "Eyes - 3mm": {
-#     #     "union": [TG263.Eyes],
-#     #     "buffer": -3,
-#     # },
-#     # TG263.Lens: {
-#     #     "union": [TG263.Lens_L, TG263.Lens_R],
-#     #     "display": False,
-#     # },
-#     # "Lens + 3mm": {
-#     #     "union": [TG263.Lens],
-#     #     "buffer": 3,
-#     # },
-#     "Eyes - Lens": {
-#         "union": [TG263.Eyes],
-#         "difference": [TG263.Lens_L, TG263.Lens_R],
-#         "display": False,
-#     },
