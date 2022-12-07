@@ -17,5 +17,6 @@
 
 import pathlib
 
+# TODO: Use python resources instead
 HERE = pathlib.Path(__file__).parent.resolve()
 model_path = HERE / "model.h5"
