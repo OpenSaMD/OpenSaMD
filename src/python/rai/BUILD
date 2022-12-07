@@ -1,23 +1,16 @@
-python_sources(
-    name="lib",
-    dependencies=[":resources"],
-    overrides={
-        "version.py": {"dependencies": ["src/python/rai/_version:resources"]},
-    },
-)
-
 python_distribution(
     name="rai-packaged",
     dependencies=[
-        ":lib",
+        "src/python/rai/rai:lib",
+        "src/python/rai/rai:resources",
         ":resources",
     ],
     sdist=True,
     wheel=True,
-    provides=setup_py(
+    provides=python_artifact(
         name="rai",
-        description="",
     ),
+    generate_setup = False,
 )
 
-resources(name="resources", sources=["py.typed"])
+resources(name="resources", sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml"])

@@ -14,11 +14,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# pylint: disable = invalid-name, useless-import-alias
-
-"""RAiContours model package"""
-
-from __future__ import annotations
 
 import json
 import pathlib
@@ -29,9 +24,8 @@ from typing import Set, Tuple, Union
 import pydicom
 from typing_extensions import TypedDict
 
-from ._version import __version__ as __version__
-from ._version import version_info as version_info
-from .tg263 import TG263 as TG263
+from .tg263 import TG263
+
 
 _HERE = pathlib.Path(__file__).parent.resolve()
 _model_path = _HERE / "model.h5"
