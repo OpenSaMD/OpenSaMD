@@ -2,6 +2,7 @@
 pants_version = "2.14.0"
 backend_packages = [
   "pants.backend.python",
+  "pants.backend.experimental.python",
   "pants.backend.python.lint.black",
   "pants.backend.python.lint.isort",
   "pants.backend.python.lint.pylint",
@@ -46,7 +47,6 @@ unowned_dependency_behavior = "error"
 lockfile = "3rdparty/python/black.lock"
 
 [isort]
-args = ["--profile", "black", "-p", "rai", "-p", "raicontours"]
 lockfile = "3rdparty/python/isort.lock"
 
 [pylint]
