@@ -33,6 +33,8 @@ _RAI_CONTOURS_PRODUCT_ID = "1"
 
 RAI_CLIENT_ROOT_UID_PREFIX = f"{_RAI_ROOT_UID_PREFIX}1."
 
+# TODO: Add a representation within the implementation uid of production
+# vs dev release.
 _NO_DEV_VERSION = __version__.split("-", maxsplit=1)[0]
 RAI_IMPLEMENTATION_VERSION_NAME = f"rai-v{_NO_DEV_VERSION}"
 
