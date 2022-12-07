@@ -14,6 +14,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""RAi version record"""
+"""Various paths relative to the raicontours library"""
 
-__version__ = "0.1.1-dev0"
+import pathlib
+
+# TODO: Use python resources instead
+HERE = pathlib.Path(__file__).parent.resolve()
+model_path = HERE / "model.h5"

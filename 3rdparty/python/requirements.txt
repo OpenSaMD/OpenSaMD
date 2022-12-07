@@ -4,8 +4,8 @@ click
 matplotlib
 numpy
 pydicom
-shapely
 scikit-image
+shapely
 tomlkit
 typing_extensions
 

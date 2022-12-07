@@ -1,1 +1,3 @@
-python_sources()
+python_sources(name="lib")
+
+resources(name="resources", sources=["py.typed"])

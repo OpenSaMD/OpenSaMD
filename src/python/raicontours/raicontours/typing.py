@@ -14,11 +14,19 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Implementation of TG263 naming"""
+"""Implementation of various utility Enums"""
 
 # pylint: disable = invalid-name,
 
 from enum import Enum
+
+
+class UtilisationRecord(str, Enum):
+    """Representation of dataset training or validation"""
+
+    TRAINING = "training"
+    VALIDATION = "validation"
+    NOT_USED = "not-used"
 
 
 class TG263(str, Enum):

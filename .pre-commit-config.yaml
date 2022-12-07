@@ -15,11 +15,11 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb", "500"]
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.1.4
+    rev: 5.9.3
     hooks:
       - id: isort
-        additional_dependencies: ["toml"]
-        files: ^rai/.*\.py$
+        additional_dependencies: ["colorama", "toml"]
+        files: ^src/python/.*\.py$
   - repo: https://github.com/ambv/black
     rev: 22.3.0
     hooks:
