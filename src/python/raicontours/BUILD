@@ -16,5 +16,11 @@ python_distribution(
 
 resources(
     name="resources",
-    sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml", "raicontours/py.typed"],
+    sources=[
+        "LICENSE",
+        "LICENSE.ADDITIONAL-TERMS",
+        "README.md",
+        "pyproject.toml",
+        "raicontours/py.typed",
+    ],
 )
