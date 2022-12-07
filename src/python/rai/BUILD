@@ -10,7 +10,10 @@ python_distribution(
     provides=python_artifact(
         name="rai",
     ),
-    generate_setup = False,
+    generate_setup=False,
 )
 
-resources(name="resources", sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml"])
+resources(
+    name="resources",
+    sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml"],
+)
