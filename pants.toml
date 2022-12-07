@@ -1,11 +1,14 @@
 [GLOBAL]
 pants_version = "2.14.0"
+
+pythonpath = ["%(buildroot)s/pants-plugins"]
 backend_packages = [
   "pants.backend.python",
   "pants.backend.experimental.python",
   "pants.backend.python.lint.black",
   "pants.backend.python.lint.isort",
   "pants.backend.python.lint.pylint",
+  "pants.backend.plugin_development",
 
   # TODO: Include this once it lands
   # "pants.backend.python.typecheck.pyright"
@@ -28,6 +31,7 @@ repo_id = "ad4dd1f1-8c32-4d36-9bb3-71a966bbc771"
 [source]
 root_patterns = [
     "/src/python/*",
+    "pants-plugins",
 ]
 
 [python]

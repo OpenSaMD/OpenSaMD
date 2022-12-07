@@ -1,8 +1,10 @@
+python_sources(name="lib", sources=["**/*.py"])
+python_sources(name="types", sources=["**/*.pyi"])
+
 python_distribution(
     name="rai-packaged",
     dependencies=[
-        "src/python/rai/rai:lib",
-        "src/python/rai/rai:resources",
+        ":lib",
         ":resources",
     ],
     sdist=True,
@@ -15,5 +17,5 @@ python_distribution(
 
 resources(
     name="resources",
-    sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml"],
+    sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml", "rai/py.typed"],
 )

@@ -1,0 +1,3 @@
+pants_requirements(name="pants")
+
+python_sources()
