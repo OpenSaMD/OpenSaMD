@@ -22,7 +22,7 @@ These are used with RT DICOM structure files for template aligning
 within the Eclipse treatment planning system.
 """
 
-from raicontours import TG263
+from raicontours.tg263 import TG263
 
 FMA_NAMES = {
     3862: "Anterior interventricular branch of left coronary artery",

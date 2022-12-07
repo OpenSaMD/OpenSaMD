@@ -15,6 +15,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+"""RAi contours model configuration"""
+
 import json
 import pathlib
 from enum import Enum
@@ -26,7 +28,6 @@ from typing_extensions import TypedDict
 
 from .tg263 import TG263
 
-
 _HERE = pathlib.Path(__file__).parent.resolve()
 _model_path = _HERE / "model.h5"
 
@@ -37,9 +38,9 @@ StructureName = Union[str, TG263]
 class UtilisationRecord(str, Enum):
     """Representation of dataset training or validation"""
 
-    Training = "training"
-    Validation = "validation"
-    NotUsed = "not-used"
+    TRAINING = "training"
+    VALIDATION = "validation"
+    NOT_USED = "not-used"
 
 
 def dicom_utilisation(ds: pydicom.Dataset):
@@ -50,12 +51,12 @@ def dicom_utilisation(ds: pydicom.Dataset):
     study_uid = ds.StudyInstanceUID
 
     if study_uid in training:
-        return UtilisationRecord.Training
+        return UtilisationRecord.TRAINING
 
     if study_uid in validation:
-        return UtilisationRecord.Validation
+        return UtilisationRecord.VALIDATION
 
-    return UtilisationRecord.NotUsed
+    return UtilisationRecord.NOT_USED
 
 
 @lru_cache(maxsize=None)

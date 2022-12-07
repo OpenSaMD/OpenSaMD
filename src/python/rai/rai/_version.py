@@ -14,6 +14,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""AI assisted treatments accessible to all"""
+"""RAi version record"""
 
-from ._version import __version__
+__version__ = "0.1.1-dev0"
