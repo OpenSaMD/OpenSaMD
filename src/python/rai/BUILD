@@ -1,8 +1,8 @@
 python_sources(
-    name="lib"
+    name="lib",
     dependencies=[":resources"],
     overrides={
-        "version.py": {"dependencies": ["src/python/pants/_version:resources"]},
+        "version.py": {"dependencies": ["src/python/rai/_version:resources"]},
     },
 )
 

@@ -3,9 +3,10 @@ black
 click
 matplotlib
 numpy
+packaging
 pydicom
-shapely
 scikit-image
+shapely
 tomlkit
 typing_extensions
 
