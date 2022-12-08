@@ -19,7 +19,7 @@
 import pathlib
 
 HOME = pathlib.Path.home()
-RAI_HOME_DIR = pathlib.Path.home() / ".rai"
+RAI_HOME_DIR = HOME / ".rai"
 RAI_DATA = RAI_HOME_DIR / "data"
 
 # TODO: Need a robust way to get the repo directory when using pants
