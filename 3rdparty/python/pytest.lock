@@ -484,21 +484,19 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522",
-              "url": "https://files.pythonhosted.org/packages/05/8e/8de486cbd03baba4deef4142bd643a3e7bbe954a784dc1bb17142572d127/packaging-21.3-py3-none-any.whl"
+              "hash": "957e2148ba0e1a3b282772e791ef1d8083648bc131c8ab0c1feba110ce1146c3",
+              "url": "https://files.pythonhosted.org/packages/8f/7b/42582927d281d7cb035609cd3a543ffac89b74f3f4ee8e1c50914bcb57eb/packaging-22.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb",
-              "url": "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+              "hash": "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3",
+              "url": "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
             }
           ],
           "project_name": "packaging",
-          "requires_dists": [
-            "pyparsing!=3.0.5,>=2.0.2"
-          ],
-          "requires_python": ">=3.6",
-          "version": "21.3"
+          "requires_dists": [],
+          "requires_python": ">=3.7",
+          "version": "22"
         },
         {
           "artifacts": [
@@ -700,27 +698,6 @@
           ],
           "requires_python": ">=3.6",
           "version": "2.13"
-        },
-        {
-          "artifacts": [
-            {
-              "algorithm": "sha256",
-              "hash": "5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc",
-              "url": "https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl"
-            },
-            {
-              "algorithm": "sha256",
-              "hash": "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb",
-              "url": "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-            }
-          ],
-          "project_name": "pyparsing",
-          "requires_dists": [
-            "jinja2; extra == \"diagrams\"",
-            "railroad-diagrams; extra == \"diagrams\""
-          ],
-          "requires_python": ">=3.6.8",
-          "version": "3.0.9"
         },
         {
           "artifacts": [

@@ -20,21 +20,12 @@ Currently only utilised to build the docs
 
 import click
 
-from ._cli import docs as _docs
 from ._cli import propagate as _propagate
 
 
 @click.group()
 def cli():
     """The Radiotherapy AI command line interface"""
-
-
-@cli.command()
-@click.option("--clean/--no-clean", default=False)
-def docs(clean: bool):
-    """Build the Radiotherapy AI regulatory documentation"""
-
-    _docs.build(clean)
 
 
 @cli.command()

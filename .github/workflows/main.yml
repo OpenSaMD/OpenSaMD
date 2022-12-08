@@ -44,24 +44,21 @@ jobs:
         run: |
           ./pants package ::
 
-      # TODO: Add docs building back in
+      - name: Build docs
+        run: |
+          [[ ! -d docs/_build/html ]]
+          ./pants run docs:build
+          [[ -d docs/_build/html ]]
 
-      # - name: Build docs
-      #   if: matrix.task == 'docs'
-      #   run: |
-      #     [[ ! -d docs/_build/html ]]
-      #     poetry run rai docs
-      #     [[ -d docs/_build/html ]]
+      - name: Add GitHub Pages config files
+        if: github.event_name == 'push'
+        run: |
+          echo docs.radiotherapy.ai > docs/_build/html/CNAME
+          touch docs/_build/html/.nojekyll
 
-      # - name: Add GitHub Pages config files
-      #   if: github.event_name == 'push' && matrix.task == 'docs'
-      #   run: |
-      #     echo docs.radiotherapy.ai > docs/_build/html/CNAME
-      #     touch docs/_build/html/.nojekyll
-
-      # - name: Deploy to gh-pages branch
-      #   if: github.event_name == 'push' && matrix.task == 'docs'
-      #   uses: JamesIves/github-pages-deploy-action@4.1.3
-      #   with:
-      #     branch: gh-pages
-      #     folder: docs/_build/html
+      - name: Deploy to gh-pages branch
+        if: github.event_name == 'push'
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: docs/_build/html

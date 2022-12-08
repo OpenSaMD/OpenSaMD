@@ -1,13 +1,16 @@
 # User
 black
 click
+jupyter_book
 matplotlib
 numpy
 pydicom
 scikit-image
 shapely
+sphinx_external_toc
 tomlkit
 typing_extensions
+pyyaml
 
 # Dev
 # TODO: Shouldn't need this here as pants has its own location for it

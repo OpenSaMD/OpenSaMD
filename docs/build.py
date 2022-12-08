@@ -14,25 +14,36 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Various paths relative to the rai and raicontours libraries"""
+"""Helper script to build the jupyter-book with pants"""
 
 import pathlib
 
-HOME = pathlib.Path.home()
-RAI_HOME_DIR = HOME / ".rai"
-RAI_DATA = RAI_HOME_DIR / "data"
+import jupyter_book.cli.main
+import yaml
+from sphinx_external_toc.parsing import create_toc_dict
+from sphinx_external_toc.tools import create_site_map_from_path
 
 # TODO: Need a robust way to get the repo directory when using pants
-
 REPO_ROOT = pathlib.Path("/home/runner/work/OpenSaMD/OpenSaMD")
 
 if not REPO_ROOT.exists():
-    REPO_ROOT = HOME / "git" / "OpenSaMD"
+    REPO_ROOT = pathlib.Path.home() / "git" / "OpenSaMD"
+
 
 DOCS_DIR = REPO_ROOT / "docs"
-PYTHON_PACKAGES_DIR = REPO_ROOT / "src" / "python"
 
-RAI_DIR = PYTHON_PACKAGES_DIR / "rai"
-RAICONTOURS_DIR = PYTHON_PACKAGES_DIR / "raicontours"
 
-TEST_RECORDS_DIR = REPO_ROOT / "records" / "tests" / "python"
+def _main():
+    site_map = create_site_map_from_path(DOCS_DIR)
+    data = create_toc_dict(site_map)
+
+    with open(DOCS_DIR / "_toc.yml", "w", encoding="utf8") as f:
+        f.write(yaml.dump(data, sort_keys=False, default_flow_style=False))
+
+    jupyter_book.cli.main.build(  # pylint: disable = no-value-for-parameter
+        [str(DOCS_DIR)]
+    )
+
+
+if __name__ == "__main__":
+    _main()

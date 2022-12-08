@@ -1,8 +1,9 @@
+python_sources(name="lib", sources=["**/*.py"])
+
 python_distribution(
     name="raicontours-packaged",
     dependencies=[
-        "src/python/raicontours/raicontours:lib",
-        "src/python/raicontours/raicontours:resources",
+        ":lib",
         ":resources",
     ],
     sdist=True,
@@ -15,5 +16,11 @@ python_distribution(
 
 resources(
     name="resources",
-    sources=["LICENSE", "LICENSE.ADDITIONAL-TERMS", "README.md", "pyproject.toml"],
+    sources=[
+        "LICENSE",
+        "LICENSE.ADDITIONAL-TERMS",
+        "README.md",
+        "pyproject.toml",
+        "raicontours/py.typed",
+    ],
 )
