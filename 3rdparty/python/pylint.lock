@@ -140,13 +140,13 @@
           "artifacts": [
             {
               "algorithm": "sha256",
-              "hash": "af0276409f9a02373d540bf8480021a048711d572745aef4b7842dad245eba10",
-              "url": "https://files.pythonhosted.org/packages/61/e0/15ba41c6716acb033c3793be3a02f26c53914ecd9bdd6b315001f8f5f581/platformdirs-2.5.4-py3-none-any.whl"
+              "hash": "1a89a12377800c81983db6be069ec068eee989748799b946cce2a6e80dcc54ca",
+              "url": "https://files.pythonhosted.org/packages/87/69/cd019a9473bcdfb38983e2d550ccb239264fc4c2fc32c42ac1b1cc2506b6/platformdirs-2.6.0-py3-none-any.whl"
             },
             {
               "algorithm": "sha256",
-              "hash": "1006647646d80f16130f052404c6b901e80ee4ed6bef6792e1f238a8969106f7",
-              "url": "https://files.pythonhosted.org/packages/cb/5f/dda8451435f17ed8043eab5ffe04e47d703debe8fe845eb074f42260e50a/platformdirs-2.5.4.tar.gz"
+              "hash": "b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e",
+              "url": "https://files.pythonhosted.org/packages/ec/4c/9af851448e55c57b30a13a72580306e628c3b431d97fdae9e0b8d4fa3685/platformdirs-2.6.0.tar.gz"
             }
           ],
           "project_name": "platformdirs",
@@ -161,7 +161,7 @@
             "sphinx>=5.3; extra == \"docs\""
           ],
           "requires_python": ">=3.7",
-          "version": "2.5.4"
+          "version": "2.6"
         },
         {
           "artifacts": [
