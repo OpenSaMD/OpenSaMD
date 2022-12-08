@@ -14,13 +14,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Helper script for build the jupyter-book with pants"""
+"""Helper script to build the jupyter-book with pants"""
 
 import pathlib
 
-import yaml
-
 import jupyter_book.cli.main
+import yaml
 from sphinx_external_toc.parsing import create_toc_dict
 from sphinx_external_toc.tools import create_site_map_from_path
 
