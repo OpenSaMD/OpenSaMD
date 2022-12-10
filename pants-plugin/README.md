@@ -1,0 +1,6 @@
+# Custom plugins
+
+All code that is within this directory is licensed under the Apache-2.0 in
+order to be compatible with the upstream pants repository. That way, any pants
+plugins created within this repo are able to be contributed upstream without
+any licensing conflicts.
