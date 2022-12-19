@@ -31,12 +31,12 @@ you need to also distribute your resulting products under the AGPL-3.0 license.
 ### Clinical use
 
 If you would like to use the OpenSaMD platform or any of its contained products
-for clinical use you are required to purchase the regulated version. If you are
-interested in purchasing the regulated version of an OpenSaMD product reach out
+for clinical use you are required to purchase the regulated release. If you are
+interested in purchasing the regulated release of an OpenSaMD product reach out
 to [info@opensamd.com](mailto:info@opensamd.com).
 
-The open source version downloadable from GitHub is **not** intended for
-clinical use.
+The source code that is downloadable from GitHub or any release artifact that is not
+built and distributed by OpenSaMD is explicitly **not** intended for clinical use.
 
 ## Installation
 
