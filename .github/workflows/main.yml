@@ -53,7 +53,7 @@ jobs:
       - name: Add GitHub Pages config files
         if: github.event_name == 'push'
         run: |
-          echo docs.radiotherapy.ai > docs/_build/html/CNAME
+          echo docs.opensamd.com > docs/_build/html/CNAME
           touch docs/_build/html/.nojekyll
 
       - name: Deploy to gh-pages branch
