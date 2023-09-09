@@ -16,6 +16,7 @@
 
 """Helper script to build the jupyter-book with pants"""
 
+
 import pathlib
 
 import jupyter_book.cli.main
